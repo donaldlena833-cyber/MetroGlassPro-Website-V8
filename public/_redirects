@@ -1,0 +1,55 @@
+# MetroGlassPro — Cloudflare Pages Redirect Rules
+# All 301 redirects for legacy/removed content
+
+# ── Specific blog post redirects (topically matched) ──
+/blog/steam-shower-glass-door-sealing-prevent-leaks              /services/    301
+/blog/seven-warning-signs-shower-door-seal-failing               /services/    301
+/blog/bathroom-mirror-installation-proper-mounting-techniques    /services/    301
+/blog/smart-glass-technology-nyc-apartments-privacy-control      /             301
+/blog/how-insurance-handles-broken-residential-glass-new-york    /             301
+
+# ── Additional indexed blog posts — redirect to best match ──
+/blog/24-hour-glass-repair-near-me-response-times               /services/    301
+/blog/cleaning-hacks-frameless-shower-doors-crystal-clear        /services/    301
+/blog/choosing-hardware-finishes-frameless-shower-doors-budget   /services/    301
+/blog/science-behind-double-pane-window-fogging-fix              /services/    301
+/blog/preventing-leaks-frameless-shower-doors-silicone-sealing   /services/    301
+/blog/frameless-shower-doors-vs-semi-frameless                   /services/    301
+/blog/seven-landmark-loft-projects-metroglass-pro-manhattan      /gallery/     301
+/blog/custom-glass-cabinet-doors-style-guide-kitchens            /services/    301
+/blog/best-squeegees-frameless-shower-door-maintenance           /services/    301
+/blog/eco-friendly-cleaners-glass-shower-doors-tile-grout        /services/    301
+/blog/breaking-myths-custom-glass-too-expensive                  /services/    301
+/blog/employee-spotlight-master-glazier-antonio-skilled-craftsman /about/       301
+
+# ── Legacy service sub-pages ──
+/services/glass-repair      /services/    301
+/services/custom-mirrors    /services/    301
+
+# ── Catch-all for any remaining blog posts ──
+/blog/*    /    301
+/blog      /    301
+
+# ── Removed features ──
+/visualize    /    301
+
+# ── New pages without trailing slash → canonical with trailing slash ──
+/frameless-shower-doors-nyc    /frameless-shower-doors-nyc/    301
+/shower-door-installation-nyc  /shower-door-installation-nyc/  301
+/shower-door-replacement-nyc   /shower-door-replacement-nyc/   301
+/projects                      /projects/                      301
+/service-areas/manhattan       /service-areas/manhattan/       301
+/service-areas/brooklyn        /service-areas/brooklyn/        301
+/service-areas/queens          /service-areas/queens/          301
+/service-areas/bronx           /service-areas/bronx/           301
+/service-areas/staten-island   /service-areas/staten-island/   301
+
+# ── Legacy pages without trailing slash → canonical with trailing slash ──
+/about          /about/          301
+/contact        /contact/        301
+/services       /services/       301
+/privacy-policy /privacy-policy/ 301
+
+# ── Non-www → www (handled at Cloudflare DNS level, not here) ──
+# Note: Configure canonical host (www vs non-www) in Cloudflare DNS settings.
+# The canonical base is https://metroglasspro.com (non-www).
