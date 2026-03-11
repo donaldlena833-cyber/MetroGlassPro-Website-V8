@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/gallery/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/contact/`, lastModified: now, changeFrequency: 'yearly', priority: 0.8 },
     { url: `${base}/projects/`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${base}/projects/coop-condo-shower-door-installation-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/projects/single-swing-door-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${base}/projects/door-fixed-panel-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${base}/projects/sliding-bypass-doors-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },

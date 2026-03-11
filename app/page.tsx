@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'MetroGlassPro — Custom Shower Glass Installation NYC',
-  description: 'MetroGlassPro installs custom frameless shower doors and glass enclosures across NYC. Free estimates. Licensed & insured.',
+  title: 'MetroGlassPro — Frameless Shower Doors & Glass Installation NYC',
+  description: 'Custom frameless shower doors, glass enclosures, mirrors & partitions installed across all 5 NYC boroughs. Co-op & condo ready. Licensed & insured. Free estimates. (332) 999-3846.',
   alternates: { canonical: 'https://metroglasspro.com/' },
 }
 
@@ -34,6 +34,7 @@ const previewImages = [
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': 'https://metroglasspro.com/#business',
   name: 'MetroGlassPro',
   description: 'Custom frameless shower doors, glass enclosures, mirrors, and glass installations for NYC homes and businesses.',
   url: 'https://metroglasspro.com',
@@ -41,12 +42,22 @@ const jsonLd = {
   email: 'operations@metroglasspro.com',
   logo: 'https://metroglasspro.com/assets/logo.png',
   image: 'https://metroglasspro.com/assets/og-default.jpg',
-  address: { '@type': 'PostalAddress', addressLocality: 'New York', addressRegion: 'NY', addressCountry: 'US' },
+  address: { '@type': 'PostalAddress', addressLocality: 'New York', addressRegion: 'NY', postalCode: '10001', addressCountry: 'US' },
+  geo: { '@type': 'GeoCoordinates', latitude: 40.7128, longitude: -74.006 },
   areaServed: [
     { '@type': 'City', name: 'New York', addressRegion: 'NY' },
+    { '@type': 'Borough', name: 'Manhattan' },
+    { '@type': 'Borough', name: 'Brooklyn' },
+    { '@type': 'Borough', name: 'Queens' },
+    { '@type': 'Borough', name: 'Bronx' },
+    { '@type': 'Borough', name: 'Staten Island' },
   ],
   priceRange: '$$',
-  openingHours: ['Mo-Fr 08:00-18:00', 'Sa 09:00-14:00'],
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '18:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
+  ],
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '47', bestRating: '5' },
   sameAs: [
     'https://www.google.com/maps/place/MetroGlassPro',
   ],
@@ -57,6 +68,7 @@ const jsonLd = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Frameless Shower Doors', url: 'https://metroglasspro.com/frameless-shower-doors-nyc/' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shower Door Installation', url: 'https://metroglasspro.com/shower-door-installation-nyc/' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shower Door Replacement', url: 'https://metroglasspro.com/shower-door-replacement-nyc/' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Co-op & Condo Shower Door Installation', url: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Mirrors & Glass' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Partitions & Railings' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Repair' } },

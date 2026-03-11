@@ -23,7 +23,6 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <img src="/assets/logo.png" alt="MetroGlassPro" width={24} height={24} className="rounded-full" />
               <span className="font-serif text-charcoal text-lg">MetroGlass Pro</span>
             </Link>
             <p className="text-charcoal/40 text-[13px] leading-relaxed max-w-xs">Custom frameless shower doors and glass installations for New York City homes and businesses.</p>

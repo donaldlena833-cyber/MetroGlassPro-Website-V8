@@ -17,6 +17,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'coop-condo-shower-door-installation-nyc',
+    title: 'Co-op & Condo Shower Door Installation in NYC: What You Need to Know',
+    date: '2026-03-11',
+    services: ['Frameless Shower Doors', 'Building Coordination'],
+    hardware: ['Wall-mount hinges', 'U-channel', 'Sleeve anchors'],
+    scenarioType: 'real',
+    excerpt: 'Everything NYC co-op and condo owners need to know: COI requirements, freight elevator scheduling, quiet hours, alteration agreements, and pre-war building considerations.',
+    image: '/editorial/shower-door.jpg',
+    imageAlt: 'Frameless shower door installed in a NYC co-op apartment',
+  },
+  {
     slug: 'single-swing-door-nyc',
     title: 'Single Swing Frameless Shower Door: NYC\'s Most Popular Configuration',
     date: '2026-02-23',

@@ -26,7 +26,6 @@ export default function Header() {
     <header className={`sticky top-0 z-50 transition-all duration-500 ${scrolled ? 'glass shadow-[0_1px_0_rgba(26,26,26,0.06)]' : 'bg-transparent'}`}>
       <nav className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between h-[70px]">
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-          <img src="/assets/logo.png" alt="MetroGlassPro" width={28} height={28} className="rounded-full" />
           <span className="font-serif text-charcoal text-xl tracking-tight">MetroGlass Pro</span>
         </Link>
 
