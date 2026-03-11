@@ -17,6 +17,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'shower-glass-design-consultation-nyc',
+    title: 'We Design Before We Install: Shower Glass Consultation for Architects and Designers',
+    date: '2026-03-11',
+    services: ['Frameless Shower Doors', 'Design Consultation'],
+    hardware: ['CRL hinges', 'U-channel', 'Glass-to-glass clamps', 'Barn-door track'],
+    scenarioType: 'real',
+    excerpt: 'We render multiple enclosure configurations — swing, sliding, fixed panel — in your client\'s actual bathroom with hardware finish comparisons before fabrication begins.',
+    image: '/editorial/design-process-sketch.jpg',
+    imageAlt: 'Shower glass design sketch showing bathroom configuration renders on tablet with hardware finish annotations',
+  },
+  {
     slug: 'coop-condo-shower-door-installation-nyc',
     title: 'Co-op & Condo Shower Door Installation in NYC: What You Need to Know',
     date: '2026-03-11',
