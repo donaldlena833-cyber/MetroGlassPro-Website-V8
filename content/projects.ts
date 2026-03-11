@@ -17,6 +17,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'interior-design-collaboration-shower-door-nyc',
+    title: 'Why It Matters Who You Hire: A Glass Install Gone Wrong — and How We Fixed It',
+    date: '2026-03-11',
+    services: ['Frameless Shower Doors', 'Contractor Remediation'],
+    hardware: ['Chrome hardware', '3/8" glass clips'],
+    scenarioType: 'real',
+    excerpt: 'An interior design firm\'s previous contractor used the wrong clips, botched the silicone, and ghosted his own warranty. We fixed it — and gained a long-term design partner.',
+    image: '/gallery/jakob-interior-design-collaboration.jpg',
+    imageAlt: 'Frameless tub enclosure with chrome hardware against white marble tile — remediated NYC project',
+  },
+  {
     slug: 'shower-glass-design-consultation-nyc',
     title: 'We Design Before We Install: Shower Glass Consultation for Architects and Designers',
     date: '2026-03-11',
