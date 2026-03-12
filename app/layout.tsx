@@ -51,6 +51,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
           </>
         )}
+        {/* Google Ads (AW-934489946) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-934489946" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-934489946');`,
+          }}
+        />
       </head>
       <body className="font-sans">
         <ScrollObserver />
