@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Glass Installation Manhattan — Frameless Doors & Mirrors',
-  description: 'Custom frameless shower doors, glass enclosures, and mirrors installed across Manhattan. Co-op & condo ready. Free estimates.',
+  title: 'Manhattan Shower Door Company',
+  description: 'Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Precise measurements, clean installs, and organized building coordination.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/manhattan/' },
   openGraph: {
-    title: 'Shower Glass Installation Manhattan — Frameless Doors & Mirrors',
-    description: 'Custom frameless shower doors, glass enclosures, and mirrors installed across Manhattan. Co-op & condo ready. Free estimates.',
+    title: 'Custom Shower Doors in Manhattan',
+    description: 'Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Precise fit, clean installs, and building ready coordination.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -22,19 +22,35 @@ export default function ManhattanPage() {
           </Link>
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Manhattan</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl">
-            Shower Glass Installation in Manhattan
+            Custom Shower Doors in Manhattan
           </h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-xl leading-relaxed">
-            Manhattan's high-rises, pre-war co-ops, and luxury condos demand glass installers who understand building protocols. We carry full insurance, provide COIs on request, coordinate freight elevator access, and work within every building's quiet hours. From a studio bathroom on the Upper East Side to a penthouse wet room in Tribeca — we've done it.
+            Manhattan buyers are usually weighing price, speed, cleanliness, and whether the installer can handle the building without drama. MetroGlass Pro is built for that middle ground, careful enough for design work, responsive enough to feel personal, and organized enough for co-ops, condos, brownstones, and high rises.
           </p>
         </div>
       </section>
 
       <section className="bg-cream pb-16 sm:pb-24">
         <div className="max-w-3xl mx-auto px-6 sm:px-10">
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Building types we work with</h2>
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">What Manhattan clients count on</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Precision</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Tight bathrooms, uneven walls, and finished tile all require careful field measurements and clean planning.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Cleanliness</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Install day needs to feel controlled, respectful, and calm, especially in apartments and design driven renovations.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Building Coordination</h3>
+              <p className="text-warm text-[14px] leading-relaxed">COIs, freight elevators, supers, and scheduling windows matter as much as the glass when you work in Manhattan.</p>
+            </div>
+          </div>
+
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Where we work in Manhattan</h2>
           <p className="text-warm text-[15px] leading-relaxed mb-10">
-            Pre-war co-ops, luxury condos, brownstone townhouses, new construction high-rises, and boutique buildings. Manhattan bathrooms range from compact 5×7 spaces to sprawling master suites, and we custom-fit glass for all of them.
+            Pre-war co-ops, luxury condos, brownstone townhouses, new construction high-rises, and boutique buildings. Manhattan bathrooms range from compact apartment layouts to larger primary suites, and the work only goes smoothly when the installer understands both the glass and the building.
           </p>
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Manhattan</h2>
@@ -43,9 +59,9 @@ export default function ManhattanPage() {
               { t: 'Frameless Shower Doors', href: '/frameless-shower-doors-nyc/' },
               { t: 'Shower Door Installation', href: '/shower-door-installation-nyc/' },
               { t: 'Shower Door Replacement', href: '/shower-door-replacement-nyc/' },
-              { t: 'Custom Mirrors & Glass', href: '/services/' },
-              { t: 'Glass Partitions & Railings', href: '/services/' },
-              { t: 'Glass Repair', href: '/services/' },
+              { t: 'Shower Door Repair', href: '/shower-door-repair-nyc/' },
+              { t: 'Custom Mirrors', href: '/custom-mirrors-nyc/' },
+              { t: 'Glass Partitions', href: '/glass-partitions-nyc/' },
             ].map((s) => (
               <Link key={s.t} href={s.href} className="glass-card p-4 card-lift flex items-center gap-3">
                 <span className="text-orange shrink-0">→</span>
@@ -83,23 +99,27 @@ export default function ManhattanPage() {
             <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Inwood</span>
           </div>
 
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent Manhattan projects & insights</h2>
           <div className="space-y-3 mb-10">
-            <Link href="/projects/typical-mirror-replacement-nyc/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">Mirror Replacement in a NYC Apartment</span>
-              <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like — sizing, mounting, timeline.</span>
+            <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">84 Clinton Shower Door Before and After</span>
+              <span className="text-warm text-[13px] block mt-1">A real Lower East Side shower door setup showing how the right enclosure finishes a compact Manhattan bathroom.</span>
             </Link>
-            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
-              <span className="text-warm text-[13px] block mt-1">Comparing two popular frameless shower door hinges.</span>
+            <Link href="/projects/coop-condo-shower-door-installation-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Co-op and Condo Shower Door Installation</span>
+              <span className="text-warm text-[13px] block mt-1">The building rules, COI details, elevator coordination, and timing Manhattan buyers should expect.</span>
+            </Link>
+            <Link href="/projects/interior-design-collaboration-shower-door-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Fixing a Shower Door Install Gone Wrong</span>
+              <span className="text-warm text-[13px] block mt-1">A real remediation story that shows why precision and accountability matter in Manhattan projects.</span>
             </Link>
           </div>
 
           <div className="glass-card p-6 sm:p-8 text-center">
-            <p className="text-warm text-[15px] mb-2">Manhattan buildings often require a Certificate of Insurance before work begins — we provide COIs same-day.</p>
+            <p className="text-warm text-[15px] mb-2">Manhattan buyers usually care about three things, fit, cleanliness, and building coordination. That is where we spend our attention.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 mt-5">
-              <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Get a Free Estimate</Link>
-              <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">(332) 999-3846</a>
+              <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Get a Fast Estimate</Link>
+              <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20have%20a%20Manhattan%20project%20and%20can%20send%20photos." className="btn-pill btn-outline px-8 py-3 text-sm">Text Photos</a>
             </div>
           </div>
         </div>

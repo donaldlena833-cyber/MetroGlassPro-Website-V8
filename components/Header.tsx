@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const navLinks = [
-  { href: '/services/', label: 'Services' },
-  { href: '/gallery/', label: 'Gallery' },
+  { href: '/frameless-shower-doors-nyc/', label: 'Shower Doors' },
+  { href: '/shower-door-repair-nyc/', label: 'Repair' },
+  { href: '/service-areas/manhattan/', label: 'Manhattan' },
   { href: '/projects/', label: 'Projects' },
-  { href: '/service-areas/', label: 'Areas' },
+  { href: '/services/', label: 'Services' },
   { href: '/reviews/', label: 'Reviews' },
   { href: '/about/', label: 'About' },
 ]
@@ -39,8 +40,8 @@ export default function Header() {
           ))}
         </ul>
 
-        <Link href="/contact/" className="hidden lg:inline-flex btn-pill btn-outline px-7 py-2.5 text-[13px] tracking-wide">
-          Get a Quote
+        <Link href="/contact/" className="hidden lg:inline-flex btn-pill btn-primary px-7 py-2.5 text-[13px] tracking-wide">
+          Get Estimate
         </Link>
 
         <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-charcoal" aria-label="Menu" aria-expanded={open}>
@@ -62,7 +63,7 @@ export default function Header() {
             ))}
           </ul>
           <Link href="/contact/" onClick={() => setOpen(false)} className="mt-4 block text-center btn-pill btn-primary px-8 py-3 text-sm">
-            Get a Quote
+            Get Estimate
           </Link>
         </div>
       </div>

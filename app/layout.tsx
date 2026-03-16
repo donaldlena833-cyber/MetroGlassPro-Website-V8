@@ -2,18 +2,19 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import MobileCtaBar from '@/components/MobileCtaBar'
 import PageTransition from '@/components/PageTransition'
 import ScrollObserver from '@/components/ScrollObserver'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metroglasspro.com'),
-  title: { default: 'MetroGlassPro — Frameless Shower Doors & Glass Installation NYC', template: '%s | MetroGlassPro' },
-  description: 'Custom frameless shower doors, glass enclosures, mirrors & glass installations for NYC homes. Co-op & condo ready. Licensed & insured. Free estimates.',
+  title: { default: 'Custom Shower Doors Manhattan & NYC | MetroGlass Pro', template: '%s | MetroGlass Pro' },
+  description: 'Custom shower doors for Manhattan apartments, condos, and brownstones, plus mirrors and related custom glass across NYC. Clean installs, precise fit, COI ready, fast estimates.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'MetroGlassPro',
-    images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlassPro — Custom Shower Glass NYC' }],
+    siteName: 'MetroGlass Pro',
+    images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -59,12 +60,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="font-sans">
+      <body className="font-sans pb-[84px] lg:pb-0">
         <ScrollObserver />
         <Header />
         <main>
           <PageTransition>{children}</PageTransition>
         </main>
+        <MobileCtaBar />
         <Footer />
       </body>
     </html>

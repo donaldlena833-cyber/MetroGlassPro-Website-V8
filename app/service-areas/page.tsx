@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Service Areas — Shower Glass Installation NYC | MetroGlassPro',
-  description: 'MetroGlassPro installs custom shower glass across all 5 NYC boroughs. Also serving Long Island and Northern NJ.',
+  title: 'Service Areas | Manhattan First Shower Doors',
+  description: 'MetroGlass Pro installs custom shower doors in Manhattan first, with broader support across the five boroughs and select nearby projects.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/' },
   openGraph: {
-    title: 'Service Areas — Shower Glass Installation NYC',
-    description: 'MetroGlassPro installs custom shower glass across all 5 NYC boroughs plus Long Island and NJ.',
+    title: 'MetroGlass Pro Service Areas',
+    description: 'MetroGlass Pro installs custom shower doors in Manhattan first, with broader support across the five boroughs and select nearby projects.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -62,9 +62,9 @@ export default function ServiceAreasPage() {
       <section className="bg-cream pt-20 sm:pt-32 pb-14 sm:pb-20">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Service Areas</p>
-          <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl lg:text-7xl">Serving all five boroughs.</h1>
+          <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl lg:text-7xl">Manhattan first, all five boroughs covered.</h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-lg leading-relaxed">
-            Custom shower glass, mirrors, and glass installations across New York City — plus Long Island and Northern New Jersey.
+            MetroGlass Pro is strongest in Manhattan, especially for custom shower doors, but we also support the rest of New York City and selected nearby projects.
           </p>
         </div>
       </section>
@@ -128,6 +128,8 @@ export default function ServiceAreasPage() {
             <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Frameless Doors</Link>
             <Link href="/shower-door-installation-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Installation</Link>
             <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Replacement</Link>
+            <Link href="/shower-door-repair-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Repair</Link>
+            <Link href="/custom-mirrors-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Mirrors</Link>
             <Link href="/services/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">All Services</Link>
           </div>
         </div>
@@ -136,7 +138,7 @@ export default function ServiceAreasPage() {
       <section className="bg-charcoal py-20 sm:py-24 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
           <h2 className="heading-serif text-white text-3xl sm:text-5xl">Not sure if we cover your area?</h2>
-          <p className="mt-4 text-white/40 text-base sm:text-lg">Reach out — we&apos;re probably closer than you think.</p>
+          <p className="mt-4 text-white/40 text-base sm:text-lg">Reach out. We&apos;re probably closer than you think.</p>
           <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm mt-8 inline-flex">Contact Us</Link>
         </div>
       </section>

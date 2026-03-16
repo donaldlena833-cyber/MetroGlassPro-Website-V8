@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Glass Services NYC | Frameless Doors, Mirrors & Custom Glass',
-  description: 'Custom frameless shower doors, glass enclosures, mirrors, partitions, and glass repair throughout NYC.',
+  title: 'Shower Door and Custom Glass Services',
+  description: 'Manhattan first shower door services, plus custom mirrors, glass partitions, and related repair work across NYC.',
   alternates: { canonical: 'https://metroglasspro.com/services/' },
   openGraph: {
-    title: 'Services — Custom Glass Installation NYC',
-    description: 'Frameless shower doors, mirrors, glass partitions, and repair services across all 5 NYC boroughs.',
+    title: 'MetroGlass Pro Services',
+    description: 'Manhattan first shower door services, plus custom mirrors, glass partitions, and related repair work across NYC.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -21,12 +21,12 @@ interface ServiceItem {
 }
 
 const services: ServiceItem[] = [
-  { title: 'Frameless Shower Doors', img: '/editorial/shower-door.jpg', desc: 'The modern standard. Heavy 3/8"–1/2" tempered glass, custom-measured to 1/16". Swing, sliding, pivot, and neo-angle configurations.', points: ['Custom-measured to 1/16" precision', 'Heavy tempered safety glass', 'Chrome, brushed nickel, matte black, satin brass', 'Makes any bathroom look larger'], link: '/frameless-shower-doors-nyc/' },
+  { title: 'Frameless Shower Doors', img: '/editorial/shower-door.jpg', desc: 'The modern standard. Heavy 3/8" and 1/2" tempered glass, custom measured to 1/16". Swing, sliding, pivot, and neo angle configurations.', points: ['Custom measured to 1/16" precision', 'Heavy tempered safety glass', 'Chrome, brushed nickel, matte black, satin brass', 'Makes any bathroom look larger'], link: '/frameless-shower-doors-nyc/' },
   { title: 'Framed & Semi-Frameless', img: '/editorial/hero.jpg', desc: 'Aluminum frames in chrome, brushed nickel, and matte black. Durable, budget-friendly, ideal for standard bathroom sizes.', points: ['Multiple frame finishes', 'Budget-friendly', 'Quick installation', 'Great replacement option'] },
-  { title: 'Custom Mirrors & Glass', img: '/editorial/mirror.jpg', desc: 'Wall mirrors, vanity mirrors, gym mirrors, glass shelving. Cut to any size, delivered, and installed.', points: ['Any size or shape', 'Bathroom, vanity, gym, studio', 'Glass shelving & backsplashes', 'Professional installation'] },
-  { title: 'Glass Partitions & Railings', img: '/editorial/railing.jpg', desc: 'Interior dividers, office partitions, glass stair railings, balcony glass. Modern, structural, clean.', points: ['Interior dividers & office partitions', 'Stair railings & balcony panels', 'Residential & commercial', 'Structural engineering meets design'] },
-  { title: 'Glass Repair', img: '/editorial/tools.jpg', desc: 'Broken hinges, cracked panels, failed seals, hardware replacement. We fix what others installed.', points: ['Hinge, seal, hardware replacement', 'Cracked panel repair', 'We fix other installers\' work', 'Same-week service'] },
-  { title: 'Commercial Glass', img: '/editorial/water-droplets.jpg', desc: 'Hotel bathrooms, apartment buildings, contractor partnerships. Licensed for commercial-scale projects across NYC.', points: ['Hotel & hospitality installs', 'Multi-unit apartment buildings', 'Contractor partnerships', 'Licensed for commercial work'] },
+  { title: 'Custom Mirrors', img: '/editorial/mirror.jpg', desc: 'Vanity mirrors, wall mirrors, and selected mirrored installations measured carefully and installed cleanly.', points: ['Bathroom and vanity mirrors', 'Cut to fit the wall and layout', 'Clean edge and mount details', 'Strong fit for renovation and design work'], link: '/custom-mirrors-nyc/' },
+  { title: 'Glass Partitions', img: '/editorial/railing.jpg', desc: 'Interior dividers and boutique commercial partitions for projects that need crisp lines and reliable coordination.', points: ['Residential and boutique commercial', 'Layout review and site coordination', 'Clean sightlines and dependable hardware', 'Select railing work handled through project review'], link: '/glass-partitions-nyc/' },
+  { title: 'Shower Door Repair', img: '/editorial/tools.jpg', desc: 'Leak issues, dragging doors, loose hardware, bad install remediation, and honest guidance on repair versus replacement.', points: ['Leak, sweep, and hardware issues', 'Bad install remediation', 'Repair versus replace guidance', 'Fast response for active problems'], link: '/shower-door-repair-nyc/' },
+  { title: 'Commercial & Trade Collaboration', img: '/editorial/water-droplets.jpg', desc: 'Support for designers, architects, contractors, hospitality projects, and multi-unit work that needs direct coordination.', points: ['Trade communication that is clear and responsive', 'Finish and hardware coordination', 'Building logistics support', 'Good fit for design driven work'] },
 ]
 
 export default function ServicesPage() {
@@ -36,8 +36,11 @@ export default function ServicesPage() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Our Services</p>
           <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">
-            Premium glass solutions for every space.
+            Shower doors first. Custom glass handled with the same standards.
           </h1>
+          <p className="mt-5 text-warm text-base sm:text-lg max-w-2xl leading-relaxed">
+            MetroGlass Pro is known first for custom shower doors in Manhattan. Mirrors, partitions, and related repair work follow the same expectations, careful measurements, clean installs, and smooth communication.
+          </p>
         </div>
       </section>
 
@@ -74,14 +77,14 @@ export default function ServicesPage() {
       <section className="bg-cream-light py-20 sm:py-28">
         <div className="max-w-3xl mx-auto px-6 sm:px-10">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">For Designers & Contractors</p>
-          <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-6">Working with MetroGlassPro</h2>
+          <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-6">Working with MetroGlass Pro</h2>
           <p className="text-warm text-[15px] leading-relaxed mb-8">
             We regularly partner with architects, interior designers, and general contractors across NYC. Here&apos;s what we need to get started on your project:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
             {[
-              { t: 'To Quote', items: ['Floor plan or bathroom dimensions', 'Glass type preference (clear, frosted, low-iron)', 'Hardware finish preference', 'Building name & address (for COI if needed)'] },
-              { t: 'Our Process', items: ['On-site field measure (30 min)', 'Quote within 24 hours', 'Fabrication: 5–7 business days', 'Install: 2–4 hours, single visit'] },
+              { t: 'To Quote', items: ['Floor plan or bathroom dimensions', 'Glass type preference, such as clear, frosted, or low iron', 'Hardware finish preference', 'Building name and address if a COI may be needed'] },
+              { t: 'Our Process', items: ['On site field measure', 'Scope and finish review', 'Fabrication timeline based on layout and hardware', 'Install scheduled around project and building logistics'] },
             ].map((col) => (
               <div key={col.t} className="glass-card p-5 sm:p-6">
                 <h3 className="font-semibold text-charcoal text-[15px] mb-3">{col.t}</h3>
@@ -107,13 +110,17 @@ export default function ServicesPage() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10">
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-6">Related Projects & Insights</h2>
           <div className="space-y-3">
+            <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">84 Clinton Shower Door Before and After</span>
+              <span className="text-warm text-[13px] block mt-1">A compact Lower East Side bathroom showing how the right enclosure changes the room.</span>
+            </Link>
             <Link href="/projects/typical-mirror-replacement-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Mirror Replacement in a NYC Apartment</span>
-              <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like — sizing, mounting, timeline, and cost ranges.</span>
+              <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like from sizing and mounting to finish details.</span>
             </Link>
-            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
-              <span className="text-warm text-[13px] block mt-1">Two of the most popular frameless shower door hinges compared.</span>
+            <Link href="/projects/interior-design-collaboration-shower-door-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Fixing a Shower Door Install Gone Wrong</span>
+              <span className="text-warm text-[13px] block mt-1">A remediation project that shows why precision and accountability matter.</span>
             </Link>
           </div>
         </div>
@@ -122,8 +129,8 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="bg-charcoal py-24 sm:py-28 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
-          <h2 className="heading-serif text-white text-4xl sm:text-5xl">Ready to get started?</h2>
-          <p className="mt-4 text-white/40 text-lg">Free estimates. Same-week scheduling.</p>
+          <h2 className="heading-serif text-white text-4xl sm:text-5xl">Tell us what you are planning.</h2>
+          <p className="mt-4 text-white/40 text-lg">Send photos, your neighborhood, and the service you need. We will help you sort out the best next step.</p>
           <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm mt-10 inline-flex">Request an Estimate</Link>
         </div>
       </section>

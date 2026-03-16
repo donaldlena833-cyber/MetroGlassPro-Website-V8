@@ -1,15 +1,20 @@
 import Link from 'next/link'
 
 const mainLinks = [
-  { href: '/services/', label: 'Services' },
-  { href: '/frameless-shower-doors-nyc/', label: 'Frameless Doors' },
-  { href: '/gallery/', label: 'Gallery' },
-  { href: '/projects/', label: 'Projects' },
-  { href: '/reviews/', label: 'Reviews' },
+  { href: '/frameless-shower-doors-nyc/', label: 'Shower Doors' },
+  { href: '/shower-door-installation-nyc/', label: 'Installation' },
+  { href: '/shower-door-replacement-nyc/', label: 'Replacement' },
+  { href: '/shower-door-repair-nyc/', label: 'Repair' },
+  { href: '/custom-mirrors-nyc/', label: 'Mirrors' },
+  { href: '/glass-partitions-nyc/', label: 'Partitions' },
+  { href: '/service-areas/manhattan/', label: 'Manhattan' },
 ]
 
 const companyLinks = [
   { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/reviews/', label: 'Reviews' },
   { href: '/service-areas/', label: 'Service Areas' },
   { href: '/contact/', label: 'Contact' },
   { href: '/privacy-policy/', label: 'Privacy Policy' },
@@ -25,7 +30,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <span className="font-serif text-charcoal text-lg">MetroGlass Pro</span>
             </Link>
-            <p className="text-charcoal/40 text-[13px] leading-relaxed max-w-xs">Custom frameless shower doors and glass installations for New York City homes and businesses.</p>
+            <p className="text-charcoal/40 text-[13px] leading-relaxed max-w-xs">Manhattan first custom shower door and glass installation company known for precise fit, clean installs, and smooth building coordination.</p>
           </div>
 
           {/* Services */}
@@ -58,14 +63,15 @@ export default function Footer() {
             <div className="space-y-2.5">
               <a href="tel:+13329993846" className="block text-charcoal/50 text-[13px] hover:text-charcoal transition-colors">(332) 999-3846</a>
               <a href="mailto:operations@metroglasspro.com" className="block text-charcoal/50 text-[13px] hover:text-charcoal transition-colors">operations@metroglasspro.com</a>
-              <p className="text-charcoal/30 text-[13px]">Mon–Fri 8am–6pm · Sat 9am–2pm</p>
+              <p className="text-charcoal/30 text-[13px]">Monday to Friday, 8am to 6pm. Saturday, 9am to 2pm.</p>
+              <p className="text-charcoal/30 text-[13px]">COI ready for co-ops and condos</p>
             </div>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-charcoal/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-charcoal/25">
-          <p>© {new Date().getFullYear()} MetroGlassPro · Licensed & Insured in New York</p>
-          <p>Serving Manhattan · Brooklyn · Queens · Bronx · Staten Island</p>
+          <p>© {new Date().getFullYear()} MetroGlass Pro. Licensed and insured in New York.</p>
+          <p>Manhattan first. Also serving Brooklyn, Queens, The Bronx, and Staten Island.</p>
         </div>
       </div>
     </footer>
