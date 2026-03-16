@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Glass Design Consultation NYC — We Design Before We Install | MetroGlassPro',
-  description: 'MetroGlassPro renders multiple shower enclosure configurations — sliding, fixed panel, swing door — in your client\'s actual bathroom before fabrication begins. A design-first approach for architects and designers.',
+  title: 'Shower Glass Design Consultation in NYC',
+  description: 'MetroGlass Pro renders multiple shower enclosure configurations, including sliding, fixed panel, and swing door layouts, in your client\'s actual bathroom before fabrication begins.',
   alternates: { canonical: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/' },
   openGraph: {
     title: 'Shower Glass Design Consultation — Configuration Renders Before Install',
@@ -56,9 +56,9 @@ const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'We Design Before We Install: Shower Glass Consultation for Architects and Designers',
-  description: 'How MetroGlassPro renders multiple shower enclosure configurations in your client\'s actual bathroom before fabrication — a design-first process for architects, interior designers, and renovation professionals.',
-  author: { '@type': 'Organization', name: 'MetroGlassPro', url: 'https://metroglasspro.com' },
-  publisher: { '@type': 'Organization', name: 'MetroGlassPro', url: 'https://metroglasspro.com' },
+  description: 'How MetroGlass Pro renders multiple shower enclosure configurations in your client\'s actual bathroom before fabrication, a design-first process for architects, interior designers, and renovation professionals.',
+  author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
+  publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-03-11',
   dateModified: '2026-03-11',
   mainEntityOfPage: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/',
@@ -114,7 +114,7 @@ export default function DesignConsultationArticle() {
             You need someone who understands configurations, who can look at a bathroom and tell you why a sliding bypass will create sight-line problems at that vanity angle, or why a door-plus-fixed-panel with a channel mount will read cleaner than a full corner enclosure in a narrow space. Someone who thinks about the glass decision before the tile is grouted, not after.
           </p>
           <p>
-            That&apos;s how we work at MetroGlassPro. We consult before we install.
+            That&apos;s how we work at MetroGlass Pro. We consult before we install.
           </p>
 
           <h2>Your bathroom, multiple configurations</h2>

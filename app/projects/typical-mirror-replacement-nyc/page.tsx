@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Mirror Replacement in a NYC Apartment: What to Expect | MetroGlassPro',
+  title: 'Mirror Replacement in a NYC Apartment',
   description: 'What a typical mirror replacement looks like in a New York City apartment — sizing, mounting options, timeline, and cost ranges.',
   alternates: { canonical: 'https://metroglasspro.com/projects/typical-mirror-replacement-nyc/' },
   openGraph: {

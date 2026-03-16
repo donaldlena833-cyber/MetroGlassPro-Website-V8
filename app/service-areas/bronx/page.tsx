@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Glass Installation Bronx — Frameless Doors & Mirrors',
-  description: 'Custom frameless shower doors and mirrors installed across The Bronx. Residential and commercial. Free estimates.',
+  title: 'Bronx Shower Doors and Custom Glass',
+  description: 'Custom shower doors, mirrors, and related glass work across The Bronx. Residential, renovation, and selected commercial projects.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/bronx/' },
   openGraph: {
-    title: 'Shower Glass Installation Bronx — Frameless Doors & Mirrors',
-    description: 'Custom frameless shower doors and mirrors installed across The Bronx. Residential and commercial. Free estimates.',
+    title: 'Bronx Shower Doors and Custom Glass',
+    description: 'Custom shower doors, mirrors, and related glass work across The Bronx. Residential, renovation, and selected commercial projects.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -43,9 +43,9 @@ export default function BronxPage() {
               { t: 'Frameless Shower Doors', href: '/frameless-shower-doors-nyc/' },
               { t: 'Shower Door Installation', href: '/shower-door-installation-nyc/' },
               { t: 'Shower Door Replacement', href: '/shower-door-replacement-nyc/' },
-              { t: 'Custom Mirrors & Glass', href: '/services/' },
-              { t: 'Glass Partitions & Railings', href: '/services/' },
-              { t: 'Glass Repair', href: '/services/' },
+              { t: 'Custom Mirrors', href: '/custom-mirrors-nyc/' },
+              { t: 'Glass Partitions', href: '/glass-partitions-nyc/' },
+              { t: 'Shower Door Repair', href: '/shower-door-repair-nyc/' },
             ].map((s) => (
               <Link key={s.t} href={s.href} className="glass-card p-4 card-lift flex items-center gap-3">
                 <span className="text-orange shrink-0">→</span>

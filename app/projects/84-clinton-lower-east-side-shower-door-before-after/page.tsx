@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '84 Clinton Shower Door Before and After, Lower East Side Manhattan | MetroGlassPro',
-  description: 'See the 84 Clinton shower door before and after in the Lower East Side, Manhattan. MetroGlassPro finished this compact bathroom with a clean sliding glass enclosure and chrome hardware.',
+  title: '84 Clinton Shower Door Before and After, Lower East Side Manhattan',
+  description: 'See the 84 Clinton shower door before and after in the Lower East Side, Manhattan. MetroGlass Pro finished this compact bathroom with a clean sliding glass enclosure and chrome hardware.',
   keywords: [
     '84 Clinton shower door',
     'Lower East Side shower door installation',
@@ -30,8 +30,8 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: '84 Clinton Shower Door Before and After, Lower East Side Manhattan',
   description: 'A real before and after shower door project at 84 Clinton in the Lower East Side, Manhattan, finished with a sliding glass enclosure and chrome hardware.',
-  author: { '@type': 'Organization', name: 'MetroGlassPro', url: 'https://metroglasspro.com' },
-  publisher: { '@type': 'Organization', name: 'MetroGlassPro', url: 'https://metroglasspro.com' },
+  author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
+  publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-03-16',
   dateModified: '2026-03-16',
   mainEntityOfPage: 'https://metroglasspro.com/projects/84-clinton-lower-east-side-shower-door-before-after/',

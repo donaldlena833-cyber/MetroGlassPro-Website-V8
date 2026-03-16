@@ -26,14 +26,40 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="anim-fade-up">
             <p className="text-warm text-[17px] leading-[1.8] mb-6">
-              MetroGlass Pro was built for buyers who want the job handled carefully from the first measurement to the final polish. That matters even more in Manhattan, where compact bathrooms, finished tile, and building rules leave very little room for sloppy work.
+              MetroGlass Pro was founded by Donald Lena and Ledion Lico for buyers who want the job handled carefully from the first measurement to the final polish. That matters even more in Manhattan, where compact bathrooms, finished tile, and building rules leave very little room for sloppy work.
             </p>
             <p className="text-warm text-[17px] leading-[1.8]">
-              Shower doors are the center of our work. Mirrors, partitions, and related custom glass follow the same standards, clear communication, clean installs, and direct coordination with homeowners, designers, architects, and contractors.
+              The company was built around a simple idea. Clients should not have to choose between a random installer who feels risky and a large glass company that feels distant. Shower doors are the center of our work. Mirrors, partitions, and related custom glass follow the same standards, clear communication, clean installs, and direct coordination with homeowners, designers, architects, and contractors.
             </p>
           </div>
           <div className="rounded-lg overflow-hidden anim-fade-up d3">
             <img src="/editorial/tools.jpg" alt="Premium glass installation tools" className="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Founder Led</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Donald Lena and Ledion Lico built the company around accountability.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              That founder led approach shows up in the standards the company keeps. Measurements need to be right. Install day needs to be clean. Clients need direct answers. Manhattan buildings need to be handled professionally, not treated like an afterthought.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Direct Accountability</h3>
+              <p className="text-warm text-[15px] leading-relaxed">The company reputation is tied to every measurement, install, and finish detail. That changes how carefully the work is run.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Field Driven Standards</h3>
+              <p className="text-warm text-[15px] leading-relaxed">The process is built around real bathroom conditions, out of plumb walls, finished tile, hardware clearances, and what actually happens on install day.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Building Aware Execution</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Co-op paperwork, condo access, freight elevators, supers, and scheduling windows are treated like part of the work because in Manhattan they are.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -78,6 +104,25 @@ export default function AboutPage() {
             <div className="glass-card p-6">
               <h3 className="font-serif text-charcoal text-2xl mb-3">Contractors & Renovators</h3>
               <p className="text-warm text-[15px] leading-relaxed">For teams that need field measurements, clean execution, and a glass partner who protects the schedule instead of complicating it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Why Manhattan Is Different</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">The glass is only part of the job.</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Tighter Bathrooms</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Compact layouts, older walls, and finished tile make measurement discipline more important, especially on premium shower door work.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">More Building Coordination</h3>
+              <p className="text-warm text-[15px] leading-relaxed">COIs, quiet hours, freight reservations, and super coordination can shape the schedule just as much as the fabrication timeline.</p>
             </div>
           </div>
         </div>

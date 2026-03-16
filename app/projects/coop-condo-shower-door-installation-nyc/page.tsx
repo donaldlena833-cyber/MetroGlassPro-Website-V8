@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Co-op & Condo Shower Door Installation NYC — What You Need to Know | MetroGlassPro',
+  title: 'Co-op and Condo Shower Door Installation in NYC',
   description: 'Installing shower doors in a NYC co-op or condo? Learn about COI requirements, building coordination, freight elevator scheduling, quiet hours, and what your management company needs before install day.',
   alternates: { canonical: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/' },
   openGraph: {
-    title: 'Co-op & Condo Shower Door Installation NYC — Building Requirements Guide',
+    title: 'Co-op and Condo Shower Door Installation in NYC',
     description: 'Everything NYC co-op and condo owners need to know before installing a frameless shower door: COI, building rules, freight access, and more.',
     url: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
     type: 'article',
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'What is a COI and why does my building need one?',
-    a: 'A Certificate of Insurance (COI) proves your installer carries general liability and workers\' compensation insurance. NYC co-ops and condos require this to protect the building and other residents in case of property damage or injury during the work. MetroGlassPro provides COIs at no charge — we issue them within 24 hours, naming your building and management company as additional insured.',
+    a: 'A Certificate of Insurance (COI) proves your installer carries general liability and workers\' compensation insurance. NYC co-ops and condos require this to protect the building and other residents in case of property damage or injury during the work. MetroGlass Pro provides COIs at no charge, and we issue them within 24 hours, naming your building and management company as additional insured.',
   },
   {
     q: 'How do you handle freight elevator reservations?',
@@ -56,8 +56,8 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: 'Co-op & Condo Shower Door Installation NYC — What You Need to Know',
   description: 'A practical guide for NYC co-op and condo owners installing frameless shower doors: building requirements, COI, freight access, quiet hours, and what to expect.',
-  author: { '@type': 'Organization', name: 'MetroGlassPro', url: 'https://metroglasspro.com' },
-  publisher: { '@type': 'Organization', name: 'MetroGlassPro', url: 'https://metroglasspro.com' },
+  author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
+  publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-03-11',
   dateModified: '2026-03-11',
   mainEntityOfPage: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
@@ -115,7 +115,7 @@ export default function CoopCondoArticle() {
             This is non-negotiable. If your installer can&apos;t provide a COI, your building will not allow them in. Some buildings also require the COI to be on file at least 48 hours before the scheduled work date.
           </p>
           <p>
-            At MetroGlassPro, we issue COIs at no extra charge. We send them directly to your management office within 24 hours of your request, customized with your building&apos;s exact naming requirements. We handle this for every co-op and condo job — it&apos;s standard for us, not an afterthought.
+            At MetroGlass Pro, we issue COIs at no extra charge. We send them directly to your management office within 24 hours of your request, customized with your building&apos;s exact naming requirements. We handle this for every co-op and condo job. It&apos;s standard for us, not an afterthought.
           </p>
 
           <h2>Freight elevator access and material staging</h2>
@@ -169,7 +169,7 @@ export default function CoopCondoArticle() {
 
           <h2>What the process actually looks like, step by step</h2>
           <p>
-            Here&apos;s how a typical co-op or condo shower door installation works with MetroGlassPro:
+            Here&apos;s how a typical co-op or condo shower door installation works with MetroGlass Pro:
           </p>
           <ul>
             <li><strong>Day 1 — Contact and quote.</strong> You reach out with your bathroom dimensions or photos. We give you a ballpark range and schedule a measurement visit.</li>
@@ -187,7 +187,7 @@ export default function CoopCondoArticle() {
             An installer who&apos;s never worked in a NYC co-op will waste your time and possibly get turned away at the door. We&apos;ve seen it happen — a homeowner books an installer, the installer shows up without a COI, the doorman calls management, and the whole job gets rescheduled two weeks later. Or worse: the installer doesn&apos;t reserve the freight elevator and tries to carry glass through the passenger elevator, scratching the cab walls on the way up.
           </p>
           <p>
-            At MetroGlassPro, co-op and condo installations are our core business. We know the protocols because we do them every week. We carry the insurance, we provide the paperwork, and we coordinate with your building so install day goes smoothly.
+            At MetroGlass Pro, co-op and condo installations are our core business. We know the protocols because we do them every week. We carry the insurance, we provide the paperwork, and we coordinate with your building so install day goes smoothly.
           </p>
 
           <h2>Ready to get started?</h2>

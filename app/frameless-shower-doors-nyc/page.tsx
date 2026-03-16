@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frameless Shower Doors NYC — Custom Glass Installation | MetroGlassPro',
-  description: 'Custom frameless shower doors installed across NYC. 3/8" & 1/2" tempered glass, premium hardware finishes, co-op & condo ready. Free estimates. (332) 999-3846.',
+  title: 'Frameless Shower Doors Manhattan and NYC',
+  description: 'Custom frameless shower doors for Manhattan apartments, condos, and homes, plus NYC support. 3/8" and 1/2" tempered glass, premium hardware, clean installs, COI ready.',
   alternates: { canonical: 'https://metroglasspro.com/frameless-shower-doors-nyc/' },
   openGraph: {
-    title: 'Frameless Shower Doors NYC — Custom Installation | MetroGlassPro',
-    description: 'Custom frameless shower doors installed across all 5 NYC boroughs. Premium glass, expert fitting, free estimates.',
+    title: 'Frameless Shower Doors in Manhattan and NYC',
+    description: 'Custom frameless shower doors for Manhattan apartments, condos, and homes, plus NYC support. Premium glass, careful fitting, and clean installation.',
     url: 'https://metroglasspro.com/frameless-shower-doors-nyc/',
     type: 'website',
   },
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: 'Are you licensed and insured?',
-    a: 'Yes. MetroGlassPro is fully licensed and insured in New York, and we can provide a Certificate of Insurance (COI) for co-op and condo buildings on request.',
+    a: 'Yes. MetroGlass Pro is fully licensed and insured in New York, and we can provide a Certificate of Insurance (COI) for co-op and condo buildings on request.',
   },
 ]
 
@@ -64,7 +64,7 @@ const serviceJsonLd = {
   name: 'Frameless Shower Door Installation NYC',
   provider: {
     '@type': 'LocalBusiness',
-    name: 'MetroGlassPro',
+    name: 'MetroGlass Pro',
     telephone: '+1-332-999-3846',
     url: 'https://metroglasspro.com',
     areaServed: [

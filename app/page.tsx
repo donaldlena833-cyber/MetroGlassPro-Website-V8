@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const reviews = [
   { name: 'Valeria H.', text: 'From start to finish, the team was professional, reliable, and did an excellent job. Could not be happier.' },
   { name: 'Irini T.', text: 'Amazing job with my shower door at a great price. Fast service, clean install, and way more affordable than other quotes.' },
-  { name: 'Ledion L.', text: 'Quick, efficient, very clean job. Shower door and mirror done. The price was very reasonable. Highly recommend.' },
+  { name: 'Tomas M.', text: "MetroGlass Pro replaced my shower door and I'm very impressed with their work. The team was professional, on time, and the result is flawless." },
 ]
 
 const faqs = [
@@ -95,7 +95,7 @@ export default function HomePage() {
             Custom shower doors for Manhattan apartments, condos, and brownstones.
           </h1>
           <p className="mt-6 text-charcoal/60 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto anim-fade-up d2">
-            MetroGlass Pro measures carefully, installs cleanly, and coordinates with your building without the runaround. That is why Manhattan homeowners, renovators, and designers call us when the fit needs to be right.
+            MetroGlass Pro is the premium middle ground for Manhattan buyers who want precise measurements, clean installs, and smooth building coordination without the distance of a large generic glass company.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4 anim-fade-up d3">
             <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm">

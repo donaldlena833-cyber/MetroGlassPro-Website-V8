@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Customer Reviews — NYC Shower Glass Installation',
-  description: 'Read what MetroGlassPro customers across NYC say about our installations.',
+  title: 'Customer Reviews',
+  description: 'Read what MetroGlass Pro customers say about shower doors, mirrors, and custom glass work across Manhattan and NYC.',
   alternates: { canonical: 'https://metroglasspro.com/reviews/' },
   openGraph: {
-    title: 'Customer Reviews — NYC Shower Glass Installation',
-    description: 'Read what NYC homeowners say about MetroGlassPro shower glass installations.',
+    title: 'Customer Reviews',
+    description: 'Read what Manhattan and NYC customers say about MetroGlass Pro shower door and custom glass work.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -17,7 +17,6 @@ const reviews = [
   { name: 'Erma H.', text: "I recently hired MetroGlass Pro for a full glass renovation project in my home, and I couldn't be more impressed with the results. Highly professional team." },
   { name: 'Merilin L.', text: 'Very happy with the service! The team was professional, quick, and left everything spotless. The new glass looks amazing.' },
   { name: 'Tomas M.', text: "MetroGlass Pro replaced my shower door and I'm very impressed with their work. The team was professional, on time, and the result is flawless." },
-  { name: 'Ledion L.', text: 'Would highly recommend. Quick, efficient, very clean job. I did my shower door and a mirror with the company. The price was very reasonable.' },
   { name: 'Gjergji G.', text: 'Excellent work for a fair price. The guys were very punctual and talented. Good luck!' },
   { name: 'Irini T.', text: 'MetroGlass Pro did an amazing job with my shower door at a great price. Fast service, clean install, and way more affordable than other quotes I got.' },
   { name: 'Raed P.', text: 'Ledion and his team did a quick and efficient job. They replaced my wall mirror within 3 days of me reaching out. Would definitely recommend.' },
@@ -32,6 +31,7 @@ export default function ReviewsPage() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Testimonials</p>
           <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">What our customers say.</h1>
+          <p className="mt-5 text-warm text-lg max-w-2xl">These reviews reflect the things Manhattan and NYC buyers usually care about most, precise measurements, clean installs, clear communication, and a finished result that feels worth the investment.</p>
         </div>
       </section>
 

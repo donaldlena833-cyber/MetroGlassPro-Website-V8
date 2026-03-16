@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Gallery — Our Installations Across NYC',
-  description: "Browse MetroGlassPro's portfolio of custom frameless shower doors, mirrors, and glass installations.",
+  title: 'Shower Door and Glass Gallery',
+  description: 'Browse MetroGlass Pro shower door, mirror, and custom glass installations across Manhattan and NYC.',
   alternates: { canonical: 'https://metroglasspro.com/gallery/' },
   openGraph: {
-    title: 'Gallery — Our Installations Across NYC',
-    description: 'Browse our portfolio of frameless shower doors, glass enclosures, and mirrors installed across NYC.',
+    title: 'Shower Door and Glass Gallery',
+    description: 'Browse MetroGlass Pro shower door, mirror, and custom glass installations across Manhattan and NYC.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -25,7 +25,7 @@ const images = [
   { src: '/gallery/mirror-1.jpg', alt: 'Custom wall mirror with polished edges installed above vanity in NYC apartment' },
   { src: '/gallery/cabinet-1.jpg', alt: 'Custom glass cabinet doors installed in NYC kitchen' },
   { src: '/gallery/glass-cabinet-1.jpg', alt: 'Frosted glass cabinet insert for NYC apartment' },
-  { src: '/gallery/install-1.jpeg', alt: 'MetroGlassPro installer measuring shower opening for frameless glass door' },
+  { src: '/gallery/install-1.jpeg', alt: 'MetroGlass Pro installer measuring shower opening for frameless glass door' },
   { src: '/gallery/install-2.jpeg', alt: 'Frameless shower door being fitted during installation in Queens bathroom' },
   { src: '/gallery/install-3.jpeg', alt: 'Precision glass measurement for shower enclosure in Brooklyn apartment' },
   { src: '/gallery/install-4.jpeg', alt: 'Heavy tempered glass panel being positioned during Manhattan install' },

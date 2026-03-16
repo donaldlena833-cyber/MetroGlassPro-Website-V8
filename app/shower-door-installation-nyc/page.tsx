@@ -2,21 +2,21 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Installation NYC — Professional Glass Installers | MetroGlassPro',
-  description: 'Professional shower door installation across NYC. Frameless, framed & semi-frameless. Co-op & condo ready, licensed & insured. Free estimates.',
+  title: 'Shower Door Installation Manhattan and NYC',
+  description: 'Professional shower door installation for Manhattan apartments, co-ops, condos, and NYC homes. Frameless, framed, and sliding layouts, clean installs, COI ready.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-installation-nyc/' },
   openGraph: {
-    title: 'Shower Door Installation NYC — Professional Glass Installers',
-    description: 'Professional shower door installation across NYC. Frameless, framed & semi-frameless. Co-op & condo ready.',
+    title: 'Shower Door Installation in Manhattan and NYC',
+    description: 'Professional shower door installation for Manhattan apartments, co-ops, condos, and NYC homes. Frameless, framed, and sliding layouts, clean installs, COI ready.',
   },
   twitter: { card: 'summary_large_image' },
 }
 
 const faqs = [
-  { q: 'What types of shower doors can you install?', a: 'We install frameless, semi-frameless, and framed shower doors in all configurations — single swing, sliding bypass, pivot, neo-angle, 90° corner, and walk-in panels. We also install bathtub enclosures and shower-over-tub combos.' },
-  { q: 'How do you handle installations in NYC apartments?', a: 'We coordinate with your building management, provide Certificates of Insurance (COI), reserve freight elevators, and work within building quiet hours. We\'ve installed in 200+ NYC buildings and know the drill.' },
-  { q: 'Do I need to remove my old shower door first?', a: 'No — we handle removal of your existing door or enclosure as part of the installation. We carefully remove old glass, hardware, and any remaining silicone or adhesive, and prep the walls and tile before the new install.' },
-  { q: 'How long does installation take?', a: 'Most installations take 2–4 hours. We arrive with everything pre-fabricated and ready to install — no cutting glass on-site. Your shower is usable the same day, though we recommend waiting 24 hours for silicone to fully cure.' },
+  { q: 'What types of shower doors can you install?', a: 'We install frameless, semi-frameless, and framed shower doors in all configurations, including single swing, sliding bypass, pivot, neo-angle, 90 degree corner, and walk-in panels. We also install bathtub enclosures and shower-over-tub combos.' },
+  { q: 'How do you handle installations in NYC apartments?', a: 'We coordinate with your building management, provide Certificates of Insurance (COI), reserve freight elevators, and work within building quiet hours. We regularly install in co-ops, condos, and apartment buildings and plan around those requirements from the start.' },
+  { q: 'Do I need to remove my old shower door first?', a: 'No. We handle removal of your existing door or enclosure as part of the installation. We carefully remove old glass, hardware, and any remaining silicone or adhesive, then prep the walls and tile before the new install.' },
+  { q: 'How long does installation take?', a: 'Most installations take about 2 to 4 hours. We arrive with everything pre-fabricated and ready to install, with no glass cutting on site. Your shower is usable the same day, though we recommend waiting 24 hours for silicone to fully cure.' },
 ]
 
 const faqJsonLd = {

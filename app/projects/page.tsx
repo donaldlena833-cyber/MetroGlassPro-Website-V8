@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { projects } from '@/content/projects'
 
 export const metadata: Metadata = {
-  title: 'Projects & Insights — NYC Glass Installation | MetroGlassPro',
-  description: 'Real project breakdowns and educational insights about shower glass, mirrors, and hardware from MetroGlassPro.',
+  title: 'Real Projects and Buyer Guides',
+  description: 'Browse MetroGlass Pro project stories, before and afters, and practical shower door guides from Manhattan and NYC jobs.',
   alternates: { canonical: 'https://metroglasspro.com/projects/' },
   openGraph: {
-    title: 'Projects & Insights — NYC Glass Installation',
-    description: 'Real project breakdowns and educational insights about shower glass, mirrors, and hardware.',
+    title: 'Real Projects and Buyer Guides',
+    description: 'Browse project stories, before and afters, and practical shower door guides from Manhattan and NYC jobs.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -23,7 +23,7 @@ export default function ProjectsIndex() {
             From the field.
           </h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-lg leading-relaxed">
-            Real project breakdowns, material comparisons, and practical insights from our work across NYC.
+            Real Manhattan and NYC project stories, before and afters, material comparisons, and practical buyer guidance from the field.
           </p>
         </div>
       </section>
