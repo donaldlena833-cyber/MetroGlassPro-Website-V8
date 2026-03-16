@@ -17,6 +17,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: '84-clinton-lower-east-side-shower-door-before-after',
+    title: '84 Clinton Shower Door Before and After, Lower East Side Manhattan',
+    date: '2026-03-16',
+    borough: 'Manhattan',
+    neighborhood: 'Lower East Side',
+    services: ['Sliding Shower Doors', 'Frameless Shower Doors'],
+    hardware: ['Chrome sliding hardware', 'Towel bar handles'],
+    scenarioType: 'real',
+    excerpt: 'A before and after shower door setup at 84 Clinton, Lower East Side Manhattan, showing how a compact bathroom can feel brighter, cleaner, and more finished with a custom sliding glass enclosure.',
+    image: '/gallery/84-clinton-after-preview.jpg',
+    imageAlt: 'Completed sliding shower door at 84 Clinton in the Lower East Side, Manhattan',
+  },
+  {
     slug: 'interior-design-collaboration-shower-door-nyc',
     title: 'Why It Matters Who You Hire: A Glass Install Gone Wrong — and How We Fixed It',
     date: '2026-03-11',
@@ -24,7 +37,7 @@ export const projects: Project[] = [
     hardware: ['Chrome hardware', '3/8" glass clips'],
     scenarioType: 'real',
     excerpt: 'An interior design firm\'s previous contractor used the wrong clips, botched the silicone, and ghosted his own warranty. We fixed it — and gained a long-term design partner.',
-    image: '/gallery/jakob-interior-design-collaboration.jpg',
+    image: '/gallery/jakob-interior-design-collaboration-desktop.jpg',
     imageAlt: 'Frameless tub enclosure with chrome hardware against white marble tile — remediated NYC project',
   },
   {

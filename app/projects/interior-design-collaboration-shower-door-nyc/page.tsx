@@ -8,8 +8,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Why Choosing the Right Glass Contractor Matters — NYC',
     description: 'Wrong clips, bad silicone, and a contractor who ghosted his own warranty. Here\'s how we fixed it and what it taught us about working with interior designers.',
+    url: 'https://metroglasspro.com/projects/interior-design-collaboration-shower-door-nyc/',
+    type: 'article',
+    images: ['https://metroglasspro.com/gallery/jakob-interior-design-collaboration-desktop.jpg'],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://metroglasspro.com/gallery/jakob-interior-design-collaboration-desktop.jpg'],
+  },
 }
 
 export default function InteriorDesignCollaborationArticle() {
@@ -33,13 +39,17 @@ export default function InteriorDesignCollaborationArticle() {
       </section>
 
       <section className="bg-cream pb-6 sm:pb-10">
-        <div className="max-w-4xl mx-auto px-6 sm:px-10">
-          <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img
-              src="/gallery/jakob-interior-design-collaboration.jpg"
-              alt="Frameless tub enclosure with chrome hardware and rain shower head against white marble tile — remediated NYC project"
-              className="w-full h-full object-cover"
-            />
+        <div className="max-w-3xl mx-auto px-6 sm:px-10">
+          <div className="rounded-lg overflow-hidden img-editorial aspect-[4/5] sm:aspect-[6/5]">
+            <picture className="block w-full h-full">
+              <source media="(min-width: 640px)" srcSet="/gallery/jakob-interior-design-collaboration-desktop.jpg" />
+              <img
+                src="/gallery/jakob-interior-design-collaboration-mobile.jpg"
+                alt="Frameless tub enclosure with chrome hardware and rain shower head against white marble tile, remediated NYC project"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </picture>
           </div>
         </div>
       </section>
