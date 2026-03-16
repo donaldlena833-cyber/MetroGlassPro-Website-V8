@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Manhattan first shower door services, plus custom mirrors, glass partitions, and related repair work across NYC.',
   alternates: { canonical: 'https://metroglasspro.com/services/' },
   openGraph: {
-    title: 'MetroGlass Pro Services',
+    title: 'Shower Door and Custom Glass Services',
     description: 'Manhattan first shower door services, plus custom mirrors, glass partitions, and related repair work across NYC.',
   },
   twitter: { card: 'summary_large_image' },

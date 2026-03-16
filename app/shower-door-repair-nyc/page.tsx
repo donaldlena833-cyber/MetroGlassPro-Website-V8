@@ -14,20 +14,20 @@ export const metadata: Metadata = {
 
 const issues = [
   {
-    title: 'Leaks and Water Escape',
-    description: 'Silicone failure, poor alignment, and bad fit can all lead to water where it should not be.',
+    title: 'Shower Door Leaking at the Bottom',
+    description: 'Water escaping near the curb or door edge is often tied to sweep wear, silicone failure, or a door that was never aligned cleanly in the first place.',
   },
   {
-    title: 'Dragging or Misaligned Doors',
-    description: 'Doors that scrape, sag, or stop closing cleanly usually need hardware review and a closer look at the original fit.',
+    title: 'Door Dragging, Scraping, or Sagging',
+    description: 'Doors that scrape tile, drift out of alignment, or stop closing cleanly usually need hardware review and a closer look at the original fit.',
   },
   {
-    title: 'Loose Hardware or Old Parts',
-    description: 'Handles, hinges, sweeps, and rollers wear out, especially when the original install was rushed.',
+    title: 'Loose Handle, Hinge, or Roller Problems',
+    description: 'Handles, hinges, guides, sweeps, and rollers wear out, especially when the original install was rushed or the hardware was never adjusted correctly.',
   },
   {
-    title: 'Bad Install Remediation',
-    description: 'Some problems are not normal wear. They come from poor measurements, wrong clips, or careless installation.',
+    title: 'Bad Install by Another Company',
+    description: 'Some problems are not normal wear at all. They come from poor measurements, wrong clips, careless sealing, or an installer who treated the bathroom like a quick stop.',
   },
 ]
 
@@ -58,12 +58,29 @@ const manhattanScenarios = [
     description: 'In smaller Manhattan bathrooms, a little misalignment can create a big usability problem because the shower, vanity, toilet, and entry door all compete for space.',
   },
   {
-    title: 'Older Construction',
-    description: 'Pre-war walls, older tile, and previous renovation work can all affect how a repair needs to be approached and whether the existing system is still worth saving.',
+    title: 'Older Walls and Finished Tile',
+    description: 'Older walls, finished stone, and previous renovation work can all affect how a repair needs to be approached and whether the existing system is still worth saving.',
   },
   {
-    title: 'Building Logistics',
-    description: 'Even a repair or replacement still has to work within co-op and condo rules, access windows, and building expectations if the property is occupied.',
+    title: 'Occupied Building Logistics',
+    description: 'Even a repair or replacement still has to work within co-op and condo rules, access windows, doorman procedures, and building expectations if the property is occupied.',
+  },
+]
+
+const miniCases = [
+  {
+    eyebrow: 'Remediation Example',
+    title: 'Fixing a shower door install that was done wrong the first time',
+    description: 'This NYC design collaboration started with the wrong glass clip size, sloppy silicone, and a contractor who stopped responding. It is a useful example of when a shower door issue is really an install quality problem, not simple wear.',
+    href: '/projects/interior-design-collaboration-shower-door-nyc/',
+    cta: 'See the remediation story',
+  },
+  {
+    eyebrow: 'Compact Manhattan Example',
+    title: 'Choosing the cleaner long term answer for a Lower East Side bathroom',
+    description: 'At 84 Clinton, the finished sliding enclosure changed both the look and day to day function of a compact bathroom. This is the kind of project that shows when replacement can be the smarter move than forcing one more repair.',
+    href: '/projects/84-clinton-lower-east-side-shower-door-before-after/',
+    cta: 'See the before and after',
   },
 ]
 
@@ -130,7 +147,10 @@ export default function ShowerDoorRepairPage() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Common reasons buyers call us.</h2>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What buyers usually notice first.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              A repair lead usually starts with a symptom, not a diagnosis. These are the problems Manhattan buyers mention most when they call, text photos, or ask whether the enclosure can be saved.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {issues.map((item, index) => (
@@ -148,6 +168,9 @@ export default function ShowerDoorRepairPage() {
           <div className="max-w-2xl mb-12 anim-fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Common Causes</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">The symptom is not always the real problem.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              A leaking door is not always a simple leak fix. A dragging door is not always a quick adjustment. In Manhattan bathrooms, the real cause often comes back to the original measurement, the way the hardware was chosen, or how carefully the enclosure was installed.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {commonCauses.map((item, index) => (
@@ -210,8 +233,38 @@ export default function ShowerDoorRepairPage() {
       <section className="bg-cream-light py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Symptom Checks</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">The kinds of repair calls we sort out every week.</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Leaking at the curb or bottom edge</h3>
+              <p className="text-warm text-[15px] leading-relaxed">This can come from worn sweeps, old silicone, poor door alignment, or a bad original measurement that leaves the gap working against the bathroom every time the shower runs.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Door not closing smoothly</h3>
+              <p className="text-warm text-[15px] leading-relaxed">If the door drags, scrapes, or feels heavy in the wrong way, we look at hinges, guides, settling, and whether the enclosure was set up correctly for the opening to begin with.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Loose hardware or sliding issues</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Loose handles, noisy rollers, worn guides, and wobble in the hardware can often be corrected if the glass is still sound and the system itself is worth saving.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">An install that never felt right</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Some repair inquiries are really remediation jobs. The shower leaked from day one, the clips look wrong, the silicone looks rushed, or the whole enclosure feels off every time you use it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Manhattan Specific</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What repair work looks like in Manhattan bathrooms.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              A repair call in Manhattan is rarely just about the door. Tight clearances, finished tile, older walls, occupied apartments, and building access rules all shape how carefully the next step needs to be handled.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {manhattanScenarios.map((item, index) => (
@@ -225,20 +278,28 @@ export default function ShowerDoorRepairPage() {
       </section>
 
       <section className="bg-cream py-16 sm:py-20">
-        <div className="max-w-3xl mx-auto px-6 sm:px-10">
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-6">Real examples and related proof</h2>
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Field Examples</p>
+            <h2 className="font-serif text-charcoal text-3xl sm:text-4xl mb-4">Real repair and replacement proof.</h2>
+            <p className="text-warm text-[15px] leading-relaxed">
+              We are still building out the full project library, but these examples already show the kind of real world problems that matter when a shower door is leaking, failing, or simply not worth patching again.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            {miniCases.map((item) => (
+              <Link key={item.href} href={item.href} className="glass-card p-6 card-lift block">
+                <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">{item.eyebrow}</p>
+                <span className="text-charcoal font-serif text-2xl leading-snug block">{item.title}</span>
+                <span className="text-warm text-[14px] leading-relaxed block mt-3">{item.description}</span>
+                <span className="text-orange text-sm font-medium block mt-5">{item.cta} →</span>
+              </Link>
+            ))}
+          </div>
           <div className="space-y-3">
-            <Link href="/projects/interior-design-collaboration-shower-door-nyc/" className="glass-card p-5 card-lift block">
-              <span className="text-charcoal font-medium text-[15px]">Fixing a Shower Door Install Gone Wrong</span>
-              <span className="text-warm text-[14px] leading-relaxed block mt-2">A real remediation story showing what happens when precision and accountability are missing the first time.</span>
-            </Link>
-            <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="glass-card p-5 card-lift block">
-              <span className="text-charcoal font-medium text-[15px]">84 Clinton Before and After</span>
-              <span className="text-warm text-[14px] leading-relaxed block mt-2">A Lower East Side bathroom showing how the right finished enclosure can change the feel and function of a compact space.</span>
-            </Link>
             <Link href="/shower-door-replacement-nyc/" className="glass-card p-5 card-lift block">
               <span className="text-charcoal font-medium text-[15px]">Shower Door Replacement</span>
-              <span className="text-warm text-[14px] leading-relaxed block mt-2">See what a full replacement looks like when the old enclosure is not worth saving.</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">See what a full replacement looks like when the old enclosure is not worth saving or the original fit was wrong from day one.</span>
             </Link>
           </div>
         </div>

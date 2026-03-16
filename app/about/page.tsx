@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About MetroGlass Pro',
-  description: 'MetroGlass Pro is a Manhattan first shower door and custom glass company focused on precise measurements, clean installs, and organized building coordination.',
+  title: 'About',
+  description: 'Meet Donald Lena and Ledion Lico, the co founders behind MetroGlass Pro, a Manhattan first shower door and custom glass company focused on precise measurements, clean installs, and building ready coordination.',
   alternates: { canonical: 'https://metroglasspro.com/about/' },
   openGraph: {
-    title: 'About MetroGlass Pro',
-    description: 'MetroGlass Pro is a Manhattan first shower door and custom glass company focused on precise measurements, clean installs, and organized building coordination.',
+    title: 'About',
+    description: 'Meet Donald Lena and Ledion Lico, the co founders behind MetroGlass Pro, a Manhattan first shower door and custom glass company focused on precise measurements, clean installs, and building ready coordination.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -41,24 +41,57 @@ export default function AboutPage() {
       <section className="bg-cream-light py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
-            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Founder Led</p>
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Donald Lena and Ledion Lico built the company around accountability.</h2>
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">The Founders</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Donald Lena and Ledion Lico are the names behind the standards.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              That founder led approach shows up in the standards the company keeps. Measurements need to be right. Install day needs to be clean. Clients need direct answers. Manhattan buildings need to be handled professionally, not treated like an afterthought.
+              Serious Manhattan buyers usually want to know who is actually behind the company. MetroGlass Pro was built by Donald Lena and Ledion Lico for clients who care about direct accountability, careful field work, and a process that respects the building as much as the finished glass.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="glass-card p-6">
-              <h3 className="font-serif text-charcoal text-2xl mb-3">Direct Accountability</h3>
-              <p className="text-warm text-[15px] leading-relaxed">The company reputation is tied to every measurement, install, and finish detail. That changes how carefully the work is run.</p>
+              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Co Founder</p>
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Donald Lena</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Donald helped shape MetroGlass Pro around direct communication, organized project flow, and the kind of accountability buyers expect when they are trusting someone with a finished Manhattan bathroom.</p>
             </div>
             <div className="glass-card p-6">
-              <h3 className="font-serif text-charcoal text-2xl mb-3">Field Driven Standards</h3>
-              <p className="text-warm text-[15px] leading-relaxed">The process is built around real bathroom conditions, out of plumb walls, finished tile, hardware clearances, and what actually happens on install day.</p>
+              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Co Founder</p>
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Ledion Lico</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Ledion helped shape the field standards behind the work, precise measurements, clean install habits, and the kind of detail checking that compact bathrooms and premium tile leave no room to ignore.</p>
             </div>
             <div className="glass-card p-6">
-              <h3 className="font-serif text-charcoal text-2xl mb-3">Building Aware Execution</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Co-op paperwork, condo access, freight elevators, supers, and scheduling windows are treated like part of the work because in Manhattan they are.</p>
+              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Shared Standard</p>
+              <h3 className="font-serif text-charcoal text-2xl mb-3">The MetroGlass Pro Approach</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Together, Donald and Ledion built the company to feel like the premium middle ground, more reliable and precise than a random installer, more personal and responsive than a large generic glass company.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">How They Work</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What Donald and Ledion wanted clients to feel.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              The goal was never to sound bigger than everyone else. It was to run projects in a way that feels calm, organized, and trustworthy when the space is tight, the tile is finished, and the building expects professionalism from day one. Those standards were shaped across 200 plus NYC installs, where measurement discipline and clean execution matter every single time.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Personal Accountability Over Hand Offs</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Clients should know who they hired. That is a different feeling than being pushed through a generic sales pipeline and then hoping the installer shows up with the right understanding of the job.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Field Standards Before Sales Language</h3>
+              <p className="text-warm text-[15px] leading-relaxed">The company standards come from real install conditions, out of plumb walls, finished tile, hardware clearances, silicone details, and how the bathroom actually needs to function after the crew leaves.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Building Coordination Is Part of the Job</h3>
+              <p className="text-warm text-[15px] leading-relaxed">COIs, supers, freight reservations, access windows, and quiet hours are treated like part of the work because in Manhattan they are. A great shower door install still feels bad if the building coordination is sloppy.</p>
+            </div>
+            <div className="glass-card p-6">
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Cleanliness Matters to Premium Buyers</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Protection, careful handling, clean edges, and a tidy final walkthrough are not finishing touches. They are part of why homeowners, designers, and contractors feel comfortable recommending the company again.</p>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: 'Request a fast MetroGlass Pro estimate for shower doors, mirrors, and related custom glass in Manhattan and NYC. Share your neighborhood, building type, and project details.',
   alternates: { canonical: 'https://metroglasspro.com/contact/' },
   openGraph: {
-    title: 'Request a MetroGlass Pro Estimate',
+    title: 'Request a Shower Door Estimate',
     description: 'Send your neighborhood, building type, and project details for a fast MetroGlass Pro estimate.',
   },
   twitter: { card: 'summary_large_image' },

@@ -8,7 +8,7 @@ import ScrollObserver from '@/components/ScrollObserver'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metroglasspro.com'),
-  title: { default: 'Custom Shower Doors Manhattan & NYC | MetroGlass Pro', template: '%s | MetroGlass Pro' },
+  title: { default: 'Custom Shower Doors Manhattan and NYC', template: '%s | MetroGlass Pro' },
   description: 'Custom shower doors for Manhattan apartments, condos, and brownstones, plus mirrors and related custom glass across NYC. Clean installs, precise fit, COI ready, fast estimates.',
   openGraph: {
     type: 'website',
