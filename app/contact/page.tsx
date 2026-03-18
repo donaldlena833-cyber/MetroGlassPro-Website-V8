@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import EstimateRequestForm from '@/components/EstimateRequestForm'
 
 export const metadata: Metadata = {
   title: 'Request a Shower Door Estimate',
@@ -12,8 +13,6 @@ export const metadata: Metadata = {
 }
 
 export default function ContactPage() {
-  const FORM = 'https://formspree.io/f/xkovqdgg'
-
   return (
     <>
       <section className="bg-cream pt-20 sm:pt-32 pb-16">
@@ -74,117 +73,7 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="anim-slide-right">
-              <form method="POST" action={FORM} className="space-y-5">
-                <input type="hidden" name="_subject" value="New Quote Request | MetroGlass Pro" />
-                <div>
-                  <label htmlFor="name" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Name</label>
-                  <input type="text" id="name" name="name" required className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Phone</label>
-                  <input type="tel" id="phone" name="phone" required className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Email</label>
-                  <input type="email" id="email" name="email" required className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="service" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Service</label>
-                  <select id="service" name="service" required className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                    <option value="">Select a service...</option>
-                    <option>Frameless Shower Door</option>
-                    <option>Sliding Shower Door</option>
-                    <option>Shower Door Replacement</option>
-                    <option>Shower Door Repair or Leak Issue</option>
-                    <option>Framed or Semi-Frameless Shower Door</option>
-                    <option>Custom Mirror</option>
-                    <option>Glass Partition or Railing</option>
-                    <option>Commercial or Trade Project</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="borough" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Borough</label>
-                    <select id="borough" name="borough" required className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                      <option value="">Select borough...</option>
-                      <option>Manhattan</option>
-                      <option>Brooklyn</option>
-                      <option>Queens</option>
-                      <option>The Bronx</option>
-                      <option>Staten Island</option>
-                      <option>Long Island</option>
-                      <option>Northern New Jersey</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="neighborhood" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Neighborhood</label>
-                    <input type="text" id="neighborhood" name="neighborhood" placeholder="Tribeca, Upper East Side, Lower East Side..." className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors" />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="building_type" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Building Type</label>
-                    <select id="building_type" name="building_type" className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                      <option value="">Select building type...</option>
-                      <option>Condo</option>
-                      <option>Co-op</option>
-                      <option>Brownstone or Townhouse</option>
-                      <option>Rental Apartment</option>
-                      <option>Single Family Home</option>
-                      <option>Commercial</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="project_timeline" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Project Timeline</label>
-                    <select id="project_timeline" name="project_timeline" className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                      <option value="">Select timeline...</option>
-                      <option>ASAP</option>
-                      <option>Within 1 to 2 weeks</option>
-                      <option>This month</option>
-                      <option>Planning and comparing</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="project_type" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Project Type</label>
-                    <select id="project_type" name="project_type" className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                      <option value="">Select project type...</option>
-                      <option>New shower door install</option>
-                      <option>Replacing an existing door</option>
-                      <option>Need repair more than replacement</option>
-                      <option>Not sure yet</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="photos_ready" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Photos Ready</label>
-                    <select id="photos_ready" name="photos_ready" className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                      <option value="">Select if known...</option>
-                      <option>Yes, I can text photos now</option>
-                      <option>I can send photos after you reply</option>
-                      <option>Not yet</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="coi_needed" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">COI or Building Coordination</label>
-                  <select id="coi_needed" name="coi_needed" className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-full text-sm focus:outline-none focus:border-charcoal/30 transition-colors appearance-none">
-                    <option value="">Select if known...</option>
-                    <option>Yes, COI will be needed</option>
-                    <option>Yes, and the building has delivery or elevator rules</option>
-                    <option>No, COI not needed</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-[13px] font-medium text-charcoal/50 mb-1.5">Message</label>
-                  <textarea id="message" name="message" rows={5} placeholder="Tell us the layout, what style you want, if you are replacing an old door, and anything important about the building or timeline..." className="w-full px-5 py-3.5 bg-cream-light border border-charcoal/[0.08] rounded-2xl text-sm focus:outline-none focus:border-charcoal/30 transition-colors resize-vertical" />
-                </div>
-                <p className="text-[13px] text-charcoal/45">Have photos ready. Text them to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20submitted%20the%20form%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a> after submitting for faster pricing.</p>
-                <button type="submit" className="w-full btn-pill btn-primary py-3.5 text-sm mt-2">Request Estimate</button>
-              </form>
+              <EstimateRequestForm />
             </div>
           </div>
         </div>
