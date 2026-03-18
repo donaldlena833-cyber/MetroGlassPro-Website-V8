@@ -1,6 +1,6 @@
 'use client'
 
-import type { FormEvent, ReactNode } from 'react'
+import type { ChangeEvent, FormEvent, ReactNode } from 'react'
 import { useState } from 'react'
 
 type FormValues = {
@@ -99,6 +99,9 @@ const coordinationOptions = [
 const inputClassName =
   'w-full px-5 py-3.5 bg-white/70 border border-charcoal/[0.08] rounded-2xl text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-charcoal/30 focus:bg-white transition-colors'
 
+const maxFiles = 3
+const maxFileSizeMb = 8
+
 function Section({
   eyebrow,
   title,
@@ -122,6 +125,7 @@ function Section({
 
 export default function EstimateRequestForm() {
   const [values, setValues] = useState<FormValues>(initialValues)
+  const [files, setFiles] = useState<File[]>([])
   const [submitState, setSubmitState] = useState<SubmitState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -135,10 +139,19 @@ export default function EstimateRequestForm() {
     setErrorMessage('')
 
     try {
+      const formData = new FormData()
+
+      Object.entries(values).forEach(([key, value]) => {
+        formData.append(key, value)
+      })
+
+      files.forEach((file) => {
+        formData.append('attachments', file)
+      })
+
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: formData,
       })
 
       const payload = await response.json().catch(() => ({}))
@@ -149,10 +162,29 @@ export default function EstimateRequestForm() {
 
       setSubmitState('success')
       setValues(initialValues)
+      setFiles([])
     } catch (error) {
       setSubmitState('error')
       setErrorMessage(error instanceof Error ? error.message : 'We could not send your request right now. Please call or text us.')
     }
+  }
+
+  function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
+    const nextFiles = Array.from(event.target.files || [])
+
+    if (nextFiles.length > maxFiles) {
+      setErrorMessage(`Please select up to ${maxFiles} files.`)
+      return
+    }
+
+    const tooLarge = nextFiles.find((file) => file.size > maxFileSizeMb * 1024 * 1024)
+    if (tooLarge) {
+      setErrorMessage(`${tooLarge.name} is larger than ${maxFileSizeMb}MB. If your photos are larger, text them to us instead.`)
+      return
+    }
+
+    setErrorMessage('')
+    setFiles(nextFiles)
   }
 
   if (submitState === 'success') {
@@ -365,6 +397,43 @@ export default function EstimateRequestForm() {
                 className={`${inputClassName} rounded-[24px] resize-vertical`}
               />
             </div>
+          </Section>
+
+          <Section
+            eyebrow="Photos and Plans"
+            title="Attach bathroom photos if you have them."
+            description="You can upload up to 3 images or PDFs here. If your phone photos are too large, you can still text them after submitting."
+          >
+            <label
+              htmlFor="attachments"
+              className="flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-[28px] border border-dashed border-charcoal/[0.12] bg-gradient-to-br from-white/80 via-cream-light to-white/60 px-6 py-8 text-center transition-colors hover:border-charcoal/[0.22]"
+            >
+              <span className="font-serif text-charcoal text-2xl mb-3">Drop files here or browse</span>
+              <span className="text-warm text-[14px] leading-relaxed max-w-md">
+                JPG, PNG, HEIC, or PDF. Up to {maxFiles} files, {maxFileSizeMb}MB each.
+              </span>
+              <span className="mt-5 btn-pill btn-outline px-6 py-2.5 text-[13px]">Choose Files</span>
+              <input
+                id="attachments"
+                name="attachments"
+                type="file"
+                accept="image/*,.pdf"
+                multiple
+                onChange={handleFileChange}
+                className="sr-only"
+              />
+            </label>
+
+            {files.length > 0 && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {files.map((file) => (
+                  <div key={`${file.name}-${file.size}`} className="rounded-2xl bg-white/80 border border-charcoal/[0.06] px-4 py-3">
+                    <p className="text-charcoal text-[14px] font-medium truncate">{file.name}</p>
+                    <p className="text-charcoal/45 text-[12px] mt-1">{(file.size / 1024 / 1024).toFixed(1)}MB</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </Section>
 
           <div className="rounded-[28px] border border-charcoal/[0.06] bg-charcoal text-white px-6 py-5">

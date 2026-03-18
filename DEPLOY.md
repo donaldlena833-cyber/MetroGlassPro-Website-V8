@@ -22,6 +22,7 @@
 - The website now uses a native MetroGlass Pro form that posts to `/api/contact`.
 - That endpoint is powered by a Cloudflare Pages Function in `functions/api/contact.ts`.
 - `public/_routes.json` limits Functions invocations to `/api/*` only, so the rest of the site stays static.
+- The form supports direct photo or PDF uploads and sends an automatic confirmation email back to the customer.
 - If `CONTACT_FROM_EMAIL` is not set, the function falls back to Resend's default sender for testing.
 - For the cleanest branded setup, verify `metroglasspro.com` in Resend and set `CONTACT_FROM_EMAIL` to something like `website@metroglasspro.com`.
 

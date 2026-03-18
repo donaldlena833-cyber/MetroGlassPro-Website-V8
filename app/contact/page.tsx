@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Contact</p>
           <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">Request a shower door or custom glass estimate.</h1>
-          <p className="mt-5 text-warm text-lg max-w-2xl">The fastest quote starts with a few bathroom photos, your neighborhood, and whether this is a new install, replacement, or repair. Manhattan projects move faster when we know the building type and any COI needs up front.</p>
+          <p className="mt-5 text-warm text-lg max-w-2xl">The fastest quote starts with a few bathroom photos, your neighborhood, and whether this is a new install, replacement, or repair. You can upload photos right in the form, and Manhattan projects move faster when we know the building type and any COI needs up front.</p>
         </div>
       </section>
 
@@ -58,7 +58,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3"><span className="text-orange mt-0.5">✓</span><span>Tell us your borough and neighborhood, Manhattan first if that is where the job is.</span></div>
                   <div className="flex items-start gap-3"><span className="text-orange mt-0.5">✓</span><span>Tell us if this is a new shower door, a replacement, or a repair.</span></div>
                   <div className="flex items-start gap-3"><span className="text-orange mt-0.5">✓</span><span>Let us know if the building needs a COI, freight access, or special coordination.</span></div>
-                  <div className="flex items-start gap-3"><span className="text-orange mt-0.5">✓</span><span>Text photos after you submit and we can usually price faster.</span></div>
+                  <div className="flex items-start gap-3"><span className="text-orange mt-0.5">✓</span><span>Upload photos in the form, or text them after you submit if that is easier.</span></div>
                 </div>
               </div>
               <div className="mt-6 glass-card p-6">
