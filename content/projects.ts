@@ -17,6 +17,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'visualize-shower-door-options-nyc',
+    title: 'We Show You Every Option Before Any Glass Gets Cut',
+    date: '2026-04-01',
+    services: ['Frameless Shower Doors', 'Design Consultation', 'Neo-Angle Enclosure'],
+    materials: ['3/8" clear tempered glass'],
+    hardware: ['Chrome sliding hardware', 'Chrome hinges'],
+    durationRange: '5 to 7 business days',
+    scenarioType: 'real',
+    excerpt: 'Before any glass is fabricated, we render your actual bathroom with four enclosure configurations, hinged, sliding, corner, and neo-angle, so you choose with full confidence. This is the Visualize process.',
+    image: '/gallery/visualize-feature-neo-angle.jpg',
+    imageAlt: 'Neo-angle curved frameless shower enclosure with chrome hardware in a compact NYC bathroom with white marble tile',
+  },
+  {
     slug: '84-clinton-lower-east-side-shower-door-before-after',
     title: '84 Clinton Shower Door Before and After, Lower East Side Manhattan',
     date: '2026-03-16',

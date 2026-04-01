@@ -1,0 +1,63 @@
+name: Publish Blog Drafts
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  push:
+    paths:
+      - '_drafts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-drafts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+          fetch-depth: 0
+
+      - name: Check for drafts
+        id: check
+        run: |
+          if [ -d "_drafts" ] && ls _drafts/*.md 2>/dev/null | grep -q .; then
+            echo "has_drafts=true" >> $GITHUB_OUTPUT
+            echo "Found draft files:"
+            ls -la _drafts/*.md
+          else
+            echo "has_drafts=false" >> $GITHUB_OUTPUT
+            echo "No drafts found. Skipping."
+          fi
+
+      - name: Setup Node
+        if: steps.check.outputs.has_drafts == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Process drafts
+        if: steps.check.outputs.has_drafts == 'true'
+        run: node scripts/process-drafts.mjs
+
+      - name: Move images
+        if: steps.check.outputs.has_drafts == 'true'
+        run: |
+          shopt -s nullglob
+          for f in _drafts/*.{jpg,jpeg,png,webp}; do
+            mv "$f" public/gallery/
+            echo "Moved $f to public/gallery/"
+          done
+
+      - name: Commit and push
+        if: steps.check.outputs.has_drafts == 'true'
+        run: |
+          git config user.name "MetroGlassPro Bot"
+          git config user.email "operations@metroglasspro.com"
+          git add -A
+          git commit -m "chore: publish blog drafts $(date +'%Y-%m-%d')"
+          git push
