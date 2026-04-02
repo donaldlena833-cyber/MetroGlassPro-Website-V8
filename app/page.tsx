@@ -31,6 +31,29 @@ const previewImages = [
   { src: '/gallery/mirror-1.jpg', alt: 'Mirror installation Brooklyn' },
 ]
 
+const featuredGuides = [
+  {
+    title: '84 Clinton Shower Door Before and After',
+    description: 'A Lower East Side project showing how the right sliding enclosure can finish a compact Manhattan bathroom.',
+    href: '/projects/84-clinton-lower-east-side-shower-door-before-after/',
+  },
+  {
+    title: '90° Corner Frameless Enclosure',
+    description: 'Why the 90 degree corner layout is still the luxury standard for many built-in NYC showers.',
+    href: '/projects/90-corner-enclosure-nyc/',
+  },
+  {
+    title: 'Single Swing Door Guide',
+    description: 'A practical guide to the most common frameless shower door configuration in city bathrooms.',
+    href: '/projects/single-swing-door-nyc/',
+  },
+  {
+    title: 'Co-op and Condo Installation',
+    description: 'What building coordination, COIs, elevator rules, and scheduling really look like in Manhattan jobs.',
+    href: '/projects/coop-condo-shower-door-installation-nyc/',
+  },
+]
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -232,7 +255,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ 5b. FRAMELESS DOORS CTA ═══ */}
+      {/* ═══ 5b. FEATURED GUIDES ═══ */}
+      <section className="bg-cream-light py-20 sm:py-24 border-y border-charcoal/[0.04]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Buyer Guides</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">
+              A few useful pages before you price the job.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {featuredGuides.map((guide, index) => (
+              <Link key={guide.href} href={guide.href} className={`glass-card p-6 card-lift block anim-fade-up d${index + 1}`}>
+                <h3 className="font-serif text-charcoal text-2xl mb-3">{guide.title}</h3>
+                <p className="text-warm text-[15px] leading-relaxed">{guide.description}</p>
+                <span className="inline-block mt-4 text-orange text-sm font-medium hover:opacity-70 transition-opacity">Read guide →</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-10 text-center anim-fade-up">
+            <Link href="/projects/" className="btn-pill btn-outline px-10 py-3.5 text-sm">
+              View All Projects
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 5c. FRAMELESS DOORS CTA ═══ */}
       <section className="bg-cream-light py-16 sm:py-20 border-y border-charcoal/[0.04]">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 text-center">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Manhattan First</p>
@@ -333,9 +382,17 @@ export default function HomePage() {
       <section className="bg-cream py-12 border-t border-charcoal/[0.04]">
         <div className="max-w-4xl mx-auto px-6 sm:px-10 text-center">
           <p className="text-charcoal/30 text-[13px] font-medium tracking-widest uppercase mb-2">Serving</p>
-          <p className="text-charcoal/60 text-sm">
-            Manhattan first · Brooklyn · Queens · The Bronx · Staten Island
-          </p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+            <Link href="/service-areas/manhattan/" className="text-charcoal/60 hover:text-charcoal transition-colors">Manhattan</Link>
+            <span className="text-charcoal/25">·</span>
+            <Link href="/service-areas/brooklyn/" className="text-charcoal/60 hover:text-charcoal transition-colors">Brooklyn</Link>
+            <span className="text-charcoal/25">·</span>
+            <Link href="/service-areas/queens/" className="text-charcoal/60 hover:text-charcoal transition-colors">Queens</Link>
+            <span className="text-charcoal/25">·</span>
+            <Link href="/service-areas/bronx/" className="text-charcoal/60 hover:text-charcoal transition-colors">The Bronx</Link>
+            <span className="text-charcoal/25">·</span>
+            <Link href="/service-areas/staten-island/" className="text-charcoal/60 hover:text-charcoal transition-colors">Staten Island</Link>
+          </div>
           <p className="text-charcoal/40 text-xs mt-1">Also serving Long Island & Northern New Jersey</p>
           <Link href="/service-areas/" className="inline-flex items-center gap-2 text-orange text-sm font-medium mt-3 hover:opacity-70 transition-opacity">
             Explore Service Areas <span className="text-xs">→</span>
