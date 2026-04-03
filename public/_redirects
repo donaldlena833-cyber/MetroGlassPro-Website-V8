@@ -77,10 +77,7 @@
 /staten-island                /service-areas/staten-island/ 301
 /staten-island/               /service-areas/staten-island/ 301
 
-# ── Catch-all for any remaining blog posts ──
-/blog/*    /projects/    301
-/blog/     /projects/    301
-/blog      /projects/    301
+# ── Catch-all removed: new blog posts live at /blog/SLUG.html ──
 
 # ── Removed features ──
 /visualize    /    301
