@@ -17,6 +17,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'metroglasspro-project-20260415-072237',
+    title: 'Custom Glass Installation — MetroGlass Pro NYC',
+    date: '2026-04-15',
+    services: ['Frameless Shower Doors'],
+    scenarioType: 'real',
+    excerpt: 'A recent custom frameless shower enclosure installation by MetroGlass Pro in NYC. Precision field measurements, chrome hardware, and a fast turnaround from approval to install.',
+    image: '/gallery/mgp-20260415-072237-1-56bcf70c-7086-45d9-8eb4-c66daca1820f.png',
+    imageAlt: 'Custom frameless shower enclosure installed by MetroGlass Pro NYC',
+  },
+
+  {
     slug: 'metroglasspro-project-20260414-072247',
     title: 'Custom Glass Installation — MetroGlass Pro NYC',
     date: '2026-04-14',
