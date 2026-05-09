@@ -69,6 +69,13 @@ const manhattanScenarios = [
 
 const miniCases = [
   {
+    eyebrow: 'Repair Pricing Guide',
+    title: 'How to avoid overpaying for the wrong shower door fix',
+    description: 'A practical repair guide for NYC homeowners who want a clear diagnosis, repair-versus-replacement options, and a fair conversation before approving the work.',
+    href: '/blog/2026-05-09-honest-shower-door-repair-nyc.html',
+    cta: 'Read the repair guide',
+  },
+  {
     eyebrow: 'Remediation Example',
     title: 'Fixing a shower door install that was done wrong the first time',
     description: 'This NYC design collaboration started with the wrong glass clip size, sloppy silicone, and a contractor who stopped responding. It is a useful example of when a shower door issue is really an install quality problem, not simple wear.',
