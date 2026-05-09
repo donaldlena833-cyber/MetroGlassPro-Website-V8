@@ -17,6 +17,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'frameless-shower-door-cost-nyc',
+    title: 'Frameless Shower Door Cost in NYC: What Actually Changes the Price',
+    date: '2026-05-09',
+    services: ['Frameless Shower Doors', 'Buyer Guide'],
+    materials: ['3/8" tempered glass', '1/2" tempered glass'],
+    scenarioType: 'typical',
+    excerpt: 'A practical buyer guide to NYC frameless shower door pricing, layout choices, hardware, glass thickness, and building coordination.',
+    image: '/editorial/configurations/door-fixed-panel.jpg',
+    imageAlt: 'Frameless shower door and fixed panel configuration with satin brass hardware',
+  },
+
+  {
     slug: 'metroglasspro-project-20260418-072239',
     title: 'Custom Glass Installation — MetroGlass Pro NYC',
     date: '2026-04-18',
