@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/gallery/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/contact/`, lastModified: now, changeFrequency: 'yearly', priority: 0.8 },
     { url: `${base}/projects/`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${base}/projects/frameless-shower-door-cost-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${base}/projects/84-clinton-lower-east-side-shower-door-before-after/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/projects/interior-design-collaboration-shower-door-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/projects/shower-glass-design-consultation-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
