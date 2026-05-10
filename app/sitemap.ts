@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/projects/walk-in-shower-panel-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     { url: `${base}/projects/typical-mirror-replacement-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
     { url: `${base}/projects/crl-geneva-vs-vienna-hinges/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
+    { url: `${base}/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc.html`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/blog/2026-05-09-honest-shower-door-repair-nyc.html`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
     { url: `${base}/blog/2026-04-03-bathroom-tile-ideas-manhattan.html`, lastModified: now, changeFrequency: 'monthly', priority: 0.55 },
     { url: `${base}/reviews/`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },

@@ -31,6 +31,38 @@ export default function ProjectsIndex() {
       <section className="bg-cream pb-28 sm:pb-36">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="space-y-8">
+            <a
+              href="/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc.html"
+              className="group block glass-card overflow-hidden card-lift"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
+                <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
+                  <img
+                    src="/editorial/shower-door.jpg"
+                    alt="Frameless shower door hardware and glass in a finished bathroom"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 sm:p-7">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-orange/70 bg-orange/[0.08] px-2 py-0.5 rounded-full">Market Update</span>
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2 py-0.5 rounded-full">Buyer Guide</span>
+                  </div>
+                  <h2 className="font-serif text-charcoal text-xl sm:text-2xl mb-2 group-hover:text-charcoal/80 transition-colors">
+                    Why Glass Tariffs Are Pushing Shower Door Prices Higher in NYC
+                  </h2>
+                  <p className="text-warm text-[14px] leading-relaxed mb-3">
+                    A practical look at tariffs, supplier changes, aluminum hardware, glass costs, and how construction-price pressure reaches NYC bathroom renovation quotes.
+                  </p>
+                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-charcoal/30">
+                    <span>Market update</span>
+                    <span>May 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
             {projects.map((p) => (
               <Link
                 key={p.slug}
