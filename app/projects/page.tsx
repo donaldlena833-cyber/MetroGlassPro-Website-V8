@@ -63,6 +63,70 @@ export default function ProjectsIndex() {
               </div>
             </a>
 
+            <a
+              href="/blog/2026-05-09-honest-shower-door-repair-nyc.html"
+              className="group block glass-card overflow-hidden card-lift"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
+                <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
+                  <img
+                    src="/editorial/tools.jpg"
+                    alt="Shower door hardware and installation tools for repair work"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 sm:p-7">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-orange/70 bg-orange/[0.08] px-2 py-0.5 rounded-full">Repair Guide</span>
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2 py-0.5 rounded-full">Buyer Guide</span>
+                  </div>
+                  <h2 className="font-serif text-charcoal text-xl sm:text-2xl mb-2 group-hover:text-charcoal/80 transition-colors">
+                    Honest Shower Door Repair in NYC
+                  </h2>
+                  <p className="text-warm text-[14px] leading-relaxed mb-3">
+                    How to tell when a shower door needs a simple repair, an adjustment, new parts, or a full replacement before overpaying for the wrong fix.
+                  </p>
+                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-charcoal/30">
+                    <span>Repair guidance</span>
+                    <span>May 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="/blog/2026-04-03-bathroom-tile-ideas-manhattan.html"
+              className="group block glass-card overflow-hidden card-lift"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
+                <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
+                  <img
+                    src="/editorial/design-process-sketch.jpg"
+                    alt="Bathroom design sketch for Manhattan tile and glass shower planning"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 sm:p-7">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-orange/70 bg-orange/[0.08] px-2 py-0.5 rounded-full">Design Guide</span>
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2 py-0.5 rounded-full">Manhattan</span>
+                  </div>
+                  <h2 className="font-serif text-charcoal text-xl sm:text-2xl mb-2 group-hover:text-charcoal/80 transition-colors">
+                    Bathroom Tile Ideas for Manhattan Apartments
+                  </h2>
+                  <p className="text-warm text-[14px] leading-relaxed mb-3">
+                    Marble, hex, and large-format tile ideas that pair cleanly with custom glass shower doors in tight Manhattan bathrooms.
+                  </p>
+                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-charcoal/30">
+                    <span>Design guide</span>
+                    <span>April 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
             {projects.map((p) => (
               <Link
                 key={p.slug}
