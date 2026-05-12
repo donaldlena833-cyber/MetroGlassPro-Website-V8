@@ -120,10 +120,31 @@ const faqJsonLd = {
   })),
 }
 
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Shower Door Repair Manhattan and NYC',
+  serviceType: 'Shower door repair',
+  url: 'https://metroglasspro.com/shower-door-repair-nyc/',
+  description:
+    'Shower door repair guidance and repair-versus-replacement evaluation for Manhattan and NYC bathrooms, including leaks, dragging doors, loose hardware, and installation remediation.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'MetroGlass Pro',
+    url: 'https://metroglasspro.com',
+    telephone: '+13329993846',
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Manhattan, NY' },
+    { '@type': 'City', name: 'New York, NY' },
+  ],
+}
+
 export default function ShowerDoorRepairPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
 
       <section className="bg-cream pt-20 sm:pt-32 pb-16 sm:pb-20">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">

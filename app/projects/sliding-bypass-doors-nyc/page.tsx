@@ -82,7 +82,7 @@ export default function SlidingBypassArticle() {
             <li><strong>Silicone seals:</strong> Check the seals where glass meets the tub edge once a year. If they&apos;re peeling or discolored, a re-seal takes 15 minutes and costs almost nothing in materials.</li>
           </ul>
           <p>
-            Most of our bypass installations run for years without any service calls. The barn-door roller systems we use are commercial-grade and handle daily sliding without wear issues.
+            A well-fitted bypass system should feel smooth in daily use, but it still needs normal cleaning and occasional hardware checks. We use heavier roller hardware than basic framed sliders and explain the simple maintenance that keeps the door moving cleanly.
           </p>
         </div>
       </section>

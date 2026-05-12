@@ -29,10 +29,31 @@ const faqJsonLd = {
   })),
 }
 
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Shower Door Installation Manhattan and NYC',
+  serviceType: 'Shower door installation',
+  url: 'https://metroglasspro.com/shower-door-installation-nyc/',
+  description:
+    'Shower door installation for Manhattan apartments, co-ops, condos, and NYC homes, including frameless, framed, sliding, pivot, neo-angle, and bathtub enclosure layouts.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'MetroGlass Pro',
+    url: 'https://metroglasspro.com',
+    telephone: '+13329993846',
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Manhattan, NY' },
+    { '@type': 'City', name: 'New York, NY' },
+  ],
+}
+
 export default function ShowerDoorInstallationNYC() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
 
       {/* ═══ HERO ═══ */}
       <section className="bg-cream pt-20 sm:pt-32 pb-14 sm:pb-20">
