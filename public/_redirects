@@ -1,6 +1,12 @@
 # MetroGlassPro — Cloudflare Pages Redirect Rules
 # All 301 redirects for legacy/removed content
 
+# ── Current blog canonical cleanup ──
+/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc.html     /blog/2026-05-10-glass-tariffs-shower-door-prices-nyc 301
+/blog/2026-05-09-honest-shower-door-repair-nyc.html            /blog/2026-05-09-honest-shower-door-repair-nyc 301
+/blog/2026-04-03-bathroom-tile-ideas-manhattan                 /blog/finished-tile-shower-glass-measurement-manhattan/ 301
+/blog/2026-04-03-bathroom-tile-ideas-manhattan.html            /blog/finished-tile-shower-glass-measurement-manhattan/ 301
+
 # ── Specific blog post redirects (topically matched) ──
 /blog/steam-shower-glass-door-sealing-prevent-leaks              /shower-door-repair-nyc/      301
 /blog/seven-warning-signs-shower-door-seal-failing               /shower-door-repair-nyc/      301
@@ -77,7 +83,7 @@
 /staten-island                /service-areas/staten-island/ 301
 /staten-island/               /service-areas/staten-island/ 301
 
-# ── Catch-all removed: new blog posts live at /blog/SLUG.html ──
+# ── Catch-all removed: current blog canonicals live at /blog/SLUG ──
 
 # ── Removed features ──
 /visualize    /    301

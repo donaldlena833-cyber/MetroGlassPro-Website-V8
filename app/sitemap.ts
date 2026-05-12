@@ -1,46 +1,76 @@
 import { MetadataRoute } from 'next'
+import { projects } from '@/content/projects'
 
 export const dynamic = 'force-static'
 
+const base = 'https://metroglasspro.com'
+const siteUpdated = new Date('2026-05-12T00:00:00.000Z')
+
+const coreRoutes = [
+  { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
+  { path: '/frameless-shower-doors-nyc/', changeFrequency: 'monthly' as const, priority: 0.95 },
+  { path: '/services/', changeFrequency: 'monthly' as const, priority: 0.9 },
+  { path: '/shower-door-installation-nyc/', changeFrequency: 'monthly' as const, priority: 0.85 },
+  { path: '/shower-door-replacement-nyc/', changeFrequency: 'monthly' as const, priority: 0.85 },
+  { path: '/shower-door-repair-nyc/', changeFrequency: 'monthly' as const, priority: 0.85 },
+  { path: '/custom-mirrors-nyc/', changeFrequency: 'monthly' as const, priority: 0.75 },
+  { path: '/glass-partitions-nyc/', changeFrequency: 'monthly' as const, priority: 0.7 },
+  { path: '/service-areas/', changeFrequency: 'monthly' as const, priority: 0.8 },
+  { path: '/service-areas/manhattan/', changeFrequency: 'monthly' as const, priority: 0.75 },
+  { path: '/service-areas/brooklyn/', changeFrequency: 'monthly' as const, priority: 0.75 },
+  { path: '/service-areas/queens/', changeFrequency: 'monthly' as const, priority: 0.75 },
+  { path: '/service-areas/bronx/', changeFrequency: 'monthly' as const, priority: 0.75 },
+  { path: '/service-areas/staten-island/', changeFrequency: 'monthly' as const, priority: 0.75 },
+  { path: '/gallery/', changeFrequency: 'monthly' as const, priority: 0.7 },
+  { path: '/reviews/', changeFrequency: 'monthly' as const, priority: 0.6 },
+  { path: '/about/', changeFrequency: 'yearly' as const, priority: 0.5 },
+  { path: '/contact/', changeFrequency: 'yearly' as const, priority: 0.8 },
+  { path: '/privacy-policy/', changeFrequency: 'yearly' as const, priority: 0.1 },
+  { path: '/projects/', changeFrequency: 'weekly' as const, priority: 0.7 },
+  { path: '/blog/', changeFrequency: 'monthly' as const, priority: 0.65 },
+]
+
+const blogRoutes = [
+  {
+    path: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
+    lastModified: new Date('2026-05-10T00:00:00.000Z'),
+    priority: 0.7,
+  },
+  {
+    path: '/blog/2026-05-09-honest-shower-door-repair-nyc',
+    lastModified: new Date('2026-05-09T00:00:00.000Z'),
+    priority: 0.65,
+  },
+  {
+    path: '/blog/finished-tile-shower-glass-measurement-manhattan/',
+    lastModified: new Date('2026-05-12T00:00:00.000Z'),
+    priority: 0.6,
+  },
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://metroglasspro.com'
-  const now = new Date()
-  return [
-    { url: `${base}/`, lastModified: now, changeFrequency: 'monthly', priority: 1.0 },
-    { url: `${base}/frameless-shower-doors-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.95 },
-    { url: `${base}/services/`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${base}/shower-door-installation-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${base}/shower-door-replacement-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${base}/shower-door-repair-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${base}/custom-mirrors-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${base}/glass-partitions-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/service-areas/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${base}/service-areas/manhattan/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${base}/service-areas/brooklyn/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${base}/service-areas/queens/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${base}/service-areas/bronx/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${base}/service-areas/staten-island/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${base}/gallery/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/contact/`, lastModified: now, changeFrequency: 'yearly', priority: 0.8 },
-    { url: `${base}/projects/`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${base}/projects/frameless-shower-door-cost-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${base}/projects/84-clinton-lower-east-side-shower-door-before-after/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${base}/projects/interior-design-collaboration-shower-door-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${base}/projects/shower-glass-design-consultation-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${base}/projects/coop-condo-shower-door-installation-nyc/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${base}/projects/single-swing-door-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${base}/projects/door-fixed-panel-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${base}/projects/sliding-bypass-doors-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${base}/projects/90-corner-enclosure-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${base}/projects/neo-angle-enclosure-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${base}/projects/walk-in-shower-panel-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${base}/projects/typical-mirror-replacement-nyc/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${base}/projects/crl-geneva-vs-vienna-hinges/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${base}/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc.html`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/blog/2026-05-09-honest-shower-door-repair-nyc.html`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
-    { url: `${base}/blog/2026-04-03-bathroom-tile-ideas-manhattan.html`, lastModified: now, changeFrequency: 'monthly', priority: 0.55 },
-    { url: `${base}/reviews/`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${base}/about/`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${base}/privacy-policy/`, lastModified: now, changeFrequency: 'yearly', priority: 0.1 },
-  ]
+  const routeEntries = coreRoutes.map((route) => ({
+    url: `${base}${route.path}`,
+    lastModified: siteUpdated,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }))
+
+  const projectEntries = projects
+    .filter((project) => !project.slug.startsWith('metroglasspro-project-'))
+    .map((project) => ({
+      url: `${base}/projects/${project.slug}/`,
+      lastModified: new Date(`${project.date}T00:00:00.000Z`),
+      changeFrequency: project.scenarioType === 'typical' ? 'yearly' as const : 'monthly' as const,
+      priority: project.slug === 'frameless-shower-door-cost-nyc' ? 0.85 : 0.7,
+    }))
+
+  const blogEntries = blogRoutes.map((route) => ({
+    url: `${base}${route.path}`,
+    lastModified: route.lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: route.priority,
+  }))
+
+  return [...routeEntries, ...projectEntries, ...blogEntries]
 }
