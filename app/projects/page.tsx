@@ -103,7 +103,7 @@ export default function ProjectsIndex() {
                 <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
                   <img
                     src="/editorial/design-process-sketch.jpg"
-                    alt="Bathroom design sketch for Manhattan tile and glass shower planning"
+                    alt="Shower glass planning sketch for a Manhattan bathroom opening"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -114,10 +114,10 @@ export default function ProjectsIndex() {
                     <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2 py-0.5 rounded-full">Manhattan</span>
                   </div>
                   <h2 className="font-serif text-charcoal text-xl sm:text-2xl mb-2 group-hover:text-charcoal/80 transition-colors">
-                    Bathroom Tile Ideas for Manhattan Apartments
+                    Shower Glass Planning for Finished-Tile Manhattan Bathrooms
                   </h2>
                   <p className="text-warm text-[14px] leading-relaxed mb-3">
-                    Marble, hex, and large-format tile ideas that pair cleanly with custom glass shower doors in tight Manhattan bathrooms.
+                    How finished walls, curb slope, hardware clearances, and co-op rules affect custom shower glass before fabrication.
                   </p>
                   <div className="flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-charcoal/30">
                     <span>Design guide</span>
