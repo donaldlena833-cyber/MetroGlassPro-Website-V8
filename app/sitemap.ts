@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/frameless-shower-doors-manhattan-buyer-guide/',
+    lastModified: new Date('2026-05-12T00:00:00.000Z'),
+    priority: 0.72,
+  },
+  {
     path: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
     lastModified: new Date('2026-05-10T00:00:00.000Z'),
     priority: 0.7,

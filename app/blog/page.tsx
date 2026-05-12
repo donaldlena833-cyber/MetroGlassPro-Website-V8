@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/frameless-shower-doors-manhattan-buyer-guide/',
+    label: 'Manhattan Guide',
+    title: 'Frameless Shower Doors in Manhattan: Buyer Planning Guide',
+    excerpt: 'How to plan finished tile, layout clearance, hardware, building access, and estimate prep before ordering custom shower glass.',
+    image: '/editorial/shower-door.jpg',
+    imageAlt: 'Frameless shower door glass and hardware in a finished bathroom',
+    date: 'May 2026',
+  },
+  {
     href: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
     label: 'Market Update',
     title: 'Why Glass Tariffs Are Pushing Shower Door Prices Higher in NYC',
