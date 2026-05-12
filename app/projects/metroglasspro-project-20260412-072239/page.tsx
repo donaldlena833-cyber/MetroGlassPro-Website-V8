@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     'MetroGlass Pro installation',
   ],
   alternates: { canonical: 'https://metroglasspro.com/projects/metroglasspro-project-20260412-072239/' },
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'Custom Glass Installation — MetroGlass Pro NYC',
     description: 'A recent custom frameless shower enclosure installation by MetroGlass Pro in NYC. Precision field measurements, chrome hardware, and a 5 to 7 business day turnaround from approval to install.',

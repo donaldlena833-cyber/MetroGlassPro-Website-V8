@@ -32,7 +32,7 @@ export default function ProjectsIndex() {
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="space-y-8">
             <a
-              href="/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc.html"
+              href="/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc"
               className="group block glass-card overflow-hidden card-lift"
             >
               <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
@@ -64,7 +64,7 @@ export default function ProjectsIndex() {
             </a>
 
             <a
-              href="/blog/2026-05-09-honest-shower-door-repair-nyc.html"
+              href="/blog/2026-05-09-honest-shower-door-repair-nyc"
               className="group block glass-card overflow-hidden card-lift"
             >
               <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
@@ -96,7 +96,7 @@ export default function ProjectsIndex() {
             </a>
 
             <a
-              href="/blog/2026-04-03-bathroom-tile-ideas-manhattan.html"
+              href="/blog/finished-tile-shower-glass-measurement-manhattan/"
               className="group block glass-card overflow-hidden card-lift"
             >
               <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
