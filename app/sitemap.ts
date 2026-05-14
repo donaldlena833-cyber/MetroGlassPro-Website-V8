@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/custom-mirrors-manhattan-apartment-guide/',
+    lastModified: new Date('2026-05-14T00:00:00.000Z'),
+    priority: 0.7,
+  },
+  {
     path: '/blog/frameless-shower-doors-manhattan-buyer-guide/',
     lastModified: new Date('2026-05-12T00:00:00.000Z'),
     priority: 0.72,

@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/custom-mirrors-manhattan-apartment-guide/',
+    label: 'Mirror Guide',
+    title: 'Custom Mirrors in Manhattan Apartments: Buyer Planning Guide',
+    excerpt: 'How to plan wall condition, vanity sizing, outlets, lighting, edge details, building access, and estimate prep before ordering custom mirror glass.',
+    image: '/editorial/mirror.jpg',
+    imageAlt: 'Custom mirror with clean trim and refined wall fit',
+    date: 'May 2026',
+  },
+  {
     href: '/blog/frameless-shower-doors-manhattan-buyer-guide/',
     label: 'Manhattan Guide',
     title: 'Frameless Shower Doors in Manhattan: Buyer Planning Guide',
