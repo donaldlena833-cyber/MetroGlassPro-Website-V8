@@ -67,6 +67,14 @@ const manhattanScenarios = [
   },
 ]
 
+const quoteReadinessItems = [
+  'Photos of the full shower opening, taken straight on and from each side',
+  'Close-ups of the leak, sweep, hinge, roller, handle, track, or silicone problem',
+  'A short note on when the issue started and whether the door has been repaired before',
+  'Approximate opening width, door height, and whether the bathroom is in a co-op, condo, rental, or house',
+  'Any building requirements you already know, such as COI, freight elevator, or work-hour rules',
+]
+
 const miniCases = [
   {
     eyebrow: 'Repair Pricing Guide',
@@ -280,6 +288,29 @@ export default function ShowerDoorRepairPage() {
             <div className="glass-card p-6">
               <h3 className="font-serif text-charcoal text-2xl mb-3">An install that never felt right</h3>
               <p className="text-warm text-[15px] leading-relaxed">Some repair inquiries are really remediation jobs. The shower leaked from day one, the clips look wrong, the silicone looks rushed, or the whole enclosure feels off every time you use it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Quote Readiness</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What helps us diagnose the repair faster.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              A few clear details can separate a simple sweep or alignment fix from a replacement conversation. Send the problem photos first, then we can tell you what is worth checking on site.
+            </p>
+          </div>
+          <div className="glass-card p-6 sm:p-8">
+            <h3 className="font-serif text-charcoal text-2xl mb-5">Before requesting a repair quote</h3>
+            <div className="space-y-3">
+              {quoteReadinessItems.map((item) => (
+                <div key={item} className="flex items-start gap-3 text-sm text-charcoal/60">
+                  <span className="text-orange mt-0.5 shrink-0">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

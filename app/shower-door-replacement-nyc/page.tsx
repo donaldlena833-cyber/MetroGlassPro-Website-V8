@@ -19,6 +19,14 @@ const faqs = [
   { q: 'Will replacing my shower door damage the tile?', a: 'We take great care during removal to protect your tile. Some old installations leave screw holes or adhesive marks — we patch and clean these as part of the replacement. If tile damage is unavoidable (rare), we let you know before proceeding.' },
 ]
 
+const replacementQuoteChecklist = [
+  'Photos of the full opening, the current door or tub track, and both wall edges',
+  'Approximate opening width and height, even if final field measurements still need to happen',
+  'Whether you want the same style again or an upgrade to frameless, sliding, hinged, or fixed-panel glass',
+  'Hardware finish preferences, such as chrome, brushed nickel, matte black, or brass',
+  'Building details that affect scheduling, including COI, elevator access, protection rules, or work hours',
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -165,6 +173,29 @@ export default function ShowerDoorReplacementNYC() {
             </div>
             <div className="rounded-lg overflow-hidden bg-cream-dark">
               <img src="/gallery/project-shower-2.jpg" alt="Frameless shower door replacement Brooklyn" className="w-full h-auto" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Quote Readiness</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What to send before we quote a replacement.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              Replacement pricing depends on the actual opening, glass layout, hardware, removal conditions, and building access. These details help us give a cleaner first answer before the field measure.
+            </p>
+          </div>
+          <div className="glass-card p-6 sm:p-8">
+            <h3 className="font-serif text-charcoal text-2xl mb-5">Useful first-message details</h3>
+            <div className="space-y-3">
+              {replacementQuoteChecklist.map((item) => (
+                <div key={item} className="flex items-start gap-3 text-sm text-charcoal/60">
+                  <span className="text-orange mt-0.5 shrink-0">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
