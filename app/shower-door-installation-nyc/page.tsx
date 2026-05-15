@@ -19,6 +19,14 @@ const faqs = [
   { q: 'How long does installation take?', a: 'Most installations take about 2 to 4 hours. We arrive with everything pre-fabricated and ready to install, with no glass cutting on site. Your shower is usable the same day, though we recommend waiting 24 hours for silicone to fully cure.' },
 ]
 
+const quotePrepItems = [
+  'Straight-on photos of the full shower opening, plus a photo from each side',
+  'Approximate opening width and height, even if we still need a field measure before fabrication',
+  'The layout you are considering: swing door, sliding bypass, door plus fixed panel, corner, or walk-in panel',
+  'Hardware finish preference, such as chrome, brushed nickel, matte black, brass, or still undecided',
+  'Building details that affect scheduling, including COI, elevator access, protection rules, or work hours',
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -169,8 +177,33 @@ export default function ShowerDoorInstallationNYC() {
         </div>
       </section>
 
-      {/* ═══ FAQ ═══ */}
+      {/* ═══ QUOTE PREP ═══ */}
       <section className="bg-cream-light py-20 sm:py-32">
+        <div className="max-w-3xl mx-auto px-6 sm:px-10">
+          <div className="mb-10">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Before We Quote</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">
+              What helps us price the installation faster.
+            </h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              A custom shower door still needs a proper field measure before fabrication. But a few details up front help us understand the layout, flag building logistics, and give you a more useful first conversation.
+            </p>
+          </div>
+          <div className="glass-card p-5 sm:p-7">
+            <div className="space-y-3">
+              {quotePrepItems.map((item) => (
+                <div key={item} className="flex items-start gap-3 text-[14px] sm:text-[15px]">
+                  <span className="text-orange mt-0.5 shrink-0">✓</span>
+                  <span className="text-warm leading-relaxed">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ FAQ ═══ */}
+      <section className="bg-cream py-20 sm:py-32">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
           <div className="text-center mb-12">
             <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">Installation FAQs.</h2>
