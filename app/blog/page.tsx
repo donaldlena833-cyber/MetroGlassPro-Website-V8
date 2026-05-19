@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
+    label: 'Project Note',
+    title: 'Edison NJ Clear Tempered Shower Door Project',
+    excerpt: 'A renovated Edison bathroom finished with clear tempered glass, brushed brass hardware, and a fixed panel plus hinged door configuration.',
+    image: '/gallery/edison-nj-clear-tempered-shower-door-hero.jpg',
+    imageAlt: 'Clear tempered shower door in an Edison NJ bathroom with brushed brass hardware and warm tile finishes',
+    date: 'May 2026',
+  },
+  {
     href: '/blog/custom-mirrors-manhattan-apartment-guide/',
     label: 'Mirror Guide',
     title: 'Custom Mirrors in Manhattan Apartments: Buyer Planning Guide',

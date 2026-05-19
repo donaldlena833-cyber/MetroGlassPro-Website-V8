@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
+    lastModified: new Date('2026-05-19T00:00:00.000Z'),
+    priority: 0.72,
+  },
+  {
     path: '/blog/custom-mirrors-manhattan-apartment-guide/',
     lastModified: new Date('2026-05-14T00:00:00.000Z'),
     priority: 0.7,
