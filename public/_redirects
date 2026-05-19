@@ -83,6 +83,10 @@
 /staten-island                /service-areas/staten-island/ 301
 /staten-island/               /service-areas/staten-island/ 301
 
+# ── Removed project articles ──
+/projects/metroglasspro-project-20260402-072239  /projects/  301
+/projects/metroglasspro-project-20260402-072239/ /projects/  301
+
 # ── Catch-all removed: current blog canonicals live at /blog/SLUG ──
 
 # ── Removed features ──
