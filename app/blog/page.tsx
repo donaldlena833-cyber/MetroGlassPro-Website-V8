@@ -43,6 +43,7 @@ const posts = [
   },
   {
     href: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
+    legacyStatic: true,
     label: 'Market Update',
     title: 'Why Glass Tariffs Are Pushing Shower Door Prices Higher in NYC',
     excerpt: 'How tariff pressure, hardware costs, supplier changes, and construction pricing can reach NYC shower door quotes.',
@@ -52,6 +53,7 @@ const posts = [
   },
   {
     href: '/blog/2026-05-09-honest-shower-door-repair-nyc',
+    legacyStatic: true,
     label: 'Repair Guide',
     title: 'Honest Shower Door Repair in NYC',
     excerpt: 'How to tell when a shower door needs an adjustment, new parts, resealing, or a full replacement.',
@@ -88,8 +90,11 @@ export default function BlogIndex() {
       <section className="bg-cream pb-28 sm:pb-36">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="space-y-8">
-            {posts.map((post) => (
-              <Link key={post.href} href={post.href} className="group block glass-card overflow-hidden card-lift">
+            {posts.map((post) => {
+              const Wrapper = post.legacyStatic ? 'a' : Link
+
+              return (
+              <Wrapper key={post.href} href={post.href} className="group block glass-card overflow-hidden card-lift">
                 <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
                   <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
                     <img
@@ -111,8 +116,9 @@ export default function BlogIndex() {
                     <p className="text-[12px] text-charcoal/30">{post.date}</p>
                   </div>
                 </div>
-              </Link>
-            ))}
+              </Wrapper>
+              )
+            })}
           </div>
         </div>
       </section>
