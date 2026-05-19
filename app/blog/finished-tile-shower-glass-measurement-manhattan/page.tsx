@@ -4,11 +4,11 @@ import Link from 'next/link'
 const canonical = 'https://metroglasspro.com/blog/finished-tile-shower-glass-measurement-manhattan/'
 
 export const metadata: Metadata = {
-  title: 'Shower Glass Measurement After Finished Tile in Manhattan',
+  title: 'Shower Glass Measurement After Tile in NYC',
   description: 'How finished tile, curb slope, wall plumb, hardware clearance, and co-op rules affect custom shower glass measurement in Manhattan bathrooms.',
   alternates: { canonical },
   openGraph: {
-    title: 'Shower Glass Measurement After Finished Tile in Manhattan',
+    title: 'Shower Glass Measurement After Tile in NYC',
     description: 'How finished tile, curb slope, wall plumb, hardware clearance, and co-op rules affect custom shower glass measurement in Manhattan bathrooms.',
     url: canonical,
     type: 'article',

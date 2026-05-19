@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Custom Mirrors in Manhattan Apartments: Buyer Planning Guide',
+  title: 'Custom Mirrors in Manhattan: Buyer Guide',
   description: 'A Manhattan buyer guide for custom mirrors, covering wall conditions, vanity sizing, outlets, edge details, building access, and estimate prep.',
   alternates: { canonical: 'https://metroglasspro.com/blog/custom-mirrors-manhattan-apartment-guide/' },
   openGraph: {
-    title: 'Custom Mirrors in Manhattan Apartments: Buyer Planning Guide',
+    title: 'Custom Mirrors in Manhattan: Buyer Guide',
     description: 'How Manhattan homeowners can plan custom bathroom mirrors, vanity mirrors, and wall mirrors around real apartment conditions.',
     url: 'https://metroglasspro.com/blog/custom-mirrors-manhattan-apartment-guide/',
     type: 'article',

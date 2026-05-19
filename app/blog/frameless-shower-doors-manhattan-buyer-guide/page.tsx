@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frameless Shower Doors in Manhattan: Buyer Planning Guide',
+  title: 'Frameless Shower Doors Manhattan: Buyer Guide',
   description: 'A Manhattan buyer guide for frameless shower doors, covering tile readiness, glass layouts, hardware, co-op and condo coordination, and estimate prep.',
   alternates: { canonical: 'https://metroglasspro.com/blog/frameless-shower-doors-manhattan-buyer-guide/' },
   openGraph: {
-    title: 'Frameless Shower Doors in Manhattan: Buyer Planning Guide',
+    title: 'Frameless Shower Doors Manhattan: Buyer Guide',
     description: 'A practical Manhattan guide to planning frameless shower doors around finished tile, building access, hardware, and glass layout decisions.',
     url: 'https://metroglasspro.com/blog/frameless-shower-doors-manhattan-buyer-guide/',
     type: 'article',
