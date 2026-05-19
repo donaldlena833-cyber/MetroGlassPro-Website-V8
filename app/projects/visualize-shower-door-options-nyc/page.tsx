@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'See Every Shower Door Option Before You Commit | MetroGlass Pro',
+  title: 'See Every Shower Door Option First',
   description: 'We render your actual bathroom with 4 different shower door configurations before any glass is fabricated. Hinged, sliding, corner, neo-angle. See it first, then decide. NYC custom glass specialists.',
   keywords: [
     'custom frameless shower door NYC',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://metroglasspro.com/projects/visualize-shower-door-options-nyc/' },
   openGraph: {
-    title: 'See Every Shower Door Option Before You Commit | MetroGlass Pro',
+    title: 'See Every Shower Door Option First',
     description: 'We render your actual bathroom with 4 different frameless shower door configurations before fabrication begins. NYC custom glass.',
     url: 'https://metroglasspro.com/projects/visualize-shower-door-options-nyc/',
     type: 'article',

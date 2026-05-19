@@ -10,8 +10,9 @@ export const metadata: Metadata = {
     description: 'What affects the price of a custom frameless shower door in New York City, and how to compare quotes without getting burned.',
     url: 'https://metroglasspro.com/projects/frameless-shower-door-cost-nyc/',
     type: 'article',
+    images: ['https://metroglasspro.com/editorial/shower-door.jpg'],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: ['https://metroglasspro.com/editorial/shower-door.jpg'] },
 }
 
 const costDrivers = [
@@ -79,6 +80,7 @@ const articleJsonLd = {
     logo: { '@type': 'ImageObject', url: 'https://metroglasspro.com/assets/logo.png' },
   },
   mainEntityOfPage: 'https://metroglasspro.com/projects/frameless-shower-door-cost-nyc/',
+  image: 'https://metroglasspro.com/editorial/shower-door.jpg',
 }
 
 export default function FramelessShowerDoorCostNYC() {

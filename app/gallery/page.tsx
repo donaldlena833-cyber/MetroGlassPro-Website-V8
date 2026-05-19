@@ -47,6 +47,12 @@ export default function GalleryPage() {
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Portfolio</p>
           <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">Our work.</h1>
           <p className="mt-5 text-warm text-lg max-w-lg">Custom shower glass, mirrors, and installations across all NYC boroughs.</p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            Use this gallery to compare shower door layouts, hardware finishes, mirror installs, and glass panel details before requesting an estimate. Photos help homeowners decide whether a bathroom needs a single swing door, fixed panel, slider, open panel, mirror replacement, or a more custom enclosure.
+          </p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            If you are planning a renovation, the most useful photos to send are the full shower opening, the curb or tub edge, both side walls, the fixture finish, and any nearby vanity or toilet clearance. Those details help us suggest a glass setup that fits the room instead of just filling the opening.
+          </p>
           <div className="mt-4">
             <Link href="/frameless-shower-doors-nyc/" className="text-orange text-sm font-medium hover:opacity-70 transition-opacity">
               Learn about our frameless shower doors →
@@ -70,6 +76,12 @@ export default function GalleryPage() {
       <section className="bg-charcoal py-24 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
           <h2 className="heading-serif text-white text-4xl sm:text-5xl">Like what you see?</h2>
+          <p className="mt-4 text-white/45 text-base leading-relaxed">
+            Send us a few photos of your opening, tile, curb, and fixtures. We can usually tell from pictures which glass configuration is worth measuring and which options will make the bathroom feel cleaner.
+          </p>
+          <p className="mt-3 text-white/35 text-sm leading-relaxed">
+            For tighter NYC bathrooms, include one wide shot from the doorway and one straight-on shot of the shower. For mirrors, include the vanity, lights, outlets, and wall edges.
+          </p>
           <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm mt-10 inline-flex">Request an Estimate</Link>
         </div>
       </section>

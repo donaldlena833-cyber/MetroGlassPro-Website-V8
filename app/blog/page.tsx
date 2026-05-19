@@ -42,7 +42,7 @@ const posts = [
     date: 'May 2026',
   },
   {
-    href: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
+    href: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc.html',
     label: 'Market Update',
     title: 'Why Glass Tariffs Are Pushing Shower Door Prices Higher in NYC',
     excerpt: 'How tariff pressure, hardware costs, supplier changes, and construction pricing can reach NYC shower door quotes.',
@@ -51,7 +51,7 @@ const posts = [
     date: 'May 2026',
   },
   {
-    href: '/blog/2026-05-09-honest-shower-door-repair-nyc',
+    href: '/blog/2026-05-09-honest-shower-door-repair-nyc.html',
     label: 'Repair Guide',
     title: 'Honest Shower Door Repair in NYC',
     excerpt: 'How to tell when a shower door needs an adjustment, new parts, resealing, or a full replacement.',
