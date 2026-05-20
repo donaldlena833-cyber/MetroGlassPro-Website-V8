@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/office-glass-partitions-manhattan-planning-guide/',
+    label: 'Partition Guide',
+    title: 'Office Glass Partitions in Manhattan: Planning Guide',
+    excerpt: 'How to plan office glass partitions around layout, clearances, privacy, hardware, building access, and estimate prep.',
+    image: '/editorial/railing.jpg',
+    imageAlt: 'Architectural glass detail with clean metal and glass lines',
+    date: 'May 2026',
+  },
+  {
     href: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
     label: 'Project Note',
     title: 'Edison NJ Clear Tempered Shower Door Project',
