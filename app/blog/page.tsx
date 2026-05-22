@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/glass-railings-jersey-city-planning-guide/',
+    label: 'Railing Guide',
+    title: 'Glass Railings in Jersey City: Planning Guide',
+    excerpt: 'How to plan glass railing projects around mounting conditions, safety glass, hardware, access, and project-fit review.',
+    image: '/editorial/railing.jpg',
+    imageAlt: 'Architectural glass railing detail with clean metal posts and transparent panels',
+    date: 'May 2026',
+  },
+  {
     href: '/blog/office-glass-partitions-manhattan-planning-guide/',
     label: 'Partition Guide',
     title: 'Office Glass Partitions in Manhattan: Planning Guide',
