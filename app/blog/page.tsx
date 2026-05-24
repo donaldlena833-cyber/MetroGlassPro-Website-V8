@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
+    label: 'Tub Glass Guide',
+    title: 'Tub Shower Glass Doors in NYC: Planning Guide',
+    excerpt: 'How to plan bathtub shower glass around tight bathrooms, swing clearance, tub edges, sliding layouts, and replacement prep.',
+    image: '/editorial/configurations/sliding-bypass-doors.jpg',
+    imageAlt: 'Frameless sliding bypass shower door hardware for a bathtub shower glass layout',
+    date: 'May 2026',
+  },
+  {
     href: '/blog/glass-railings-jersey-city-planning-guide/',
     label: 'Railing Guide',
     title: 'Glass Railings in Jersey City: Planning Guide',

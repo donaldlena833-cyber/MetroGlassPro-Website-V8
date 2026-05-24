@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
+    lastModified: new Date('2026-05-24T00:00:00.000Z'),
+    priority: 0.7,
+  },
+  {
     path: '/blog/glass-railings-jersey-city-planning-guide/',
     lastModified: new Date('2026-05-22T00:00:00.000Z'),
     priority: 0.68,
