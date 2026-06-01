@@ -19,7 +19,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}
           fetch-depth: 0
 
       - name: Check for drafts
@@ -38,7 +37,7 @@ jobs:
         if: steps.check.outputs.has_drafts == 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Process drafts
         if: steps.check.outputs.has_drafts == 'true'
