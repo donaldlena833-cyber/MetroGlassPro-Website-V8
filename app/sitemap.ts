@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/shower-door-repair-manhattan-nyc-planning-guide/',
+    lastModified: new Date('2026-06-05T00:00:00.000Z'),
+    priority: 0.72,
+  },
+  {
     path: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
     lastModified: new Date('2026-05-24T00:00:00.000Z'),
     priority: 0.7,

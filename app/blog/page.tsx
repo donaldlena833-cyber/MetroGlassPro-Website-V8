@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/shower-door-repair-manhattan-nyc-planning-guide/',
+    label: 'Repair Guide',
+    title: 'Shower Door Repair in Manhattan: NYC Planning Guide',
+    excerpt: 'How to plan Manhattan shower door repair around hinges, sweeps, leaks, glass movement, building access, and replacement decisions.',
+    image: '/editorial/nyc-local/shower-door-repair-manhattan-hero.jpg',
+    imageAlt: 'Shower door repair and glass hardware planning for a Manhattan bathroom',
+    date: 'June 2026',
+  },
+  {
     href: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
     label: 'Tub Glass Guide',
     title: 'Tub Shower Glass Doors in NYC: Planning Guide',
