@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/frameless-shower-doors-manhattan-nyc-planning-guide/',
+    label: 'Manhattan Guide',
+    title: 'Frameless Shower Doors in Manhattan: NYC Planning Guide',
+    excerpt: 'How to plan Manhattan frameless shower doors around finished tile, door swing, hardware, building access, and estimate photos.',
+    image: '/editorial/nyc-local/frameless-shower-doors-manhattan-hero.jpg',
+    imageAlt: 'Frameless shower door glass and hardware planning for a Manhattan bathroom',
+    date: 'June 2026',
+  },
+  {
     href: '/blog/shower-door-repair-manhattan-nyc-planning-guide/',
     label: 'Repair Guide',
     title: 'Shower Door Repair in Manhattan: NYC Planning Guide',
