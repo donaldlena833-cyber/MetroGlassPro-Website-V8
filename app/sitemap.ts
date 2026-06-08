@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/frameless-shower-doors-brooklyn-nyc-planning-guide/',
+    lastModified: new Date('2026-06-08T00:00:00.000Z'),
+    priority: 0.72,
+  },
+  {
     path: '/blog/frameless-shower-doors-manhattan-nyc-planning-guide/',
     lastModified: new Date('2026-06-06T00:00:00.000Z'),
     priority: 0.72,
