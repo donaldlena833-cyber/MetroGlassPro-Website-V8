@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/frameless-shower-doors-queens-nyc-planning-guide/',
+    label: 'Queens Guide',
+    title: 'Frameless Shower Doors in Queens: NYC Planning Guide',
+    excerpt: 'How to plan Queens frameless shower doors around finished tile, door swing, hardware, building access, and estimate photos.',
+    image: '/editorial/nyc-local/frameless-shower-doors-queens-hero.jpg',
+    imageAlt: 'Frameless shower door and bathroom glass planning for a Queens shower',
+    date: 'June 2026',
+  },
+  {
     href: '/blog/frameless-shower-doors-brooklyn-nyc-planning-guide/',
     label: 'Brooklyn Guide',
     title: 'Frameless Shower Doors in Brooklyn: NYC Planning Guide',
