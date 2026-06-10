@@ -2,19 +2,18 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Custom Glass Installation — MetroGlass Pro NYC',
-  description: 'A recent custom frameless shower enclosure installation by MetroGlass Pro in NYC. Precision field measurements, chrome hardware, and a 5 to 7 business day turnaround from approval to install.',
+  title: 'Tub-to-Shower Glass Upgrade With Chrome Hardware',
+  description: 'A tub-shower glass upgrade that replaces visual clutter with clear tempered glass, chrome hardware, and a cleaner bathroom sightline.',
   keywords: [
-    'custom frameless shower door NYC',
-    'shower door installation Manhattan',
-    'frameless glass enclosure NYC',
-    'MetroGlass Pro installation',
+    'tub shower glass NYC',
+    'frameless tub door Manhattan',
+    'chrome shower door hardware',
   ],
   alternates: { canonical: 'https://metroglasspro.com/projects/metroglasspro-project-20260417-072240/' },
   robots: { index: false, follow: true },
   openGraph: {
-    title: 'Custom Glass Installation — MetroGlass Pro NYC',
-    description: 'A recent custom frameless shower enclosure installation by MetroGlass Pro in NYC. Precision field measurements, chrome hardware, and a 5 to 7 business day turnaround from approval to install.',
+    title: 'Tub-to-Shower Glass Upgrade With Chrome Hardware',
+    description: 'A tub-shower glass upgrade that replaces visual clutter with clear tempered glass, chrome hardware, and a cleaner bathroom sightline.',
     url: 'https://metroglasspro.com/projects/metroglasspro-project-20260417-072240/',
     type: 'article',
     images: ['https://metroglasspro.com/gallery/mgp-20260417-072240-1-photo-2026-03-19-20-41-48-7.jpg'],
@@ -24,8 +23,8 @@ export const metadata: Metadata = {
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Custom Glass Installation — MetroGlass Pro NYC',
-  description: 'A recent custom frameless shower enclosure installation by MetroGlass Pro in NYC. Precision field measurements, chrome hardware, and a 5 to 7 business day turnaround from approval to install.',
+  headline: 'Tub-to-Shower Glass Upgrade With Chrome Hardware',
+  description: 'A tub-shower glass upgrade that replaces visual clutter with clear tempered glass, chrome hardware, and a cleaner bathroom sightline.',
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-04-17',
@@ -46,11 +45,11 @@ export default function ProjectPage() {
           </Link>
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Real Project</span>
-            <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Frameless Shower Enclosure</span>
+            <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Tub Shower Glass</span>
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">NYC</span>
           </div>
           <h1 className="heading-serif text-charcoal text-3xl sm:text-5xl lg:text-6xl">
-            Custom Glass Installation — MetroGlass Pro NYC
+            Tub-to-Shower Glass Upgrade With Chrome Hardware
           </h1>
           <p className="mt-4 text-charcoal/30 text-sm">2026-04-17</p>
         </div>
@@ -61,7 +60,7 @@ export default function ProjectPage() {
           <div className="rounded-lg overflow-hidden img-editorial">
             <img
               src="/gallery/mgp-20260417-072240-1-photo-2026-03-19-20-41-48-7.jpg"
-              alt="Custom frameless shower enclosure installed by MetroGlass Pro NYC"
+              alt="Frameless tub shower glass with chrome hardware in a renovated NYC bathroom"
               className="w-full h-auto block"
               loading="eager"
             />
@@ -72,15 +71,15 @@ export default function ProjectPage() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 prose-mgp">
           <p>
-            Every MetroGlass Pro installation starts with precision field measurements taken on site. We do not estimate or guess dimensions. The glass is fabricated to the exact opening, and we arrive with everything needed to close the job in a single visit.
+            This tub-shower opening called for a lighter glass solution that would make the bathroom feel less crowded. Instead of using a heavy framed system, we measured the finished tile and fabricated clear glass to fit the actual opening.
           </p>
           <p>
-            This project is a recent example of the work we do across Manhattan, Brooklyn, Queens, and the tri-state area. Clear tempered frameless glass, chrome hardware, and a clean finished result that holds up to daily use.
+            Chrome hardware kept the finish familiar and easy to pair with the rest of the fixtures.
           </p>
 
           <h2>What We Installed</h2>
           <p>
-            The enclosure uses thick tempered glass with minimal hardware. No bulky frame, no visible track on the floor. The result is a shower that feels open, reads clean against the tile, and is straightforward to maintain.
+            The final setup gives the tub area a cleaner edge while preserving access for everyday use. Clear tempered glass keeps the tile visible, and the chrome hardware adds structure without dominating the room.
           </p>
 
           <div className="mt-10 mb-10 grid grid-cols-1 gap-6">
@@ -92,7 +91,7 @@ export default function ProjectPage() {
             <div className="mt-4 img-editorial">
               <img
                 src="/gallery/mgp-20260417-072240-1-photo-2026-03-19-20-41-48-7.jpg"
-                alt="MetroGlass Pro custom glass installation NYC"
+                alt="Frameless tub shower glass with chrome hardware in a renovated NYC bathroom"
                 className="w-full h-auto block"
                 loading="eager"
               />
@@ -106,7 +105,7 @@ export default function ProjectPage() {
             <div className="mt-4 img-editorial">
               <img
                 src="/gallery/mgp-20260417-072240-2-67e4158c-9bdd-47e9-98e0-89eca77f72d8.jpg"
-                alt="MetroGlass Pro custom glass installation NYC"
+                alt="Frameless tub shower glass with chrome hardware in a renovated NYC bathroom"
                 className="w-full h-auto block"
                 loading="lazy"
               />
@@ -120,7 +119,7 @@ export default function ProjectPage() {
             <div className="mt-4 img-editorial">
               <img
                 src="/gallery/mgp-20260417-072240-3-photo-2026-03-19-20-32-25-3.jpg"
-                alt="MetroGlass Pro custom glass installation NYC"
+                alt="Frameless tub shower glass with chrome hardware in a renovated NYC bathroom"
                 className="w-full h-auto block"
                 loading="lazy"
               />
@@ -134,7 +133,7 @@ export default function ProjectPage() {
             <div className="mt-4 img-editorial">
               <img
                 src="/gallery/mgp-20260417-072240-4-photo-2026-03-19-20-34-04.jpg"
-                alt="MetroGlass Pro custom glass installation NYC"
+                alt="Frameless tub shower glass with chrome hardware in a renovated NYC bathroom"
                 className="w-full h-auto block"
                 loading="lazy"
               />
@@ -148,7 +147,7 @@ export default function ProjectPage() {
             <div className="mt-4 img-editorial">
               <img
                 src="/gallery/mgp-20260417-072240-5-photo-2026-03-19-20-25-26-5.jpg"
-                alt="MetroGlass Pro custom glass installation NYC"
+                alt="Frameless tub shower glass with chrome hardware in a renovated NYC bathroom"
                 className="w-full h-auto block"
                 loading="lazy"
               />
@@ -158,14 +157,14 @@ export default function ProjectPage() {
 
           <h2>Our Process</h2>
           <p>
-            We take field measurements on site, fabricate the glass to exact dimensions, and install within 5 to 7 business days of client approval. We carry backup hardware and extra tools on every job so nothing stops us from finishing in one visit.
+            On tub projects, the curb and wall conditions matter. We check the tub deck, wall angle, tile face, and handle position before releasing anything to fabrication.
           </p>
 
           <div className="mt-10 p-6 bg-charcoal/[0.03] rounded-lg border border-charcoal/[0.06]">
             <p className="text-[13px] text-charcoal/50 font-medium uppercase tracking-wider mb-3">Project Details</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-charcoal/70">
-              <div><span className="text-charcoal/40">Glass,</span> Clear tempered frameless.</div>
-              <div><span className="text-charcoal/40">Hardware,</span> Chrome finish.</div>
+              <div><span className="text-charcoal/40">Glass,</span> Clear tempered glass.</div>
+              <div><span className="text-charcoal/40">Hardware,</span> Chrome hinges, Chrome pull handle.</div>
               <div><span className="text-charcoal/40">Turnaround,</span> 5 to 7 business days from approval.</div>
               <div><span className="text-charcoal/40">Service area,</span> NYC and tri-state.</div>
             </div>
