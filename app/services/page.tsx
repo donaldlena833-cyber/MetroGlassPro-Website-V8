@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door and Custom Glass Services',
-  description: 'Manhattan first shower door services, plus custom mirrors, glass partitions, and related repair work across NYC.',
+  title: 'NYC Shower Door Services | Repair, Installation, Replacement',
+  description: 'MetroGlass Pro handles NYC shower door installation, repair, replacement, frameless glass, mirrors, and glass partitions for Manhattan, Brooklyn, Queens, and nearby projects.',
   alternates: { canonical: 'https://metroglasspro.com/services/' },
   openGraph: {
-    title: 'Shower Door and Custom Glass Services',
-    description: 'Manhattan first shower door services, plus custom mirrors, glass partitions, and related repair work across NYC.',
+    title: 'NYC Shower Door Services | MetroGlass Pro',
+    description: 'Shower door installation, repair, replacement, frameless glass, mirrors, and glass partitions across NYC.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -39,6 +39,13 @@ const serviceRoutes = [
   { href: '/service-areas/queens/', title: 'Queens service', desc: 'For apartments, houses, and multi-family homes where the right layout depends on space and use.' },
 ]
 
+const routeByProblem = [
+  { problem: 'Finished tile shower waiting on glass', href: '/shower-door-installation-nyc/', label: 'Start with installation planning' },
+  { problem: 'Old framed door, corroded track, dated layout, or repeated leaks', href: '/shower-door-replacement-nyc/', label: 'Start with replacement' },
+  { problem: 'Dragging door, loose handle, leaking sweep, roller, hinge, or bad prior install', href: '/shower-door-repair-nyc/', label: 'Start with repair' },
+  { problem: 'Premium custom enclosure, fixed panel, slider, pivot, or heavy glass decision', href: '/frameless-shower-doors-nyc/', label: 'Start with frameless options' },
+]
+
 export default function ServicesPage() {
   return (
     <>
@@ -53,6 +60,9 @@ export default function ServicesPage() {
           </p>
           <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
             If you are not sure which service fits, start with the problem: new bathroom glass after tile, replacing an older enclosure, fixing a leak, comparing frameless layouts, or coordinating work inside a managed NYC building.
+          </p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            The pages below are organized around buyer intent instead of trade jargon, so a homeowner can move from a symptom or renovation stage to the right estimate path.
           </p>
         </div>
       </section>
@@ -103,6 +113,17 @@ export default function ServicesPage() {
                 <span className="inline-block mt-4 text-orange text-sm font-medium hover:opacity-70 transition-opacity">Open guide →</span>
               </Link>
             ))}
+          </div>
+          <div className="mt-10 glass-card p-6">
+            <h3 className="font-serif text-charcoal text-2xl mb-4">Route the request by the problem</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {routeByProblem.map((item) => (
+                <Link key={item.href} href={item.href} className="block border-b border-charcoal/[0.06] pb-4 last:border-b-0 md:border-b-0">
+                  <span className="text-warm text-[14px] leading-relaxed block">{item.problem}</span>
+                  <span className="inline-block mt-2 text-orange text-sm font-medium hover:opacity-70 transition-opacity">{item.label} →</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

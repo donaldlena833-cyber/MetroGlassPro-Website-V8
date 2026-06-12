@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door and Glass Gallery',
-  description: 'Browse MetroGlass Pro shower door, mirror, and custom glass installations across Manhattan and NYC.',
+  title: 'NYC Shower Door Gallery | Frameless Glass, Mirrors, and Installs',
+  description: 'Compare MetroGlass Pro shower door layouts, frameless glass details, mirrors, and install planning examples for Manhattan, Brooklyn, Queens, and NYC bathrooms.',
   alternates: { canonical: 'https://metroglasspro.com/gallery/' },
   openGraph: {
-    title: 'Shower Door and Glass Gallery',
-    description: 'Browse MetroGlass Pro shower door, mirror, and custom glass installations across Manhattan and NYC.',
+    title: 'NYC Shower Door Gallery | MetroGlass Pro',
+    description: 'Compare shower door layouts, frameless glass details, mirrors, and install planning examples across NYC.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -49,6 +49,13 @@ const planningLinks = [
   { href: '/service-areas/queens/', label: 'Queens service', desc: 'Plan shower door work for apartments, houses, and multi-family homes.' },
 ]
 
+const decisionChecks = [
+  'Is there room for a swing door, or does a slider make more sense?',
+  'Does the finished tile opening need a fixed panel, return panel, or full enclosure?',
+  'Will the hardware finish match the plumbing, mirror, and cabinet pulls?',
+  'Can the building access handle a large panel without risking finished surfaces?',
+]
+
 export default function GalleryPage() {
   return (
     <>
@@ -62,6 +69,9 @@ export default function GalleryPage() {
           </p>
           <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
             If you are planning a renovation, the most useful photos to send are the full shower opening, the curb or tub edge, both side walls, the fixture finish, and any nearby vanity or toilet clearance. Those details help us suggest a glass setup that fits the room instead of just filling the opening.
+          </p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            Google searches like frameless shower doors NYC, shower door installation near me, and custom glass shower doors Brooklyn usually lead to the same practical question: which layout will actually work in your bathroom once tile, slope, fixtures, and building access are real.
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
             <Link href="/frameless-shower-doors-nyc/" className="text-orange font-medium hover:opacity-70 transition-opacity">Frameless shower doors →</Link>
@@ -102,6 +112,17 @@ export default function GalleryPage() {
                 <span className="text-warm text-[13px] leading-relaxed block mt-2">{item.desc}</span>
               </Link>
             ))}
+          </div>
+          <div className="mt-10 glass-card p-6">
+            <h3 className="font-serif text-charcoal text-2xl mb-4">Before you choose a photo as the model</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {decisionChecks.map((item) => (
+                <div key={item} className="flex items-start gap-3 text-[14px] text-warm leading-relaxed">
+                  <span className="text-orange mt-0.5 shrink-0">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Customer Reviews',
-  description: 'Read what MetroGlass Pro customers say about shower doors, mirrors, and custom glass work across Manhattan and NYC.',
+  title: 'MetroGlass Pro Reviews | NYC Shower Door Installers',
+  description: 'Read MetroGlass Pro reviews and learn how to evaluate NYC shower door installers for measurement, repair, replacement, building access, and clean installation.',
   alternates: { canonical: 'https://metroglasspro.com/reviews/' },
   openGraph: {
-    title: 'Customer Reviews',
-    description: 'Read what Manhattan and NYC customers say about MetroGlass Pro shower door and custom glass work.',
+    title: 'MetroGlass Pro Reviews | NYC Shower Door Installers',
+    description: 'Read customer reviews and learn how to evaluate shower door installers for fit, repair, replacement, and clean installation.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -51,6 +51,13 @@ const reviewSignals = [
   },
 ]
 
+const comparisonQuestions = [
+  'Did the company explain whether the problem needed repair, replacement, or a new layout?',
+  'Did they ask for bathroom photos, finished tile details, and access constraints before quoting?',
+  'Did the finished door close smoothly, seal properly, and feel aligned with the room?',
+  'Did the installer leave the bathroom clean and ready to use?',
+]
+
 export default function ReviewsPage() {
   return (
     <>
@@ -61,6 +68,9 @@ export default function ReviewsPage() {
           <p className="mt-5 text-warm text-lg max-w-2xl">These reviews reflect the things Manhattan and NYC buyers usually care about most, precise measurements, clean installs, clear communication, and a finished result that feels worth the investment.</p>
           <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
             When comparing glass companies, read reviews for the details behind the stars: whether the door stopped leaking, whether the installer showed up prepared, whether the bathroom was protected, and whether the final glass made the space easier to use.
+          </p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            If you are searching for shower door repair, shower door replacement, or frameless shower door installers near me, the most useful reviews are the ones that describe the decision process, not just the finished photo.
           </p>
         </div>
       </section>
@@ -101,6 +111,17 @@ export default function ReviewsPage() {
             <Link href="/service-areas/brooklyn/" className="btn-pill btn-outline px-6 py-3 text-sm">Brooklyn service</Link>
             <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-sm">Queens service</Link>
             <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Replacement planning</Link>
+          </div>
+          <div className="mt-10 glass-card p-6">
+            <h3 className="font-serif text-charcoal text-2xl mb-4">Questions reviews should help answer</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {comparisonQuestions.map((item) => (
+                <div key={item} className="flex items-start gap-3 text-[14px] text-warm leading-relaxed">
+                  <span className="text-orange mt-0.5 shrink-0">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
