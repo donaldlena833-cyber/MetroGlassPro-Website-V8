@@ -54,6 +54,16 @@ const featuredGuides = [
   },
 ]
 
+const buyerPaths = [
+  { href: '/frameless-shower-doors-nyc/', title: 'Frameless Shower Doors', desc: 'Glass thickness, hardware finishes, fixed panels, swing doors, sliders, and custom enclosure planning.' },
+  { href: '/shower-door-installation-nyc/', title: 'Shower Door Installation', desc: 'What to send before a quote, how field measuring works, and what install day should include.' },
+  { href: '/shower-door-replacement-nyc/', title: 'Shower Door Replacement', desc: 'When an older or leaking enclosure is better replaced than patched again.' },
+  { href: '/shower-door-repair-nyc/', title: 'Shower Door Repair', desc: 'Leak, drag, sweep, hinge, roller, and bad-install symptoms that need a clear diagnosis.' },
+  { href: '/service-areas/manhattan/', title: 'Manhattan Bathrooms', desc: 'Co-op, condo, high-rise, and brownstone logistics for tight apartment bathrooms.' },
+  { href: '/service-areas/brooklyn/', title: 'Brooklyn Projects', desc: 'Brownstone, condo, and renovation access planning for shower glass and mirrors.' },
+  { href: '/service-areas/queens/', title: 'Queens Projects', desc: 'Layout and access planning for apartments, houses, and multi-family homes.' },
+]
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -201,6 +211,29 @@ export default function HomePage() {
             <Link href="/services/" className="btn-pill btn-outline px-10 py-3.5 text-sm">
               View All Services
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-24 border-y border-charcoal/[0.04]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Start With The Right Page</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">
+              Match your bathroom problem to the right glass guide.
+            </h2>
+            <p className="mt-4 text-warm text-[15px] leading-relaxed">
+              New glass, repair work, replacement, and borough logistics are different searches. These paths help buyers get to the page that fits the job before requesting an estimate.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {buyerPaths.map((path) => (
+              <Link key={path.href} href={path.href} className="glass-card p-5 card-lift block anim-fade-up">
+                <h3 className="font-serif text-charcoal text-xl mb-2">{path.title}</h3>
+                <p className="text-warm text-[14px] leading-relaxed">{path.desc}</p>
+                <span className="inline-block mt-4 text-orange text-sm font-medium hover:opacity-70 transition-opacity">Open page →</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

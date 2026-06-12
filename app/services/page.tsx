@@ -29,6 +29,16 @@ const services: ServiceItem[] = [
   { title: 'Commercial & Trade Collaboration', img: '/editorial/water-droplets.jpg', desc: 'Support for designers, architects, contractors, hospitality projects, and multi-unit work that needs direct coordination.', points: ['Trade communication that is clear and responsive', 'Finish and hardware coordination', 'Building logistics support', 'Good fit for design driven work'] },
 ]
 
+const serviceRoutes = [
+  { href: '/frameless-shower-doors-nyc/', title: 'Frameless shower doors', desc: 'For custom heavy glass, swing doors, fixed panels, sliders, and premium hardware decisions.' },
+  { href: '/shower-door-installation-nyc/', title: 'Shower door installation', desc: 'For finished tile, field measuring, install-day prep, and building access requirements.' },
+  { href: '/shower-door-replacement-nyc/', title: 'Shower door replacement', desc: 'For older framed systems, corroded tracks, dated doors, and layouts that need a cleaner long-term answer.' },
+  { href: '/shower-door-repair-nyc/', title: 'Shower door repair', desc: 'For leaks, dragging doors, loose handles, sweeps, rollers, silicone, and repair-versus-replace questions.' },
+  { href: '/service-areas/manhattan/', title: 'Manhattan service', desc: 'For co-ops, condos, high-rises, brownstones, COIs, elevators, and tight city bathrooms.' },
+  { href: '/service-areas/brooklyn/', title: 'Brooklyn service', desc: 'For brownstones, apartments, condos, and renovation projects that need careful access planning.' },
+  { href: '/service-areas/queens/', title: 'Queens service', desc: 'For apartments, houses, and multi-family homes where the right layout depends on space and use.' },
+]
+
 export default function ServicesPage() {
   return (
     <>
@@ -40,6 +50,9 @@ export default function ServicesPage() {
           </h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-2xl leading-relaxed">
             MetroGlass Pro is known first for custom shower doors in Manhattan. Mirrors, partitions, and related repair work follow the same expectations, careful measurements, clean installs, and smooth communication.
+          </p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            If you are not sure which service fits, start with the problem: new bathroom glass after tile, replacing an older enclosure, fixing a leak, comparing frameless layouts, or coordinating work inside a managed NYC building.
           </p>
         </div>
       </section>
@@ -70,6 +83,27 @@ export default function ServicesPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-24 border-y border-charcoal/[0.04]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-10">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Find The Right Starting Point</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">Most quote requests fall into one of these paths.</h2>
+            <p className="mt-4 text-warm text-[15px] leading-relaxed">
+              A clear starting page helps us price the job faster and helps you compare options before anyone orders glass.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {serviceRoutes.map((item) => (
+              <Link key={item.href} href={item.href} className="glass-card p-5 card-lift block">
+                <h3 className="font-serif text-charcoal text-xl mb-2">{item.title}</h3>
+                <p className="text-warm text-[14px] leading-relaxed">{item.desc}</p>
+                <span className="inline-block mt-4 text-orange text-sm font-medium hover:opacity-70 transition-opacity">Open guide →</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

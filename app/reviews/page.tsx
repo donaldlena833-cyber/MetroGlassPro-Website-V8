@@ -24,6 +24,33 @@ const reviews = [
   { name: 'Kristjan T.', text: 'The team was professional and responsive. Did an excellent job!!' },
 ]
 
+const reviewSignals = [
+  {
+    title: 'Measurement and fit',
+    description: 'Good shower glass reviews should mention whether the finished door feels aligned, closes cleanly, and fits the actual tile opening instead of looking forced.',
+    href: '/frameless-shower-doors-nyc/',
+    cta: 'Review frameless fit factors',
+  },
+  {
+    title: 'Clean installation',
+    description: 'Look for signs that the installer protected the bathroom, handled the glass carefully, sealed the joints cleanly, and left the room usable.',
+    href: '/shower-door-installation-nyc/',
+    cta: 'See installation expectations',
+  },
+  {
+    title: 'Repair versus replacement honesty',
+    description: 'For leaks, dragging doors, loose hardware, or a bad previous install, a useful contractor should explain when repair is enough and when replacement is smarter.',
+    href: '/shower-door-repair-nyc/',
+    cta: 'Compare repair decisions',
+  },
+  {
+    title: 'Building coordination',
+    description: 'In Manhattan, Brooklyn, and Queens, reviews often reveal whether a company understands COIs, elevators, quiet hours, access rules, and occupied-building work.',
+    href: '/service-areas/manhattan/',
+    cta: 'Plan Manhattan logistics',
+  },
+]
+
 export default function ReviewsPage() {
   return (
     <>
@@ -32,6 +59,9 @@ export default function ReviewsPage() {
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Testimonials</p>
           <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">What our customers say.</h1>
           <p className="mt-5 text-warm text-lg max-w-2xl">These reviews reflect the things Manhattan and NYC buyers usually care about most, precise measurements, clean installs, clear communication, and a finished result that feels worth the investment.</p>
+          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
+            When comparing glass companies, read reviews for the details behind the stars: whether the door stopped leaking, whether the installer showed up prepared, whether the bathroom was protected, and whether the final glass made the space easier to use.
+          </p>
         </div>
       </section>
 
@@ -46,6 +76,32 @@ export default function ReviewsPage() {
               <p className="mt-5 text-warm text-sm font-medium tracking-wide uppercase">{r.name}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-24 border-y border-charcoal/[0.04]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">How To Read Reviews</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">The best review is specific about the job.</h2>
+            <p className="mt-4 text-warm text-[15px] leading-relaxed">
+              A shower door review is most useful when it connects the result to the problem the buyer had: a finished renovation waiting on glass, an old door leaking, a tight apartment layout, or a building that needed coordination before anyone could work.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {reviewSignals.map((item) => (
+              <Link key={item.title} href={item.href} className="glass-card p-6 card-lift block">
+                <h3 className="font-serif text-charcoal text-2xl mb-3">{item.title}</h3>
+                <p className="text-warm text-[15px] leading-relaxed">{item.description}</p>
+                <span className="inline-block mt-4 text-orange text-sm font-medium hover:opacity-70 transition-opacity">{item.cta} →</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link href="/service-areas/brooklyn/" className="btn-pill btn-outline px-6 py-3 text-sm">Brooklyn service</Link>
+            <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-sm">Queens service</Link>
+            <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Replacement planning</Link>
+          </div>
         </div>
       </section>
 
