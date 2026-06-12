@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    href: '/blog/frameless-shower-doors-upper-east-side-nyc-planning-guide/',
+    label: 'Upper East Side Guide',
+    title: 'Frameless Shower Doors on the Upper East Side: NYC Planning Guide',
+    excerpt: 'How to plan Upper East Side frameless shower doors around co-op rules, finished tile, door swing, hardware, access, and estimate photos.',
+    image: '/editorial/nyc-local/frameless-shower-doors-upper-east-side-hero.jpg',
+    imageAlt: 'Frameless shower door and bathroom glass planning for an Upper East Side shower',
+    date: 'June 2026',
+  },
+  {
     href: '/blog/frameless-shower-doors-staten-island-nyc-planning-guide/',
     label: 'Staten Island Guide',
     title: 'Frameless Shower Doors in Staten Island: NYC Planning Guide',

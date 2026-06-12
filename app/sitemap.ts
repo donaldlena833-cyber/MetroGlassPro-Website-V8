@@ -32,6 +32,11 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/frameless-shower-doors-upper-east-side-nyc-planning-guide/',
+    lastModified: new Date('2026-06-12T00:00:00.000Z'),
+    priority: 0.72,
+  },
+  {
     path: '/blog/frameless-shower-doors-staten-island-nyc-planning-guide/',
     lastModified: new Date('2026-06-11T00:00:00.000Z'),
     priority: 0.72,
