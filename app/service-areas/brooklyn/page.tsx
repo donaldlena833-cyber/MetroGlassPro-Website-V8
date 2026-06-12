@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Brooklyn Shower Doors and Custom Glass',
-  description: 'Custom shower doors, mirrors, and related glass work across Brooklyn. Brownstones, condos, new construction, and renovation projects.',
+  title: 'Custom Shower Doors in Brooklyn | MetroGlass Pro',
+  description: 'Custom shower doors, frameless shower glass, repair, and replacement for Brooklyn brownstones, condos, lofts, and renovations.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/brooklyn/' },
   openGraph: {
-    title: 'Brooklyn Shower Doors and Custom Glass',
-    description: 'Custom shower doors, mirrors, and related glass work across Brooklyn. Brownstones, condos, new construction, and renovation projects.',
+    title: 'Custom Shower Doors in Brooklyn',
+    description: 'Custom shower doors, frameless shower glass, repair, and replacement for Brooklyn brownstones, condos, lofts, and renovations.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -22,7 +22,7 @@ export default function BrooklynPage() {
           </Link>
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Brooklyn</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl">
-            Shower Glass Installation in Brooklyn
+            Custom Shower Doors in Brooklyn
           </h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-xl leading-relaxed">
             Brooklyn's mix of classic brownstones, converted lofts, and new-construction condos means every bathroom is different. We measure each one individually and fabricate glass to fit — no stock sizes. Whether you're renovating a Park Slope townhouse or finishing a new build in Williamsburg, we handle the full process from measurement to install.
@@ -44,6 +44,22 @@ export default function BrooklynPage() {
           <p className="text-warm text-[15px] leading-relaxed mb-10">
             A good Brooklyn estimate starts with the shower opening, the building type, the neighborhood, and whether the work is connected to a larger bathroom renovation. For brownstones and older apartments, photos of the wall condition and curb are especially useful because out-of-square openings can affect the glass layout.
           </p>
+
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Brooklyn quote prep for custom glass</h2>
+          <div className="space-y-4 mb-10">
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Brownstone and townhouse openings</h3>
+              <p className="text-warm text-[14px] leading-relaxed">For Park Slope, Carroll Gardens, Fort Greene, Bed-Stuy, and similar townhouse bathrooms, send photos that show the full curb, both tiled side walls, ceiling height, and any out-of-square condition near the jambs.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Condos, lofts, and converted buildings</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Williamsburg, DUMBO, Downtown Brooklyn, and Greenpoint projects often involve elevator scheduling, protection requirements, and hardware-finish decisions. Those details should be settled before the install window is booked.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Custom shower doors near the renovation finish line</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Final glass measurements should wait until tile, curb, saddle, and finished wall surfaces are complete. If the bathroom is still under construction, we can review layout options first and return to exact sizing when the opening is ready.</p>
+            </div>
+          </div>
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Brooklyn</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -90,6 +106,14 @@ export default function BrooklynPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
           <div className="space-y-3 mb-10">
+            <Link href="/projects/door-fixed-panel-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Door and Fixed Panel Layout</span>
+              <span className="text-warm text-[13px] block mt-1">A common custom shower door layout for Brooklyn renovations with one fixed return and one operating door.</span>
+            </Link>
+            <Link href="/projects/90-corner-enclosure-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">90-Degree Corner Enclosure</span>
+              <span className="text-warm text-[13px] block mt-1">A useful reference for larger Brooklyn bathrooms where two glass runs meet at a corner.</span>
+            </Link>
             <Link href="/projects/typical-mirror-replacement-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Mirror Replacement in a NYC Apartment</span>
               <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like — sizing, mounting, timeline.</span>
@@ -117,7 +141,7 @@ export default function BrooklynPage() {
           </div>
 
           <div className="glass-card p-6 sm:p-8 text-center">
-            <p className="text-warm text-[15px] mb-2">Brooklyn brownstone bathrooms often have unique dimensions — we custom-measure every panel to fit.</p>
+            <p className="text-warm text-[15px] mb-2">Brooklyn brownstone, loft, and condo bathrooms often have unique dimensions, so every panel gets measured to the actual finished opening.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 mt-5">
               <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Get a Free Estimate</Link>
               <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">(332) 999-3846</a>

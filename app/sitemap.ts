@@ -4,7 +4,7 @@ import { projects } from '@/content/projects'
 export const dynamic = 'force-static'
 
 const base = 'https://metroglasspro.com'
-const siteUpdated = new Date('2026-06-12T00:00:00.000Z')
+const siteUpdated = new Date('2026-06-12T21:05:00.000Z')
 
 const coreRoutes = [
   { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },

@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Queens Shower Doors and Custom Glass',
-  description: 'Custom shower doors, mirrors, and related glass work across Queens. Single-family homes, multi-unit buildings, and new developments.',
+  title: 'Custom Shower Doors in Queens | MetroGlass Pro',
+  description: 'Custom shower doors, frameless shower glass, repair, and replacement across Queens homes, co-ops, condos, and multi-unit buildings.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/queens/' },
   openGraph: {
-    title: 'Queens Shower Doors and Custom Glass',
-    description: 'Custom shower doors, mirrors, and related glass work across Queens. Single-family homes, multi-unit buildings, and new developments.',
+    title: 'Custom Shower Doors in Queens',
+    description: 'Custom shower doors, frameless shower glass, repair, and replacement across Queens homes, co-ops, condos, and multi-unit buildings.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -22,7 +22,7 @@ export default function QueensPage() {
           </Link>
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Queens</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl">
-            Shower Glass Installation in Queens
+            Custom Shower Doors in Queens
           </h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-xl leading-relaxed">
             Queens is NYC's most diverse borough — and its housing stock reflects that. From single-family homes in Bayside to new high-rises in Long Island City, we install custom shower glass in every type of property. Queens homeowners often upgrade from builder-grade framed doors to frameless, which is one of the most impactful bathroom improvements you can make.
@@ -44,6 +44,22 @@ export default function QueensPage() {
           <p className="text-warm text-[15px] leading-relaxed mb-10">
             For estimates, the most useful details are the neighborhood, shower type, whether the project is repair or replacement, photos of the full opening, and any building access notes. If the project is in a co-op or condo, mention whether the building asks for insurance paperwork, work-hour windows, or elevator scheduling.
           </p>
+
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Queens quote prep for faster answers</h2>
+          <div className="space-y-4 mb-10">
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Homes and two-family houses</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Many Queens shower door projects start in renovated single-family or two-family bathrooms. Send the finished opening, curb or tub edge, side-wall photos, and whether the door should swing, slide, or stay mostly fixed.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Co-ops, condos, and elevators</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Long Island City, Forest Hills, Rego Park, and other elevator buildings may require COI paperwork, protection rules, or delivery windows. Sharing those rules early keeps the glass install from getting delayed after fabrication.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Repair versus replacement</h3>
+              <p className="text-warm text-[14px] leading-relaxed">If a Queens shower door is dragging, leaking, or missing hardware, start with photos of the hinge, sweep, handle, and full opening. We can usually tell whether a repair conversation is worth it or whether a clean replacement layout is the better path.</p>
+            </div>
+          </div>
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Queens</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -88,6 +104,14 @@ export default function QueensPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
           <div className="space-y-3 mb-10">
+            <Link href="/projects/walk-in-shower-panel-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Walk-In Shower Panel Planning</span>
+              <span className="text-warm text-[13px] block mt-1">A useful layout reference for Queens bathrooms where a fixed panel can feel cleaner than a full door system.</span>
+            </Link>
+            <Link href="/projects/sliding-bypass-doors-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Sliding Bypass Shower Doors</span>
+              <span className="text-warm text-[13px] block mt-1">A space-saving option when a vanity, toilet, or narrow bathroom path makes a swing door awkward.</span>
+            </Link>
             <Link href="/projects/typical-mirror-replacement-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Mirror Replacement in a NYC Apartment</span>
               <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like — sizing, mounting, timeline.</span>
@@ -115,7 +139,7 @@ export default function QueensPage() {
           </div>
 
           <div className="glass-card p-6 sm:p-8 text-center">
-            <p className="text-warm text-[15px] mb-2">Queens homes often have more space for full glass enclosures — let us show you the options.</p>
+            <p className="text-warm text-[15px] mb-2">Queens homes often have more space for full glass enclosures, but the right layout still starts with photos, measurements, and the building details.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 mt-5">
               <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Get a Free Estimate</Link>
               <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">(332) 999-3846</a>
