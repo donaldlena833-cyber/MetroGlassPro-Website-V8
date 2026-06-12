@@ -37,6 +37,14 @@ export default function BrooklynPage() {
             Brownstone townhouses, converted loft buildings, new-construction condos, walk-up apartments, and multi-family homes. Brooklyn bathrooms often have original tile work and non-standard dimensions that require precision measuring.
           </p>
 
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Brooklyn searches are already showing demand</h2>
+          <p className="text-warm text-[15px] leading-relaxed mb-4">
+            Google Search Console is showing impressions for custom shower doors and shower door installation in Brooklyn. The page needs to answer that intent directly instead of acting like a thin borough placeholder. Brooklyn buyers often need to know whether older tile, narrow stairs, walk-up access, or brownstone layouts will complicate the glass.
+          </p>
+          <p className="text-warm text-[15px] leading-relaxed mb-10">
+            A good Brooklyn estimate starts with the shower opening, the building type, the neighborhood, and whether the work is connected to a larger bathroom renovation. For brownstones and older apartments, photos of the wall condition and curb are especially useful because out-of-square openings can affect the glass layout.
+          </p>
+
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Brooklyn</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {[
@@ -90,6 +98,22 @@ export default function BrooklynPage() {
               <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
               <span className="text-warm text-[13px] block mt-1">Comparing two popular frameless shower door hinges.</span>
             </Link>
+          </div>
+
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Brooklyn shower door planning notes</h2>
+          <div className="space-y-4 mb-10">
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Brownstone and townhouse bathrooms</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Older Brooklyn bathrooms may have non-plumb walls, rebuilt curbs, or tile surfaces that are not perfectly square. The glass layout should follow the real opening, not an assumed stock size.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Condo and new-construction installs</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Newer Brooklyn buildings still need coordination around access, elevator timing, protection requirements, and hardware finish choices. A clean install depends on scheduling as much as fabrication.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Repair calls</h3>
+              <p className="text-warm text-[14px] leading-relaxed">For repair questions, send photos of the hinge, handle, sweep, leak point, and full door. That lets us separate hardware service from cases where replacement is more practical.</p>
+            </div>
           </div>
 
           <div className="glass-card p-6 sm:p-8 text-center">

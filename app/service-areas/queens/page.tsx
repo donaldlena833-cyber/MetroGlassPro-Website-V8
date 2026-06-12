@@ -37,6 +37,14 @@ export default function QueensPage() {
             Single-family homes, two-family homes, garden apartments, co-ops, new-construction condos, and mixed-use buildings. Queens bathrooms tend to be larger than Manhattan, giving more room for full frameless enclosures.
           </p>
 
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Why Queens shower glass needs its own page</h2>
+          <p className="text-warm text-[15px] leading-relaxed mb-4">
+            Search Console is already showing Queens shower door and custom glass searches, but the old page was too light to earn consistent index trust. Queens projects need more specific planning because the borough has a different mix of homes than Manhattan: wider bathrooms, older two-family houses, renovated basements, newer Long Island City condos, and co-op buildings with their own access rules.
+          </p>
+          <p className="text-warm text-[15px] leading-relaxed mb-10">
+            For estimates, the most useful details are the neighborhood, shower type, whether the project is repair or replacement, photos of the full opening, and any building access notes. If the project is in a co-op or condo, mention whether the building asks for insurance paperwork, work-hour windows, or elevator scheduling.
+          </p>
+
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Queens</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {[
@@ -88,6 +96,22 @@ export default function QueensPage() {
               <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
               <span className="text-warm text-[13px] block mt-1">Comparing two popular frameless shower door hinges.</span>
             </Link>
+          </div>
+
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Queens buyer questions we answer early</h2>
+          <div className="space-y-4 mb-10">
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Can an old framed tub door become frameless?</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Often yes, but the curb or tub edge, wall plumb, tile condition, and available overlap decide which layout is realistic. Photos help us tell whether a slider, swing door, or fixed panel is the better first conversation.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Is repair worth it?</h3>
+              <p className="text-warm text-[14px] leading-relaxed">A loose handle, worn sweep, minor hinge issue, or alignment problem may be repairable. If the door leaks because of the original layout or the hardware no longer matches the glass, replacement may save time.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">What photos should I send?</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Send one wide photo of the bathroom, one straight-on photo of the shower, close-ups of both side walls, the curb or tub edge, and the hardware finish you want to match.</p>
+            </div>
           </div>
 
           <div className="glass-card p-6 sm:p-8 text-center">

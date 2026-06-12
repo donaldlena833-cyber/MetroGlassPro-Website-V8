@@ -32,41 +32,6 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
-    path: '/blog/frameless-shower-doors-upper-east-side-nyc-planning-guide/',
-    lastModified: new Date('2026-06-12T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/frameless-shower-doors-staten-island-nyc-planning-guide/',
-    lastModified: new Date('2026-06-11T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/frameless-shower-doors-bronx-nyc-planning-guide/',
-    lastModified: new Date('2026-06-10T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/frameless-shower-doors-queens-nyc-planning-guide/',
-    lastModified: new Date('2026-06-09T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/frameless-shower-doors-brooklyn-nyc-planning-guide/',
-    lastModified: new Date('2026-06-08T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/frameless-shower-doors-manhattan-nyc-planning-guide/',
-    lastModified: new Date('2026-06-06T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/shower-door-repair-manhattan-nyc-planning-guide/',
-    lastModified: new Date('2026-06-05T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
     path: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
     lastModified: new Date('2026-05-24T00:00:00.000Z'),
     priority: 0.7,

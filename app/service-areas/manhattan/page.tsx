@@ -53,6 +53,14 @@ export default function ManhattanPage() {
             Pre-war co-ops, luxury condos, brownstone townhouses, new construction high-rises, and boutique buildings. Manhattan bathrooms range from compact apartment layouts to larger primary suites, and the work only goes smoothly when the installer understands both the glass and the building.
           </p>
 
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">What changes the quote in Manhattan</h2>
+          <p className="text-warm text-[15px] leading-relaxed mb-4">
+            Manhattan shower door quotes usually depend on the finished opening, the glass layout, and how easy the building makes the work. A single swing door in a finished tiled alcove is a different scope from a door-and-panel layout in a condo with freight elevator rules, a certificate of insurance request, and limited work-hour windows.
+          </p>
+          <p className="text-warm text-[15px] leading-relaxed mb-10">
+            The fastest estimate starts with straight-on photos of the shower opening, the curb or tub edge, both side walls, ceiling height if the glass runs tall, and a note about the hardware finish. If the tile is not finished yet, we can talk through timing, but final glass measurements should wait until the finished surfaces are ready.
+          </p>
+
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Manhattan</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {[
@@ -113,6 +121,22 @@ export default function ManhattanPage() {
               <span className="text-charcoal font-medium text-[14px]">Fixing a Shower Door Install Gone Wrong</span>
               <span className="text-warm text-[13px] block mt-1">A real remediation story that shows why precision and accountability matter in Manhattan projects.</span>
             </Link>
+          </div>
+
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Common Manhattan shower glass decisions</h2>
+          <div className="space-y-4 mb-10">
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Repair or replacement?</h3>
+              <p className="text-warm text-[14px] leading-relaxed">If the glass is secure and the issue is a sweep, hinge, handle, leak path, or alignment, repair may be worth reviewing first. If the door is undersized, the layout leaks by design, or the hardware no longer fits the opening, replacement is usually the cleaner path.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">Swing door or slider?</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Tight Manhattan bathrooms need clear swing planning around toilets, vanities, towel bars, and entry doors. A slider or fixed-panel layout can make sense when a swing door would fight the room.</p>
+            </div>
+            <div className="glass-card p-5">
+              <h3 className="font-semibold text-charcoal text-[15px] mb-2">When should glass be measured?</h3>
+              <p className="text-warm text-[14px] leading-relaxed">Final measurements should happen after tile, curb, saddle, and wall surfaces are finished. Measuring too early can create fit problems after grout, tile buildup, or wall corrections change the opening.</p>
+            </div>
           </div>
 
           <div className="glass-card p-6 sm:p-8 text-center">
