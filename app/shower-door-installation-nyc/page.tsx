@@ -27,6 +27,29 @@ const quotePrepItems = [
   'Building details that affect scheduling, including COI, elevator access, protection rules, or work hours',
 ]
 
+const installationFitItems = [
+  {
+    title: 'New glass after finished tile',
+    description:
+      'Best when the walls, curb, and tile are already complete. We measure the real opening, then fabricate the glass to the final conditions.',
+  },
+  {
+    title: 'Replacing a dated door',
+    description:
+      'If the old door is leaking, corroded, or difficult to use, the installation scope should include removal, surface cleanup, and a cleaner new layout.',
+  },
+  {
+    title: 'Co-op, condo, or managed building',
+    description:
+      'Building rules can affect timing, protection, COI paperwork, elevator access, and how glass gets moved through the property.',
+  },
+  {
+    title: 'Choosing a layout before ordering',
+    description:
+      'Swing clearance, panel width, tub edge, shower curb, vanity position, and toilet location decide whether a hinged door, slider, fixed panel, or walk-in panel makes sense.',
+  },
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -80,6 +103,33 @@ export default function ShowerDoorInstallationNYC() {
             <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3.5 text-sm">
               (332) 999-3846
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-28 border-y border-charcoal/[0.04]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Installation Fit</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">
+              What kind of installation are you actually pricing?
+            </h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              A shower door installation search can mean a brand-new enclosure after tile, a replacement for an old door, or a building-managed apartment project. The quote gets clearer when the install type is clear.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            {installationFitItems.map((item) => (
+              <div key={item.title} className="glass-card p-5 sm:p-6">
+                <h3 className="font-serif text-charcoal text-xl mb-2">{item.title}</h3>
+                <p className="text-warm text-[14px] sm:text-[15px] leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Replacement Planning</Link>
+            <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Frameless Options</Link>
+            <Link href="/service-areas/manhattan/" className="btn-pill btn-outline px-6 py-3 text-sm">Manhattan Buildings</Link>
           </div>
         </div>
       </section>

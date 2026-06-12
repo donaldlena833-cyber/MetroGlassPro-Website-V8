@@ -75,6 +75,29 @@ const quoteReadinessItems = [
   'Any building requirements you already know, such as COI, freight elevator, or work-hour rules',
 ]
 
+const repairDecisionSignals = [
+  {
+    title: 'Start with the actual failure point',
+    description:
+      'A leak at the curb, hinge-side drip, loose handle, dragging sweep, or roller problem each points to a different fix. Clear photos help us avoid guessing.',
+  },
+  {
+    title: 'Check whether the glass was ever fit correctly',
+    description:
+      'If the original measurement was wrong, repeated sweep and silicone fixes may keep failing. That is when repair turns into replacement planning.',
+  },
+  {
+    title: 'Separate worn parts from bad installation',
+    description:
+      'Worn sweeps and loose hardware are normal repair work. Wrong clips, poor anchoring, and sloppy silicone usually need a more serious remediation conversation.',
+  },
+  {
+    title: 'Use replacement when repair would waste money',
+    description:
+      'Cracked glass, corroded framed systems, or a door that cannot align cleanly are usually better handled as a new shower door replacement.',
+  },
+]
+
 const miniCases = [
   {
     eyebrow: 'Repair Pricing Guide',
@@ -212,6 +235,26 @@ export default function ShowerDoorRepairPage() {
             {commonCauses.map((item, index) => (
               <div key={item} className={`glass-card p-6 anim-fade-up d${index + 1}`}>
                 <p className="text-warm text-[15px] leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12 anim-fade-up">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Repair Strategy</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">The right repair starts with deciding what is worth saving.</h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              Not every shower door problem is a quick adjustment. The useful answer is to sort the issue into repair, remediation, or replacement before money is spent.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {repairDecisionSignals.map((item, index) => (
+              <div key={item.title} className={`glass-card p-6 anim-fade-up d${index + 1}`}>
+                <h3 className="font-serif text-charcoal text-2xl mb-3">{item.title}</h3>
+                <p className="text-warm text-[15px] leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>

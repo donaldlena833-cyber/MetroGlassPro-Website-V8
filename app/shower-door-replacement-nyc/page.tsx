@@ -27,6 +27,29 @@ const replacementQuoteChecklist = [
   'Building details that affect scheduling, including COI, elevator access, protection rules, or work hours',
 ]
 
+const replacementDecisionItems = [
+  {
+    title: 'Old framed door to frameless glass',
+    description:
+      'This is the cleanest visual upgrade when the bathroom still works but the metal frame, track, or glass makes the room feel dated.',
+  },
+  {
+    title: 'Leaking or difficult daily use',
+    description:
+      'If water is escaping, the door drags, or the slider no longer moves cleanly, replacement can solve the functional problem and improve the look at the same time.',
+  },
+  {
+    title: 'Wrong-size or poorly installed glass',
+    description:
+      'When the original opening was measured wrong, another repair may only mask the problem. New glass should be based on finished field conditions.',
+  },
+  {
+    title: 'Safety or condition issues',
+    description:
+      'Cracked glass, chipped edges, corrosion, or failing old hardware should be treated as replacement candidates, not cosmetic annoyances.',
+  },
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -80,6 +103,33 @@ export default function ShowerDoorReplacementNYC() {
             <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3.5 text-sm">
               (332) 999-3846
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-light py-20 sm:py-28 border-y border-charcoal/[0.04]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Replacement Fit</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">
+              Replacement is strongest when it solves more than the look.
+            </h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              The best shower door replacement scope fixes the daily problem, removes the weak old system, and gives the bathroom a cleaner layout instead of swapping one frustrating door for another.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            {replacementDecisionItems.map((item) => (
+              <div key={item.title} className="glass-card p-5 sm:p-6">
+                <h3 className="font-serif text-charcoal text-xl mb-2">{item.title}</h3>
+                <p className="text-warm text-[14px] sm:text-[15px] leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/shower-door-repair-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Repair First?</Link>
+            <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Frameless Upgrade</Link>
+            <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="btn-pill btn-outline px-6 py-3 text-sm">Before & After</Link>
           </div>
         </div>
       </section>

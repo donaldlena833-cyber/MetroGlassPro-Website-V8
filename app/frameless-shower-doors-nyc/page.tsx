@@ -48,6 +48,29 @@ const faqs = [
   },
 ]
 
+const buyerIntentChecks = [
+  {
+    title: 'Apartment or house?',
+    description:
+      'A Manhattan co-op, Brooklyn brownstone, Queens two-family home, and newer condo can all need different access planning, hardware choices, and field-measure expectations.',
+  },
+  {
+    title: 'Finished tile or still planning?',
+    description:
+      'Finished tile calls for a final field measure before glass fabrication. If the bathroom is still under construction, we can still help plan swing, fixed-panel, or sliding options early.',
+  },
+  {
+    title: 'Door, panel, slider, or open entry?',
+    description:
+      'The best layout depends on opening width, curb slope, vanity clearance, toilet position, and how much splash control the bathroom needs.',
+  },
+  {
+    title: 'Building coordination needed?',
+    description:
+      'If the building needs COI paperwork, freight scheduling, protection rules, or weekday work windows, it is better to flag that before the quote is finalized.',
+  },
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -115,6 +138,33 @@ export default function FramelessShowerDoorsNYC() {
           <span>COI Available</span>
           <span className="hidden sm:inline">·</span>
           <span>Free Estimates</span>
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 sm:py-28 border-t border-charcoal/[0.04]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Before You Choose Glass</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">
+              The right frameless quote starts with the bathroom conditions.
+            </h2>
+            <p className="mt-5 text-warm text-[15px] leading-relaxed">
+              Some buyers need a clean Manhattan apartment install, others need a Queens or Brooklyn layout decision, and others are comparing repair, replacement, and full custom frameless glass. These are the details that separate a useful quote from a generic price range.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            {buyerIntentChecks.map((item) => (
+              <div key={item.title} className="glass-card p-5 sm:p-6">
+                <h3 className="font-serif text-charcoal text-xl mb-2">{item.title}</h3>
+                <p className="text-warm text-[14px] sm:text-[15px] leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/service-areas/manhattan/" className="btn-pill btn-outline px-6 py-3 text-sm">Manhattan Planning</Link>
+            <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-sm">Queens Planning</Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Cost Factors</Link>
+          </div>
         </div>
       </section>
 

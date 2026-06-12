@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { projects } from '@/content/projects'
 
+const visibleProjects = projects.filter((project) => !project.slug.startsWith('metroglasspro-project-'))
+
 export const metadata: Metadata = {
   title: 'Real Projects and Buyer Guides',
   description: 'Browse MetroGlass Pro project stories, before and afters, and practical shower door guides from Manhattan and NYC jobs.',
@@ -127,7 +129,7 @@ export default function ProjectsIndex() {
               </div>
             </a>
 
-            {projects.map((p) => (
+            {visibleProjects.map((p) => (
               <Link
                 key={p.slug}
                 href={`/projects/${p.slug}/`}
