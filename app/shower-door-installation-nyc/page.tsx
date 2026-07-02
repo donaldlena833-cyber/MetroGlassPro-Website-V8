@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Installation Manhattan and NYC',
-  description: 'Professional shower door installation for Manhattan apartments, co-ops, condos, and NYC homes. Frameless, framed, and sliding layouts, clean installs, COI ready.',
+  title: 'Shower Door Installation NYC | Frameless Glass Install',
+  description: 'Shower door installation in NYC for frameless glass, framed doors, sliders, tub enclosures, and apartment bathrooms. Manhattan-first service, COI ready.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-installation-nyc/' },
   openGraph: {
-    title: 'Shower Door Installation in Manhattan and NYC',
-    description: 'Professional shower door installation for Manhattan apartments, co-ops, condos, and NYC homes. Frameless, framed, and sliding layouts, clean installs, COI ready.',
+    title: 'Shower Door Installation NYC | Frameless Glass Install',
+    description: 'Shower door installation in NYC for frameless glass, framed doors, sliders, tub enclosures, and apartment bathrooms.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -130,6 +130,8 @@ export default function ShowerDoorInstallationNYC() {
             <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Replacement Planning</Link>
             <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Frameless Options</Link>
             <Link href="/service-areas/manhattan/" className="btn-pill btn-outline px-6 py-3 text-sm">Manhattan Buildings</Link>
+            <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-sm">Queens Buildings</Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Cost Factors</Link>
           </div>
         </div>
       </section>
@@ -248,6 +250,30 @@ export default function ShowerDoorInstallationNYC() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-6">Installation Planning Paths</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/service-areas/manhattan/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Manhattan Installation Service</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">COI, elevator, high-rise, co-op, condo, and compact bathroom planning for Manhattan installs.</span>
+            </Link>
+            <Link href="/service-areas/queens/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Queens Installation Service</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Installation planning for Queens houses, co-ops, condos, and multi-unit buildings.</span>
+            </Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Frameless Shower Door Cost in NYC</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Understand glass thickness, hardware, panel count, and building coordination before ordering.</span>
+            </Link>
+            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">CRL Geneva vs Vienna Hinges</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Compare common hinge options before choosing a frameless shower door hardware package.</span>
+            </Link>
           </div>
         </div>
       </section>
