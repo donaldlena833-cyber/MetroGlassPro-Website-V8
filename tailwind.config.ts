@@ -5,18 +5,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: '#E8E2D9',
-        'cream-light': '#F0EBE4',
-        'cream-dark': '#D6CFBF',
-        charcoal: '#1A1A1A',
-        'charcoal-light': '#2D2D2D',
-        navy: '#0A1E3D',
-        'navy-muted': '#1A2E4D',
+        cream: '#F7F2E9',
+        'cream-light': '#FFFDF8',
+        'cream-dark': '#E9DFD1',
+        charcoal: '#181612',
+        'charcoal-light': '#2B2924',
+        navy: '#385B6D',
+        'navy-muted': '#DCE9ED',
         orange: '#D4691A',
         'orange-muted': '#C4762E',
-        warm: '#6B6560',
-        'warm-light': '#9B9590',
-        border: 'rgba(26, 26, 26, 0.08)',
+        warm: '#665F55',
+        'warm-light': '#9A9388',
+        border: 'rgba(24, 22, 18, 0.08)',
       },
       fontFamily: {
         serif: ['Instrument Serif', 'Georgia', 'serif'],

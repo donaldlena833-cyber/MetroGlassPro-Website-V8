@@ -119,8 +119,8 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/editorial/hero.jpg')" }}
         />
-        {/* Blur + cream overlay */}
-        <div className="absolute inset-0 backdrop-blur-[2px] bg-cream/40" />
+        {/* Blur + white cream overlay with a restrained glass tint */}
+        <div className="absolute inset-0 backdrop-blur-[2px] bg-[linear-gradient(120deg,rgba(255,253,248,0.82),rgba(247,242,233,0.68)_58%,rgba(220,233,237,0.32))]" />
 
         {/* Content */}
         <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center py-24 sm:py-32">
@@ -140,8 +140,8 @@ export default function HomePage() {
       </section>
 
       {/* ═══ 2. TRUST STRIP ═══ */}
-      <section className="bg-cream-light py-8 border-y border-charcoal/[0.04]">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10 flex flex-wrap justify-center gap-x-12 gap-y-3 text-charcoal/40 text-[13px] font-medium tracking-wider uppercase">
+      <section className="bg-cream-light py-8 border-y border-navy/10">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 flex flex-wrap justify-center gap-x-12 gap-y-3 text-navy/45 text-[13px] font-medium tracking-wider uppercase">
           <span>Precise Field Measurements</span>
           <span className="hidden sm:inline">·</span>
           <span>Clean Installs</span>
@@ -393,7 +393,7 @@ export default function HomePage() {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="relative bg-charcoal/70 py-28 sm:py-36">
+        <div className="relative bg-[rgba(72,68,61,0.68)] py-28 sm:py-36">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-4xl sm:text-5xl anim-fade-up">
               Ready to price your shower door?
