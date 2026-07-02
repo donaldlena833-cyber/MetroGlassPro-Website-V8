@@ -252,6 +252,10 @@ export default function CoopCondoArticle() {
               <h3 className="font-serif text-charcoal text-lg mb-1">Manhattan Service Area</h3>
               <p className="text-warm text-[13px]">Coverage across all Manhattan neighborhoods and building types.</p>
             </Link>
+            <Link href="/service-areas/queens/" className="glass-card p-5 hover:bg-charcoal/[0.02] transition-colors">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Queens Service Area</h3>
+              <p className="text-warm text-[13px]">Co-op, condo, and elevator-building planning for Queens shower glass projects.</p>
+            </Link>
             <Link href="/projects/single-swing-door-nyc/" className="glass-card p-5 hover:bg-charcoal/[0.02] transition-colors">
               <h3 className="font-serif text-charcoal text-lg mb-1">Single Swing Door Guide</h3>
               <p className="text-warm text-[13px]">NYC&apos;s most popular configuration — what to know.</p>

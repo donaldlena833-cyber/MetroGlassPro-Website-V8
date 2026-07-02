@@ -104,6 +104,7 @@ export default function CRLGenevaVsVienna() {
               <h3 className="font-semibold text-charcoal text-[14px] uppercase tracking-wider mb-4">Related Services</h3>
               <div className="space-y-2">
                 <Link href="/frameless-shower-doors-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Doors →</Link>
+                <Link href="/projects/frameless-shower-door-cost-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Door Cost →</Link>
                 <Link href="/shower-door-installation-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Installation →</Link>
                 <Link href="/shower-door-replacement-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Replacement →</Link>
               </div>
@@ -112,6 +113,7 @@ export default function CRLGenevaVsVienna() {
               <h3 className="font-semibold text-charcoal text-[14px] uppercase tracking-wider mb-4">Service Areas</h3>
               <div className="space-y-2">
                 <Link href="/service-areas/manhattan/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Manhattan →</Link>
+                <Link href="/service-areas/queens/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Queens →</Link>
                 <Link href="/service-areas/brooklyn/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Brooklyn →</Link>
                 <Link href="/service-areas/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">All Areas →</Link>
               </div>

@@ -165,6 +165,20 @@ export default function FramelessShowerDoorsNYC() {
             <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-sm">Queens Planning</Link>
             <Link href="/projects/frameless-shower-door-cost-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Cost Factors</Link>
           </div>
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-5 card-lift block">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Hardware that ranks</h3>
+              <p className="text-warm text-[13px] leading-relaxed">Compare CRL Geneva and Vienna hinges before choosing a frameless door package.</p>
+            </Link>
+            <Link href="/projects/coop-condo-shower-door-installation-nyc/" className="glass-card p-5 card-lift block">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Co-op and condo installs</h3>
+              <p className="text-warm text-[13px] leading-relaxed">COIs, freight rules, elevator scheduling, and building coordination for NYC apartments.</p>
+            </Link>
+            <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="glass-card p-5 card-lift block">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Lower East Side example</h3>
+              <p className="text-warm text-[13px] leading-relaxed">A compact Manhattan bathroom before and after with a cleaner custom glass enclosure.</p>
+            </Link>
+          </div>
         </div>
       </section>
 

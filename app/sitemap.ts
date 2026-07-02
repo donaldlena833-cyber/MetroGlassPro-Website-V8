@@ -4,7 +4,7 @@ import { projects } from '@/content/projects'
 export const dynamic = 'force-static'
 
 const base = 'https://metroglasspro.com'
-const siteUpdated = new Date('2026-06-12T21:05:00.000Z')
+const siteUpdated = new Date('2026-07-02T17:15:00.000Z')
 
 const coreRoutes = [
   { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
@@ -32,51 +32,20 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
-    path: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
-    lastModified: new Date('2026-05-24T00:00:00.000Z'),
-    priority: 0.7,
-  },
-  {
-    path: '/blog/glass-railings-jersey-city-planning-guide/',
-    lastModified: new Date('2026-05-22T00:00:00.000Z'),
-    priority: 0.68,
-  },
-  {
     path: '/blog/office-glass-partitions-manhattan-planning-guide/',
     lastModified: new Date('2026-05-20T00:00:00.000Z'),
     priority: 0.7,
   },
-  {
-    path: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
-    lastModified: new Date('2026-05-19T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/custom-mirrors-manhattan-apartment-guide/',
-    lastModified: new Date('2026-05-14T00:00:00.000Z'),
-    priority: 0.7,
-  },
-  {
-    path: '/blog/frameless-shower-doors-manhattan-buyer-guide/',
-    lastModified: new Date('2026-05-12T00:00:00.000Z'),
-    priority: 0.72,
-  },
-  {
-    path: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
-    lastModified: new Date('2026-05-10T00:00:00.000Z'),
-    priority: 0.7,
-  },
-  {
-    path: '/blog/2026-05-09-honest-shower-door-repair-nyc',
-    lastModified: new Date('2026-05-09T00:00:00.000Z'),
-    priority: 0.65,
-  },
-  {
-    path: '/blog/finished-tile-shower-glass-measurement-manhattan/',
-    lastModified: new Date('2026-05-12T00:00:00.000Z'),
-    priority: 0.6,
-  },
 ]
+
+const indexTargetProjectSlugs = new Set([
+  'frameless-shower-door-cost-nyc',
+  '84-clinton-lower-east-side-shower-door-before-after',
+  'coop-condo-shower-door-installation-nyc',
+  '90-corner-enclosure-nyc',
+  'walk-in-shower-panel-nyc',
+  'crl-geneva-vs-vienna-hinges',
+])
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routeEntries = coreRoutes.map((route) => ({
@@ -87,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const projectEntries = projects
-    .filter((project) => !project.slug.startsWith('metroglasspro-project-'))
+    .filter((project) => indexTargetProjectSlugs.has(project.slug))
     .map((project) => ({
       url: `${base}/projects/${project.slug}/`,
       lastModified: new Date(`${project.date}T00:00:00.000Z`),
