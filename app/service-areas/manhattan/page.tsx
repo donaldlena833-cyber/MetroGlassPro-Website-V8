@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Manhattan Shower Door Company',
-  description: 'Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Precise measurements, clean installs, and organized building coordination.',
+  title: 'Custom Shower Doors Manhattan NY | MetroGlass Pro',
+  description: 'Custom shower doors and frameless shower glass for Manhattan apartments, co-ops, condos, brownstones, and high-rises. COI support, photo estimates, clean installs.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/manhattan/' },
   openGraph: {
-    title: 'Custom Shower Doors in Manhattan',
-    description: 'Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Precise fit, clean installs, and building ready coordination.',
+    title: 'Custom Shower Doors Manhattan NY',
+    description: 'Custom shower doors and frameless shower glass for Manhattan apartments, co-ops, condos, brownstones, and high-rises.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -116,6 +116,14 @@ export default function ManhattanPage() {
             <Link href="/projects/coop-condo-shower-door-installation-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Co-op and Condo Shower Door Installation</span>
               <span className="text-warm text-[13px] block mt-1">The building rules, COI details, elevator coordination, and timing Manhattan buyers should expect.</span>
+            </Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Frameless Shower Door Cost in NYC</span>
+              <span className="text-warm text-[13px] block mt-1">The quote factors behind glass thickness, hardware finish, panel count, and building coordination.</span>
+            </Link>
+            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
+              <span className="text-warm text-[13px] block mt-1">A hardware comparison for Manhattan buyers choosing a frameless shower door package.</span>
             </Link>
             <Link href="/projects/interior-design-collaboration-shower-door-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Fixing a Shower Door Install Gone Wrong</span>
