@@ -2,19 +2,41 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'CRL Geneva vs Vienna Hinges',
-  description: 'Comparing CRL Geneva and Vienna frameless shower door hinges — design, applications, and when we recommend each.',
+  title: 'CRL Geneva vs Vienna Hinges | Frameless Shower Door Hardware NYC',
+  description: 'Compare CRL Geneva and Vienna frameless shower door hinges for NYC shower glass: design, finish options, installation use cases, and when each hinge makes sense.',
   alternates: { canonical: 'https://metroglasspro.com/projects/crl-geneva-vs-vienna-hinges/' },
   openGraph: {
-    title: 'CRL Geneva vs Vienna Hinges: A Comparison',
-    description: 'Comparing CRL Geneva and Vienna frameless shower door hinges — design, applications, and recommendations.',
+    title: 'CRL Geneva vs Vienna Hinges for Frameless Shower Doors',
+    description: 'Comparing CRL Geneva and Vienna frameless shower door hinges for NYC shower glass projects.',
+    url: 'https://metroglasspro.com/projects/crl-geneva-vs-vienna-hinges/',
+    type: 'article',
+    images: ['https://metroglasspro.com/editorial/tools.jpg'],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: ['https://metroglasspro.com/editorial/tools.jpg'] },
+}
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'CRL Geneva vs Vienna Hinges for Frameless Shower Doors',
+  description: 'A practical comparison of CRL Geneva and Vienna hinges for frameless shower door hardware selection in NYC bathrooms.',
+  datePublished: '2026-02-01',
+  dateModified: '2026-07-02',
+  author: { '@type': 'Organization', name: 'MetroGlass Pro' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'MetroGlass Pro',
+    logo: { '@type': 'ImageObject', url: 'https://metroglasspro.com/assets/logo.png' },
+  },
+  mainEntityOfPage: 'https://metroglasspro.com/projects/crl-geneva-vs-vienna-hinges/',
+  image: 'https://metroglasspro.com/editorial/tools.jpg',
 }
 
 export default function CRLGenevaVsVienna() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+
       {/* ═══ HERO ═══ */}
       <section className="bg-cream pt-20 sm:pt-32 pb-10 sm:pb-14">
         <div className="max-w-3xl mx-auto px-6 sm:px-10">
@@ -107,6 +129,7 @@ export default function CRLGenevaVsVienna() {
                 <Link href="/projects/frameless-shower-door-cost-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Door Cost →</Link>
                 <Link href="/shower-door-installation-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Installation →</Link>
                 <Link href="/shower-door-replacement-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Replacement →</Link>
+                <Link href="/shower-door-repair-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Repair →</Link>
               </div>
             </div>
             <div>
