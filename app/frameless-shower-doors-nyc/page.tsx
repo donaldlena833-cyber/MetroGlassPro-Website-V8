@@ -179,6 +179,20 @@ export default function FramelessShowerDoorsNYC() {
               <p className="text-warm text-[13px] leading-relaxed">A compact Manhattan bathroom before and after with a cleaner custom glass enclosure.</p>
             </Link>
           </div>
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/shower-door-installation-nyc/" className="glass-card p-5 card-lift block">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Need a new install?</h3>
+              <p className="text-warm text-[13px] leading-relaxed">Start here when the bathroom is tiled, measured, and ready for a custom glass installation.</p>
+            </Link>
+            <Link href="/shower-door-replacement-nyc/" className="glass-card p-5 card-lift block">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Replacing an old door?</h3>
+              <p className="text-warm text-[13px] leading-relaxed">Use this path for old framed doors, leaking enclosures, cracked glass, or a frameless upgrade.</p>
+            </Link>
+            <Link href="/shower-door-repair-nyc/" className="glass-card p-5 card-lift block">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Repair first?</h3>
+              <p className="text-warm text-[13px] leading-relaxed">Use this path for leaks, sweeps, loose hinges, dragging glass, or repair-versus-replace decisions.</p>
+            </Link>
+          </div>
         </div>
       </section>
 
