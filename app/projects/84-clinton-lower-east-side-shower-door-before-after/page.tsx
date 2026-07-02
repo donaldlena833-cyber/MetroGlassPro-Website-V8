@@ -33,7 +33,7 @@ const articleJsonLd = {
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-03-16',
-  dateModified: '2026-03-16',
+  dateModified: '2026-07-02',
   mainEntityOfPage: 'https://metroglasspro.com/projects/84-clinton-lower-east-side-shower-door-before-after/',
   image: 'https://metroglasspro.com/gallery/84-clinton-after-preview.jpg',
 }
@@ -165,6 +165,7 @@ export default function Clinton84ProjectPage() {
               <h3 className="font-semibold text-charcoal text-[14px] uppercase tracking-wider mb-4">Related Services</h3>
               <div className="space-y-2">
                 <Link href="/shower-door-installation-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Installation →</Link>
+                <Link href="/shower-door-replacement-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Replacement →</Link>
                 <Link href="/frameless-shower-doors-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Doors →</Link>
                 <Link href="/service-areas/manhattan/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Manhattan Service Area →</Link>
               </div>
@@ -172,9 +173,9 @@ export default function Clinton84ProjectPage() {
             <div>
               <h3 className="font-semibold text-charcoal text-[14px] uppercase tracking-wider mb-4">Related Projects</h3>
               <div className="space-y-2">
-                <Link href="/projects/sliding-bypass-doors-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Sliding Bypass Doors →</Link>
+                <Link href="/projects/frameless-shower-door-cost-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Door Cost →</Link>
                 <Link href="/projects/coop-condo-shower-door-installation-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Co-op and Condo Installs →</Link>
-                <Link href="/projects/interior-design-collaboration-shower-door-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Contractor Remediation Story →</Link>
+                <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">CRL Geneva vs Vienna Hinges →</Link>
               </div>
             </div>
           </div>
