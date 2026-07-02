@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Replacement Manhattan and NYC',
-  description: 'Replace an old or dated shower door with a cleaner, better fitting enclosure. Manhattan first service, clean removal, precise installation, and honest repair versus replace guidance.',
+  title: 'Shower Door Replacement NYC | Frameless Upgrade',
+  description: 'Shower door replacement in NYC for old framed doors, leaking enclosures, cracked glass, corroded tracks, and frameless upgrades. Manhattan-first photo estimates.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-replacement-nyc/' },
   openGraph: {
-    title: 'Shower Door Replacement in Manhattan and NYC',
-    description: 'Replace an old or dated shower door with a cleaner, better fitting enclosure. Manhattan first service, clean removal, and precise installation.',
+    title: 'Shower Door Replacement NYC | Frameless Upgrade',
+    description: 'Shower door replacement in NYC for old framed doors, leaking enclosures, cracked glass, corroded tracks, and frameless upgrades.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -130,6 +130,7 @@ export default function ShowerDoorReplacementNYC() {
             <Link href="/shower-door-repair-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Repair First?</Link>
             <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Frameless Upgrade</Link>
             <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="btn-pill btn-outline px-6 py-3 text-sm">Before & After</Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Cost Factors</Link>
           </div>
         </div>
       </section>
@@ -247,6 +248,30 @@ export default function ShowerDoorReplacementNYC() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-6">Replacement Planning Paths</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/service-areas/manhattan/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Manhattan Replacement Service</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">COI, elevator, building access, and compact-bathroom planning for Manhattan replacement calls.</span>
+            </Link>
+            <Link href="/service-areas/queens/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Queens Replacement Service</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Replacement planning for Queens homes, co-ops, condos, and multi-unit buildings.</span>
+            </Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Frameless Shower Door Cost in NYC</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Use this guide to compare glass thickness, hardware finish, panel count, and building coordination before replacing.</span>
+            </Link>
+            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">CRL Geneva vs Vienna Hinges</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Hardware comparison for buyers replacing an older enclosure with a cleaner frameless package.</span>
+            </Link>
           </div>
         </div>
       </section>
