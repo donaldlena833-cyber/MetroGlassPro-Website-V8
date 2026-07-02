@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frameless Shower Door Cost in NYC',
-  description: 'A practical NYC buyer guide to frameless shower door cost, from single swing doors to door and panel layouts, corner enclosures, hardware, glass thickness, and building coordination.',
+  title: 'Frameless Shower Door Cost NYC | Custom Glass Pricing',
+  description: 'Compare frameless shower door cost in NYC by layout, glass thickness, hardware, repair vs replacement, installation conditions, and co-op or condo coordination.',
   alternates: { canonical: 'https://metroglasspro.com/projects/frameless-shower-door-cost-nyc/' },
   openGraph: {
     title: 'Frameless Shower Door Cost in NYC',
@@ -56,6 +56,27 @@ const faqs = [
   },
 ]
 
+const nextSteps = [
+  {
+    title: 'Planning a new installation?',
+    body: 'Use the installation guide if the bathroom is ready for measurement or you are coordinating a renovation timeline.',
+    href: '/shower-door-installation-nyc/',
+    label: 'Shower Door Installation NYC',
+  },
+  {
+    title: 'Replacing an old shower door?',
+    body: 'Compare replacement factors when the current door leaks, binds, has failing hardware, or no longer fits the bathroom.',
+    href: '/shower-door-replacement-nyc/',
+    label: 'Shower Door Replacement NYC',
+  },
+  {
+    title: 'Not sure repair is enough?',
+    body: 'Check the repair path first if the issue is hinges, sweeps, rollers, alignment, water leaks, or loose hardware.',
+    href: '/shower-door-repair-nyc/',
+    label: 'Shower Door Repair NYC',
+  },
+]
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -72,7 +93,7 @@ const articleJsonLd = {
   headline: 'Frameless Shower Door Cost in NYC',
   description: 'A practical NYC buyer guide to frameless shower door cost, quote comparisons, glass thickness, hardware, layouts, and building coordination.',
   datePublished: '2026-05-09',
-  dateModified: '2026-05-09',
+  dateModified: '2026-07-02',
   author: { '@type': 'Organization', name: 'MetroGlass Pro' },
   publisher: {
     '@type': 'Organization',
@@ -197,6 +218,35 @@ export default function FramelessShowerDoorCostNYC() {
                 <span className="text-warm leading-relaxed">{item}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 sm:py-32">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="max-w-2xl mb-12">
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Choose the Next Step</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">Turn the price range into the right service path.</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {nextSteps.map((item) => (
+              <Link key={item.href} href={item.href} className="glass-card p-6 block hover:-translate-y-1 transition-transform">
+                <h3 className="font-serif text-charcoal text-2xl mb-3">{item.title}</h3>
+                <p className="text-warm text-[14px] leading-relaxed mb-5">{item.body}</p>
+                <span className="text-orange text-[13px] font-semibold tracking-widest uppercase">{item.label}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/service-areas/manhattan/" className="btn-pill btn-outline px-6 py-3 text-xs">
+              Manhattan Service
+            </Link>
+            <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-xs">
+              Queens Service
+            </Link>
+            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="btn-pill btn-outline px-6 py-3 text-xs">
+              Compare CRL Hinges
+            </Link>
           </div>
         </div>
       </section>
