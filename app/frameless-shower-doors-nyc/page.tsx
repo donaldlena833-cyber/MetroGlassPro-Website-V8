@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frameless Shower Doors Manhattan and NYC',
-  description: 'Custom frameless shower doors for Manhattan apartments, condos, and homes, plus NYC support. 3/8" and 1/2" tempered glass, premium hardware, clean installs, COI ready.',
+  title: 'Frameless Shower Doors NYC | Manhattan Custom Glass',
+  description: 'Custom frameless shower doors in NYC with Manhattan-first service, 3/8" and 1/2" tempered glass, premium hardware, COI support, and clean installation.',
   alternates: { canonical: 'https://metroglasspro.com/frameless-shower-doors-nyc/' },
   openGraph: {
-    title: 'Frameless Shower Doors in Manhattan and NYC',
-    description: 'Custom frameless shower doors for Manhattan apartments, condos, and homes, plus NYC support. Premium glass, careful fitting, and clean installation.',
+    title: 'Frameless Shower Doors NYC | Manhattan Custom Glass',
+    description: 'Custom frameless shower doors in NYC with Manhattan-first service, premium glass, careful fitting, COI support, and clean installation.',
     url: 'https://metroglasspro.com/frameless-shower-doors-nyc/',
     type: 'website',
   },
@@ -112,7 +112,7 @@ export default function FramelessShowerDoorsNYC() {
         <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center py-20 sm:py-28">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-5 anim-fade-up">NYC&apos;s Custom Glass Specialists</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl lg:text-7xl anim-hero">
-            Frameless Shower Doors NYC
+            Frameless Shower Doors in NYC
           </h1>
           <p className="mt-6 text-charcoal/60 text-base sm:text-lg leading-relaxed max-w-xl mx-auto anim-fade-up d2">
             Custom-measured, precision-fabricated frameless glass doors installed across all five boroughs. Premium hardware, expert fitting, no shortcuts.

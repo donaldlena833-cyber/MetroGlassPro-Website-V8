@@ -38,14 +38,14 @@ const featuredGuides = [
     href: '/projects/84-clinton-lower-east-side-shower-door-before-after/',
   },
   {
-    title: '90° Corner Frameless Enclosure',
-    description: 'Why the 90 degree corner layout is still the luxury standard for many built-in NYC showers.',
-    href: '/projects/90-corner-enclosure-nyc/',
+    title: 'Frameless Shower Door Cost in NYC',
+    description: 'The buyer guide for glass thickness, hardware, layout, building coordination, and quote factors.',
+    href: '/projects/frameless-shower-door-cost-nyc/',
   },
   {
-    title: 'Single Swing Door Guide',
-    description: 'A practical guide to the most common frameless shower door configuration in city bathrooms.',
-    href: '/projects/single-swing-door-nyc/',
+    title: 'CRL Geneva vs Vienna Hinges',
+    description: 'A hardware comparison Google is already rewarding, now used as a stronger path into shower door pages.',
+    href: '/projects/crl-geneva-vs-vienna-hinges/',
   },
   {
     title: 'Co-op and Condo Installation',
