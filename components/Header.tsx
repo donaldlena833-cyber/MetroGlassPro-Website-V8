@@ -7,6 +7,7 @@ const navLinks = [
   { href: '/frameless-shower-doors-nyc/', label: 'Shower Doors' },
   { href: '/shower-door-repair-nyc/', label: 'Repair' },
   { href: '/service-areas/manhattan/', label: 'Manhattan' },
+  { href: '/service-areas/queens/', label: 'Queens' },
   { href: '/projects/', label: 'Projects' },
   { href: '/services/', label: 'Services' },
   { href: '/reviews/', label: 'Reviews' },
