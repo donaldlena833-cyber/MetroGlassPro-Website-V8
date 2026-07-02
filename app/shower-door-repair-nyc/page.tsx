@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Repair Manhattan and NYC',
-  description: 'Shower door repair for Manhattan and NYC bathrooms, including leak issues, dragging doors, hardware problems, and bad install remediation.',
+  title: 'Shower Door Repair NYC | Manhattan Glass Door Fixes',
+  description: 'Shower door repair in NYC for leaking doors, dragging glass, loose hinges, worn sweeps, roller problems, and bad install remediation. Manhattan-first photo estimates.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-repair-nyc/' },
   openGraph: {
-    title: 'Shower Door Repair in Manhattan and NYC',
-    description: 'Shower door repair for Manhattan and NYC bathrooms, including leak issues, dragging doors, hardware problems, and bad install remediation.',
+    title: 'Shower Door Repair NYC | Manhattan Glass Door Fixes',
+    description: 'Shower door repair in NYC for leaking doors, dragging glass, loose hinges, worn sweeps, roller problems, and bad install remediation.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -402,6 +402,22 @@ export default function ShowerDoorRepairPage() {
             <Link href="/shower-door-replacement-nyc/" className="glass-card p-5 card-lift block">
               <span className="text-charcoal font-medium text-[15px]">Shower Door Replacement</span>
               <span className="text-warm text-[14px] leading-relaxed block mt-2">See what a full replacement looks like when the old enclosure is not worth saving or the original fit was wrong from day one.</span>
+            </Link>
+            <Link href="/service-areas/manhattan/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Manhattan Shower Door Service</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Building access, COI, elevator, and tight-bathroom planning for Manhattan repair and replacement calls.</span>
+            </Link>
+            <Link href="/service-areas/queens/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Queens Shower Door Service</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Repair and replacement planning for Queens homes, co-ops, condos, and multi-unit buildings.</span>
+            </Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">Frameless Shower Door Cost in NYC</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Use the cost guide when repair is no longer the right long-term answer and a replacement quote makes more sense.</span>
+            </Link>
+            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-5 card-lift block">
+              <span className="text-charcoal font-medium text-[15px]">CRL Geneva vs Vienna Hinges</span>
+              <span className="text-warm text-[14px] leading-relaxed block mt-2">Compare common frameless hinge options when loose or failing hardware points toward a new door package.</span>
             </Link>
           </div>
         </div>
