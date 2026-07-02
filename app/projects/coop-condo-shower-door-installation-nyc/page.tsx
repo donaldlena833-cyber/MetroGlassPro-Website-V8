@@ -10,8 +10,9 @@ export const metadata: Metadata = {
     description: 'Everything NYC co-op and condo owners need to know before installing a frameless shower door: COI, building rules, freight access, and more.',
     url: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
     type: 'article',
+    images: ['https://metroglasspro.com/editorial/shower-door.jpg'],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: ['https://metroglasspro.com/editorial/shower-door.jpg'] },
 }
 
 const faqs = [
@@ -59,7 +60,7 @@ const articleJsonLd = {
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-03-11',
-  dateModified: '2026-03-11',
+  dateModified: '2026-07-02',
   mainEntityOfPage: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
   image: 'https://metroglasspro.com/editorial/shower-door.jpg',
 }
@@ -256,9 +257,9 @@ export default function CoopCondoArticle() {
               <h3 className="font-serif text-charcoal text-lg mb-1">Queens Service Area</h3>
               <p className="text-warm text-[13px]">Co-op, condo, and elevator-building planning for Queens shower glass projects.</p>
             </Link>
-            <Link href="/projects/single-swing-door-nyc/" className="glass-card p-5 hover:bg-charcoal/[0.02] transition-colors">
-              <h3 className="font-serif text-charcoal text-lg mb-1">Single Swing Door Guide</h3>
-              <p className="text-warm text-[13px]">NYC&apos;s most popular configuration — what to know.</p>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="glass-card p-5 hover:bg-charcoal/[0.02] transition-colors">
+              <h3 className="font-serif text-charcoal text-lg mb-1">Frameless Shower Door Cost</h3>
+              <p className="text-warm text-[13px]">Planning ranges, quote factors, hardware, and building coordination.</p>
             </Link>
           </div>
         </div>
