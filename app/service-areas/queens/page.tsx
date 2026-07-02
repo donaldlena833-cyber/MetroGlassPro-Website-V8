@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Custom Shower Doors in Queens | MetroGlass Pro',
-  description: 'Custom shower doors, frameless shower glass, repair, and replacement across Queens homes, co-ops, condos, and multi-unit buildings.',
+  title: 'Custom Shower Doors Queens NY | MetroGlass Pro',
+  description: 'Custom shower doors and frameless shower glass for Queens homes, co-ops, condos, and multi-unit buildings. Photo-based estimates, COI support, repair and replacement.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/queens/' },
   openGraph: {
-    title: 'Custom Shower Doors in Queens',
-    description: 'Custom shower doors, frameless shower glass, repair, and replacement across Queens homes, co-ops, condos, and multi-unit buildings.',
+    title: 'Custom Shower Doors Queens NY',
+    description: 'Custom shower doors and frameless shower glass for Queens homes, co-ops, condos, and multi-unit buildings.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -37,9 +37,9 @@ export default function QueensPage() {
             Single-family homes, two-family homes, garden apartments, co-ops, new-construction condos, and mixed-use buildings. Queens bathrooms tend to be larger than Manhattan, giving more room for full frameless enclosures.
           </p>
 
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Why Queens shower glass needs its own page</h2>
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Why Queens shower glass needs its own planning</h2>
           <p className="text-warm text-[15px] leading-relaxed mb-4">
-            Search Console is already showing Queens shower door and custom glass searches, but the old page was too light to earn consistent index trust. Queens projects need more specific planning because the borough has a different mix of homes than Manhattan: wider bathrooms, older two-family houses, renovated basements, newer Long Island City condos, and co-op buildings with their own access rules.
+            Queens projects need more specific planning because the borough has a different mix of homes than Manhattan: wider bathrooms, older two-family houses, renovated basements, newer Long Island City condos, and co-op buildings with their own access rules.
           </p>
           <p className="text-warm text-[15px] leading-relaxed mb-10">
             For estimates, the most useful details are the neighborhood, shower type, whether the project is repair or replacement, photos of the full opening, and any building access notes. If the project is in a co-op or condo, mention whether the building asks for insurance paperwork, work-hour windows, or elevator scheduling.
@@ -108,13 +108,13 @@ export default function QueensPage() {
               <span className="text-charcoal font-medium text-[14px]">Walk-In Shower Panel Planning</span>
               <span className="text-warm text-[13px] block mt-1">A useful layout reference for Queens bathrooms where a fixed panel can feel cleaner than a full door system.</span>
             </Link>
-            <Link href="/projects/sliding-bypass-doors-nyc/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">Sliding Bypass Shower Doors</span>
-              <span className="text-warm text-[13px] block mt-1">A space-saving option when a vanity, toilet, or narrow bathroom path makes a swing door awkward.</span>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Frameless Shower Door Cost in NYC</span>
+              <span className="text-warm text-[13px] block mt-1">The quote factors Queens buyers should understand before choosing glass thickness, hardware, and layout.</span>
             </Link>
-            <Link href="/projects/typical-mirror-replacement-nyc/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">Mirror Replacement in a NYC Apartment</span>
-              <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like — sizing, mounting, timeline.</span>
+            <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Compact Bathroom Before and After</span>
+              <span className="text-warm text-[13px] block mt-1">A real project example for buyers comparing custom glass options in tighter NYC bathrooms.</span>
             </Link>
             <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
