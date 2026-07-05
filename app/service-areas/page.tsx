@@ -129,6 +129,8 @@ export default function ServiceAreasPage() {
             <Link href="/shower-door-installation-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Installation</Link>
             <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Replacement</Link>
             <Link href="/shower-door-repair-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Repair</Link>
+            <Link href="/projects/frameless-shower-door-cost-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Cost Guide</Link>
+            <Link href="/projects/coop-condo-shower-door-installation-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Co-op & Condo Guide</Link>
             <Link href="/custom-mirrors-nyc/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">Mirrors</Link>
             <Link href="/services/" className="btn-pill btn-outline px-6 py-2.5 text-[13px]">All Services</Link>
           </div>

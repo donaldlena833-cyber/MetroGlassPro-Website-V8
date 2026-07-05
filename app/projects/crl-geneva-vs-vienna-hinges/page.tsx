@@ -21,7 +21,7 @@ const articleJsonLd = {
   headline: 'CRL Geneva vs Vienna Hinges for Frameless Shower Doors',
   description: 'A practical comparison of CRL Geneva and Vienna hinges for frameless shower door hardware selection in NYC bathrooms.',
   datePublished: '2026-02-01',
-  dateModified: '2026-07-02',
+  dateModified: '2026-07-05',
   author: { '@type': 'Organization', name: 'MetroGlass Pro' },
   publisher: {
     '@type': 'Organization',
@@ -106,6 +106,11 @@ export default function CRLGenevaVsVienna() {
           </p>
           <p>
             Both hinges are commercial-grade, self-closing capable, and built to last. The choice is primarily aesthetic.
+          </p>
+
+          <h2>Which page should you read next?</h2>
+          <p>
+            If you are choosing hinges because a new bathroom is ready for glass, start with our <Link href="/shower-door-installation-nyc/">NYC shower door installation guide</Link>. If an older door is leaking, dragging, or dated, compare <Link href="/shower-door-replacement-nyc/">shower door replacement</Link> and <Link href="/shower-door-repair-nyc/">repair</Link> before picking hardware. For local logistics, Manhattan and Queens buyers should also check the service-area notes before requesting a quote.
           </p>
 
           <h2>A Note on Hardware Selection</h2>

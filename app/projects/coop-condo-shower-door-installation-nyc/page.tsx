@@ -60,7 +60,7 @@ const articleJsonLd = {
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-03-11',
-  dateModified: '2026-07-02',
+  dateModified: '2026-07-05',
   mainEntityOfPage: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
   image: 'https://metroglasspro.com/editorial/shower-door.jpg',
 }
@@ -189,6 +189,11 @@ export default function CoopCondoArticle() {
           </p>
           <p>
             At MetroGlass Pro, co-op and condo installations are our core business. We know the protocols because we do them every week. We carry the insurance, we provide the paperwork, and we coordinate with your building so install day goes smoothly.
+          </p>
+
+          <h2>Match the building plan to the right shower door page</h2>
+          <p>
+            If the bathroom is already tiled and ready for glass, read the <Link href="/shower-door-installation-nyc/">installation guide</Link>. If you are removing an older framed or semi-frameless enclosure, compare the <Link href="/shower-door-replacement-nyc/">replacement path</Link>. If the issue is only a leak, sweep, hinge, or alignment problem, start with <Link href="/shower-door-repair-nyc/">repair</Link>. Manhattan and Queens buyers should also use the local service-area pages so access rules, COI needs, and elevator planning are discussed before fabrication.
           </p>
 
           <h2>Ready to get started?</h2>

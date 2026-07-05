@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frameless Shower Doors NYC | Manhattan Custom Glass',
-  description: 'Custom frameless shower doors in NYC with Manhattan-first service, 3/8" and 1/2" tempered glass, premium hardware, COI support, and clean installation.',
+  title: 'Frameless Shower Doors NYC | Measure, Quote, Install',
+  description: 'Custom frameless shower doors in NYC for apartments, co-ops, condos, and renovations. Compare install, replacement, repair, cost, hardware, and service areas before you request a quote.',
   alternates: { canonical: 'https://metroglasspro.com/frameless-shower-doors-nyc/' },
   openGraph: {
-    title: 'Frameless Shower Doors NYC | Manhattan Custom Glass',
-    description: 'Custom frameless shower doors in NYC with Manhattan-first service, premium glass, careful fitting, COI support, and clean installation.',
+    title: 'Frameless Shower Doors NYC | Measure, Quote, Install',
+    description: 'Custom frameless shower doors in NYC with installation, replacement, repair, cost, hardware, and building coordination paths.',
     url: 'https://metroglasspro.com/frameless-shower-doors-nyc/',
     type: 'website',
   },
@@ -49,6 +49,11 @@ const faqs = [
 ]
 
 const buyerIntentChecks = [
+  {
+    title: 'New install, replacement, or repair?',
+    description:
+      'A finished renovation, an older framed enclosure, and a leaking or dragging door are different jobs. Start with the right path so the quote conversation does not waste time.',
+  },
   {
     title: 'Apartment or house?',
     description:
@@ -149,7 +154,7 @@ export default function FramelessShowerDoorsNYC() {
               The right frameless quote starts with the bathroom conditions.
             </h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              Some buyers need a clean Manhattan apartment install, others need a Queens or Brooklyn layout decision, and others are comparing repair, replacement, and full custom frameless glass. These are the details that separate a useful quote from a generic price range.
+              Some buyers need a clean Manhattan apartment install, others need a Queens or Brooklyn layout decision, and others are comparing repair, replacement, and full custom frameless glass. These are the details that separate a useful quote from a generic price range and help you avoid choosing the wrong page for the job.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
@@ -161,6 +166,9 @@ export default function FramelessShowerDoorsNYC() {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/shower-door-installation-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Installation</Link>
+            <Link href="/shower-door-replacement-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Replacement</Link>
+            <Link href="/shower-door-repair-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Repair</Link>
             <Link href="/service-areas/manhattan/" className="btn-pill btn-outline px-6 py-3 text-sm">Manhattan Planning</Link>
             <Link href="/service-areas/queens/" className="btn-pill btn-outline px-6 py-3 text-sm">Queens Planning</Link>
             <Link href="/projects/frameless-shower-door-cost-nyc/" className="btn-pill btn-outline px-6 py-3 text-sm">Cost Factors</Link>
