@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Custom Shower Doors Manhattan NY | MetroGlass Pro',
-  description: 'Custom shower doors and frameless shower glass for Manhattan apartments, co-ops, condos, brownstones, and high-rises. COI support, photo estimates, clean installs.',
+  description: 'Custom shower doors, frameless shower glass, repair, and replacement for Manhattan apartments, co-ops, condos, brownstones, and high-rises. COI support and photo estimates.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/manhattan/' },
   openGraph: {
     title: 'Custom Shower Doors Manhattan NY',
@@ -109,6 +109,14 @@ export default function ManhattanPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent Manhattan projects & insights</h2>
           <div className="space-y-3 mb-10">
+            <Link href="/blog/frameless-shower-doors-manhattan-nyc-planning-guide/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Frameless Shower Doors in Manhattan Planning Guide</span>
+              <span className="text-warm text-[13px] block mt-1">A Manhattan-specific guide for measuring, building access, COI timing, hardware, and clean install planning.</span>
+            </Link>
+            <Link href="/blog/shower-door-repair-manhattan-nyc-planning-guide/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Shower Door Repair in Manhattan</span>
+              <span className="text-warm text-[13px] block mt-1">A repair-first path for Manhattan buyers deciding between hinge, sweep, leak, alignment, and replacement conversations.</span>
+            </Link>
             <Link href="/projects/84-clinton-lower-east-side-shower-door-before-after/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">84 Clinton Shower Door Before and After</span>
               <span className="text-warm text-[13px] block mt-1">A real Lower East Side shower door setup showing how the right enclosure finishes a compact Manhattan bathroom.</span>

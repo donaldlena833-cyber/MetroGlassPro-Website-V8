@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Custom Shower Doors Queens NY | MetroGlass Pro',
-  description: 'Custom shower doors and frameless shower glass for Queens homes, co-ops, condos, and multi-unit buildings. Photo-based estimates, COI support, repair and replacement.',
+  description: 'Custom shower doors, frameless shower glass, repair, and replacement for Queens homes, co-ops, condos, and multi-unit buildings. Photo-based estimates and COI support.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/queens/' },
   openGraph: {
     title: 'Custom Shower Doors Queens NY',
@@ -104,6 +104,10 @@ export default function QueensPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
           <div className="space-y-3 mb-10">
+            <Link href="/blog/frameless-shower-doors-queens-nyc-planning-guide/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Frameless Shower Doors in Queens Planning Guide</span>
+              <span className="text-warm text-[13px] block mt-1">A Queens-specific guide for homes, co-ops, condos, repair, replacement, photos, and glass layout decisions.</span>
+            </Link>
             <Link href="/projects/walk-in-shower-panel-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Walk-In Shower Panel Planning</span>
               <span className="text-warm text-[13px] block mt-1">A useful layout reference for Queens bathrooms where a fixed panel can feel cleaner than a full door system.</span>
