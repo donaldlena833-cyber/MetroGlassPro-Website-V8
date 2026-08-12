@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shower Glass Design Consultation in NYC',
-  description: 'MetroGlass Pro renders multiple shower enclosure configurations, including sliding, fixed panel, and swing door layouts, in your client\'s actual bathroom before fabrication begins.',
+  description: 'Compare sliding, fixed-panel, and swing-door shower glass layouts in the actual bathroom before fabrication begins with MetroGlass Pro.',
   alternates: { canonical: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/' },
   openGraph: {
     title: 'Shower Glass Design Consultation — Configuration Renders Before Install',

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'See Every Shower Door Option First',
-  description: 'We render your actual bathroom with 4 different shower door configurations before any glass is fabricated. Hinged, sliding, corner, neo-angle. See it first, then decide. NYC custom glass specialists.',
+  description: 'Compare hinged, sliding, corner, and neo-angle shower door renders in your actual bathroom before fabrication. See the options, then decide.',
   keywords: [
     'custom frameless shower door NYC',
     'shower door options small bathroom',

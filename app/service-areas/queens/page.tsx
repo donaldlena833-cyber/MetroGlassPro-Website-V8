@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Custom Shower Doors Queens NY | MetroGlass Pro',
-  description: 'Custom shower doors, frameless shower glass, repair, and replacement for Queens homes, co-ops, condos, and multi-unit buildings. Photo-based estimates and COI support.',
+  description: 'Custom shower doors, frameless glass, repair, and replacement for Queens homes, co-ops, condos, and multi-unit buildings. Photo estimates and COI support.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/queens/' },
   openGraph: {
     title: 'Custom Shower Doors Queens NY',

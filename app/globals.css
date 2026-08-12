@@ -149,7 +149,7 @@ body {
 
 /* ── Serif headline utility ── */
 .heading-serif {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--font-instrument-serif), Georgia, serif;
   letter-spacing: 0;
   line-height: 1.08;
 }
@@ -192,7 +192,7 @@ body {
 
 /* ── Prose styles for content pages ── */
 .prose-mgp h2 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--font-instrument-serif), Georgia, serif;
   font-size: 1.75rem;
   color: #181612;
   margin-top: 2.5rem;
@@ -201,7 +201,7 @@ body {
   line-height: 1.2;
 }
 .prose-mgp h3 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--font-instrument-serif), Georgia, serif;
   font-size: 1.35rem;
   color: #181612;
   margin-top: 2rem;

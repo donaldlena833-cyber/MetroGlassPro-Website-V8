@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frameless Shower Doors NYC | Measure, Quote, Install',
-  description: 'Custom frameless shower doors in NYC for apartments, co-ops, condos, and renovations. Compare install, replacement, repair, cost, hardware, and service areas before you request a quote.',
+  title: 'Frameless Shower Doors NYC',
+  description: 'Custom frameless shower doors for NYC apartments, co-ops, and condos. Compare layouts, glass, hardware, cost, and building needs before requesting a quote.',
   alternates: { canonical: 'https://metroglasspro.com/frameless-shower-doors-nyc/' },
   openGraph: {
-    title: 'Frameless Shower Doors NYC | Measure, Quote, Install',
-    description: 'Custom frameless shower doors in NYC with installation, replacement, repair, cost, hardware, and building coordination paths.',
+    title: 'Frameless Shower Doors NYC | MetroGlass Pro',
+    description: 'Custom frameless shower doors in NYC with precise measurement, premium hardware, clean installation, and co-op or condo coordination.',
     url: 'https://metroglasspro.com/frameless-shower-doors-nyc/',
     type: 'website',
   },

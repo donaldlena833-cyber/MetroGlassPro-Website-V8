@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '84 Clinton Shower Door Before and After',
-  description: 'See the 84 Clinton shower door before and after in the Lower East Side, Manhattan. MetroGlass Pro finished this compact bathroom with a clean sliding glass enclosure and chrome hardware.',
+  description: 'See the 84 Clinton shower door before and after in Manhattan, finished with a sliding glass enclosure and chrome hardware in a compact bathroom.',
   keywords: [
     '84 Clinton shower door',
     'Lower East Side shower door installation',

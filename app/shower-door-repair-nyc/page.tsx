@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Repair NYC | Manhattan Glass Door Fixes',
-  description: 'Shower door repair in NYC for leaking doors, dragging glass, loose hinges, worn sweeps, roller problems, and bad install remediation. Manhattan-first photo estimates.',
+  title: 'Shower Door Repair NYC',
+  description: 'NYC shower door repair for leaks, dragging glass, loose hinges, worn sweeps, rollers, and failed installations. Send photos for a fast Manhattan-first estimate.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-repair-nyc/' },
   openGraph: {
-    title: 'Shower Door Repair NYC | Manhattan Glass Door Fixes',
-    description: 'Shower door repair in NYC for leaking doors, dragging glass, loose hinges, worn sweeps, roller problems, and bad install remediation.',
+    title: 'Shower Door Repair NYC | MetroGlass Pro',
+    description: 'Repair leaking, dragging, or misaligned shower doors in NYC. Send photos for a fast diagnosis and repair-versus-replacement recommendation.',
   },
   twitter: { card: 'summary_large_image' },
 }

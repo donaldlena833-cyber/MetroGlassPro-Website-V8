@@ -3,7 +3,7 @@ import EstimateRequestForm from '@/components/EstimateRequestForm'
 
 export const metadata: Metadata = {
   title: 'Request a Shower Door Estimate',
-  description: 'Request a fast MetroGlass Pro estimate for shower doors, mirrors, and related custom glass in Manhattan and NYC. Share your neighborhood, building type, and project details.',
+  description: 'Request a fast MetroGlass Pro estimate for shower doors, mirrors, and custom glass in Manhattan and NYC. Share photos, location, and building details.',
   alternates: { canonical: 'https://metroglasspro.com/contact/' },
   openGraph: {
     title: 'Request a Shower Door Estimate',

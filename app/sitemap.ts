@@ -4,7 +4,7 @@ import { projects } from '@/content/projects'
 export const dynamic = 'force-static'
 
 const base = 'https://metroglasspro.com'
-const siteUpdated = new Date('2026-07-05T20:55:00.000Z')
+const siteUpdated = new Date('2026-08-12T00:00:00.000Z')
 
 const coreRoutes = [
   { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
@@ -32,9 +32,24 @@ const coreRoutes = [
 
 const blogRoutes = [
   {
+    path: '/blog/custom-mirrors-manhattan-apartment-guide/',
+    lastModified: siteUpdated,
+    priority: 0.72,
+  },
+  {
+    path: '/blog/finished-tile-shower-glass-measurement-manhattan/',
+    lastModified: siteUpdated,
+    priority: 0.75,
+  },
+  {
     path: '/blog/office-glass-partitions-manhattan-planning-guide/',
     lastModified: new Date('2026-05-20T00:00:00.000Z'),
     priority: 0.7,
+  },
+  {
+    path: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
+    lastModified: siteUpdated,
+    priority: 0.75,
   },
 ]
 
@@ -42,7 +57,15 @@ const indexTargetProjectSlugs = new Set([
   'frameless-shower-door-cost-nyc',
   '84-clinton-lower-east-side-shower-door-before-after',
   'coop-condo-shower-door-installation-nyc',
+  'door-fixed-panel-nyc',
+  'interior-design-collaboration-shower-door-nyc',
+  'neo-angle-enclosure-nyc',
   '90-corner-enclosure-nyc',
+  'shower-glass-design-consultation-nyc',
+  'single-swing-door-nyc',
+  'sliding-bypass-doors-nyc',
+  'typical-mirror-replacement-nyc',
+  'visualize-shower-door-options-nyc',
   'walk-in-shower-panel-nyc',
   'crl-geneva-vs-vienna-hinges',
 ])

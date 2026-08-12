@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'Meet Donald Lena and Ledion Lico, the co founders behind MetroGlass Pro, a Manhattan first shower door and custom glass company focused on precise measurements, clean installs, and building ready coordination.',
+  title: 'About MetroGlass Pro NYC',
+  description: 'Meet Donald Lena and Ledion Lico, the co-founders behind MetroGlass Pro and its precise, clean, building-ready shower door installations in NYC.',
   alternates: { canonical: 'https://metroglasspro.com/about/' },
   openGraph: {
     title: 'About',

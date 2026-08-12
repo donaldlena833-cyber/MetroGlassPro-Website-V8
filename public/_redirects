@@ -27,6 +27,12 @@
 /blog/bathroom-mirror-installation-proper-mounting-techniques    /custom-mirrors-nyc/          301
 /blog/smart-glass-technology-nyc-apartments-privacy-control      /glass-partitions-nyc/        301
 /blog/how-insurance-handles-broken-residential-glass-new-york    /shower-door-repair-nyc/      301
+/blog/sliding-frameless-shower-doors-small-bathrooms             /blog/tub-shower-glass-doors-nyc-planning-guide/ 301
+/blog/sliding-frameless-shower-doors-small-bathrooms/            /blog/tub-shower-glass-doors-nyc-planning-guide/ 301
+
+# Consolidate the overlapping Manhattan buyer guide into the main borough page.
+/blog/frameless-shower-doors-manhattan-buyer-guide               /service-areas/manhattan/ 301
+/blog/frameless-shower-doors-manhattan-buyer-guide/              /service-areas/manhattan/ 301
 
 # ── Additional indexed blog posts — redirect to best match ──
 /blog/24-hour-glass-repair-near-me-response-times               /shower-door-repair-nyc/      301

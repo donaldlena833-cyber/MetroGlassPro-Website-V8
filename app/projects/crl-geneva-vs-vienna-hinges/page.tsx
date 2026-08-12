@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'CRL Geneva vs Vienna Hinges | Frameless Shower Door Hardware NYC',
-  description: 'Compare CRL Geneva and Vienna frameless shower door hinges for NYC shower glass: design, finish options, installation use cases, and when each hinge makes sense.',
+  title: 'CRL Geneva vs Vienna Shower Door Hinges',
+  description: 'Compare CRL Geneva and Vienna frameless shower door hinges for NYC projects, including design, finish options, use cases, and selection guidance.',
   alternates: { canonical: 'https://metroglasspro.com/projects/crl-geneva-vs-vienna-hinges/' },
   openGraph: {
     title: 'CRL Geneva vs Vienna Hinges for Frameless Shower Doors',

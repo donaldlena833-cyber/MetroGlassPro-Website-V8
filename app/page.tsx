@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Custom Shower Doors Manhattan',
-  description: 'Custom shower doors for Manhattan apartments, condos, and brownstones, plus mirrors and related custom glass across NYC. Precise measurements, clean installs, COI ready, fast estimates.',
+  title: 'Custom Shower Doors NYC & Manhattan | MGP',
+  description: 'Custom shower doors for NYC and Manhattan apartments, condos, and brownstones. Precise measurements, clean installation, COI support, and fast photo estimates.',
   alternates: { canonical: 'https://metroglasspro.com/' },
 }
 
@@ -114,10 +115,14 @@ export default function HomePage() {
 
       {/* ═══ 1. HERO ═══ */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/editorial/hero.jpg')" }}
+        <Image
+          src="/editorial/hero.jpg"
+          alt="Custom frameless shower door installed in a New York City bathroom"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover object-center"
         />
         {/* Blur + white cream overlay with a restrained glass tint */}
         <div className="absolute inset-0 backdrop-blur-[2px] bg-[linear-gradient(120deg,rgba(255,253,248,0.82),rgba(247,242,233,0.68)_58%,rgba(220,233,237,0.32))]" />

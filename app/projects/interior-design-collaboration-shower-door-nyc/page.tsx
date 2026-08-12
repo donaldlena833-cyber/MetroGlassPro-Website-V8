@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'NYC Glass Contractor Remediation Project',
-  description: 'A marble tub enclosure install gone wrong by another contractor, with the wrong glass clip size, sloppy silicone, and a warranty ignored. MetroGlass Pro fixed it and earned a long-term design partner.',
+  description: 'See how MetroGlass Pro corrected an NYC tub enclosure with wrong clips and failed silicone, then earned an ongoing interior design partnership.',
   alternates: { canonical: 'https://metroglasspro.com/projects/interior-design-collaboration-shower-door-nyc/' },
   openGraph: {
     title: 'Why Choosing the Right Glass Contractor Matters — NYC',

@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Replacement NYC | Frameless Upgrade',
-  description: 'Shower door replacement in NYC for old framed doors, leaking enclosures, cracked glass, corroded tracks, and frameless upgrades. Manhattan-first photo estimates.',
+  title: 'Shower Door Replacement NYC',
+  description: 'Replace old framed, leaking, cracked, or corroded shower doors in NYC. Explore frameless upgrades and send photos for a fast Manhattan-first estimate.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-replacement-nyc/' },
   openGraph: {
-    title: 'Shower Door Replacement NYC | Frameless Upgrade',
+    title: 'Shower Door Replacement NYC | MetroGlass Pro',
     description: 'Shower door replacement in NYC for old framed doors, leaking enclosures, cracked glass, corroded tracks, and frameless upgrades.',
   },
   twitter: { card: 'summary_large_image' },

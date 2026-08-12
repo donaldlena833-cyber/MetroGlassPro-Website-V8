@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Co-op and Condo Shower Door Installation in NYC',
-  description: 'Installing shower doors in a NYC co-op or condo? Learn about COI requirements, building coordination, freight elevator scheduling, quiet hours, and what your management company needs before install day.',
+  description: 'Planning a shower door in an NYC co-op or condo? Learn about COIs, building coordination, freight elevators, work hours, and install-day needs.',
   alternates: { canonical: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/' },
   openGraph: {
     title: 'Co-op and Condo Shower Door Installation in NYC',

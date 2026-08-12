@@ -1,15 +1,34 @@
 import type { Metadata } from 'next'
+import { Instrument_Serif, Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MobileCtaBar from '@/components/MobileCtaBar'
-import PageTransition from '@/components/PageTransition'
 import ScrollObserver from '@/components/ScrollObserver'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-instrument-serif',
+})
+
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
+const googleAdsId = 'AW-934489946'
+const googleTagId = googleAnalyticsId || googleAdsId
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metroglasspro.com'),
-  title: { default: 'Custom Shower Doors Manhattan and NYC | MGP', template: '%s | MGP' },
-  description: 'Custom shower doors for Manhattan apartments, condos, and brownstones, plus mirrors and related custom glass across NYC. Clean installs, precise fit, COI ready, fast estimates.',
+  title: { default: 'Custom Shower Doors NYC & Manhattan | MGP', template: '%s | MGP' },
+  description: 'Custom shower doors for NYC apartments, condos, and brownstones. Precise measurements, clean installation, COI support, and fast photo estimates.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -33,41 +52,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`,
-              }}
-            />
-          </>
-        )}
-        {/* Google Ads (AW-934489946) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-934489946" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-934489946');`,
-          }}
-        />
       </head>
       <body className="font-sans pb-[84px] lg:pb-0">
         <ScrollObserver />
         <Header />
-        <main>
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <main>{children}</main>
         <MobileCtaBar />
         <Footer />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            ${googleAnalyticsId ? `gtag('config', '${googleAnalyticsId}');` : ''}
+            gtag('config', '${googleAdsId}');
+          `}
+        </Script>
       </body>
     </html>
   )
