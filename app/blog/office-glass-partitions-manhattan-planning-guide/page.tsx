@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: 'https://metroglasspro.com/editorial/railing.jpg',
-        alt: 'Architectural glass detail with clean metal and glass lines',
+        url: 'https://metroglasspro.com/editorial/partition.jpg',
+        alt: 'Interior office glass partition with clean metal framing',
       },
     ],
   },
@@ -61,7 +61,7 @@ const articleJsonLd = {
   headline: 'Office Glass Partitions in Manhattan: Planning Guide',
   description:
     'A Manhattan planning guide for office glass partitions, covering layout, clearances, hardware, building access, privacy, and estimate prep.',
-  image: 'https://metroglasspro.com/editorial/railing.jpg',
+  image: 'https://metroglasspro.com/editorial/partition.jpg',
   datePublished: '2026-05-20',
   dateModified: '2026-05-20',
   author: { '@type': 'Organization', name: 'MetroGlass Pro' },
@@ -156,7 +156,7 @@ export default function OfficeGlassPartitionsManhattanGuide() {
 
             <aside className="space-y-6 lg:sticky lg:top-28">
               <div className="rounded-lg overflow-hidden bg-cream-dark">
-                <img src="/editorial/railing.jpg" alt="Architectural glass detail with clean metal and glass lines" className="w-full h-auto" />
+                <img src="/editorial/partition.jpg" alt="Interior office glass partition with clean metal framing" className="w-full h-auto" />
               </div>
               <div className="glass-card p-6">
                 <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Related MetroGlass Pro pages</p>

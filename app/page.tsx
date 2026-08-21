@@ -159,7 +159,7 @@ export default function HomePage() {
             {/* Shower Doors */}
             <Link href="/frameless-shower-doors-nyc/" className="group" data-reveal="fade-up" data-delay="100">
               <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/shower-door.jpg" alt="Frameless shower door with gold hinges" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/editorial/shower-door.jpg" alt="Frameless shower door with chrome hardware in a finished NYC bathroom" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <h3 className="font-serif text-charcoal text-2xl mb-2">Frameless Shower Doors</h3>
               <p className="text-warm text-[15px] leading-relaxed">Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Swing, sliding, pivot, and fixed panel layouts measured to the real room, not a stock opening.</p>
@@ -179,7 +179,7 @@ export default function HomePage() {
             {/* Partitions */}
             <Link href="/glass-partitions-nyc/" className="group" data-reveal="fade-up" data-delay="300">
               <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/railing.jpg" alt="Glass stair railing with gold posts" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/editorial/partition.jpg" alt="Interior glass office partition with black metal framing" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <h3 className="font-serif text-charcoal text-2xl mb-2">Glass Partitions</h3>
               <p className="text-warm text-[15px] leading-relaxed">Residential and boutique commercial partitions for projects that need clean lines, reliable coordination, and a polished finished look.</p>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'We don\'t just install glass. We study your bathroom, render multiple configurations with different hardware finishes, and help you choose the right enclosure before a single panel is cut.',
     url: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/',
     type: 'article',
-    images: [{ url: 'https://metroglasspro.com/editorial/design-process-sketch.jpg', width: 1200, height: 630, alt: 'Shower glass design sketch showing bathroom configuration renders on tablet' }],
+    images: [{ url: 'https://metroglasspro.com/editorial/design-process-sketch.jpg', width: 1200, height: 630, alt: 'Installer measuring a finished shower opening before glass fabrication' }],
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -95,7 +95,7 @@ export default function DesignConsultationArticle() {
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
             <img
               src="/editorial/design-process-sketch.jpg"
-              alt="Napkin sketch of a bathroom design with shower enclosure configurations rendered on a tablet — hardware finishes annotated in gold, black, and chrome"
+              alt="Installer measuring a finished shower opening with tape, level, and planning notes"
               className="w-full h-full object-cover"
             />
           </div>

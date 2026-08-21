@@ -49,7 +49,7 @@ export default function GlassPartitionsPage() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="rounded-lg overflow-hidden anim-fade-up">
-            <img src="/editorial/railing.jpg" alt="Architectural glass detail showing clean metal and glass lines" className="w-full h-auto" loading="lazy" />
+            <img src="/editorial/partition.jpg" alt="Interior office glass partition with clean metal framing" className="w-full h-auto" loading="lazy" />
           </div>
           <div className="anim-fade-up d2">
             <h2 className="font-serif text-charcoal text-3xl sm:text-4xl mb-5">The value is in the coordination.</h2>

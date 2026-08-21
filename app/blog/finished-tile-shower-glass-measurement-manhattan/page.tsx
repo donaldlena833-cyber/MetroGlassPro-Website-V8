@@ -78,7 +78,7 @@ export default function FinishedTileGlassMeasurementPage() {
           <div className="rounded-lg overflow-hidden img-editorial">
             <img
               src="/editorial/design-process-sketch.jpg"
-              alt="Shower glass planning sketch for measuring a finished Manhattan bathroom opening"
+              alt="Installer measuring a finished Manhattan shower opening before glass fabrication"
               className="w-full h-auto block"
               loading="eager"
             />
