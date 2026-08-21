@@ -37,8 +37,8 @@ const posts = [
     label: 'Partition Guide',
     title: 'Office Glass Partitions in Manhattan: Planning Guide',
     excerpt: 'How to plan office glass partitions around layout, clearances, privacy, hardware, building access, and estimate prep.',
-    image: '/editorial/railing.jpg',
-    imageAlt: 'Architectural glass detail with clean metal and glass lines',
+    image: '/editorial/partition.jpg',
+    imageAlt: 'Interior office glass partition with black metal framing',
     date: 'May 2026',
   },
   {
@@ -94,7 +94,7 @@ const posts = [
     title: 'Shower Glass Measurement After Finished Tile in Manhattan',
     excerpt: 'What finished walls, curb slope, hardware clearances, and building rules change before custom shower glass fabrication.',
     image: '/editorial/design-process-sketch.jpg',
-    imageAlt: 'Shower glass planning sketch for a Manhattan bathroom opening',
+    imageAlt: 'Installer measuring a finished Manhattan shower opening before glass fabrication',
     date: 'April 2026',
   },
 ]

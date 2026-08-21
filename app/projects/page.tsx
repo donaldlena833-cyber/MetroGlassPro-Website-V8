@@ -103,7 +103,7 @@ export default function ProjectsIndex() {
                 <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
                   <img
                     src="/editorial/design-process-sketch.jpg"
-                    alt="Shower glass planning sketch for a Manhattan bathroom opening"
+                    alt="Installer measuring a finished Manhattan shower opening before glass fabrication"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
