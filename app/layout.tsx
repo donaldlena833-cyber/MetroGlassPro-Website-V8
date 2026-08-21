@@ -50,6 +50,31 @@ export const metadata: Metadata = {
   other: { 'theme-color': '#1a1a18' },
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://metroglasspro.com/#organization',
+  name: 'MetroGlass Pro',
+  url: 'https://metroglasspro.com',
+  logo: 'https://metroglasspro.com/assets/logo.png',
+  email: 'operations@metroglasspro.com',
+  telephone: '+1-332-999-3846',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'New York',
+    addressRegion: 'NY',
+    addressCountry: 'US',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'estimates and customer service',
+    email: 'operations@metroglasspro.com',
+    telephone: '+1-332-999-3846',
+    areaServed: 'New York City',
+    availableLanguage: ['English'],
+  },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
@@ -57,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-sans pb-[84px] lg:pb-0">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, '\\u003c') }} />
         <ScrollObserver />
         <Header />
         <main>{children}</main>
