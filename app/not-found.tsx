@@ -1,0 +1,5 @@
+import Link from 'next/link'
+
+export default function NotFound() {
+  return <section className="bg-cream py-28 sm:py-36"><div className="mx-auto max-w-3xl px-6 sm:px-10"><p className="text-orange text-[13px] font-semibold tracking-widest uppercase">404 · Page not found</p><h1 className="heading-serif mt-5 text-5xl text-charcoal sm:text-7xl">That glass page is not here.</h1><p className="mt-6 max-w-2xl text-lg leading-relaxed text-warm">Use the service index, project guides, or estimate page to find the closest useful information and continue planning the project.</p><nav className="mt-9 flex flex-wrap gap-4" aria-label="Recovery links"><Link href="/" className="btn-pill btn-primary px-8 py-3 text-sm">Home</Link><Link href="/services/" className="btn-pill btn-outline px-8 py-3 text-sm">Services</Link><Link href="/projects/" className="btn-pill btn-outline px-8 py-3 text-sm">Projects</Link><Link href="/contact/" className="btn-pill btn-outline px-8 py-3 text-sm">Contact</Link></nav></div></section>
+}
