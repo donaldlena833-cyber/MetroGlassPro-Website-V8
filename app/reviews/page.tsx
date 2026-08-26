@@ -19,7 +19,6 @@ const reviews = [
   { name: 'Tomas M.', text: "MetroGlass Pro replaced my shower door and I'm very impressed with their work. The team was professional, on time, and the result is flawless." },
   { name: 'Gjergji G.', text: 'Excellent work for a fair price. The guys were very punctual and talented. Good luck!' },
   { name: 'Irini T.', text: 'MetroGlass Pro did an amazing job with my shower door at a great price. Fast service, clean install, and way more affordable than other quotes I got.' },
-  { name: 'Raed P.', text: 'Ledion and his team did a quick and efficient job. They replaced my wall mirror within 3 days of me reaching out. Would definitely recommend.' },
   { name: 'Ilker O.', text: 'Best experience! Thanks for your services!' },
   { name: 'Kristjan T.', text: 'The team was professional and responsive. Did an excellent job!!' },
 ]

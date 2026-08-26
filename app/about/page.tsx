@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About MetroGlass Pro NYC',
-  description: 'Meet Donald Lena and Ledion Lico, the co-founders behind MetroGlass Pro and its precise, clean, building-ready shower door installations in NYC.',
+  description: 'Meet Donald Lena and learn how MetroGlass Pro approaches NYC shower doors and custom glass with precise measurements, clean installs, and building-ready coordination.',
   alternates: { canonical: 'https://metroglasspro.com/about/' },
   openGraph: {
     title: 'About',
-    description: 'Meet Donald Lena and Ledion Lico, the co founders behind MetroGlass Pro, a Manhattan first shower door and custom glass company focused on precise measurements, clean installs, and building ready coordination.',
+    description: 'Meet Donald Lena and learn how MetroGlass Pro approaches Manhattan shower doors and custom glass with precise measurements, clean installs, and building-ready coordination.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -26,7 +26,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="anim-fade-up">
             <p className="text-warm text-[17px] leading-[1.8] mb-6">
-              MetroGlass Pro was founded by Donald Lena and Ledion Lico for buyers who want the job handled carefully from the first measurement to the final polish. That matters even more in Manhattan, where compact bathrooms, finished tile, and building rules leave very little room for sloppy work.
+              MetroGlass Pro was built for buyers who want the job handled carefully from the first measurement to the final polish. That matters even more in Manhattan, where compact bathrooms, finished tile, and building rules leave very little room for sloppy work.
             </p>
             <p className="text-warm text-[17px] leading-[1.8]">
               The company was built around a simple idea. Clients should not have to choose between a random installer who feels risky and a large glass company that feels distant. Shower doors are the center of our work. Mirrors, partitions, and related custom glass follow the same standards, clear communication, clean installs, and direct coordination with homeowners, designers, architects, and contractors.
@@ -41,27 +41,27 @@ export default function AboutPage() {
       <section className="bg-cream-light py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
-            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">The Founders</p>
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Donald Lena and Ledion Lico are the names behind the standards.</h2>
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Leadership & Standards</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Donald Lena is the name behind the client experience.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              Serious Manhattan buyers usually want to know who is actually behind the company. MetroGlass Pro was built by Donald Lena and Ledion Lico for clients who care about direct accountability, careful field work, and a process that respects the building as much as the finished glass.
+              Serious Manhattan buyers usually want to know who is actually behind the company. Donald leads MetroGlass Pro for clients who care about direct accountability, careful field work, and a process that respects the building as much as the finished glass.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="glass-card p-6">
-              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Co Founder</p>
+              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Owner</p>
               <h3 className="font-serif text-charcoal text-2xl mb-3">Donald Lena</h3>
               <p className="text-warm text-[15px] leading-relaxed">Donald helped shape MetroGlass Pro around direct communication, organized project flow, and the kind of accountability buyers expect when they are trusting someone with a finished Manhattan bathroom.</p>
             </div>
             <div className="glass-card p-6">
-              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Co Founder</p>
-              <h3 className="font-serif text-charcoal text-2xl mb-3">Ledion Lico</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Ledion helped shape the field standards behind the work, precise measurements, clean install habits, and the kind of detail checking that compact bathrooms and premium tile leave no room to ignore.</p>
+              <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Field Standard</p>
+              <h3 className="font-serif text-charcoal text-2xl mb-3">Precision in the Details</h3>
+              <p className="text-warm text-[15px] leading-relaxed">Precise measurements, clean install habits, and disciplined detail checking guide work where compact bathrooms and premium tile leave no room for error.</p>
             </div>
             <div className="glass-card p-6">
               <p className="text-orange text-[12px] font-semibold tracking-[0.2em] uppercase mb-3">Shared Standard</p>
               <h3 className="font-serif text-charcoal text-2xl mb-3">The MetroGlass Pro Approach</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Together, Donald and Ledion built the company to feel like the premium middle ground, more reliable and precise than a random installer, more personal and responsive than a large generic glass company.</p>
+              <p className="text-warm text-[15px] leading-relaxed">The company is designed to feel like the premium middle ground, more reliable and precise than a random installer, more personal and responsive than a large generic glass company.</p>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">How They Work</p>
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What Donald and Ledion wanted clients to feel.</h2>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What clients should feel throughout the work.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
               The goal was never to sound bigger than everyone else. It was to run projects in a way that feels calm, organized, and trustworthy when the space is tight, the tile is finished, and the building expects professionalism from day one. Those standards were shaped across 200 plus NYC installs, where measurement discipline and clean execution matter every single time.
             </p>
