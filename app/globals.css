@@ -72,13 +72,13 @@ body {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-primary {
-  background: #D4691A;
+  background: #B44D00;
   color: white;
 }
 .btn-primary:hover {
-  background: #B85A15;
+  background: #9F3F00;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(212, 105, 26, 0.25);
+  box-shadow: 0 8px 24px rgba(180, 77, 0, 0.25);
 }
 .btn-outline {
   border: 1px solid rgba(24, 22, 18, 0.18);

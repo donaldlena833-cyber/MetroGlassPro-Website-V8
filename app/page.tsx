@@ -146,7 +146,7 @@ export default function HomePage() {
 
       {/* ═══ 2. TRUST STRIP ═══ */}
       <section className="bg-cream-light py-8 border-y border-navy/10">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10 flex flex-wrap justify-center gap-x-12 gap-y-3 text-navy/45 text-[13px] font-medium tracking-wider uppercase">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 flex flex-wrap justify-center gap-x-12 gap-y-3 text-navy text-[13px] font-medium tracking-wider uppercase">
           <span>Precise Field Measurements</span>
           <span className="hidden sm:inline">·</span>
           <span>Clean Installs</span>
@@ -174,7 +174,7 @@ export default function HomePage() {
             {/* Shower Doors */}
             <Link href="/frameless-shower-doors-nyc/" className="group" data-reveal="fade-up" data-delay="100">
               <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/shower-door.jpg" alt="Frameless shower door with gold hinges" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/editorial/shower-door-card.webp" alt="Frameless shower door with gold hinges" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
               </div>
               <h3 className="font-serif text-charcoal text-2xl mb-2">Frameless Shower Doors</h3>
               <p className="text-warm text-[15px] leading-relaxed">Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Swing, sliding, pivot, and fixed panel layouts measured to the real room, not a stock opening.</p>
@@ -184,7 +184,7 @@ export default function HomePage() {
             {/* Mirrors */}
             <Link href="/custom-mirrors-nyc/" className="group" data-reveal="fade-up" data-delay="200">
               <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/mirror.jpg" alt="Custom beveled wall mirror" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/editorial/mirror-card.webp" alt="Custom beveled wall mirror" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
               </div>
               <h3 className="font-serif text-charcoal text-2xl mb-2">Custom Mirrors</h3>
               <p className="text-warm text-[15px] leading-relaxed">Bathroom mirrors, vanity mirrors, and wall mirrors installed with the same careful measurement, clean lines, and detail driven finish work.</p>
@@ -194,7 +194,7 @@ export default function HomePage() {
             {/* Partitions */}
             <Link href="/glass-partitions-nyc/" className="group" data-reveal="fade-up" data-delay="300">
               <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/railing.jpg" alt="Glass stair railing with gold posts" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/editorial/railing-card.webp" alt="Glass stair railing with gold posts" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
               </div>
               <h3 className="font-serif text-charcoal text-2xl mb-2">Glass Partitions</h3>
               <p className="text-warm text-[15px] leading-relaxed">Residential and boutique commercial partitions for projects that need clean lines, reliable coordination, and a polished finished look.</p>
@@ -204,7 +204,7 @@ export default function HomePage() {
             {/* Repair */}
             <Link href="/shower-door-repair-nyc/" className="group" data-reveal="fade-up" data-delay="400">
               <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/tools.jpg" alt="Premium glass installation tools" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/editorial/tools-card.webp" alt="Premium glass installation tools" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
               </div>
               <h3 className="font-serif text-charcoal text-2xl mb-2">Shower Door Repair</h3>
               <p className="text-warm text-[15px] leading-relaxed">Leak fixes, hardware issues, dragging doors, and bad install remediation for buyers who need honest guidance on whether the door should be repaired or replaced.</p>
@@ -260,7 +260,7 @@ export default function HomePage() {
               { n: '03', t: 'Building Fluent', d: 'Co-op and condo rules, COIs, freight elevators, supers, quiet hours. We handle the coordination smaller installers often miss.' },
             ].map((item, i) => (
               <div key={item.n} className={`anim-fade-up d${(i + 1) * 2}`}>
-                <span className="text-charcoal/10 font-serif text-6xl leading-none">{item.n}</span>
+                <span className="text-charcoal/60 font-serif text-6xl leading-none">{item.n}</span>
                 <h3 className="font-serif text-charcoal text-xl mt-4 mb-3">{item.t}</h3>
                 <p className="text-warm text-[15px] leading-relaxed">{item.d}</p>
               </div>
@@ -381,7 +381,7 @@ export default function HomePage() {
               <details key={faq.q} className="group border-b border-charcoal/[0.06]">
                 <summary className="flex items-center justify-between py-6 cursor-pointer text-charcoal font-medium text-[15px] hover:text-charcoal/70 transition-colors">
                   <span>{faq.q}</span>
-                  <span className="ml-4 text-charcoal/20 text-xl transition-transform duration-300 group-open:rotate-45">+</span>
+                  <span className="ml-4 text-charcoal/60 text-xl transition-transform duration-300 group-open:rotate-45">+</span>
                 </summary>
                 <p className="pb-6 text-warm text-[15px] leading-relaxed">{faq.a}</p>
               </details>
@@ -419,19 +419,19 @@ export default function HomePage() {
       {/* ═══ 9. SERVICE AREAS ═══ */}
       <section className="bg-cream py-12 border-t border-charcoal/[0.04]">
         <div className="max-w-4xl mx-auto px-6 sm:px-10 text-center">
-          <p className="text-charcoal/30 text-[13px] font-medium tracking-widest uppercase mb-2">Serving</p>
+          <p className="text-charcoal/60 text-[13px] font-medium tracking-widest uppercase mb-2">Serving</p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
             <Link href="/service-areas/manhattan/" className="text-charcoal/60 hover:text-charcoal transition-colors">Manhattan</Link>
-            <span className="text-charcoal/25">·</span>
+            <span className="text-charcoal/60">·</span>
             <Link href="/service-areas/brooklyn/" className="text-charcoal/60 hover:text-charcoal transition-colors">Brooklyn</Link>
-            <span className="text-charcoal/25">·</span>
+            <span className="text-charcoal/60">·</span>
             <Link href="/service-areas/queens/" className="text-charcoal/60 hover:text-charcoal transition-colors">Queens</Link>
-            <span className="text-charcoal/25">·</span>
+            <span className="text-charcoal/60">·</span>
             <Link href="/service-areas/bronx/" className="text-charcoal/60 hover:text-charcoal transition-colors">The Bronx</Link>
-            <span className="text-charcoal/25">·</span>
+            <span className="text-charcoal/60">·</span>
             <Link href="/service-areas/staten-island/" className="text-charcoal/60 hover:text-charcoal transition-colors">Staten Island</Link>
           </div>
-          <p className="text-charcoal/40 text-xs mt-1">Also serving Long Island & Northern New Jersey</p>
+          <p className="text-charcoal/60 text-xs mt-1">Also serving Long Island & Northern New Jersey</p>
           <Link href="/service-areas/" className="inline-flex items-center gap-2 text-orange text-sm font-medium mt-3 hover:opacity-70 transition-opacity">
             Explore Service Areas <span className="text-xs">→</span>
           </Link>
