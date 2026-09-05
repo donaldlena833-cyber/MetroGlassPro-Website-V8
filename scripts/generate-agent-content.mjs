@@ -59,7 +59,13 @@ async function htmlFiles(directory) {
 
 const pages = []
 for (const filename of await htmlFiles(output)) {
-  const html = await readFile(filename, 'utf8')
+  const originalHtml = await readFile(filename, 'utf8')
+  // Cloudflare's documented email_off comments prevent it from rewriting the
+  // public contact links or injecting an extra decoder into React's markup.
+  const html = originalHtml.includes('<!--email_off-->') ? originalHtml : originalHtml
+    .replace(/<body\b[^>]*>/i, '$&<!--email_off-->')
+    .replace('</body>', '<!--/email_off--></body>')
+  if (html !== originalHtml) await writeFile(filename, html)
   const { document } = parseHTML(html)
   const main = document.querySelector('main')?.cloneNode(true)
   const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')

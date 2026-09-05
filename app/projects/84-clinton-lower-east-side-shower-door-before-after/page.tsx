@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -65,7 +66,7 @@ export default function Clinton84ProjectPage() {
           <div className="rounded-lg overflow-hidden img-editorial aspect-[4/5] sm:aspect-[60/37]">
             <picture className="block w-full h-full">
               <source media="(min-width: 640px)" srcSet="/gallery/84-clinton-after-preview.jpg" />
-              <img
+              <ResponsiveImage
                 src="/gallery/84-clinton-after-article.jpg"
                 alt="Finished sliding shower door at 84 Clinton, Lower East Side Manhattan, with chrome hardware and gray tile backdrop."
                 className="w-full h-full object-cover"
@@ -91,7 +92,7 @@ export default function Clinton84ProjectPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">Before</p>
               </div>
               <div className="mt-4 aspect-[4/5] img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/84-clinton-before-article.jpg"
                   alt="Before shower area at 84 Clinton, Lower East Side Manhattan, before sliding glass shower door installation."
                   className="w-full h-full object-cover"
@@ -110,7 +111,7 @@ export default function Clinton84ProjectPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">After</p>
               </div>
               <div className="mt-4 aspect-[4/5] img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/84-clinton-after-article.jpg"
                   alt="After shower door installation at 84 Clinton, Lower East Side Manhattan, with a clear sliding glass enclosure and chrome hardware."
                   className="w-full h-full object-cover"

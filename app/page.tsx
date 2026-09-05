@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ResponsiveImage'
 import Link from 'next/link'
 import ServiceDirectory from '@/components/ServiceDirectory'
 import { showerDoorLeakAnswer, showerDoorPriceSummary } from '@/content/shower-door-facts'
@@ -79,7 +79,7 @@ export default function HomePage() {
           </div>
           <figure>
             <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-2xl bg-cream-dark">
-              <Image src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg" alt="Clear tempered shower glass with brass hardware during MetroGlass Pro's Edison installation" fill priority fetchPriority="high" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-center" />
+              <ResponsiveImage src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg" alt="Clear tempered shower glass with brass hardware during MetroGlass Pro's Edison installation" fetchPriority="high" loading="eager" sizes="(min-width: 1280px) 568px, (min-width: 1024px) calc(50vw - 72px), (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)" className="absolute inset-0 w-full h-full object-cover object-center" />
             </div>
             <figcaption className="flex flex-wrap justify-between gap-2 mt-4 text-sm text-warm">
               <span>From our work · Custom shower glass</span>
@@ -138,7 +138,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {previewImages.map((img, i) => (
               <div key={img.src} className={`gallery-item aspect-square bg-cream-dark anim-scale-in d${Math.min(i + 1, 6)}`}>
-                <img src={img.src} alt={img.alt} width={600} height={600} loading="lazy" className="w-full h-full object-cover" />
+                <ResponsiveImage src={img.src} alt={img.alt} width={600} height={600} sizes="(min-width: 1280px) 392px, (min-width: 768px) calc((100vw - 104px) / 3), (min-width: 640px) calc((100vw - 92px) / 2), calc((100vw - 60px) / 2)" loading="lazy" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -228,7 +228,7 @@ export default function HomePage() {
 
       {/* ═══ 8. CTA ═══ */}
       <section className="relative overflow-hidden">
-        <img
+        <ResponsiveImage
           src="/editorial/water-droplets.jpg"
           alt="Water droplets on glass surface"
           className="absolute inset-0 w-full h-full object-cover"

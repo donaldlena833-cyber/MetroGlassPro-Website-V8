@@ -23,7 +23,12 @@ const instrumentSerif = Instrument_Serif({
   variable: '--font-instrument-serif',
 })
 
-const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
+const configuredGoogleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
+// This previously configured stream returns HTTP 404 from Google's tag endpoint.
+// Keep the working Ads tag; GA4 resumes when the deployment has a valid stream ID.
+const googleAnalyticsId = configuredGoogleAnalyticsId === 'G-46MYS2R9QW'
+  ? undefined
+  : configuredGoogleAnalyticsId
 const googleAdsId = 'AW-934489946'
 const googleTagId = googleAnalyticsId || googleAdsId
 
@@ -69,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="google-tag-config" strategy="afterInteractive">
           {`

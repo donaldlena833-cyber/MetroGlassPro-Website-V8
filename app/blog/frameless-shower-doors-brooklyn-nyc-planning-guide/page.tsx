@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideFaqs from '@/components/GuideFaqs'
@@ -96,7 +97,7 @@ export default function FramelessShowerDoorsBrooklynGuidePage() {
       <section className="bg-cream pb-8 sm:pb-12">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial">
-            <img
+            <ResponsiveImage
               src="/editorial/nyc-local/frameless-shower-doors-brooklyn-hero.jpg"
               alt="Frameless shower door and bathroom glass planning for a Brooklyn shower"
               className="w-full h-auto block"

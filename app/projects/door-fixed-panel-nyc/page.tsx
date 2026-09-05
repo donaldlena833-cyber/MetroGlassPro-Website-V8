@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -32,7 +33,7 @@ export default function DoorFixedPanelArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img src="/editorial/configurations/door-fixed-panel.jpg" alt="Frameless door plus fixed glass panel with satin brass hardware — side by side configuration" className="w-full h-full object-cover" />
+            <ResponsiveImage src="/editorial/configurations/door-fixed-panel.jpg" alt="Frameless door plus fixed glass panel with satin brass hardware — side by side configuration" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>

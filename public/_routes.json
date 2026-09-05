@@ -1,8 +1,11 @@
 {
   "version": 1,
-  "include": ["/*"],
+  "include": [
+    "/*"
+  ],
   "exclude": [
     "/_next/*",
+    "/optimized/*",
     "/assets/*",
     "/editorial/*",
     "/*.md",

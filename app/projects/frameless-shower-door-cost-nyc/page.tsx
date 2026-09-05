@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { showerDoorPriceRanges as ranges, showerDoorPriceSummary } from '@/content/shower-door-facts'
@@ -188,7 +189,7 @@ export default function FramelessShowerDoorCostNYC() {
               </div>
             </div>
             <aside className="glass-card overflow-hidden">
-              <img src="/editorial/configurations/door-fixed-panel.jpg" alt="Frameless shower door and fixed panel configuration" className="w-full aspect-[4/3] object-cover mix-blend-multiply bg-cream" loading="lazy" />
+              <ResponsiveImage src="/editorial/configurations/door-fixed-panel.jpg" alt="Frameless shower door and fixed panel configuration" className="w-full aspect-[4/3] object-cover mix-blend-multiply bg-cream" loading="lazy" />
               <div className="p-6">
                 <h3 className="font-serif text-charcoal text-2xl mb-3">The quote should explain the layout.</h3>
                 <p className="text-warm text-[14px] leading-relaxed">

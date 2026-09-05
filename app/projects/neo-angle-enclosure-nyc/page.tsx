@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -32,7 +33,7 @@ export default function NeoAngleArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img src="/editorial/configurations/neo-angle-enclosure.jpg" alt="Neo-angle frameless glass shower enclosure with five glass panels and brass clamps — overhead view showing pentagonal geometry" className="w-full h-full object-cover" />
+            <ResponsiveImage src="/editorial/configurations/neo-angle-enclosure.jpg" alt="Neo-angle frameless glass shower enclosure with five glass panels and brass clamps — overhead view showing pentagonal geometry" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>

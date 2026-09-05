@@ -4,3 +4,5 @@ out/
 .wrangler/
 .DS_Store
 *.tsbuildinfo
+public/optimized/
+lib/responsive-images.json

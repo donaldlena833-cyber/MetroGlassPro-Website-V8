@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -33,7 +34,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="rounded-lg overflow-hidden anim-fade-up d3">
-            <img src="/editorial/tools.jpg" alt="Premium glass installation tools" className="w-full h-auto" loading="lazy" />
+            <ResponsiveImage src="/editorial/tools.jpg" alt="Premium glass installation tools" className="w-full h-auto" loading="lazy" />
           </div>
         </div>
       </section>

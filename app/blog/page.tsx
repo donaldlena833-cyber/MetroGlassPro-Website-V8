@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -115,7 +116,7 @@ export default function BlogIndex() {
               <Wrapper key={post.href} href={post.href} className="group block glass-card overflow-hidden card-lift">
                 <div className={post.image ? "grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]" : "grid grid-cols-1"}>
                   {post.image && <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
-                    <img
+                    <ResponsiveImage
                       src={post.image}
                       alt={post.imageAlt}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -147,7 +148,7 @@ export default function JerseyCityGlassRailingsGuide() {
 
             <aside className="space-y-6 lg:sticky lg:top-28">
               <div className="rounded-lg overflow-hidden bg-cream-dark">
-                <img src="/editorial/railing.jpg" alt="Architectural glass railing detail with clean metal posts and transparent panels" className="w-full h-auto" />
+                <ResponsiveImage src="/editorial/railing.jpg" alt="Architectural glass railing detail with clean metal posts and transparent panels" className="w-full h-auto" />
               </div>
               <div className="glass-card p-6">
                 <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Related MetroGlass Pro pages</p>

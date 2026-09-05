@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -136,7 +137,7 @@ export default function ShowerDoorInstallationNYC() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="rounded-lg overflow-hidden bg-cream-dark">
-              <img src="/editorial/shower-door.jpg" alt="Frameless shower door being installed in NYC apartment" className="w-full h-auto" loading="lazy" />
+              <ResponsiveImage src="/editorial/shower-door.jpg" alt="Frameless shower door being installed in NYC apartment" className="w-full h-auto" loading="lazy" />
             </div>
             <div>
               <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-6">We install every type of shower door.</h2>

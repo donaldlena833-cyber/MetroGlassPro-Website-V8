@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { projects } from '@/content/projects'
@@ -58,7 +59,7 @@ export default function ProjectsIndex() {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
                   <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
-                    <img
+                    <ResponsiveImage
                       src={p.image}
                       alt={p.imageAlt}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -70,7 +71,7 @@ export default function VisualizeShowerDoorOptionsPage() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial">
-            <img
+            <ResponsiveImage
               src="/gallery/visualize-feature-neo-angle.jpg"
               alt="Neo-angle curved frameless shower enclosure with chrome hardware in a compact NYC bathroom with white marble tile"
               className="w-full h-auto block"
@@ -101,7 +102,7 @@ export default function VisualizeShowerDoorOptionsPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">The Raw Space</p>
               </div>
               <div className="mt-4 img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/visualize-feature-before.jpg"
                   alt="Open shower area before frameless glass installation, white marble tile throughout, floating vanity and built-in niche visible"
                   className="w-full h-auto block"
@@ -130,7 +131,7 @@ export default function VisualizeShowerDoorOptionsPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">Option 1: Hinged Door</p>
               </div>
               <div className="mt-4 img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/visualize-feature-hinged.jpg"
                   alt="Hinged frameless shower enclosure with fixed panel and chrome hardware in white marble tile bathroom NYC"
                   className="w-full h-auto block"
@@ -159,7 +160,7 @@ export default function VisualizeShowerDoorOptionsPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">Option 2: Sliding Door</p>
               </div>
               <div className="mt-4 img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/visualize-feature-slider.jpg"
                   alt="Sliding frameless shower door with top chrome rail in white marble tile compact bathroom NYC"
                   className="w-full h-auto block"
@@ -188,7 +189,7 @@ export default function VisualizeShowerDoorOptionsPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">Option 3: 90-Degree Corner</p>
               </div>
               <div className="mt-4 img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/visualize-feature-corner.jpg"
                   alt="90-degree corner frameless shower enclosure with fixed and sliding panels, chrome hardware, white marble tile NYC bathroom"
                   className="w-full h-auto block"
@@ -220,7 +221,7 @@ export default function VisualizeShowerDoorOptionsPage() {
                 <p className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40">Option 4: Neo-Angle Curved (Client Choice)</p>
               </div>
               <div className="mt-4 img-editorial">
-                <img
+                <ResponsiveImage
                   src="/gallery/visualize-feature-neo-angle.jpg"
                   alt="Neo-angle curved frameless shower enclosure with chrome sliding hardware in compact NYC bathroom with white marble tile, floor plan diagram inset"
                   className="w-full h-auto block"
