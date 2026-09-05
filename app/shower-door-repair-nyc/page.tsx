@@ -159,12 +159,7 @@ const serviceJsonLd = {
   url: 'https://metroglasspro.com/shower-door-repair-nyc/',
   description:
     'Shower door repair guidance and repair-versus-replacement evaluation for Manhattan and NYC bathrooms, including leaks, dragging doors, loose hardware, and installation remediation.',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'MetroGlass Pro',
-    url: 'https://metroglasspro.com',
-    telephone: '+13329993846',
-  },
+  provider: { '@id': 'https://metroglasspro.com/#business' },
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Manhattan, NY' },
     { '@type': 'City', name: 'New York, NY' },

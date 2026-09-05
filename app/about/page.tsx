@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About MetroGlass Pro NYC',
+  title: 'About Our NYC Glass Team',
   description: 'Meet Donald Lena and learn how MetroGlass Pro approaches NYC shower doors and custom glass with precise measurements, clean installs, and building-ready coordination.',
   alternates: { canonical: 'https://metroglasspro.com/about/' },
   openGraph: {
@@ -26,7 +26,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="anim-fade-up">
             <p className="text-warm text-[17px] leading-[1.8] mb-6">
-              MetroGlass Pro was built for buyers who want the job handled carefully from the first measurement to the final polish. That matters even more in Manhattan, where compact bathrooms, finished tile, and building rules leave very little room for sloppy work.
+              MetroGlass Pro handles shower doors, glazing, glass railings, custom mirrors, partitions, and glass repair across NYC. We work with homeowners, businesses, designers, and contractors from the first measurement to the finished installation. That matters even more in Manhattan, where compact bathrooms, finished tile, and building rules leave very little room for sloppy work.
             </p>
             <p className="text-warm text-[17px] leading-[1.8]">
               The company was built around a simple idea. Clients should not have to choose between a random installer who feels risky and a large glass company that feels distant. Shower doors are the center of our work. Mirrors, partitions, and related custom glass follow the same standards, clear communication, clean installs, and direct coordination with homeowners, designers, architects, and contractors.
@@ -44,7 +44,7 @@ export default function AboutPage() {
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Leadership & Standards</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Donald Lena is the name behind the client experience.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              Serious Manhattan buyers usually want to know who is actually behind the company. Donald leads MetroGlass Pro for clients who care about direct accountability, careful field work, and a process that respects the building as much as the finished glass.
+              Donald Lena leads MetroGlass Pro. He helps clients plan their glass project, communicate building requirements, and coordinate the work from the first estimate through installation.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

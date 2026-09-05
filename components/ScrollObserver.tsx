@@ -1,77 +1,31 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
-/**
- * Global scroll reveal observer.
- * Any element with data-reveal attribute will animate in when scrolled into view.
- * Supports: data-reveal="fade-up" | "fade-in" | "scale-in" | "slide-left" | "slide-right"
- * Optional: data-delay="200" (ms)
- * Respects prefers-reduced-motion.
- */
 export default function ScrollObserver() {
+  const pathname = usePathname()
   useEffect(() => {
-    // Respect prefers-reduced-motion
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReduced) {
-      // Show everything immediately
-      document.querySelectorAll('[data-reveal]').forEach((el) => {
-        ;(el as HTMLElement).style.opacity = '1'
-      })
+    const elements = document.querySelectorAll<HTMLElement>('[data-reveal]')
+    const showAll = () => elements.forEach((el) => el.classList.remove('reveal-pending'))
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      showAll()
       return
     }
-
-    const elements = document.querySelectorAll('[data-reveal]')
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            ;(entry.target as HTMLElement).classList.add('revealed')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    )
-
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
-  // Re-observe on route changes (SPA navigation)
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setTimeout(() => {
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        const elements = document.querySelectorAll('[data-reveal]:not(.revealed)')
-
-        if (prefersReduced) {
-          elements.forEach((el) => {
-            ;(el as HTMLElement).style.opacity = '1'
-          })
-          return
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('reveal-pending')
+          observer.unobserve(entry.target)
         }
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                ;(entry.target as HTMLElement).classList.add('revealed')
-                observer.unobserve(entry.target)
-              }
-            })
-          },
-          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-        )
-
-        elements.forEach((el) => observer.observe(el))
-      }, 100)
-    }
-
-    window.addEventListener('popstate', handleRouteChange)
-    return () => window.removeEventListener('popstate', handleRouteChange)
-  }, [])
-
+      })
+    }, { threshold: 0 })
+    elements.forEach((el) => {
+      observer.observe(el)
+      // Only animate below-the-fold content after the observer is ready.
+      if (el.getBoundingClientRect().top >= window.innerHeight) el.classList.add('reveal-pending')
+    })
+    return () => { observer.disconnect(); showAll() }
+  }, [pathname])
   return null
 }

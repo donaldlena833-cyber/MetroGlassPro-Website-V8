@@ -11,7 +11,7 @@ export default function MobileCtaBar() {
           Call
         </a>
         <a
-          href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20quote%20and%20can%20send%20bathroom%20photos."
+          href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20quote%20and%20can%20send%20project%20photos."
           className="btn-pill btn-outline px-3 py-3 text-[12px]"
         >
           Text Photos

@@ -30,6 +30,11 @@ type Submission = {
   coiNeeded: string
   message: string
   website: string
+  howHeard: string
+  detectedSource: string
+  sourceEvidence: string
+  landingPath: string
+  referrerHost: string
 }
 
 function json(data: Record<string, unknown>, status = 200) {
@@ -73,6 +78,17 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
 }
 
+const sources = ['ChatGPT', 'Perplexity', 'Claude', 'Gemini', 'Microsoft Copilot', 'Google', 'Bing', 'Other website', 'Friend or contractor', 'Returning customer', 'Other', 'Other campaign', 'Direct / unknown']
+function source(value: unknown) {
+  const candidate = clean(value, 50)
+  return sources.includes(candidate) ? candidate : ''
+}
+function landingPath(value: unknown) {
+  const candidate = clean(value, 300)
+  if (!candidate.startsWith('/') || candidate.startsWith('//')) return ''
+  return candidate.split(/[?#]/)[0]
+}
+
 function buildSubmission(payload: Record<string, unknown>): Submission {
   return {
     name: clean(payload.name, 120),
@@ -88,6 +104,11 @@ function buildSubmission(payload: Record<string, unknown>): Submission {
     coiNeeded: clean(payload.coiNeeded, 160),
     message: clean(payload.message, 3000),
     website: clean(payload.website, 120),
+    howHeard: source(payload.howHeard),
+    detectedSource: source(payload.detectedSource),
+    sourceEvidence: ['utm_source', 'referrer', 'unavailable'].includes(clean(payload.sourceEvidence)) ? clean(payload.sourceEvidence) : '',
+    landingPath: landingPath(payload.landingPath),
+    referrerHost: /^[a-z0-9.-]{1,200}$/i.test(clean(payload.referrerHost, 200)) ? clean(payload.referrerHost, 200) : '',
   }
 }
 
@@ -138,6 +159,11 @@ function buildRows(submission: Submission) {
     ['Photos Ready', submission.photosReady],
     ['COI or Coordination', submission.coiNeeded],
     ['Message', submission.message],
+    ['How They Found Us (Customer Reported)', submission.howHeard],
+    ['Detected Referral Source', submission.detectedSource],
+    ['Source Evidence', submission.sourceEvidence],
+    ['First Landing Page', submission.landingPath],
+    ['Referring Website', submission.referrerHost],
   ].filter(([, value]) => Boolean(value))
 }
 
@@ -187,18 +213,18 @@ function buildAutoReplyHtml(submission: Submission) {
           <p style="color: rgba(255,255,255,0.65); margin: 14px 0 0; font-size: 15px; line-height: 1.6;">Thanks for reaching out, ${escapeHtml(submission.name || 'there')}. We will review your project details and follow up with the best next step.</p>
         </div>
         <div style="padding: 28px 32px 32px;">
-          <p style="margin: 0 0 14px; color: #554f46; font-size: 15px; line-height: 1.7;">The fastest way to move a shower door quote forward is with a few clear bathroom photos, your neighborhood, and any building notes that matter.</p>
+          <p style="margin: 0 0 14px; color: #554f46; font-size: 15px; line-height: 1.7;">Photos or plans of the project area, your neighborhood, and building notes help us review your glass installation, replacement, or repair request.</p>
           <div style="background: #fffaf3; border-radius: 20px; padding: 20px 22px; margin: 20px 0;">
             <div style="color: #d68040; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 10px;">What Helps Most</div>
             <ul style="margin: 0; padding-left: 18px; color: #1f1c17; font-size: 14px; line-height: 1.8;">
-              <li>Bathroom photos showing the full opening</li>
+              <li>Project photos showing the full wall, opening, railing, or damaged area</li>
               <li>Your neighborhood and building type</li>
               <li>Whether this is a new install, replacement, or repair</li>
               <li>Any COI, elevator, or scheduling rules we should know about</li>
             </ul>
           </div>
           <p style="margin: 0 0 8px; color: #554f46; font-size: 15px; line-height: 1.7;">If you want a faster first pass, text photos to <a href="sms:+13329993846" style="color: #d68040; text-decoration: none;">(332) 999-3846</a>.</p>
-          <p style="margin: 0; color: #554f46; font-size: 15px; line-height: 1.7;">MetroGlass Pro focuses on Manhattan first shower door and custom glass work, with careful measurements, clean installs, and building ready coordination.</p>
+          <p style="margin: 0; color: #554f46; font-size: 15px; line-height: 1.7;">MetroGlass Pro handles shower doors, glazing, glass railings, mirrors, partitions, and glass repair across NYC.</p>
         </div>
       </div>
     </div>
@@ -211,7 +237,7 @@ function buildAutoReplyText() {
     '',
     'We will review your project details and follow up with the best next step.',
     '',
-    'For faster pricing, text bathroom photos to (332) 999-3846.',
+    'If you have more project photos to add, text them to (332) 999-3846.',
     '',
     'Helpful details include your neighborhood, building type, service type, and any COI or elevator rules.',
   ].join('\n')

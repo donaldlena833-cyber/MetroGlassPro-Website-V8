@@ -6,6 +6,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MobileCtaBar from '@/components/MobileCtaBar'
 import ScrollObserver from '@/components/ScrollObserver'
+import LeadAttributionTracker from '@/components/LeadAttributionTracker'
+import { businessJsonLd } from '@/content/business'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,8 +29,8 @@ const googleTagId = googleAnalyticsId || googleAdsId
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metroglasspro.com'),
-  title: { default: 'Custom Shower Doors NYC & Manhattan | MGP', template: '%s | MGP' },
-  description: 'Custom shower doors for NYC apartments, condos, and brownstones. Precise measurements, clean installation, COI support, and fast photo estimates.',
+  title: { default: 'Shower Doors, Mirrors & Custom Glass NYC | MetroGlass Pro', template: '%s | MetroGlass Pro' },
+  description: 'Shower doors, glazing, glass railings, custom mirrors, partitions, and glass repair across New York City. Send photos or plans for a project estimate.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -50,31 +52,6 @@ export const metadata: Metadata = {
   other: { 'theme-color': '#1a1a18' },
 }
 
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://metroglasspro.com/#organization',
-  name: 'MetroGlass Pro',
-  url: 'https://metroglasspro.com',
-  logo: 'https://metroglasspro.com/assets/logo.png',
-  email: 'operations@metroglasspro.com',
-  telephone: '+1-332-999-3846',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'New York',
-    addressRegion: 'NY',
-    addressCountry: 'US',
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'estimates and customer service',
-    email: 'operations@metroglasspro.com',
-    telephone: '+1-332-999-3846',
-    areaServed: 'New York City',
-    availableLanguage: ['English'],
-  },
-}
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
@@ -82,10 +59,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-sans pb-[84px] lg:pb-0">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, '\\u003c') }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, '\\u003c') }} />
+        <LeadAttributionTracker />
         <ScrollObserver />
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <MobileCtaBar />
         <Footer />
         <Script

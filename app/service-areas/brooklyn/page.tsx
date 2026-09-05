@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Custom Shower Doors in Brooklyn | MetroGlass Pro',
+  title: 'Custom Shower Doors in Brooklyn',
   description: 'Custom shower doors, frameless shower glass, repair, and replacement for Brooklyn brownstones, condos, lofts, and renovations.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/brooklyn/' },
   openGraph: {
@@ -37,9 +37,9 @@ export default function BrooklynPage() {
             Brownstone townhouses, converted loft buildings, new-construction condos, walk-up apartments, and multi-family homes. Brooklyn bathrooms often have original tile work and non-standard dimensions that require precision measuring.
           </p>
 
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Brooklyn searches are already showing demand</h2>
+          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Planning for brownstones, walk-ups, and condos</h2>
           <p className="text-warm text-[15px] leading-relaxed mb-4">
-            Google Search Console is showing impressions for custom shower doors and shower door installation in Brooklyn. The page needs to answer that intent directly instead of acting like a thin borough placeholder. Brooklyn buyers often need to know whether older tile, narrow stairs, walk-up access, or brownstone layouts will complicate the glass.
+            Older tile, narrow stairs, walk-up access, and brownstone layouts can affect how glass is measured and brought into the bathroom. Send photos of the opening and tell us about the stairs or elevator so we can plan the visit.
           </p>
           <p className="text-warm text-[15px] leading-relaxed mb-10">
             A good Brooklyn estimate starts with the shower opening, the building type, the neighborhood, and whether the work is connected to a larger bathroom renovation. For brownstones and older apartments, photos of the wall condition and curb are especially useful because out-of-square openings can affect the glass layout.

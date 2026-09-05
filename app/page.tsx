@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import ServiceDirectory from '@/components/ServiceDirectory'
+import ShowerDoorQuickAnswers from '@/components/ShowerDoorQuickAnswers'
+import { showerDoorLeakAnswer, showerDoorPriceSummary } from '@/content/shower-door-facts'
 
 export const metadata: Metadata = {
-  title: 'Custom Shower Doors NYC & Manhattan | MGP',
-  description: 'Custom shower doors for NYC and Manhattan apartments, condos, and brownstones. Precise measurements, clean installation, COI support, and fast photo estimates.',
+  title: 'Shower Doors, Mirrors & Custom Glass NYC',
+  description: 'NYC shower doors, glazing, glass railings, custom mirrors, partitions, and glass repair. MetroGlass Pro serves all five boroughs. Send photos for an estimate.',
   alternates: { canonical: 'https://metroglasspro.com/' },
 }
 
@@ -15,12 +18,13 @@ const reviews = [
 ]
 
 const faqs = [
-  { q: 'How long does installation take?', a: 'Most installations take about 2 to 4 hours once the glass is ready. We measure first, custom fabricate, then schedule your install.' },
-  { q: 'Do frameless shower doors leak?', a: 'Not when installed correctly. We use professional-grade silicone seals and precision-fit glass to eliminate gaps.' },
-  { q: 'How much do frameless doors cost?', a: 'Custom frameless shower doors typically range from about $800 to $3,000 or more depending on glass thickness, hardware finish, and configuration. We provide free estimates.' },
+  { q: 'What glass services does MetroGlass Pro offer?', a: 'We install shower doors, glazing, glass railings, custom mirrors, and interior glass partitions, and assess glass repair and replacement needs across NYC. Send your project type, location, photos, and any plans for an estimate.' },
+  { q: 'How long does shower door installation take?', a: 'Most shower door installations take about 2 to 4 hours once the glass is ready. Other glass projects have schedules based on their scope, fabrication, and site access. We confirm timing after reviewing the project.' },
+  { q: 'Do frameless shower doors leak?', a: showerDoorLeakAnswer },
+  { q: 'How much do frameless doors cost?', a: showerDoorPriceSummary },
   { q: 'Which areas do you serve?', a: 'Manhattan is our priority, and we also work across Brooklyn, Queens, The Bronx, and Staten Island. We support select projects on Long Island and in Northern New Jersey as well.' },
-  { q: 'What glass options are available?', a: 'Clear, frosted, rain, and low-iron tempered glass in 3/8" and 1/2" thickness. Hardware in chrome, brushed nickel, matte black, satin brass, and more.' },
-  { q: 'Are you licensed and insured?', a: 'Yes. MetroGlass Pro is fully licensed and insured in New York and complies with all NYC building codes.' },
+  { q: 'What glass options are available for shower doors?', a: 'Clear, frosted, rain, and low-iron tempered glass in 3/8" and 1/2" thickness. Hardware in chrome, brushed nickel, matte black, satin brass, and more.' },
+  { q: 'Can you provide a COI for my building?', a: 'A certificate of insurance is available on request. Send the building management requirements, certificate holder details, and any elevator or work-hour rules when requesting your estimate.' },
 ]
 
 const previewImages = [
@@ -33,6 +37,8 @@ const previewImages = [
 ]
 
 const featuredGuides = [
+  { title: 'Custom Mirrors for Manhattan Apartments', description: 'Plan the wall coverage, fixtures, edge finish, and delivery route.', href: '/blog/custom-mirrors-manhattan-apartment-guide/' },
+  { title: 'Office Glass Partition Planning', description: 'Coordinate room layout, privacy, doors, and work in an occupied office.', href: '/blog/office-glass-partitions-manhattan-planning-guide/' },
   {
     title: '84 Clinton Shower Door Before and After',
     description: 'A Lower East Side project showing how the right sliding enclosure can finish a compact Manhattan bathroom.',
@@ -45,7 +51,7 @@ const featuredGuides = [
   },
   {
     title: 'CRL Geneva vs Vienna Hinges',
-    description: 'A hardware comparison Google is already rewarding, now used as a stronger path into shower door pages.',
+    description: 'Compare CRL Geneva and Vienna hinges, including mounting style and the hardware details to discuss before ordering glass.',
     href: '/projects/crl-geneva-vs-vienna-hinges/',
   },
   {
@@ -65,38 +71,6 @@ const buyerPaths = [
   { href: '/service-areas/queens/', title: 'Queens Projects', desc: 'Layout and access planning for apartments, houses, and multi-family homes.' },
 ]
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://metroglasspro.com/#business',
-  name: 'MetroGlass Pro',
-  description: 'Custom shower doors for Manhattan apartments, condos, and brownstones, plus mirrors and related custom glass across NYC.',
-  url: 'https://metroglasspro.com',
-  telephone: '+1-332-999-3846',
-  email: 'operations@metroglasspro.com',
-  logo: 'https://metroglasspro.com/assets/logo.png',
-  image: 'https://metroglasspro.com/assets/og-default.jpg',
-  areaServed: ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'],
-  priceRange: '$$',
-  openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '18:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
-  ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Custom Shower Door and Glass Services',
-    itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Frameless Shower Doors', url: 'https://metroglasspro.com/frameless-shower-doors-nyc/' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shower Door Installation', url: 'https://metroglasspro.com/shower-door-installation-nyc/' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shower Door Replacement', url: 'https://metroglasspro.com/shower-door-replacement-nyc/' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shower Door Repair', url: 'https://metroglasspro.com/shower-door-repair-nyc/' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Mirrors', url: 'https://metroglasspro.com/custom-mirrors-nyc/' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass Partitions', url: 'https://metroglasspro.com/glass-partitions-nyc/' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Co-op and Condo Shower Door Installation', url: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/' } },
-    ],
-  },
-}
-
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -110,7 +84,6 @@ const faqJsonLd = {
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* ═══ 1. HERO ═══ */}
@@ -130,16 +103,16 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center py-24 sm:py-32">
           <h1 className="heading-serif text-charcoal text-5xl sm:text-7xl lg:text-[88px] anim-hero">
-            Custom shower doors for Manhattan apartments, condos, and brownstones.
+            Custom shower doors and glass installation in NYC.
           </h1>
           <p className="mt-6 text-charcoal/60 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto anim-fade-up d2">
-            MetroGlass Pro is the premium middle ground for Manhattan buyers who want precise measurements, clean installs, and smooth building coordination without the distance of a large generic glass company.
+            Shower doors, glazing, glass railings, mirrors, partitions, and glass repair. MetroGlass Pro works with homeowners, businesses, designers, and contractors across all five boroughs, with direct estimates and building coordination.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4 anim-fade-up d3">
             <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm">
-              Get Shower Door Estimate
+              Get Glass Project Estimate
             </Link>
-            <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20shower%20door%20quote%20and%20can%20send%20bathroom%20photos." className="btn-pill btn-outline px-10 py-3.5 text-sm">Text Bathroom Photos</a>
+            <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20glass%20project%20quote%20and%20can%20send%20project%20photos." className="btn-pill btn-outline px-10 py-3.5 text-sm">Text Project Photos</a>
           </div>
         </div>
       </section>
@@ -159,66 +132,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ 3. SERVICES ═══ */}
-      <section className="bg-cream py-28 sm:py-36">
+      <section className="bg-cream py-16 sm:py-24" id="glass-services">
         <div className="max-w-6xl mx-auto px-6 sm:px-10">
-          <div className="max-w-xl mb-20" data-reveal="fade-up">
+          <div className="max-w-2xl mb-10">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Our Services</p>
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">
-              Known for shower doors. Trusted for the rest.
-            </h2>
-            <p className="mt-4 text-warm text-[15px] leading-relaxed">Shower doors are the flagship. Mirrors, partitions, repair work, and select railing projects support the same reputation for precision, cleanliness, and direct communication.</p>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">Glass work for the whole project.</h2>
+            <p className="mt-5 text-warm text-base leading-relaxed">Choose your service for scope, planning details, and the photos or drawings that help us price the work.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Shower Doors */}
-            <Link href="/frameless-shower-doors-nyc/" className="group" data-reveal="fade-up" data-delay="100">
-              <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/shower-door-card.webp" alt="Frameless shower door with gold hinges" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
-              </div>
-              <h3 className="font-serif text-charcoal text-2xl mb-2">Frameless Shower Doors</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Custom shower doors for Manhattan apartments, co-ops, condos, and brownstones. Swing, sliding, pivot, and fixed panel layouts measured to the real room, not a stock opening.</p>
-              <span className="inline-block mt-3 text-orange text-sm font-medium group-hover:opacity-70 transition-opacity">Learn more →</span>
-            </Link>
-
-            {/* Mirrors */}
-            <Link href="/custom-mirrors-nyc/" className="group" data-reveal="fade-up" data-delay="200">
-              <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/mirror-card.webp" alt="Custom beveled wall mirror" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
-              </div>
-              <h3 className="font-serif text-charcoal text-2xl mb-2">Custom Mirrors</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Bathroom mirrors, vanity mirrors, and wall mirrors installed with the same careful measurement, clean lines, and detail driven finish work.</p>
-              <span className="inline-block mt-3 text-orange text-sm font-medium group-hover:opacity-70 transition-opacity">Learn more →</span>
-            </Link>
-
-            {/* Partitions */}
-            <Link href="/glass-partitions-nyc/" className="group" data-reveal="fade-up" data-delay="300">
-              <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/railing-card.webp" alt="Glass stair railing with gold posts" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
-              </div>
-              <h3 className="font-serif text-charcoal text-2xl mb-2">Glass Partitions</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Residential and boutique commercial partitions for projects that need clean lines, reliable coordination, and a polished finished look.</p>
-              <span className="inline-block mt-3 text-orange text-sm font-medium group-hover:opacity-70 transition-opacity">Learn more →</span>
-            </Link>
-
-            {/* Repair */}
-            <Link href="/shower-door-repair-nyc/" className="group" data-reveal="fade-up" data-delay="400">
-              <div className="aspect-[16/10] rounded-lg img-editorial mb-6">
-                <img src="/editorial/tools-card.webp" alt="Premium glass installation tools" className="w-full h-full object-cover" loading="lazy" width="900" height="502" />
-              </div>
-              <h3 className="font-serif text-charcoal text-2xl mb-2">Shower Door Repair</h3>
-              <p className="text-warm text-[15px] leading-relaxed">Leak fixes, hardware issues, dragging doors, and bad install remediation for buyers who need honest guidance on whether the door should be repaired or replaced.</p>
-              <span className="inline-block mt-3 text-orange text-sm font-medium group-hover:opacity-70 transition-opacity">Learn more →</span>
-            </Link>
-          </div>
-
-          <div className="mt-14 text-center anim-fade-up d5">
-            <Link href="/services/" className="btn-pill btn-outline px-10 py-3.5 text-sm">
-              View All Services
-            </Link>
-          </div>
+          <ServiceDirectory />
         </div>
       </section>
+
+      <ShowerDoorQuickAnswers />
 
       <section className="bg-cream-light py-20 sm:py-24 border-y border-charcoal/[0.04]">
         <div className="max-w-6xl mx-auto px-6 sm:px-10">
@@ -228,7 +153,7 @@ export default function HomePage() {
               Match your bathroom problem to the right glass guide.
             </h2>
             <p className="mt-4 text-warm text-[15px] leading-relaxed">
-              New glass, repair work, replacement, and borough logistics are different searches. These paths help buyers get to the page that fits the job before requesting an estimate.
+              Choose a guide for your project: a new enclosure, an existing door that needs attention, or installation in your borough.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -249,14 +174,14 @@ export default function HomePage() {
           <div className="max-w-xl mb-20" data-reveal="fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Why MetroGlass Pro</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">
-              Why Manhattan buyers choose us.
+              Careful work, from measure to finish.
             </h2>
-            <p className="mt-4 text-warm text-[15px] leading-relaxed">The best leads in Manhattan are rarely looking for the cheapest option. They want a company that is fast, careful, easy to coordinate with, and precise enough to protect the finished bathroom.</p>
+            <p className="mt-4 text-warm text-[15px] leading-relaxed">Your finished surfaces, fixtures, and building deserve careful handling. We plan the fit, protect the work area, and coordinate access before installation day.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
             {[
-              { n: '01', t: 'Precise Fit', d: 'We measure to the actual room, account for out of plumb walls, and build the enclosure around the bathroom you really have.' },
-              { n: '02', t: 'Clean Install Standards', d: 'Protection down first, glass in carefully, bathroom left clean. Buyers notice this immediately, and designers remember it.' },
+              { n: '01', t: 'Precise Fit', d: 'We measure the real opening, review surrounding finishes, and coordinate glass and hardware before ordering.' },
+              { n: '02', t: 'Clean Install Standards', d: 'We plan work area protection, glass delivery, and installation access so your home or business is treated with care.' },
               { n: '03', t: 'Building Fluent', d: 'Co-op and condo rules, COIs, freight elevators, supers, quiet hours. We handle the coordination smaller installers often miss.' },
             ].map((item, i) => (
               <div key={item.n} className={`anim-fade-up d${(i + 1) * 2}`}>
@@ -401,16 +326,16 @@ export default function HomePage() {
         <div className="relative bg-[rgba(72,68,61,0.68)] py-28 sm:py-36">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-4xl sm:text-5xl anim-fade-up">
-              Ready to price your shower door?
+              Ready to price your glass project?
             </h2>
             <p className="mt-5 text-white/50 text-lg anim-fade-up d2">
-              Send bathroom photos or request a fast estimate. Include your neighborhood and building type so we can point you in the right direction faster.
+              Send project photos or request an estimate. Include your neighborhood and building type so we can point you in the right direction faster.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4 anim-fade-up d3">
               <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm">
-                Get Shower Door Estimate
+                Get Glass Project Estimate
               </Link>
-              <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20quote%20and%20can%20send%20bathroom%20photos." className="btn-pill btn-outline-light px-10 py-3.5 text-sm">Text Bathroom Photos</a>
+              <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20quote%20and%20can%20send%20project%20photos." className="btn-pill btn-outline-light px-10 py-3.5 text-sm">Text Project Photos</a>
             </div>
           </div>
         </div>

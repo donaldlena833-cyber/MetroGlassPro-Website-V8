@@ -68,12 +68,7 @@ const serviceJsonLd = {
   url: 'https://metroglasspro.com/shower-door-installation-nyc/',
   description:
     'Shower door installation for Manhattan apartments, co-ops, condos, and NYC homes, including frameless, framed, sliding, pivot, neo-angle, and bathtub enclosure layouts.',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'MetroGlass Pro',
-    url: 'https://metroglasspro.com',
-    telephone: '+13329993846',
-  },
+  provider: { '@id': 'https://metroglasspro.com/#business' },
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Manhattan, NY' },
     { '@type': 'City', name: 'New York, NY' },
