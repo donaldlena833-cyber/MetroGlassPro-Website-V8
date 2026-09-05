@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: 'article',
     images: [
       {
-        url: 'https://metroglasspro.com/editorial/railing.jpg',
+        url: 'https://metroglasspro.com/assets/og-default.jpg',
         alt: 'Architectural glass detail with clean metal and glass lines',
       },
     ],
@@ -61,9 +61,9 @@ const articleJsonLd = {
   headline: 'Office Glass Partitions in Manhattan: Planning Guide',
   description:
     'A Manhattan planning guide for office glass partitions, covering layout, clearances, hardware, building access, privacy, and estimate prep.',
-  image: 'https://metroglasspro.com/editorial/railing.jpg',
+  image: 'https://metroglasspro.com/assets/og-default.jpg',
   datePublished: '2026-05-20',
-  dateModified: '2026-05-20',
+  dateModified: '2026-09-05',
   author: { '@type': 'Organization', name: 'MetroGlass Pro' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro' },
   mainEntityOfPage: 'https://metroglasspro.com/blog/office-glass-partitions-manhattan-planning-guide/',
@@ -156,7 +156,7 @@ export default function OfficeGlassPartitionsManhattanGuide() {
 
             <aside className="space-y-6 lg:sticky lg:top-28">
               <div className="rounded-lg overflow-hidden bg-cream-dark">
-                <img src="/editorial/railing.jpg" alt="Architectural glass detail with clean metal and glass lines" className="w-full h-auto" />
+                <div className="p-6"><h2 className="font-serif text-charcoal text-2xl mb-3">Plan the full room.</h2><p className="text-warm text-base leading-relaxed">Send the floor plan, door positions, floor and ceiling details, and privacy requirements to review your partition project.</p></div>
               </div>
               <div className="glass-card p-6">
                 <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Related MetroGlass Pro pages</p>
@@ -164,7 +164,7 @@ export default function OfficeGlassPartitionsManhattanGuide() {
                   <Link href="/glass-partitions-nyc/" className="text-charcoal text-sm font-medium hover:text-orange">Glass Partitions NYC</Link>
                   <Link href="/services/" className="text-charcoal text-sm font-medium hover:text-orange">All Glass Services</Link>
                   <Link href="/projects/shower-glass-design-consultation-nyc/" className="text-charcoal text-sm font-medium hover:text-orange">Design Consultation Process</Link>
-                  <Link href="/contact/" className="btn-pill btn-primary px-6 py-3 text-center text-sm mt-2">Request an Estimate</Link>
+                  <Link href="/contact/?service=glass-partitions" className="btn-pill btn-primary px-6 py-3 text-center text-sm mt-2">Request an Estimate</Link>
                 </div>
               </div>
             </aside>

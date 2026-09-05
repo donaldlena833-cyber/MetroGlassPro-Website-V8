@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import GuideFaqs from '@/components/GuideFaqs'
 
 const canonical = 'https://metroglasspro.com/blog/frameless-shower-doors-manhattan-nyc-planning-guide/'
 const heroImage = 'https://metroglasspro.com/editorial/nyc-local/frameless-shower-doors-manhattan-hero.jpg'
@@ -28,7 +29,7 @@ const articleJsonLd = {
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-06-06',
-  dateModified: '2026-06-06',
+  dateModified: '2026-09-05',
   mainEntityOfPage: canonical,
   image: heroImage,
   keywords: [
@@ -157,6 +158,8 @@ export default function FramelessShowerDoorsManhattanGuidePage() {
           </div>
         </div>
       </section>
+
+      <GuideFaqs questions={faqJsonLd.mainEntity} />
 
       <section className="bg-charcoal py-20 sm:py-24 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">

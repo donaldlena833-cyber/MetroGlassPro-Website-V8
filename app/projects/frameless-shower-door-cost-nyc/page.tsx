@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { showerDoorPriceRanges as ranges, showerDoorPriceSummary } from '@/content/shower-door-facts'
 
 export const metadata: Metadata = {
   title: 'Frameless Shower Door Cost NYC | Custom Glass Pricing',
@@ -32,13 +33,6 @@ const costDrivers = [
     title: 'Building conditions',
     body: 'NYC bathrooms are rarely perfectly square. Out-of-plumb walls, uneven curbs, tight elevators, co-op rules, COI paperwork, and freight scheduling can all affect the real project cost.',
   },
-]
-
-const ranges = [
-  { label: 'Single swing frameless door', range: '$800-$1,600+', note: 'Best for standard openings where one hinged door solves the layout.' },
-  { label: 'Door plus fixed panel', range: '$1,400-$2,600+', note: 'Common for wider NYC showers and tub-to-shower renovations.' },
-  { label: 'Sliding bypass frameless doors', range: '$1,600-$3,000+', note: 'Useful where there is no room for a swing door.' },
-  { label: 'Corner or neo-angle enclosure', range: '$2,200-$4,500+', note: 'More panels, angles, clamps, seals, and field precision.' },
 ]
 
 const faqs = [
@@ -93,7 +87,7 @@ const articleJsonLd = {
   headline: 'Frameless Shower Door Cost in NYC',
   description: 'A practical NYC buyer guide to frameless shower door cost, quote comparisons, glass thickness, hardware, layouts, and building coordination.',
   datePublished: '2026-05-09',
-  dateModified: '2026-07-02',
+  dateModified: '2026-09-05',
   author: { '@type': 'Organization', name: 'MetroGlass Pro' },
   publisher: {
     '@type': 'Organization',
@@ -135,7 +129,7 @@ export default function FramelessShowerDoorCostNYC() {
           <div className="glass-card p-6 sm:p-8">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Quick Answer</p>
             <p className="text-charcoal text-xl sm:text-2xl font-serif leading-snug">
-              Most custom frameless shower door projects in NYC land somewhere from about $800 to $3,000+, with larger corner enclosures and premium layouts going higher.
+              {showerDoorPriceSummary}
             </p>
             <p className="mt-4 text-warm text-[15px] leading-relaxed">
               That range is broad because two bathrooms can look similar in photos but need very different glass, hardware, and installation work once measured.
@@ -150,19 +144,25 @@ export default function FramelessShowerDoorCostNYC() {
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Typical Ranges</p>
             <h2 className="heading-serif text-charcoal text-3xl sm:text-5xl">What different layouts usually cost.</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {ranges.map((item) => (
-              <div key={item.label} className="glass-card p-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-                  <h3 className="font-serif text-charcoal text-xl">{item.label}</h3>
-                  <span className="text-orange text-sm font-semibold">{item.range}</span>
-                </div>
-                <p className="text-warm text-[14px] leading-relaxed">{item.note}</p>
-              </div>
-            ))}
+          <div className="overflow-x-auto rounded-xl border border-charcoal/10">
+            <table className="w-full text-left text-base leading-relaxed">
+              <caption className="sr-only">Published NYC shower door planning prices by layout</caption>
+              <thead className="bg-white/70 text-charcoal">
+                <tr><th scope="col" className="p-4">Layout</th><th scope="col" className="p-4">Planning range</th><th scope="col" className="p-4 min-w-[180px]">When it fits</th></tr>
+              </thead>
+              <tbody>
+                {ranges.map((item) => (
+                  <tr key={item.label} className="border-t border-charcoal/10 align-top">
+                    <th scope="row" className="p-4 font-medium text-charcoal">{item.label}</th>
+                    <td className="p-4 text-orange font-semibold whitespace-nowrap">{item.range}</td>
+                    <td className="p-4 text-warm">{item.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
           <p className="mt-6 text-warm text-[14px] leading-relaxed max-w-2xl">
-            These are planning ranges, not final quotes. Final price depends on field measurement, glass specification, hardware choice, and install conditions.
+            These are planning ranges, not final quotes. Ask your estimate to itemize glass, hardware, installation, removal and disposal of an old enclosure, building coordination, and any applicable tax. Confirm which items are included before comparing totals.
           </p>
         </div>
       </section>

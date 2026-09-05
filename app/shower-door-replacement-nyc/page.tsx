@@ -68,12 +68,7 @@ const serviceJsonLd = {
   url: 'https://metroglasspro.com/shower-door-replacement-nyc/',
   description:
     'Shower door replacement for Manhattan and NYC bathrooms, including framed-to-frameless upgrades, old door removal, new glass installation, and repair-versus-replacement guidance.',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'MetroGlass Pro',
-    url: 'https://metroglasspro.com',
-    telephone: '+13329993846',
-  },
+  provider: { '@id': 'https://metroglasspro.com/#business' },
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Manhattan, NY' },
     { '@type': 'City', name: 'New York, NY' },

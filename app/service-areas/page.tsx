@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ServiceDirectory from '@/components/ServiceDirectory'
 
 export const metadata: Metadata = {
-  title: 'NYC Shower Door Service Areas',
-  description: 'MetroGlass Pro installs custom shower doors in Manhattan first, with broader support across the five boroughs and select nearby projects.',
+  title: 'NYC Glass Installation and Repair Service Areas',
+  description: 'Shower doors, glazing, railings, mirrors, partitions, and glass repair across Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/' },
   openGraph: {
     title: 'Service Areas',
-    description: 'MetroGlass Pro installs custom shower doors in Manhattan first, with broader support across the five boroughs and select nearby projects.',
+    description: 'Shower doors, glazing, railings, mirrors, partitions, and glass repair across Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -64,10 +65,12 @@ export default function ServiceAreasPage() {
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Service Areas</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl lg:text-7xl">Manhattan first, all five boroughs covered.</h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-lg leading-relaxed">
-            MetroGlass Pro is strongest in Manhattan, especially for custom shower doors, but we also support the rest of New York City and selected nearby projects.
+            MetroGlass Pro handles shower doors, glazing, glass railings, mirrors, partitions, and glass repair across New York City. Send your project location and scope so access, scheduling, and building requirements can be reviewed.
           </p>
         </div>
       </section>
+
+      <section className="bg-cream pb-16"><div className="max-w-6xl mx-auto px-6 sm:px-10"><h2 className="font-serif text-charcoal text-3xl mb-6">Glass services across all five boroughs.</h2><ServiceDirectory /></div></section>
 
       {/* ═══ NYC BOROUGHS ═══ */}
       <section className="bg-cream pb-20 sm:pb-28">

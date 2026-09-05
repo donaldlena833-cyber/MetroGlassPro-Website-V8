@@ -1,7 +1,9 @@
 'use client'
 
 import type { ChangeEvent, FormEvent, ReactNode } from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { quoteServiceFromId, serviceOptions, servicePhotoTip } from '@/content/service-catalog'
+import { getLeadAttribution, referralOptions, trackLeadEvent } from '@/lib/lead-attribution'
 
 type FormValues = {
   name: string
@@ -17,6 +19,7 @@ type FormValues = {
   coiNeeded: string
   message: string
   website: string
+  howHeard: string
 }
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
@@ -35,19 +38,8 @@ const initialValues: FormValues = {
   coiNeeded: '',
   message: '',
   website: '',
+  howHeard: '',
 }
-
-const serviceOptions = [
-  'Frameless Shower Door',
-  'Sliding Shower Door',
-  'Shower Door Replacement',
-  'Shower Door Repair or Leak Issue',
-  'Framed or Semi Frameless Shower Door',
-  'Custom Mirror',
-  'Glass Partition or Railing',
-  'Commercial or Trade Project',
-  'Other',
-]
 
 const boroughOptions = [
   'Manhattan',
@@ -77,9 +69,9 @@ const timelineOptions = [
 ]
 
 const projectTypeOptions = [
-  'New shower door install',
-  'Replacing an existing door',
-  'Need repair more than replacement',
+  'New glass or mirror installation',
+  'Replacing existing glass or mirrors',
+  'Repair or damage assessment',
   'Not sure yet',
 ]
 
@@ -97,7 +89,7 @@ const coordinationOptions = [
 ]
 
 const inputClassName =
-  'w-full px-5 py-3.5 bg-white/70 border border-charcoal/[0.08] rounded-2xl text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-charcoal/30 focus:bg-white transition-colors'
+  'w-full min-w-0 px-4 py-3.5 bg-white/70 border border-charcoal/20 rounded-2xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal/50 focus:bg-white transition-colors'
 
 const maxFiles = 3
 const maxFileSizeMb = 8
@@ -129,12 +121,18 @@ export default function EstimateRequestForm() {
   const [submitState, setSubmitState] = useState<SubmitState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
+  useEffect(() => {
+    const selected = quoteServiceFromId(new URLSearchParams(window.location.search).get('service') || '')
+    if (selected) setValues((current) => ({ ...current, service: current.service || selected }))
+  }, [])
+
   function updateField(name: keyof FormValues, value: string) {
     setValues((current) => ({ ...current, [name]: value }))
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (submitState === 'submitting') return
     setSubmitState('submitting')
     setErrorMessage('')
 
@@ -144,6 +142,7 @@ export default function EstimateRequestForm() {
       Object.entries(values).forEach(([key, value]) => {
         formData.append(key, value)
       })
+      Object.entries(getLeadAttribution()).forEach(([key, value]) => formData.append(key, value))
 
       files.forEach((file) => {
         formData.append('attachments', file)
@@ -161,6 +160,7 @@ export default function EstimateRequestForm() {
       }
 
       setSubmitState('success')
+      trackLeadEvent('generate_lead', 'form', values.howHeard, values.service)
       setValues(initialValues)
       setFiles([])
     } catch (error) {
@@ -182,6 +182,10 @@ export default function EstimateRequestForm() {
       setErrorMessage(`${tooLarge.name} is larger than ${maxFileSizeMb}MB. If your photos are larger, text them to us instead.`)
       return
     }
+    if (nextFiles.reduce((total, file) => total + file.size, 0) > 18 * 1024 * 1024) {
+      setErrorMessage('Please keep attachments under 18MB combined, or text the photos to us.')
+      return
+    }
 
     setErrorMessage('')
     setFiles(nextFiles)
@@ -196,7 +200,7 @@ export default function EstimateRequestForm() {
         </div>
         <div className="p-7 sm:p-8">
           <p className="text-warm text-[15px] leading-relaxed mb-6">
-            We received your project details. For the fastest pricing, text bathroom photos to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20sent%20an%20estimate%20request%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a> so we can review the layout right away.
+            We received your project details. If you have more photos to add, text them to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20sent%20an%20estimate%20request%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a> so we can review the layout right away.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="rounded-3xl bg-cream-light p-5">
@@ -227,16 +231,16 @@ export default function EstimateRequestForm() {
         <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
           <div className="max-w-xl">
             <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">MetroGlass Pro Estimate</p>
-            <h2 className="font-serif text-charcoal text-3xl sm:text-4xl leading-tight">A better contact form for serious Manhattan buyers.</h2>
+            <h2 className="font-serif text-charcoal text-3xl sm:text-4xl leading-tight">Tell us about your project.</h2>
             <p className="mt-4 text-warm text-[15px] leading-relaxed">
-              This form goes straight to the MetroGlass Pro inbox. Share the basics, tell us about the building, and we can give you a faster, more useful response than a generic home services form ever will.
+              Share your contact details, service, and location. Photos and building notes help us prepare an estimate. No exact measurements yet? Send what you have.
             </p>
           </div>
           <div className="rounded-[26px] bg-charcoal text-white px-5 py-4 min-w-[220px]">
             <p className="text-white/50 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Best For</p>
             <div className="space-y-2 text-[14px] leading-relaxed">
-              <p>Custom shower doors</p>
-              <p>Replacement and repair leads</p>
+              <p>Custom glass and repairs</p>
+              <p>Replacement and repair</p>
               <p>Co op and condo coordination</p>
             </div>
           </div>
@@ -250,13 +254,14 @@ export default function EstimateRequestForm() {
           ))}
         </div>
 
-        {submitState === 'error' && (
-          <div className="mb-6 rounded-3xl border border-orange/20 bg-orange/[0.06] px-5 py-4 text-[14px] text-charcoal/70" aria-live="polite">
+        {errorMessage && (
+          <div className="mb-6 rounded-3xl border border-orange/20 bg-orange/[0.06] px-5 py-4 text-base text-charcoal/80" role="alert">
             {errorMessage}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+        <noscript><p className="mb-6 text-base">To request an estimate without JavaScript, call or text <a className="underline" href="tel:+13329993846">(332) 999-3846</a> or email <a className="underline" href="mailto:operations@metroglasspro.com">operations@metroglasspro.com</a>.</p></noscript>
+        <form onSubmit={handleSubmit} className="space-y-6" aria-label="Request a MetroGlass Pro estimate" aria-busy={submitState === 'submitting'}>
           <input
             type="text"
             name="website"
@@ -265,6 +270,7 @@ export default function EstimateRequestForm() {
             className="hidden"
             tabIndex={-1}
             autoComplete="off"
+            aria-hidden="true"
           />
 
           <Section
@@ -275,15 +281,15 @@ export default function EstimateRequestForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-[13px] font-medium text-charcoal/50 mb-2">Name</label>
-                <input id="name" name="name" value={values.name} onChange={(event) => updateField('name', event.target.value)} required className={inputClassName} />
+                <input id="name" name="name" autoComplete="name" value={values.name} onChange={(event) => updateField('name', event.target.value)} required className={inputClassName} />
               </div>
               <div>
                 <label htmlFor="phone" className="block text-[13px] font-medium text-charcoal/50 mb-2">Phone</label>
-                <input id="phone" name="phone" type="tel" value={values.phone} onChange={(event) => updateField('phone', event.target.value)} required className={inputClassName} />
+                <input id="phone" name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={(event) => updateField('phone', event.target.value)} required className={inputClassName} />
               </div>
               <div>
                 <label htmlFor="email" className="block text-[13px] font-medium text-charcoal/50 mb-2">Email</label>
-                <input id="email" name="email" type="email" value={values.email} onChange={(event) => updateField('email', event.target.value)} required className={inputClassName} />
+                <input id="email" name="email" type="email" autoComplete="email" value={values.email} onChange={(event) => updateField('email', event.target.value)} required className={inputClassName} />
               </div>
               <div>
                 <label htmlFor="service" className="block text-[13px] font-medium text-charcoal/50 mb-2">Service</label>
@@ -300,7 +306,7 @@ export default function EstimateRequestForm() {
           <Section
             eyebrow="Location and Building"
             title="Help us understand the job context."
-            description="Manhattan projects move faster when we know the neighborhood, building type, and whether the property has access rules."
+            description="Share the neighborhood, building type, and access rules so we can plan delivery and installation."
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -383,7 +389,7 @@ export default function EstimateRequestForm() {
           <Section
             eyebrow="Project Notes"
             title="Give us the details that matter."
-            description="Tell us if you are replacing an old door, dealing with a leak, coordinating with a building, or working with a designer or contractor."
+            description="Tell us what you want installed or repaired, rough dimensions, the condition of the existing glass, and any contractor or building requirements."
           >
             <div>
               <label htmlFor="message" className="block text-[13px] font-medium text-charcoal/50 mb-2">Message</label>
@@ -393,7 +399,7 @@ export default function EstimateRequestForm() {
                 rows={6}
                 value={values.message}
                 onChange={(event) => updateField('message', event.target.value)}
-                placeholder="Tell us the layout, what style you want, if you are replacing an old door, and anything important about the building or timing."
+                placeholder={servicePhotoTip(values.service)}
                 className={`${inputClassName} rounded-[24px] resize-vertical`}
               />
             </div>
@@ -401,16 +407,16 @@ export default function EstimateRequestForm() {
 
           <Section
             eyebrow="Photos and Plans"
-            title="Attach bathroom photos if you have them."
-            description="You can upload up to 3 images or PDFs here. If your phone photos are too large, you can still text them after submitting."
+            title="Attach project photos if you have them."
+            description={servicePhotoTip(values.service)}
           >
             <label
               htmlFor="attachments"
               className="flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-[28px] border border-dashed border-charcoal/[0.12] bg-gradient-to-br from-white/80 via-cream-light to-white/60 px-6 py-8 text-center transition-colors hover:border-charcoal/[0.22]"
             >
-              <span className="font-serif text-charcoal text-2xl mb-3">Drop files here or browse</span>
+              <span className="font-serif text-charcoal text-2xl mb-3">Choose photos or a plan</span>
               <span className="text-warm text-[14px] leading-relaxed max-w-md">
-                JPG, PNG, HEIC, or PDF. Up to {maxFiles} files, {maxFileSizeMb}MB each.
+                JPG, PNG, HEIC, or PDF. Up to {maxFiles} files, {maxFileSizeMb}MB each, 18MB combined.
               </span>
               <span className="mt-5 btn-pill btn-outline px-6 py-2.5 text-[13px]">Choose Files</span>
               <input
@@ -436,10 +442,18 @@ export default function EstimateRequestForm() {
             )}
           </Section>
 
+          <div>
+            <label htmlFor="howHeard" className="block text-base font-medium text-charcoal mb-2">How did you find us? <span className="font-normal text-warm">(optional)</span></label>
+            <select id="howHeard" name="howHeard" value={values.howHeard} onChange={(event) => updateField('howHeard', event.target.value)} className={inputClassName}>
+              <option value="">Select if you remember</option>
+              {referralOptions.map((option) => <option key={option} value={option}>{option}</option>)}
+            </select>
+          </div>
+
           <div className="rounded-[28px] border border-charcoal/[0.06] bg-charcoal text-white px-6 py-5">
             <p className="text-white/45 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Fastest Pricing Tip</p>
             <p className="text-white/80 text-[14px] leading-relaxed">
-              After submitting, text bathroom photos to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20submitted%20the%20estimate%20form%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a>. That usually gives us the clearest first look at the layout.
+              If you have more photos to add after submitting, text them to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20submitted%20the%20estimate%20form%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a>. That usually gives us the clearest first look at the layout.
             </p>
           </div>
 

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ShowerDoorQuickAnswers from '@/components/ShowerDoorQuickAnswers'
+import { showerDoorLeakAnswer, showerDoorPriceSummary, showerDoorTimelineAnswer } from '@/content/shower-door-facts'
 
 export const metadata: Metadata = {
   title: 'Frameless Shower Doors NYC',
@@ -16,11 +18,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'How much do frameless shower doors cost in NYC?',
-    a: 'Custom frameless shower doors in NYC typically range from $800 to $3,000+ depending on glass thickness (3/8″ vs 1/2″), hardware finish, number of panels, and configuration. Single door panels start at the lower end; full multi-panel enclosures with premium hardware are at the higher end. We provide free, no-obligation estimates with transparent pricing.',
+    a: showerDoorPriceSummary,
   },
   {
     q: 'How long does the whole process take from measurement to install?',
-    a: 'The typical timeline is about 1.5–2 weeks total. We schedule an in-home measurement visit (about 30 minutes), then custom fabrication takes 5–7 business days. Installation itself is usually 2–4 hours.',
+    a: showerDoorTimelineAnswer,
   },
   {
     q: 'Can you install frameless shower doors in NYC co-ops and condos?',
@@ -28,7 +30,7 @@ const faqs = [
   },
   {
     q: 'Do frameless shower doors leak?',
-    a: 'Not when installed correctly. We use precision-fit glass templated to 1/16″ accuracy, professional-grade silicone seals along all glass-to-wall and glass-to-tile joints, and proper slope alignment so water drains inward. Gaps and leaks are almost always the result of poor measurement or improper installation.',
+    a: showerDoorLeakAnswer,
   },
   {
     q: 'What glass thickness should I choose — 3/8″ or 1/2″?',
@@ -90,15 +92,7 @@ const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Frameless Shower Door Installation NYC',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'MetroGlass Pro',
-    telephone: '+1-332-999-3846',
-    url: 'https://metroglasspro.com',
-    areaServed: [
-      { '@type': 'City', name: 'New York', addressRegion: 'NY' },
-    ],
-  },
+  provider: { '@id': 'https://metroglasspro.com/#business' },
   description: 'Custom frameless shower door installation across all 5 NYC boroughs. Precision-measured, custom-fabricated tempered glass with premium hardware.',
   areaServed: 'New York City',
   serviceType: 'Frameless Shower Door Installation',
@@ -132,6 +126,8 @@ export default function FramelessShowerDoorsNYC() {
           </div>
         </div>
       </section>
+
+      <ShowerDoorQuickAnswers />
 
       {/* ═══ TRUST STRIP ═══ */}
       <section className="bg-cream-light py-6 sm:py-8 border-y border-charcoal/[0.04]">
@@ -175,7 +171,7 @@ export default function FramelessShowerDoorsNYC() {
           </div>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-5 card-lift block">
-              <h3 className="font-serif text-charcoal text-lg mb-1">Hardware that ranks</h3>
+              <h3 className="font-serif text-charcoal text-lg mb-1">Compare shower door hinges</h3>
               <p className="text-warm text-[13px] leading-relaxed">Compare CRL Geneva and Vienna hinges before choosing a frameless door package.</p>
             </Link>
             <Link href="/projects/coop-condo-shower-door-installation-nyc/" className="glass-card p-5 card-lift block">
