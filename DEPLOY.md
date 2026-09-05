@@ -90,3 +90,12 @@ The second scan informed service scope, quote guidance, and route corrections; s
 - NYC project requirements reference: https://www.nyc.gov/site/buildings/codes/2022-construction-codes.page
 
 The Markdown alternates and directory are convenience formats generated from visible HTML. They are not a promise of recommendation placement or an extra Google ranking signal. Genuine project examples and customer proof can be added as they become available; typical scenarios must stay labeled as typical.
+
+## Canonical indexing and presentation cleanup (September 5, 2026)
+
+- Generate agent representations only for live canonical content; exclude exact redirect sources in `_redirects` and support retained extensionless legacy articles.
+- The sitemap and generated directory now cover 46 canonical content URLs. Keep old redirects in place; do not submit their source URLs for indexing.
+- Main-content links point directly to canonical pages. Legacy article FAQ markup now has matching visible answers.
+- The homepage presents six services, an actual project photo, a shorter selection of guides, and less repetitive shower-only navigation. The estimate form uses fewer nested panels and clearer labels.
+- Check `npm run build`, `npm run check:aeo`, and `npm run test:aeo`. Preview both legacy extensionless article URLs in HTML and Markdown on Cloudflare before merging because its asset routing differs from a local static server.
+- Check the homepage, a service page, and service-prefilled contact form at desktop and narrow widths. The deployed public URLs, not local export counts, are the indexing baseline.

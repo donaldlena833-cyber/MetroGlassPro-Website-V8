@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import ServiceDirectory from '@/components/ServiceDirectory'
-import ShowerDoorQuickAnswers from '@/components/ShowerDoorQuickAnswers'
 import { showerDoorLeakAnswer, showerDoorPriceSummary } from '@/content/shower-door-facts'
 
 export const metadata: Metadata = {
@@ -40,36 +39,12 @@ const featuredGuides = [
   { title: 'Custom Mirrors for Manhattan Apartments', description: 'Plan the wall coverage, fixtures, edge finish, and delivery route.', href: '/blog/custom-mirrors-manhattan-apartment-guide/' },
   { title: 'Office Glass Partition Planning', description: 'Coordinate room layout, privacy, doors, and work in an occupied office.', href: '/blog/office-glass-partitions-manhattan-planning-guide/' },
   {
-    title: '84 Clinton Shower Door Before and After',
-    description: 'A Lower East Side project showing how the right sliding enclosure can finish a compact Manhattan bathroom.',
-    href: '/projects/84-clinton-lower-east-side-shower-door-before-after/',
-  },
-  {
     title: 'Frameless Shower Door Cost in NYC',
     description: 'The buyer guide for glass thickness, hardware, layout, building coordination, and quote factors.',
     href: '/projects/frameless-shower-door-cost-nyc/',
   },
-  {
-    title: 'CRL Geneva vs Vienna Hinges',
-    description: 'Compare CRL Geneva and Vienna hinges, including mounting style and the hardware details to discuss before ordering glass.',
-    href: '/projects/crl-geneva-vs-vienna-hinges/',
-  },
-  {
-    title: 'Co-op and Condo Installation',
-    description: 'What building coordination, COIs, elevator rules, and scheduling really look like in Manhattan jobs.',
-    href: '/projects/coop-condo-shower-door-installation-nyc/',
-  },
 ]
 
-const buyerPaths = [
-  { href: '/frameless-shower-doors-nyc/', title: 'Frameless Shower Doors', desc: 'Glass thickness, hardware finishes, fixed panels, swing doors, sliders, and custom enclosure planning.' },
-  { href: '/shower-door-installation-nyc/', title: 'Shower Door Installation', desc: 'What to send before a quote, how field measuring works, and what install day should include.' },
-  { href: '/shower-door-replacement-nyc/', title: 'Shower Door Replacement', desc: 'When an older or leaking enclosure is better replaced than patched again.' },
-  { href: '/shower-door-repair-nyc/', title: 'Shower Door Repair', desc: 'Leak, drag, sweep, hinge, roller, and bad-install symptoms that need a clear diagnosis.' },
-  { href: '/service-areas/manhattan/', title: 'Manhattan Bathrooms', desc: 'Co-op, condo, high-rise, and brownstone logistics for tight apartment bathrooms.' },
-  { href: '/service-areas/brooklyn/', title: 'Brooklyn Projects', desc: 'Brownstone, condo, and renovation access planning for shower glass and mirrors.' },
-  { href: '/service-areas/queens/', title: 'Queens Projects', desc: 'Layout and access planning for apartments, houses, and multi-family homes.' },
-]
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -86,49 +61,31 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      {/* ═══ 1. HERO ═══ */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/editorial/hero.jpg"
-          alt="Custom frameless shower door installed in a New York City bathroom"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        {/* Blur + white cream overlay with a restrained glass tint */}
-        <div className="absolute inset-0 backdrop-blur-[2px] bg-[linear-gradient(120deg,rgba(255,253,248,0.82),rgba(247,242,233,0.68)_58%,rgba(220,233,237,0.32))]" />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center py-24 sm:py-32">
-          <h1 className="heading-serif text-charcoal text-5xl sm:text-7xl lg:text-[88px] anim-hero">
-            Custom shower doors and glass installation in NYC.
-          </h1>
-          <p className="mt-6 text-charcoal/60 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto anim-fade-up d2">
-            Shower doors, glazing, glass railings, mirrors, partitions, and glass repair. MetroGlass Pro works with homeowners, businesses, designers, and contractors across all five boroughs, with direct estimates and building coordination.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4 anim-fade-up d3">
-            <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm">
-              Get Glass Project Estimate
-            </Link>
-            <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20glass%20project%20quote%20and%20can%20send%20project%20photos." className="btn-pill btn-outline px-10 py-3.5 text-sm">Text Project Photos</a>
+      <section className="bg-cream border-b border-charcoal/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-10 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div>
+            <p className="text-orange text-xs font-semibold tracking-widest uppercase mb-5">MetroGlass Pro · New York City</p>
+            <h1 className="heading-serif text-charcoal text-[46px] sm:text-6xl lg:text-7xl max-w-xl">
+              Shower doors &amp; custom glass, made for NYC.
+            </h1>
+            <p className="mt-6 text-warm text-lg leading-relaxed max-w-xl">
+              Glazing, glass railings, mirrors, partitions, shower doors, and repairs for homes and businesses. Measured to fit, with careful installation and building coordination.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Link href="/contact/" className="btn-pill btn-primary px-7 py-3.5 text-sm">Request an Estimate</Link>
+              <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20glass%20project%20quote%20and%20can%20send%20project%20photos." className="btn-pill btn-outline px-7 py-3.5 text-sm">Text Project Photos</a>
+            </div>
+            <p className="mt-6 text-sm text-warm">All five boroughs · Field measurements · COI on request</p>
           </div>
-        </div>
-      </section>
-
-      {/* ═══ 2. TRUST STRIP ═══ */}
-      <section className="bg-cream-light py-8 border-y border-navy/10">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10 flex flex-wrap justify-center gap-x-12 gap-y-3 text-navy text-[13px] font-medium tracking-wider uppercase">
-          <span>Precise Field Measurements</span>
-          <span className="hidden sm:inline">·</span>
-          <span>Clean Installs</span>
-          <span className="hidden sm:inline">·</span>
-          <span>COI Ready</span>
-          <span className="hidden sm:inline">·</span>
-          <span>Building Coordination</span>
-          <span className="hidden sm:inline">·</span>
-          <span>Fast Estimates</span>
+          <figure>
+            <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5] max-h-[560px] overflow-hidden rounded-2xl bg-cream-dark">
+              <Image src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg" alt="Clear tempered shower glass with brass hardware during MetroGlass Pro's Edison installation" fill priority fetchPriority="high" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-center" />
+            </div>
+            <figcaption className="flex flex-wrap justify-between gap-2 mt-4 text-sm text-warm">
+              <span>From our work · Custom shower glass</span>
+              <Link href="/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/" className="text-orange underline underline-offset-4">View the Edison project</Link>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -143,46 +100,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ShowerDoorQuickAnswers />
-
-      <section className="bg-cream-light py-20 sm:py-24 border-y border-charcoal/[0.04]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 anim-fade-up">
-            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Start With The Right Page</p>
-            <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">
-              Match your bathroom problem to the right glass guide.
-            </h2>
-            <p className="mt-4 text-warm text-[15px] leading-relaxed">
-              Choose a guide for your project: a new enclosure, an existing door that needs attention, or installation in your borough.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {buyerPaths.map((path) => (
-              <Link key={path.href} href={path.href} className="glass-card p-5 card-lift block anim-fade-up">
-                <h3 className="font-serif text-charcoal text-xl mb-2">{path.title}</h3>
-                <p className="text-warm text-[14px] leading-relaxed">{path.desc}</p>
-                <span className="inline-block mt-4 text-orange text-sm font-medium hover:opacity-70 transition-opacity">Open page →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ 4. WHY US ═══ */}
-      <section className="bg-cream-light py-28 sm:py-36">
+      <section className="bg-cream-light py-16 sm:py-24">
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
-          <div className="max-w-xl mb-20" data-reveal="fade-up">
+          <div className="max-w-xl mb-10" data-reveal="fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Why MetroGlass Pro</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">
-              Careful work, from measure to finish.
+              A clear process. A careful finish.
             </h2>
             <p className="mt-4 text-warm text-[15px] leading-relaxed">Your finished surfaces, fixtures, and building deserve careful handling. We plan the fit, protect the work area, and coordinate access before installation day.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { n: '01', t: 'Precise Fit', d: 'We measure the real opening, review surrounding finishes, and coordinate glass and hardware before ordering.' },
               { n: '02', t: 'Clean Install Standards', d: 'We plan work area protection, glass delivery, and installation access so your home or business is treated with care.' },
-              { n: '03', t: 'Building Fluent', d: 'Co-op and condo rules, COIs, freight elevators, supers, quiet hours. We handle the coordination smaller installers often miss.' },
+              { n: '03', t: 'Building Coordination', d: 'Co-op and condo rules, COIs, freight elevators, supers, quiet hours. Share building requirements early so they are included in the installation plan.' },
             ].map((item, i) => (
               <div key={item.n} className={`anim-fade-up d${(i + 1) * 2}`}>
                 <span className="text-charcoal/60 font-serif text-6xl leading-none">{item.n}</span>
@@ -195,12 +127,12 @@ export default function HomePage() {
       </section>
 
       {/* ═══ 5. GALLERY PREVIEW ═══ */}
-      <section className="bg-cream py-28 sm:py-36">
+      <section className="bg-cream py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10">
-          <div className="max-w-xl mb-16" data-reveal="fade-up">
+          <div className="max-w-xl mb-10" data-reveal="fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Recent Projects</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">
-              Our work speaks.
+              A closer look at our work.
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -224,10 +156,10 @@ export default function HomePage() {
           <div className="max-w-2xl mb-12 anim-fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Buyer Guides</p>
             <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">
-              A few useful pages before you price the job.
+              Helpful reading before you begin.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {featuredGuides.map((guide, index) => (
               <Link key={guide.href} href={guide.href} className={`glass-card p-6 card-lift block anim-fade-up d${index + 1}`}>
                 <h3 className="font-serif text-charcoal text-2xl mb-3">{guide.title}</h3>
@@ -237,47 +169,26 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 text-center anim-fade-up">
-            <Link href="/projects/" className="btn-pill btn-outline px-10 py-3.5 text-sm">
-              View All Projects
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ 5c. FRAMELESS DOORS CTA ═══ */}
-      <section className="bg-cream-light py-16 sm:py-20 border-y border-charcoal/[0.04]">
-        <div className="max-w-3xl mx-auto px-6 sm:px-10 text-center">
-          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Manhattan First</p>
-          <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-4">
-            Custom shower doors, building ready.
-          </h2>
-          <p className="text-warm text-[15px] leading-relaxed max-w-lg mx-auto mb-8">
-            We work in co-ops, condos, brownstones, and high rises. That means precise measurements, clean installs, direct communication, and smooth building coordination.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">
-              Explore Shower Doors
-            </Link>
-            <Link href="/service-areas/manhattan/" className="btn-pill btn-outline px-8 sm:px-10 py-3.5 text-sm">
-              See Manhattan Service
+            <Link href="/blog/" className="btn-pill btn-outline px-10 py-3.5 text-sm">
+              Browse All Guides
             </Link>
           </div>
         </div>
       </section>
 
       {/* ═══ 6. REVIEWS ═══ */}
-      <section className="bg-cream-light py-28 sm:py-36">
-        <div className="max-w-4xl mx-auto px-6 sm:px-10">
-          <div className="text-center mb-16 anim-fade-up">
+      <section className="bg-cream-light py-16 sm:py-24">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10">
+          <div className="text-center mb-10 anim-fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Testimonials</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">
-              Trusted by homeowners, renovators, and designers across NYC.
+              What our customers say.
             </h2>
           </div>
-          <div className="space-y-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {reviews.map((r, i) => (
-              <div key={r.name} className={`text-center anim-fade-up d${(i + 1) * 2}`}>
-                <p className="font-serif text-charcoal text-2xl sm:text-3xl leading-snug italic max-w-2xl mx-auto">
+              <div key={r.name} className={`border-t border-charcoal/15 pt-6 anim-fade-up d${(i + 1) * 2}`}>
+                <p className="font-serif text-charcoal text-xl sm:text-2xl leading-snug max-w-2xl mx-auto">
                   &ldquo;{r.text}&rdquo;
                 </p>
                 <p className="mt-5 text-warm text-sm font-medium tracking-wide uppercase">{r.name}</p>
@@ -294,9 +205,9 @@ export default function HomePage() {
       </section>
 
       {/* ═══ 7. FAQ ═══ */}
-      <section className="bg-cream py-28 sm:py-36">
+      <section className="bg-cream py-16 sm:py-24">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
-          <div className="text-center mb-16 anim-fade-up">
+          <div className="text-center mb-10 anim-fade-up">
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">
               Common questions.
             </h2>
@@ -323,17 +234,17 @@ export default function HomePage() {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="relative bg-[rgba(72,68,61,0.68)] py-28 sm:py-36">
+        <div className="relative bg-[rgba(72,68,61,0.68)] py-16 sm:py-24">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-4xl sm:text-5xl anim-fade-up">
               Ready to price your glass project?
             </h2>
-            <p className="mt-5 text-white/50 text-lg anim-fade-up d2">
+            <p className="mt-5 text-white/85 text-lg anim-fade-up d2">
               Send project photos or request an estimate. Include your neighborhood and building type so we can point you in the right direction faster.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4 anim-fade-up d3">
               <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm">
-                Get Glass Project Estimate
+                Request an Estimate
               </Link>
               <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20quote%20and%20can%20send%20project%20photos." className="btn-pill btn-outline-light px-10 py-3.5 text-sm">Text Project Photos</a>
             </div>
@@ -343,7 +254,7 @@ export default function HomePage() {
 
       {/* ═══ 9. SERVICE AREAS ═══ */}
       <section className="bg-cream py-12 border-t border-charcoal/[0.04]">
-        <div className="max-w-4xl mx-auto px-6 sm:px-10 text-center">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 text-center">
           <p className="text-charcoal/60 text-[13px] font-medium tracking-widest uppercase mb-2">Serving</p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
             <Link href="/service-areas/manhattan/" className="text-charcoal/60 hover:text-charcoal transition-colors">Manhattan</Link>
@@ -356,7 +267,7 @@ export default function HomePage() {
             <span className="text-charcoal/60">·</span>
             <Link href="/service-areas/staten-island/" className="text-charcoal/60 hover:text-charcoal transition-colors">Staten Island</Link>
           </div>
-          <p className="text-charcoal/60 text-xs mt-1">Also serving Long Island & Northern New Jersey</p>
+          <p className="text-charcoal/60 text-xs mt-1">Select projects in Long Island & Northern New Jersey</p>
           <Link href="/service-areas/" className="inline-flex items-center gap-2 text-orange text-sm font-medium mt-3 hover:opacity-70 transition-opacity">
             Explore Service Areas <span className="text-xs">→</span>
           </Link>

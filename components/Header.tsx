@@ -42,7 +42,7 @@ export default function Header() {
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">{open ? <path strokeLinecap="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeWidth={1.5} d="M4 7h16M4 12h16M4 17h16" />}</svg>
         </button>
       </nav>
-      <nav id="mobile-menu" aria-label="Mobile navigation" hidden={!open} className="lg:hidden max-h-[calc(100dvh-154px)] overflow-y-auto bg-cream border-t border-charcoal/10 px-6 pb-6" onKeyDown={(event) => { if (event.key === 'Escape') setOpen(false) }}>
+      <nav id="mobile-menu" aria-label="Mobile navigation" hidden={!open} className="lg:hidden max-h-[calc(100dvh-154px-env(safe-area-inset-bottom))] overflow-y-auto bg-cream border-t border-charcoal/10 px-6 pb-6" onKeyDown={(event) => { if (event.key === 'Escape') setOpen(false) }}>
         <ul className="grid grid-cols-2 gap-x-4 pt-3">{glassServices.map((service) => <li key={service.id}><Link href={service.href} onClick={() => setOpen(false)} className="block py-3 text-sm text-charcoal">{service.name}</Link></li>)}<li><Link href="/services/" onClick={() => setOpen(false)} className="block py-3 text-sm text-orange">All services</Link></li>{companyLinks.map((link) => <li key={link.href}><Link href={link.href} onClick={() => setOpen(false)} className="block py-3 text-sm text-charcoal">{link.label}</Link></li>)}</ul>
         <Link href="/contact/" onClick={() => setOpen(false)} className="mt-4 block text-center btn-pill btn-primary px-8 py-3 text-sm">Get Estimate</Link>
       </nav>

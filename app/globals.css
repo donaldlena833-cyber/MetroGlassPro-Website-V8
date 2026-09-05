@@ -152,6 +152,7 @@ body {
   font-family: var(--font-instrument-serif), Georgia, serif;
   letter-spacing: 0;
   line-height: 1.08;
+  text-wrap: balance;
 }
 
 /* ── Section divider ── */
@@ -266,6 +267,9 @@ body {
 
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [class*="anim-"] { animation: none !important; }
+  .card-lift, .btn-pill { transition: none; }
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
@@ -312,3 +316,6 @@ body {
 /* Content and navigation remain readable without scripts or animation support. */
 .skip-link { position: absolute; top: 8px; left: 8px; z-index: 100; padding: 12px 20px; background: white; color: #181612; transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
+
+/* Keep in-page section headings visible below the fixed navigation. */
+main [id] { scroll-margin-top: 100px; }

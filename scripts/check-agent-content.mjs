@@ -4,13 +4,18 @@ import { parseHTML } from 'linkedom'
 
 const pages = JSON.parse(await readFile('.next/agent-pages.json', 'utf8'))
 const directory = await readFile('out/llms.txt', 'utf8')
+const redirectSources = new Set((await readFile('public/_redirects', 'utf8')).split('\n')
+  .map((line) => line.trim().split(/\s+/))
+  .filter(([source, , status]) => source?.startsWith('/') && /^30[1278]$/.test(status))
+  .map(([source]) => source))
 const titles = new Set()
 const normalize = (text) => text.replace(/\s+/g, ' ').trim()
 let faqs = 0
 for (const page of pages) {
   const pathname = new URL(page.url).pathname
-  const html = await readFile(`out${pathname}index.html`, 'utf8')
-  const md = await readFile(`out${pathname}index.md`, 'utf8')
+  assert.ok(!redirectSources.has(pathname), `${pathname}: redirect excluded from agent directory`)
+  const html = await readFile(`out/${page.htmlPath}`, 'utf8')
+  const md = await readFile(`out/${page.markdownPath}`, 'utf8')
   const { document } = parseHTML(html)
   const visibleMain = document.querySelector('main').cloneNode(true)
   visibleMain.querySelectorAll('script, style, [hidden], [aria-hidden="true"]').forEach((node) => node.remove())
@@ -24,6 +29,12 @@ for (const page of pages) {
   assert.ok(md.includes(`Source: ${page.url}`))
   assert.ok(directory.includes(page.markdownUrl))
   assert.ok(!md.includes('self.__next_f') && !md.includes('application/ld+json'), `${pathname}: no script payload in Markdown`)
+  for (const link of visibleMain.querySelectorAll('a[href]')) {
+    const target = new URL(link.getAttribute('href'), page.url)
+    if (target.origin === 'https://metroglasspro.com') {
+      assert.ok(!redirectSources.has(target.pathname), `${pathname}: internal link redirects: ${target.pathname}`)
+    }
+  }
   for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
     const data = JSON.parse(script.textContent)
     for (const item of Array.isArray(data) ? data : [data]) {
@@ -48,7 +59,14 @@ const priceMarkdown = await readFile('out/projects/frameless-shower-door-cost-ny
 assert.match(priceMarkdown, /\| Layout \| Planning range \| When it fits \|/)
 assert.match(priceMarkdown, /\$2,200–\$4,500\+/)
 const sitemap = await readFile('out/sitemap.xml', 'utf8')
-for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) await access(`out${new URL(url).pathname}index.md`)
+for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
+  const page = pages.find((entry) => entry.url === url)
+  assert.ok(page, `Sitemap contains a canonical content page: ${url}`)
+  await access(`out/${page.markdownPath}`)
+}
+for (const legacy of ['2026-05-09-honest-shower-door-repair-nyc', '2026-05-10-glass-tariffs-shower-door-prices-nyc']) {
+  assert.ok(pages.some((page) => page.url === `https://metroglasspro.com/blog/${legacy}`), 'Retained legacy article has an agent representation')
+}
 console.log(`PASS: ${pages.length} canonical pages, ${faqs} visible FAQ answers, metadata, price table, sitemap coverage, and quote form preservation.`)
 
 const services = ['/frameless-shower-doors-nyc/', '/glazing-nyc/', '/glass-railings-nyc/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-repair-nyc/']

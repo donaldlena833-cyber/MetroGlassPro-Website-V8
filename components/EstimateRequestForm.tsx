@@ -89,26 +89,24 @@ const coordinationOptions = [
 ]
 
 const inputClassName =
-  'w-full min-w-0 px-4 py-3.5 bg-white/70 border border-charcoal/20 rounded-2xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal/50 focus:bg-white transition-colors'
+  'w-full min-w-0 px-4 py-3.5 bg-white/70 border border-charcoal/20 rounded-xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal/50 focus:bg-white transition-colors'
 
 const maxFiles = 3
 const maxFileSizeMb = 8
 
 function Section({
   eyebrow,
-  title,
   description,
   children,
 }: {
   eyebrow: string
-  title: string
+  title?: string
   description: string
   children: ReactNode
 }) {
   return (
-    <section className="rounded-[28px] border border-charcoal/[0.06] bg-white/45 p-5 sm:p-6">
-      <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">{eyebrow}</p>
-      <h3 className="font-serif text-charcoal text-2xl mb-2">{title}</h3>
+    <section className="border-t border-charcoal/10 pt-6">
+      <h3 className="font-serif text-charcoal text-2xl mb-2">{eyebrow}</h3>
       <p className="text-warm text-[14px] leading-relaxed mb-5">{description}</p>
       {children}
     </section>
@@ -226,32 +224,10 @@ export default function EstimateRequestForm() {
 
   return (
     <div className="glass-card relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-r from-orange/12 via-orange/5 to-transparent" />
-      <div className="relative p-7 sm:p-8 lg:p-10">
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-          <div className="max-w-xl">
-            <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">MetroGlass Pro Estimate</p>
-            <h2 className="font-serif text-charcoal text-3xl sm:text-4xl leading-tight">Tell us about your project.</h2>
-            <p className="mt-4 text-warm text-[15px] leading-relaxed">
-              Share your contact details, service, and location. Photos and building notes help us prepare an estimate. No exact measurements yet? Send what you have.
-            </p>
-          </div>
-          <div className="rounded-[26px] bg-charcoal text-white px-5 py-4 min-w-[220px]">
-            <p className="text-white/50 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Best For</p>
-            <div className="space-y-2 text-[14px] leading-relaxed">
-              <p>Custom glass and repairs</p>
-              <p>Replacement and repair</p>
-              <p>Co op and condo coordination</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2.5 mb-8">
-          {['Fast replies', 'Manhattan first', 'Text photos anytime'].map((item) => (
-            <span key={item} className="rounded-full border border-charcoal/[0.08] bg-white/70 px-4 py-2 text-[12px] text-charcoal/55">
-              {item}
-            </span>
-          ))}
+      <div className="relative p-5 sm:p-8">
+        <div className="mb-6">
+          <h2 className="font-serif text-charcoal text-3xl">Your project details</h2>
+          <p className="mt-3 text-warm text-[15px] leading-relaxed">Name, phone, email, service, and borough are required. Add photos and the details you know; exact measurements can come later.</p>
         </div>
 
         {errorMessage && (
@@ -280,19 +256,19 @@ export default function EstimateRequestForm() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="name" className="block text-[13px] font-medium text-charcoal/50 mb-2">Name</label>
+                <label htmlFor="name" className="block text-[13px] font-medium text-charcoal/80 mb-2">Name</label>
                 <input id="name" name="name" autoComplete="name" value={values.name} onChange={(event) => updateField('name', event.target.value)} required className={inputClassName} />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-[13px] font-medium text-charcoal/50 mb-2">Phone</label>
+                <label htmlFor="phone" className="block text-[13px] font-medium text-charcoal/80 mb-2">Phone</label>
                 <input id="phone" name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={(event) => updateField('phone', event.target.value)} required className={inputClassName} />
               </div>
               <div>
-                <label htmlFor="email" className="block text-[13px] font-medium text-charcoal/50 mb-2">Email</label>
+                <label htmlFor="email" className="block text-[13px] font-medium text-charcoal/80 mb-2">Email</label>
                 <input id="email" name="email" type="email" autoComplete="email" value={values.email} onChange={(event) => updateField('email', event.target.value)} required className={inputClassName} />
               </div>
               <div>
-                <label htmlFor="service" className="block text-[13px] font-medium text-charcoal/50 mb-2">Service</label>
+                <label htmlFor="service" className="block text-[13px] font-medium text-charcoal/80 mb-2">Service</label>
                 <select id="service" name="service" value={values.service} onChange={(event) => updateField('service', event.target.value)} required className={inputClassName}>
                   <option value="">Select a service</option>
                   {serviceOptions.map((option) => (
@@ -310,7 +286,7 @@ export default function EstimateRequestForm() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="borough" className="block text-[13px] font-medium text-charcoal/50 mb-2">Borough</label>
+                <label htmlFor="borough" className="block text-[13px] font-medium text-charcoal/80 mb-2">Borough</label>
                 <select id="borough" name="borough" value={values.borough} onChange={(event) => updateField('borough', event.target.value)} required className={inputClassName}>
                   <option value="">Select borough</option>
                   {boroughOptions.map((option) => (
@@ -319,7 +295,7 @@ export default function EstimateRequestForm() {
                 </select>
               </div>
               <div>
-                <label htmlFor="neighborhood" className="block text-[13px] font-medium text-charcoal/50 mb-2">Neighborhood</label>
+                <label htmlFor="neighborhood" className="block text-[13px] font-medium text-charcoal/80 mb-2">Neighborhood</label>
                 <input
                   id="neighborhood"
                   name="neighborhood"
@@ -330,7 +306,7 @@ export default function EstimateRequestForm() {
                 />
               </div>
               <div>
-                <label htmlFor="buildingType" className="block text-[13px] font-medium text-charcoal/50 mb-2">Building Type</label>
+                <label htmlFor="buildingType" className="block text-[13px] font-medium text-charcoal/80 mb-2">Building Type</label>
                 <select id="buildingType" name="buildingType" value={values.buildingType} onChange={(event) => updateField('buildingType', event.target.value)} className={inputClassName}>
                   <option value="">Select building type</option>
                   {buildingOptions.map((option) => (
@@ -339,7 +315,7 @@ export default function EstimateRequestForm() {
                 </select>
               </div>
               <div>
-                <label htmlFor="coiNeeded" className="block text-[13px] font-medium text-charcoal/50 mb-2">COI or Building Coordination</label>
+                <label htmlFor="coiNeeded" className="block text-[13px] font-medium text-charcoal/80 mb-2">COI or Building Coordination</label>
                 <select id="coiNeeded" name="coiNeeded" value={values.coiNeeded} onChange={(event) => updateField('coiNeeded', event.target.value)} className={inputClassName}>
                   <option value="">Select if known</option>
                   {coordinationOptions.map((option) => (
@@ -353,11 +329,11 @@ export default function EstimateRequestForm() {
           <Section
             eyebrow="Timing"
             title="Tell us where you are in the process."
-            description="This helps us respond with the right level of detail, rough pricing, urgent repair guidance, or field measure timing."
+            description="Optional. Share your timeline and whether this is an installation, replacement, or repair."
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="projectTimeline" className="block text-[13px] font-medium text-charcoal/50 mb-2">Project Timeline</label>
+                <label htmlFor="projectTimeline" className="block text-[13px] font-medium text-charcoal/80 mb-2">Project Timeline</label>
                 <select id="projectTimeline" name="projectTimeline" value={values.projectTimeline} onChange={(event) => updateField('projectTimeline', event.target.value)} className={inputClassName}>
                   <option value="">Select timeline</option>
                   {timelineOptions.map((option) => (
@@ -366,7 +342,7 @@ export default function EstimateRequestForm() {
                 </select>
               </div>
               <div>
-                <label htmlFor="projectType" className="block text-[13px] font-medium text-charcoal/50 mb-2">Project Type</label>
+                <label htmlFor="projectType" className="block text-[13px] font-medium text-charcoal/80 mb-2">Project Type</label>
                 <select id="projectType" name="projectType" value={values.projectType} onChange={(event) => updateField('projectType', event.target.value)} className={inputClassName}>
                   <option value="">Select project type</option>
                   {projectTypeOptions.map((option) => (
@@ -375,7 +351,7 @@ export default function EstimateRequestForm() {
                 </select>
               </div>
               <div>
-                <label htmlFor="photosReady" className="block text-[13px] font-medium text-charcoal/50 mb-2">Photos Ready</label>
+                <label htmlFor="photosReady" className="block text-[13px] font-medium text-charcoal/80 mb-2">Photos Ready</label>
                 <select id="photosReady" name="photosReady" value={values.photosReady} onChange={(event) => updateField('photosReady', event.target.value)} className={inputClassName}>
                   <option value="">Select if known</option>
                   {photosOptions.map((option) => (
@@ -392,7 +368,7 @@ export default function EstimateRequestForm() {
             description="Tell us what you want installed or repaired, rough dimensions, the condition of the existing glass, and any contractor or building requirements."
           >
             <div>
-              <label htmlFor="message" className="block text-[13px] font-medium text-charcoal/50 mb-2">Message</label>
+              <label htmlFor="message" className="block text-[13px] font-medium text-charcoal/80 mb-2">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -400,7 +376,7 @@ export default function EstimateRequestForm() {
                 value={values.message}
                 onChange={(event) => updateField('message', event.target.value)}
                 placeholder={servicePhotoTip(values.service)}
-                className={`${inputClassName} rounded-[24px] resize-vertical`}
+                className={`${inputClassName} rounded-xl resize-vertical`}
               />
             </div>
           </Section>
@@ -412,7 +388,7 @@ export default function EstimateRequestForm() {
           >
             <label
               htmlFor="attachments"
-              className="flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-[28px] border border-dashed border-charcoal/[0.12] bg-gradient-to-br from-white/80 via-cream-light to-white/60 px-6 py-8 text-center transition-colors hover:border-charcoal/[0.22]"
+              className="flex min-h-[140px] cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-charcoal/[0.12] bg-gradient-to-br from-white/80 via-cream-light to-white/60 px-6 py-8 text-center transition-colors hover:border-charcoal/[0.22]"
             >
               <span className="font-serif text-charcoal text-2xl mb-3">Choose photos or a plan</span>
               <span className="text-warm text-[14px] leading-relaxed max-w-md">
@@ -450,8 +426,8 @@ export default function EstimateRequestForm() {
             </select>
           </div>
 
-          <div className="rounded-[28px] border border-charcoal/[0.06] bg-charcoal text-white px-6 py-5">
-            <p className="text-white/45 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Fastest Pricing Tip</p>
+          <div className="rounded-xl border border-charcoal/[0.06] bg-charcoal text-white px-6 py-5">
+            <p className="text-white/80 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Fastest Pricing Tip</p>
             <p className="text-white/80 text-[14px] leading-relaxed">
               If you have more photos to add after submitting, text them to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20submitted%20the%20estimate%20form%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a>. That usually gives us the clearest first look at the layout.
             </p>

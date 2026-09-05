@@ -103,7 +103,7 @@ const miniCases = [
     eyebrow: 'Repair Pricing Guide',
     title: 'How to avoid overpaying for the wrong shower door fix',
     description: 'A practical repair guide for NYC homeowners who want a clear diagnosis, repair-versus-replacement options, and a fair conversation before approving the work.',
-    href: '/blog/2026-05-09-honest-shower-door-repair-nyc.html',
+    href: '/blog/2026-05-09-honest-shower-door-repair-nyc',
     cta: 'Read the repair guide',
   },
   {
