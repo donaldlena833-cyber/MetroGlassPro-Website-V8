@@ -27,12 +27,12 @@ const faqs = [
 ]
 
 const previewImages = [
-  { src: '/gallery/project-shower-1.jpg', alt: 'Frameless shower door installation Manhattan' },
+  { src: '/gallery/mirror-1.jpg', alt: 'Frameless shower enclosure with a fixed panel and hinged door' },
   { src: '/gallery/project-shower-2.jpg', alt: 'Custom glass enclosure Brooklyn' },
   { src: '/gallery/dark-shower-1.jpg', alt: 'Dark glass shower enclosure NYC' },
   { src: '/gallery/install-1.jpeg', alt: 'Shower door installation Queens' },
   { src: '/gallery/project-shower-3.jpg', alt: 'Frameless enclosure NYC apartment' },
-  { src: '/gallery/mirror-1.jpg', alt: 'Mirror installation Brooklyn' },
+  { src: '/gallery/project-shower-1.jpg', alt: 'Work in progress on a mirrored bathroom cabinet door' },
 ]
 
 const featuredGuides = [
@@ -78,7 +78,7 @@ export default function HomePage() {
             <p className="mt-6 text-sm text-warm">All five boroughs · Field measurements · COI on request</p>
           </div>
           <figure>
-            <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5] max-h-[560px] overflow-hidden rounded-2xl bg-cream-dark">
+            <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-2xl bg-cream-dark">
               <Image src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg" alt="Clear tempered shower glass with brass hardware during MetroGlass Pro's Edison installation" fill priority fetchPriority="high" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-center" />
             </div>
             <figcaption className="flex flex-wrap justify-between gap-2 mt-4 text-sm text-warm">

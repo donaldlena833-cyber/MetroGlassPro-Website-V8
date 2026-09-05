@@ -305,7 +305,7 @@ export default function FramelessShowerDoorsNYC() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="rounded-lg overflow-hidden bg-cream-dark order-2 lg:order-1">
-              <img src="/gallery/project-shower-1.jpg" alt="Frameless shower door installed in NYC apartment" className="w-full h-auto" loading="lazy" />
+              <img src="/gallery/mirror-1.jpg" alt="Frameless shower door installed in NYC apartment" className="w-full h-auto" loading="lazy" />
             </div>
             <div className="order-1 lg:order-2">
               <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">NYC Building Ready</p>
@@ -448,7 +448,7 @@ export default function FramelessShowerDoorsNYC() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
             {[
-              { src: '/gallery/project-shower-1.jpg', alt: 'Frameless shower door installation Manhattan' },
+              { src: '/gallery/mirror-1.jpg', alt: 'Frameless shower door installation Manhattan' },
               { src: '/gallery/project-shower-2.jpg', alt: 'Custom glass enclosure Brooklyn' },
               { src: '/gallery/dark-shower-1.jpg', alt: 'Dark glass shower enclosure NYC' },
               { src: '/gallery/project-shower-3.jpg', alt: 'Frameless enclosure NYC apartment' },
