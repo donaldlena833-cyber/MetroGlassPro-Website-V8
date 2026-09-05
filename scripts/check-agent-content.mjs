@@ -52,7 +52,8 @@ for (const pathname of ['/', '/contact/', '/frameless-shower-doors-nyc/', '/show
   assert.ok(pages.some((page) => new URL(page.url).pathname === pathname), `Missing key page: ${pathname}`)
 }
 const contact = parseHTML(await readFile('out/contact/index.html', 'utf8')).document
-assert.ok(contact.querySelector('form input[name="email"][required]'), 'Generation must preserve the real form')
+assert.ok(contact.querySelector('form input[name="contact"][required]'), 'Generation must preserve the phone-or-email contact field')
+assert.equal(contact.querySelectorAll('form [required]').length, 3, 'Only name, contact and project note are required')
 assert.ok(contact.querySelector('select[name="howHeard"]'), 'Referral question must remain in HTML')
 assert.ok(!contact.querySelector('form[novalidate]'), 'Browser validation enabled')
 const priceMarkdown = await readFile('out/projects/frameless-shower-door-cost-nyc/index.md', 'utf8')
