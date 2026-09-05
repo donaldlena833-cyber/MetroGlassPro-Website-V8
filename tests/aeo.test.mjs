@@ -90,7 +90,7 @@ test('contact delivery includes source evidence and sanitizes tracking fields; n
   globalThis.fetch = async (_url, options) => { sent.push(JSON.parse(options.body)); return new Response('{"id":"test"}', { status: 200 }) }
   try {
     const payload = { name: 'Test visitor', phone: '555-0100', email: 'visitor@example.com', service: 'Frameless Shower Door', borough: 'Manhattan', howHeard: 'ChatGPT', detectedSource: 'ChatGPT', sourceEvidence: 'utm_source', landingPath: '/frameless-shower-doors-nyc/?private=discard', referrerHost: 'chatgpt.com', message: '<script>untrusted</script>' }
-    const env = { RESEND_API_KEY: 'test-only', CONTACT_TO_EMAIL: 'inbox@example.com' }
+    const env = { RESEND_API_KEY: 'test-only', CONTACT_TO_EMAIL: 'inbox@example.com', CONTACT_FROM_EMAIL: 'website@example.com' }
     const response = await onRequestPost({ request: new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }), env })
     assert.equal(response.status, 200)
     assert.equal(sent.length, 2)
@@ -123,7 +123,7 @@ test('all non-shower service requests retain their scope in delivery; no live em
   globalThis.fetch = async (_url, options) => { sent.push(JSON.parse(options.body)); return new Response('{"id":"test"}', { status: 200 }) }
   try {
     for (const service of glassServices.filter((item) => item.id !== 'shower-doors')) {
-      const response = await onRequestPost({ request: new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: 'Test visitor', phone: '555-0100', email: 'visitor@example.com', borough: 'Queens', service: service.quoteLabel }) }), env: { RESEND_API_KEY: 'test-only', CONTACT_TO_EMAIL: 'inbox@example.com' } })
+      const response = await onRequestPost({ request: new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: 'Test visitor', phone: '555-0100', email: 'visitor@example.com', borough: 'Queens', service: service.quoteLabel }) }), env: { RESEND_API_KEY: 'test-only', CONTACT_TO_EMAIL: 'inbox@example.com', CONTACT_FROM_EMAIL: 'website@example.com' } })
       assert.equal(response.status, 200)
       assert.ok(sent.at(-2).text.includes(service.quoteLabel))
       assert.ok(!sent.at(-1).text.includes('bathroom'))

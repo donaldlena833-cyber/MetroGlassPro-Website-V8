@@ -1,3 +1,5 @@
+import { isValidEmail, isValidPhone, splitContact } from '../../lib/contact-details.ts'
+
 interface Env {
   RESEND_API_KEY?: string
   CONTACT_TO_EMAIL?: string
@@ -8,6 +10,7 @@ interface Env {
 type PagesContext = {
   request: Request
   env: Env
+  waitUntil?: (promise: Promise<unknown>) => void
 }
 
 type Attachment = {
@@ -74,10 +77,6 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#39;')
 }
 
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-}
-
 const sources = ['ChatGPT', 'Perplexity', 'Claude', 'Gemini', 'Microsoft Copilot', 'Google', 'Bing', 'Other website', 'Friend or contractor', 'Returning customer', 'Other', 'Other campaign', 'Direct / unknown']
 function source(value: unknown) {
   const candidate = clean(value, 50)
@@ -90,11 +89,12 @@ function landingPath(value: unknown) {
 }
 
 function buildSubmission(payload: Record<string, unknown>): Submission {
+  const contact = typeof payload.contact === 'string' ? splitContact(payload.contact) : null
   return {
     name: clean(payload.name, 120),
-    phone: clean(payload.phone, 80),
-    email: clean(payload.email, 160),
-    service: clean(payload.service, 120),
+    phone: contact?.phone || clean(payload.phone, 80),
+    email: contact?.email || clean(payload.email, 160),
+    service: clean(payload.service, 120) || 'Not sure yet',
     borough: clean(payload.borough, 80),
     neighborhood: clean(payload.neighborhood, 120),
     buildingType: clean(payload.buildingType, 120),
@@ -245,6 +245,8 @@ function buildAutoReplyText() {
 
 async function sendEmail(
   env: Env,
+  requestId: string,
+  stage: 'lead' | 'confirmation',
   payload: {
     to: string[]
     subject: string
@@ -254,44 +256,60 @@ async function sendEmail(
     attachments?: Attachment[]
   },
 ) {
-  const fromEmail = env.CONTACT_FROM_EMAIL || 'onboarding@resend.dev'
+  const fromEmail = env.CONTACT_FROM_EMAIL
   const fromName = env.CONTACT_FROM_NAME || 'MetroGlass Pro Website'
-
-  return fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: `${fromName} <${fromEmail}>`,
-      ...payload,
-    }),
-  })
+  const { replyTo, attachments, ...message } = payload
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      signal: AbortSignal.timeout(10000),
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: `${fromName} <${fromEmail}>`,
+        ...message,
+        ...(replyTo ? { reply_to: replyTo } : {}),
+        ...(attachments?.length ? { attachments: attachments.map(({ filename, content }) => ({ filename, content })) } : {}),
+      }),
+    })
+    const result = await response.json().catch(() => null) as { id?: unknown } | null
+    const providerId = typeof result?.id === 'string' && /^[a-zA-Z0-9_-]{1,100}$/.test(result.id) ? result.id : ''
+    const ok = response.ok && Boolean(providerId)
+    // No customer details, email addresses, secrets, or provider error bodies in logs.
+    console.info(JSON.stringify({ event: 'contact_email', requestId, stage, status: response.status, accepted: ok, providerId }))
+    return ok
+  } catch {
+    console.error(JSON.stringify({ event: 'contact_email', requestId, stage, accepted: false, reason: 'network_or_timeout' }))
+    return false
+  }
 }
+
+function mailConfigured(env: Env) {
+  return Boolean(env.RESEND_API_KEY?.trim() && isValidEmail(env.CONTACT_TO_EMAIL || '') && isValidEmail(env.CONTACT_FROM_EMAIL || '') && !env.CONTACT_FROM_EMAIL?.endsWith('@resend.dev'))
+}
+
+export const onRequestGet = async ({ env }: PagesContext) => json({ formAvailable: mailConfigured(env) })
 
 export const onRequestOptions = async () =>
   new Response(null, {
     status: 204,
     headers: {
-      Allow: 'POST, OPTIONS',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      Allow: 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     },
   })
 
-export const onRequestPost = async ({ request, env }: PagesContext) => {
-  if (!env.RESEND_API_KEY || !env.CONTACT_TO_EMAIL) {
-    return json({ error: 'Email delivery is not configured yet. Add the mail secrets in Cloudflare Pages first.' }, 500)
-  }
-
+export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) => {
   let rawPayload: Record<string, unknown>
   let attachments: Attachment[] = []
 
   try {
     const contentType = request.headers.get('content-type') || ''
 
-    if (contentType.includes('multipart/form-data')) {
+    if (contentType.includes('multipart/form-data') || contentType.includes('application/x-www-form-urlencoded')) {
       const formData = await request.formData()
       rawPayload = Object.fromEntries(
         Array.from(formData.entries()).filter(([key, value]) => key !== 'attachments' && typeof value === 'string'),
@@ -299,10 +317,11 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
       attachments = await parseAttachments(formData)
     } else {
       rawPayload = (await request.json()) as Record<string, unknown>
+      if (!rawPayload || typeof rawPayload !== 'object' || Array.isArray(rawPayload)) throw new Error('Please include your contact and project details.')
     }
   } catch (error) {
     return json(
-      { error: error instanceof Error ? error.message : 'We could not read this request. Please try again.' },
+      { error: error instanceof SyntaxError ? 'We could not read this request. Please try again.' : error instanceof Error ? error.message : 'We could not read this request. Please try again.' },
       400,
     )
   }
@@ -313,14 +332,20 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     return json({ ok: true })
   }
 
-  if (!submission.name || !submission.phone || !submission.email || !submission.service || !submission.borough) {
-    return json({ error: 'Please include your name, phone, email, service, and borough.' }, 400)
+  const compactForm = typeof rawPayload.contact === 'string'
+  if (!submission.name || (!submission.phone && !submission.email) || (compactForm && !submission.message)) {
+    return json({ error: 'Please include your name, a phone number or email, and a short project note.' }, 400)
   }
 
-  if (!isValidEmail(submission.email)) {
-    return json({ error: 'Please enter a valid email address.' }, 400)
+  if ((compactForm && !splitContact(rawPayload.contact as string)) || (submission.email && !isValidEmail(submission.email)) || (submission.phone && !isValidPhone(submission.phone))) {
+    return json({ error: 'Please enter a valid phone number or email address.' }, 400)
   }
 
+  if (!mailConfigured(env)) {
+    return json({ code: 'CONTACT_UNAVAILABLE', error: 'Online sending is temporarily unavailable. Please use the email or text option below.' }, 503)
+  }
+
+  const requestId = crypto.randomUUID()
   const subject = [
     'New MetroGlass Pro estimate request',
     submission.borough,
@@ -329,8 +354,8 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     .filter(Boolean)
     .join(' | ')
 
-  const resendResponse = await sendEmail(env, {
-    to: [env.CONTACT_TO_EMAIL],
+  const accepted = await sendEmail(env, requestId, 'lead', {
+    to: [env.CONTACT_TO_EMAIL!],
     subject,
     html: buildHtml(submission),
     text: buildText(submission),
@@ -338,13 +363,12 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     attachments,
   })
 
-  if (!resendResponse.ok) {
-    const errorText = await resendResponse.text()
-    return json({ error: `Email delivery failed. ${errorText || 'Please try again.'}` }, 502)
+  if (!accepted) {
+    return json({ requestId, error: 'We could not confirm your request was sent. Please use the email or text option below.' }, 502)
   }
 
   if (submission.email) {
-    const autoReply = await sendEmail(env, {
+    const confirmation = sendEmail(env, requestId, 'confirmation', {
       to: [submission.email],
       subject: 'We received your MetroGlass Pro request',
       html: buildAutoReplyHtml(submission),
@@ -352,10 +376,10 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
       replyTo: env.CONTACT_TO_EMAIL,
     })
 
-    if (!autoReply.ok) {
-      console.error('Auto reply failed', await autoReply.text())
-    }
+    // Confirmation delivery cannot turn an accepted lead into a failed submission.
+    if (waitUntil) waitUntil(confirmation)
+    else await confirmation
   }
 
-  return json({ ok: true })
+  return json({ ok: true, requestId })
 }
