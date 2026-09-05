@@ -1,475 +1,161 @@
 'use client'
 
-import type { ChangeEvent, FormEvent, ReactNode } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
 import { useState, useEffect } from 'react'
-import { quoteServiceFromId, serviceOptions, servicePhotoTip } from '@/content/service-catalog'
+import { quoteServiceFromId, serviceOptions } from '@/content/service-catalog'
+import { splitContact } from '@/lib/contact-details'
 import { getLeadAttribution, referralOptions, trackLeadEvent } from '@/lib/lead-attribution'
 
-type FormValues = {
-  name: string
-  phone: string
-  email: string
-  service: string
-  borough: string
-  neighborhood: string
-  buildingType: string
-  projectTimeline: string
-  projectType: string
-  photosReady: string
-  coiNeeded: string
-  message: string
-  website: string
-  howHeard: string
-}
-
-type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
-
-const initialValues: FormValues = {
-  name: '',
-  phone: '',
-  email: '',
-  service: '',
-  borough: '',
-  neighborhood: '',
-  buildingType: '',
-  projectTimeline: '',
-  projectType: '',
-  photosReady: '',
-  coiNeeded: '',
-  message: '',
-  website: '',
-  howHeard: '',
-}
-
-const boroughOptions = [
-  'Manhattan',
-  'Brooklyn',
-  'Queens',
-  'The Bronx',
-  'Staten Island',
-  'Long Island',
-  'Northern New Jersey',
-]
-
-const buildingOptions = [
-  'Condo',
-  'Co op',
-  'Brownstone or Townhouse',
-  'Rental Apartment',
-  'Single Family Home',
-  'Commercial',
-  'Other',
-]
-
-const timelineOptions = [
-  'ASAP',
-  'Within 1 to 2 weeks',
-  'This month',
-  'Planning and comparing',
-]
-
-const projectTypeOptions = [
-  'New glass or mirror installation',
-  'Replacing existing glass or mirrors',
-  'Repair or damage assessment',
-  'Not sure yet',
-]
-
-const photosOptions = [
-  'Yes, I can text photos now',
-  'I can send photos after you reply',
-  'Not yet',
-]
-
-const coordinationOptions = [
-  'Yes, COI will be needed',
-  'Yes, and the building has delivery or elevator rules',
-  'No, COI not needed',
-  'Not sure yet',
-]
-
-const inputClassName =
-  'w-full min-w-0 px-4 py-3.5 bg-white/70 border border-charcoal/20 rounded-2xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal/50 focus:bg-white transition-colors'
-
-const maxFiles = 3
-const maxFileSizeMb = 8
-
-function Section({
-  eyebrow,
-  title,
-  description,
-  children,
-}: {
-  eyebrow: string
-  title: string
-  description: string
-  children: ReactNode
-}) {
-  return (
-    <section className="rounded-[28px] border border-charcoal/[0.06] bg-white/45 p-5 sm:p-6">
-      <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">{eyebrow}</p>
-      <h3 className="font-serif text-charcoal text-2xl mb-2">{title}</h3>
-      <p className="text-warm text-[14px] leading-relaxed mb-5">{description}</p>
-      {children}
-    </section>
-  )
-}
+const initialValues = { name: '', contact: '', service: '', message: '', website: '', howHeard: '' }
+const inputClassName = 'w-full min-w-0 px-4 py-3 bg-white border border-charcoal/20 rounded-xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:ring-2 focus:ring-charcoal/30'
+const labelClassName = 'block text-sm font-medium text-charcoal mb-2'
 
 export default function EstimateRequestForm() {
-  const [values, setValues] = useState<FormValues>(initialValues)
+  const [values, setValues] = useState(initialValues)
   const [files, setFiles] = useState<File[]>([])
-  const [submitState, setSubmitState] = useState<SubmitState>('idle')
+  const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [onlineAvailable, setOnlineAvailable] = useState(true)
   const [errorMessage, setErrorMessage] = useState('')
+  const [fileError, setFileError] = useState('')
+  const [reference, setReference] = useState('')
 
   useEffect(() => {
     const selected = quoteServiceFromId(new URLSearchParams(window.location.search).get('service') || '')
     if (selected) setValues((current) => ({ ...current, service: current.service || selected }))
+    let active = true
+    fetch('/api/contact', { signal: AbortSignal.timeout(5000), cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((status) => { if (active && status?.formAvailable === false) setOnlineAvailable(false) })
+      .catch(() => { /* A failed availability check must not prevent a submission. */ })
+    return () => { active = false }
   }, [])
 
-  function updateField(name: keyof FormValues, value: string) {
+  function updateField(name: keyof typeof initialValues, value: string) {
     setValues((current) => ({ ...current, [name]: value }))
   }
+
+  const draft = [
+    'Hi MetroGlass Pro, I would like an estimate.',
+    values.name && `Name: ${values.name}`,
+    values.contact && `Contact: ${values.contact}`,
+    values.service && `Service: ${values.service}`,
+    values.message && `Project: ${values.message}`,
+    values.howHeard && `Found you through: ${values.howHeard}`,
+  ].filter(Boolean).join('\n')
+  const emailHref = `mailto:operations@metroglasspro.com?subject=${encodeURIComponent('Glass project estimate')}&body=${encodeURIComponent(draft)}`
+  const smsHref = `sms:+13329993846?body=${encodeURIComponent(draft)}`
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (submitState === 'submitting') return
+    if (!splitContact(values.contact)) {
+      setErrorMessage('Enter a phone number or a valid email address so we can reply.')
+      event.currentTarget.querySelector<HTMLInputElement>('[name="contact"]')?.focus()
+      return
+    }
+    if (fileError) return
     setSubmitState('submitting')
     setErrorMessage('')
-
     try {
       const formData = new FormData()
-
-      Object.entries(values).forEach(([key, value]) => {
-        formData.append(key, value)
-      })
+      Object.entries(values).forEach(([key, value]) => formData.append(key, value))
       Object.entries(getLeadAttribution()).forEach(([key, value]) => formData.append(key, value))
-
-      files.forEach((file) => {
-        formData.append('attachments', file)
-      })
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        body: formData,
-      })
-
+      files.forEach((file) => formData.append('attachments', file))
+      const response = await fetch('/api/contact', { method: 'POST', body: formData, signal: AbortSignal.timeout(20000) })
       const payload = await response.json().catch(() => ({}))
-
-      if (!response.ok) {
-        throw new Error(payload.error || 'We could not send your request right now. Please call or text us.')
+      if (!response.ok || payload.ok !== true) {
+        if (payload.code === 'CONTACT_UNAVAILABLE') setOnlineAvailable(false)
+        throw new Error(payload.error || 'We could not confirm your request was sent. Please use the email or text option below.')
       }
-
+      setReference(typeof payload.requestId === 'string' ? payload.requestId : '')
       setSubmitState('success')
       trackLeadEvent('generate_lead', 'form', values.howHeard, values.service)
-      setValues(initialValues)
       setFiles([])
     } catch (error) {
       setSubmitState('error')
-      setErrorMessage(error instanceof Error ? error.message : 'We could not send your request right now. Please call or text us.')
+      setErrorMessage(error instanceof Error && error.name !== 'TimeoutError' && error.name !== 'TypeError' ? error.message : 'We could not confirm your request was sent. Your details are still here. Please email or text us below.')
     }
   }
 
   function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
     const nextFiles = Array.from(event.target.files || [])
-
-    if (nextFiles.length > maxFiles) {
-      setErrorMessage(`Please select up to ${maxFiles} files.`)
-      return
-    }
-
-    const tooLarge = nextFiles.find((file) => file.size > maxFileSizeMb * 1024 * 1024)
-    if (tooLarge) {
-      setErrorMessage(`${tooLarge.name} is larger than ${maxFileSizeMb}MB. If your photos are larger, text them to us instead.`)
-      return
-    }
-    if (nextFiles.reduce((total, file) => total + file.size, 0) > 18 * 1024 * 1024) {
-      setErrorMessage('Please keep attachments under 18MB combined, or text the photos to us.')
-      return
-    }
-
-    setErrorMessage('')
-    setFiles(nextFiles)
+    let error = ''
+    if (nextFiles.length > 3) error = 'Choose up to 3 files, or text your photos to us.'
+    else if (nextFiles.some((file) => file.size > 8 * 1024 * 1024)) error = 'Keep each file under 8MB, or text larger photos to us.'
+    else if (nextFiles.reduce((total, file) => total + file.size, 0) > 18 * 1024 * 1024) error = 'Keep files under 18MB combined, or text your photos to us.'
+    setFileError(error)
+    setFiles(error ? [] : nextFiles)
+    if (error) event.target.value = ''
   }
 
-  if (submitState === 'success') {
-    return (
-      <div className="glass-card overflow-hidden">
-        <div className="bg-charcoal px-7 py-6 sm:px-8">
-          <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">Request Sent</p>
-          <h2 className="font-serif text-white text-3xl sm:text-4xl">Your estimate request is on its way.</h2>
-        </div>
-        <div className="p-7 sm:p-8">
-          <p className="text-warm text-[15px] leading-relaxed mb-6">
-            We received your project details. If you have more photos to add, text them to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20sent%20an%20estimate%20request%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a> so we can review the layout right away.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <div className="rounded-3xl bg-cream-light p-5">
-              <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">What Happens Next</p>
-              <p className="text-warm text-[14px] leading-relaxed">We review the layout, building details, and service type, then reply with the best next step, rough pricing guidance, or a field measure recommendation.</p>
-            </div>
-            <div className="rounded-3xl bg-cream-light p-5">
-              <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Need Faster Help</p>
-              <p className="text-warm text-[14px] leading-relaxed">If this is an urgent replacement or repair issue, call <a href="tel:+13329993846" className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a>.</p>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={() => setSubmitState('idle')}
-            className="btn-pill btn-primary px-8 py-3 text-sm"
-          >
-            Send Another Request
-          </button>
-        </div>
-      </div>
-    )
-  }
+  if (submitState === 'success') return (
+    <div className="glass-card p-6 sm:p-8" role="status">
+      <h2 className="font-serif text-charcoal text-3xl">Your request is on its way.</h2>
+      <p className="mt-4 text-warm">We’ll review your project and contact you with the next step. For urgent help, call <a href="tel:+13329993846" className="underline">(332) 999-3846</a>.</p>
+      <p className="mt-4 text-warm">More photos? <a href="sms:+13329993846" className="underline">Text them to us.</a></p>
+      {reference && <p className="mt-4 text-xs text-warm break-all">Request reference: {reference}</p>}
+      <button type="button" onClick={() => { setValues(initialValues); setReference(''); setSubmitState('idle') }} className="btn-pill btn-primary mt-6 px-6 py-3">Start another request</button>
+    </div>
+  )
 
   return (
-    <div className="glass-card relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-r from-orange/12 via-orange/5 to-transparent" />
-      <div className="relative p-7 sm:p-8 lg:p-10">
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-          <div className="max-w-xl">
-            <p className="text-orange text-[11px] font-semibold tracking-[0.22em] uppercase mb-3">MetroGlass Pro Estimate</p>
-            <h2 className="font-serif text-charcoal text-3xl sm:text-4xl leading-tight">Tell us about your project.</h2>
-            <p className="mt-4 text-warm text-[15px] leading-relaxed">
-              Share your contact details, service, and location. Photos and building notes help us prepare an estimate. No exact measurements yet? Send what you have.
-            </p>
-          </div>
-          <div className="rounded-[26px] bg-charcoal text-white px-5 py-4 min-w-[220px]">
-            <p className="text-white/50 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Best For</p>
-            <div className="space-y-2 text-[14px] leading-relaxed">
-              <p>Custom glass and repairs</p>
-              <p>Replacement and repair</p>
-              <p>Co op and condo coordination</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2.5 mb-8">
-          {['Fast replies', 'Manhattan first', 'Text photos anytime'].map((item) => (
-            <span key={item} className="rounded-full border border-charcoal/[0.08] bg-white/70 px-4 py-2 text-[12px] text-charcoal/55">
-              {item}
-            </span>
-          ))}
-        </div>
-
-        {errorMessage && (
-          <div className="mb-6 rounded-3xl border border-orange/20 bg-orange/[0.06] px-5 py-4 text-base text-charcoal/80" role="alert">
-            {errorMessage}
-          </div>
-        )}
-
-        <noscript><p className="mb-6 text-base">To request an estimate without JavaScript, call or text <a className="underline" href="tel:+13329993846">(332) 999-3846</a> or email <a className="underline" href="mailto:operations@metroglasspro.com">operations@metroglasspro.com</a>.</p></noscript>
-        <form onSubmit={handleSubmit} className="space-y-6" aria-label="Request a MetroGlass Pro estimate" aria-busy={submitState === 'submitting'}>
-          <input
-            type="text"
-            name="website"
-            value={values.website}
-            onChange={(event) => updateField('website', event.target.value)}
-            className="hidden"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-          />
-
-          <Section
-            eyebrow="Project Basics"
-            title="Start with the essentials."
-            description="No measurements yet is fine. We can still tell a lot from your service type, timeline, and a few clear notes."
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="name" className="block text-[13px] font-medium text-charcoal/50 mb-2">Name</label>
-                <input id="name" name="name" autoComplete="name" value={values.name} onChange={(event) => updateField('name', event.target.value)} required className={inputClassName} />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-[13px] font-medium text-charcoal/50 mb-2">Phone</label>
-                <input id="phone" name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={(event) => updateField('phone', event.target.value)} required className={inputClassName} />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-[13px] font-medium text-charcoal/50 mb-2">Email</label>
-                <input id="email" name="email" type="email" autoComplete="email" value={values.email} onChange={(event) => updateField('email', event.target.value)} required className={inputClassName} />
-              </div>
-              <div>
-                <label htmlFor="service" className="block text-[13px] font-medium text-charcoal/50 mb-2">Service</label>
-                <select id="service" name="service" value={values.service} onChange={(event) => updateField('service', event.target.value)} required className={inputClassName}>
-                  <option value="">Select a service</option>
-                  {serviceOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </Section>
-
-          <Section
-            eyebrow="Location and Building"
-            title="Help us understand the job context."
-            description="Share the neighborhood, building type, and access rules so we can plan delivery and installation."
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="borough" className="block text-[13px] font-medium text-charcoal/50 mb-2">Borough</label>
-                <select id="borough" name="borough" value={values.borough} onChange={(event) => updateField('borough', event.target.value)} required className={inputClassName}>
-                  <option value="">Select borough</option>
-                  {boroughOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="neighborhood" className="block text-[13px] font-medium text-charcoal/50 mb-2">Neighborhood</label>
-                <input
-                  id="neighborhood"
-                  name="neighborhood"
-                  value={values.neighborhood}
-                  onChange={(event) => updateField('neighborhood', event.target.value)}
-                  placeholder="Tribeca, Upper East Side, Lower East Side"
-                  className={inputClassName}
-                />
-              </div>
-              <div>
-                <label htmlFor="buildingType" className="block text-[13px] font-medium text-charcoal/50 mb-2">Building Type</label>
-                <select id="buildingType" name="buildingType" value={values.buildingType} onChange={(event) => updateField('buildingType', event.target.value)} className={inputClassName}>
-                  <option value="">Select building type</option>
-                  {buildingOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="coiNeeded" className="block text-[13px] font-medium text-charcoal/50 mb-2">COI or Building Coordination</label>
-                <select id="coiNeeded" name="coiNeeded" value={values.coiNeeded} onChange={(event) => updateField('coiNeeded', event.target.value)} className={inputClassName}>
-                  <option value="">Select if known</option>
-                  {coordinationOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </Section>
-
-          <Section
-            eyebrow="Timing"
-            title="Tell us where you are in the process."
-            description="This helps us respond with the right level of detail, rough pricing, urgent repair guidance, or field measure timing."
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div>
-                <label htmlFor="projectTimeline" className="block text-[13px] font-medium text-charcoal/50 mb-2">Project Timeline</label>
-                <select id="projectTimeline" name="projectTimeline" value={values.projectTimeline} onChange={(event) => updateField('projectTimeline', event.target.value)} className={inputClassName}>
-                  <option value="">Select timeline</option>
-                  {timelineOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="projectType" className="block text-[13px] font-medium text-charcoal/50 mb-2">Project Type</label>
-                <select id="projectType" name="projectType" value={values.projectType} onChange={(event) => updateField('projectType', event.target.value)} className={inputClassName}>
-                  <option value="">Select project type</option>
-                  {projectTypeOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="photosReady" className="block text-[13px] font-medium text-charcoal/50 mb-2">Photos Ready</label>
-                <select id="photosReady" name="photosReady" value={values.photosReady} onChange={(event) => updateField('photosReady', event.target.value)} className={inputClassName}>
-                  <option value="">Select if known</option>
-                  {photosOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </Section>
-
-          <Section
-            eyebrow="Project Notes"
-            title="Give us the details that matter."
-            description="Tell us what you want installed or repaired, rough dimensions, the condition of the existing glass, and any contractor or building requirements."
-          >
-            <div>
-              <label htmlFor="message" className="block text-[13px] font-medium text-charcoal/50 mb-2">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                value={values.message}
-                onChange={(event) => updateField('message', event.target.value)}
-                placeholder={servicePhotoTip(values.service)}
-                className={`${inputClassName} rounded-[24px] resize-vertical`}
-              />
-            </div>
-          </Section>
-
-          <Section
-            eyebrow="Photos and Plans"
-            title="Attach project photos if you have them."
-            description={servicePhotoTip(values.service)}
-          >
-            <label
-              htmlFor="attachments"
-              className="flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-[28px] border border-dashed border-charcoal/[0.12] bg-gradient-to-br from-white/80 via-cream-light to-white/60 px-6 py-8 text-center transition-colors hover:border-charcoal/[0.22]"
-            >
-              <span className="font-serif text-charcoal text-2xl mb-3">Choose photos or a plan</span>
-              <span className="text-warm text-[14px] leading-relaxed max-w-md">
-                JPG, PNG, HEIC, or PDF. Up to {maxFiles} files, {maxFileSizeMb}MB each, 18MB combined.
-              </span>
-              <span className="mt-5 btn-pill btn-outline px-6 py-2.5 text-[13px]">Choose Files</span>
-              <input
-                id="attachments"
-                name="attachments"
-                type="file"
-                accept="image/*,.pdf"
-                multiple
-                onChange={handleFileChange}
-                className="sr-only"
-              />
-            </label>
-
-            {files.length > 0 && (
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {files.map((file) => (
-                  <div key={`${file.name}-${file.size}`} className="rounded-2xl bg-white/80 border border-charcoal/[0.06] px-4 py-3">
-                    <p className="text-charcoal text-[14px] font-medium truncate">{file.name}</p>
-                    <p className="text-charcoal/45 text-[12px] mt-1">{(file.size / 1024 / 1024).toFixed(1)}MB</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </Section>
-
+    <div className="glass-card p-5 sm:p-8">
+      <h2 className="font-serif text-charcoal text-3xl">Tell us what you need.</h2>
+      <p className="mt-2 mb-6 text-warm text-sm">Just the basics. Measurements and building details can come later.</p>
+      <noscript><p className="mb-6">Call <a className="underline" href="tel:+13329993846">(332) 999-3846</a>, <a className="underline" href="sms:+13329993846">text us</a>, or <a className="underline" href="mailto:operations@metroglasspro.com">email operations@metroglasspro.com</a> to request an estimate without JavaScript.</p></noscript>
+      <form action="/api/contact" method="post" onSubmit={handleSubmit} className="space-y-4" aria-label="Request a MetroGlass Pro estimate" aria-busy={submitState === 'submitting'}>
+        <input type="text" name="website" value={values.website} onChange={(event) => updateField('website', event.target.value)} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <div className="grid sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="howHeard" className="block text-base font-medium text-charcoal mb-2">How did you find us? <span className="font-normal text-warm">(optional)</span></label>
-            <select id="howHeard" name="howHeard" value={values.howHeard} onChange={(event) => updateField('howHeard', event.target.value)} className={inputClassName}>
-              <option value="">Select if you remember</option>
-              {referralOptions.map((option) => <option key={option} value={option}>{option}</option>)}
-            </select>
+            <label htmlFor="name" className={labelClassName}>Your name</label>
+            <input id="name" name="name" autoComplete="name" value={values.name} onChange={(event) => updateField('name', event.target.value)} maxLength={120} required className={inputClassName} />
           </div>
-
-          <div className="rounded-[28px] border border-charcoal/[0.06] bg-charcoal text-white px-6 py-5">
-            <p className="text-white/45 text-[11px] font-semibold tracking-[0.22em] uppercase mb-2">Fastest Pricing Tip</p>
-            <p className="text-white/80 text-[14px] leading-relaxed">
-              If you have more photos to add after submitting, text them to <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20just%20submitted%20the%20estimate%20form%20and%20am%20sending%20photos." className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a>. That usually gives us the clearest first look at the layout.
-            </p>
+          <div>
+            <label htmlFor="contact" className={labelClassName}>Phone or email</label>
+            <input id="contact" name="contact" type="text" value={values.contact} onChange={(event) => updateField('contact', event.target.value)} maxLength={160} required className={inputClassName} />
           </div>
-
-          <button
-            type="submit"
-            disabled={submitState === 'submitting'}
-            className="w-full btn-pill btn-primary py-4 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {submitState === 'submitting' ? 'Sending Request...' : 'Send Estimate Request'}
-          </button>
-
-          <p className="text-[13px] text-charcoal/45" aria-live="polite">
-            Your request goes to MetroGlass Pro directly. If the form ever gives you trouble, call <a href="tel:+13329993846" className="text-orange hover:opacity-70 transition-opacity">(332) 999-3846</a> or email <a href="mailto:operations@metroglasspro.com" className="text-orange hover:opacity-70 transition-opacity">operations@metroglasspro.com</a>.
-          </p>
-        </form>
-      </div>
+        </div>
+        <div>
+          <label htmlFor="service" className={labelClassName}>Service <span className="font-normal text-warm">(optional)</span></label>
+          <select id="service" name="service" value={values.service} onChange={(event) => updateField('service', event.target.value)} className={inputClassName}>
+            <option value="">Not sure yet</option>
+            {serviceOptions.map((option) => <option key={option} value={option}>{option}</option>)}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="message" className={labelClassName}>What do you need?</label>
+          <textarea id="message" name="message" value={values.message} onChange={(event) => updateField('message', event.target.value)} rows={3} maxLength={1200} required placeholder="For example: a bathroom mirror in Queens, or a broken glass panel in Manhattan." className={inputClassName} />
+        </div>
+        <details className="border-y border-charcoal/10 py-3">
+          <summary className="cursor-pointer text-sm font-medium text-charcoal py-1">Add photos or how you found us (optional)</summary>
+          <div className="pt-4 space-y-4">
+            {onlineAvailable ? <div>
+              <label htmlFor="attachments" className={labelClassName}>Photos or plans</label>
+              <input id="attachments" name="attachments" type="file" accept="image/*,.pdf" multiple onChange={handleFileChange} aria-describedby="photo-help" className="block w-full min-w-0 text-sm text-warm file:mr-3 file:rounded-lg file:border-0 file:bg-cream-dark file:px-3 file:py-2 file:text-charcoal" />
+              <p id="photo-help" className="mt-2 text-xs text-warm">Up to 3 files, 8MB each, 18MB total. You can also text photos later.</p>
+              {fileError && <p role="alert" className="mt-2 text-sm text-charcoal">{fileError}</p>}
+            </div> : <p className="text-sm text-warm">You can attach photos when your email or text app opens.</p>}
+            <div>
+              <label htmlFor="howHeard" className={labelClassName}>How did you find us?</label>
+              <select id="howHeard" name="howHeard" value={values.howHeard} onChange={(event) => updateField('howHeard', event.target.value)} className={inputClassName}>
+                <option value="">Choose if you’d like</option>
+                {referralOptions.map((option) => <option key={option} value={option}>{option}</option>)}
+              </select>
+            </div>
+          </div>
+        </details>
+        {errorMessage && <p role="alert" className="rounded-xl bg-orange/10 p-4 text-sm text-charcoal">{errorMessage}</p>}
+        {onlineAvailable && <button type="submit" disabled={submitState === 'submitting' || Boolean(fileError)} className="btn-pill btn-primary w-full px-6 py-3.5 disabled:opacity-60">{submitState === 'submitting' ? 'Sending…' : 'Send request'}</button>}
+        {(!onlineAvailable || submitState === 'error') && <div className="space-y-3" role="status">
+          <p className="text-sm text-charcoal">{!onlineAvailable ? 'Please send your request by email or text.' : 'You can also send these details directly.'}</p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <a href={emailHref} className="btn-pill btn-primary px-4 py-3 text-center text-sm">Open email draft</a>
+            <a href={smsHref} className="btn-pill btn-outline px-4 py-3 text-center text-sm">Open text message</a>
+          </div>
+          <p className="text-xs text-warm">Your app will open with these details. Review the message and press Send. Attach photos in that app.</p>
+        </div>}
+        <p className="text-xs text-warm">We’ll use your contact details to respond to this project request.</p>
+      </form>
     </div>
   )
 }

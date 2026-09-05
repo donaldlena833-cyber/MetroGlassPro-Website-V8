@@ -1,10 +1,15 @@
-import { readFile, writeFile, readdir } from 'node:fs/promises'
+import { readFile, writeFile, readdir, mkdir, rm } from 'node:fs/promises'
 import path from 'node:path'
 import { parseHTML } from 'linkedom'
 import TurndownService from 'turndown'
 
 const origin = 'https://metroglasspro.com'
 const output = path.resolve('out')
+// Redirect sources are retained for old links, but are not canonical content.
+const redirectSources = new Set((await readFile('public/_redirects', 'utf8')).split('\n')
+  .map((line) => line.trim().split(/\s+/))
+  .filter(([source, , status]) => source?.startsWith('/') && /^30[1278]$/.test(status))
+  .map(([source]) => source))
 const markdown = new TurndownService({ headingStyle: 'atx', bulletListMarker: '-', codeBlockStyle: 'fenced' })
 markdown.addRule('pageLinks', {
   filter: 'a',
@@ -47,7 +52,7 @@ async function htmlFiles(directory) {
   const lists = await Promise.all(entries.map((entry) => {
     const name = path.join(directory, entry.name)
     if (entry.isDirectory() && entry.name !== '_next') return htmlFiles(name)
-    return entry.isFile() && entry.name === 'index.html' ? [name] : []
+    return entry.isFile() && entry.name.endsWith('.html') ? [name] : []
   }))
   return lists.flat().sort()
 }
@@ -59,8 +64,16 @@ for (const filename of await htmlFiles(output)) {
   const main = document.querySelector('main')?.cloneNode(true)
   const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
   const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content') || ''
-  const relative = path.relative(output, path.dirname(filename)).split(path.sep).join('/')
-  const url = `${origin}/${relative ? `${relative}/` : ''}`
+  const htmlPath = path.relative(output, filename).split(path.sep).join('/')
+  const pathname = htmlPath === 'index.html' ? '/' : `/${htmlPath.replace(/index\.html$/, '').replace(/\.html$/, '')}`
+  const url = `${origin}${pathname}`
+  const markdownPath = `${pathname.replace(/\/$/, '')}/index.md`
+  const markdownFilename = path.join(output, markdownPath)
+  const markdownUrl = `${origin}${markdownPath}`
+  if (redirectSources.has(pathname)) {
+    await rm(markdownFilename, { force: true })
+    continue
+  }
   // Preserve existing consolidation decisions and noindex on alternate routes.
   if (!main || /\bnoindex\b/i.test(robots) || canonical !== url) continue
   const title = document.querySelector('h1')?.textContent.trim().replace(/\s+/g, ' ')
@@ -86,12 +99,13 @@ for (const filename of await htmlFiles(output)) {
     }
   })
   const text = `Source: ${url}\n\n${markdown.turndown(main.innerHTML).trim()}\n`
-  await writeFile(path.join(path.dirname(filename), 'index.md'), text)
+  await mkdir(path.dirname(markdownFilename), { recursive: true })
+  await writeFile(markdownFilename, text)
 
   // Keep React's exported markup byte-for-byte apart from the discovery link.
-  const alternate = `<link rel="alternate" type="text/markdown" href="${url}index.md"/>`
+  const alternate = `<link rel="alternate" type="text/markdown" href="${markdownUrl}"/>`
   if (!html.includes(alternate)) await writeFile(filename, html.replace('</head>', `${alternate}</head>`))
-  pages.push({ url, title, markdownUrl: `${url}index.md` })
+  pages.push({ url, title, markdownUrl, htmlPath, markdownPath: markdownPath.slice(1) })
 }
 
 const sitemap = await readFile(path.join(output, 'sitemap.xml'), 'utf8')

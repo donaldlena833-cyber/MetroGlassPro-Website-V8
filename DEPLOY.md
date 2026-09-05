@@ -14,7 +14,7 @@
    - NEXT_PUBLIC_GA_ID = G-46MYS2R9QW
    - RESEND_API_KEY = your Resend API key
    - CONTACT_TO_EMAIL = the inbox that should receive website leads
-   - CONTACT_FROM_EMAIL = optional, recommended once your sending domain is verified
+   - CONTACT_FROM_EMAIL = required; a sender on your verified Resend domain
    - CONTACT_FROM_NAME = optional, defaults to MetroGlass Pro Website
 5. Save and Deploy
 
@@ -22,9 +22,14 @@
 - The website now uses a native MetroGlass Pro form that posts to `/api/contact`.
 - That endpoint is powered by a Cloudflare Pages Function in `functions/api/contact.ts`.
 - `public/_routes.json` runs the contact endpoint and HTML/Markdown content negotiation. Static assets and direct Markdown files bypass Functions.
-- The form supports direct photo or PDF uploads and sends an automatic confirmation email back to the customer.
-- If `CONTACT_FROM_EMAIL` is not set, the function falls back to Resend's default sender for testing.
-- For the cleanest branded setup, verify `metroglasspro.com` in Resend and set `CONTACT_FROM_EMAIL` to something like `website@metroglasspro.com`.
+- The short form requires a name, one phone number **or** email, and a project note. Service, photos, and referral source are optional. Older clients using separate phone/email and building fields remain compatible.
+- Required production settings: `RESEND_API_KEY`, `CONTACT_TO_EMAIL=operations@metroglasspro.com`, and `CONTACT_FROM_EMAIL` using a sender on a Resend-verified domain. The default `onboarding@resend.dev` testing sender is not permitted in production. Store the API key as a Cloudflare Pages secret, never in Git or client code.
+- `GET /api/contact` reports only whether the required settings are present and syntactically valid. It does not verify provider credentials, domain verification, or inbox delivery. Configure both production and preview separately as appropriate, then redeploy.
+- When configuration is incomplete, the form offers email/text drafts with the entered details and clearly tells visitors to press Send in their chosen app. Draft links are contact clicks, not confirmed leads.
+- Online requests support up to three photo/PDF attachments (8MB each, 18MB total). Confirmation emails are sent only when the customer supplies an email; their failure does not invalidate the accepted operations notification.
+- Resend requests use `reply_to`, bounded network waits, and acceptance IDs. Logs contain a request reference and provider ID, stage, and status, without contact details or raw provider errors. A successful submission means provider acceptance, not proven inbox delivery.
+- To verify delivery after setup: send one authorized test, locate its request/provider ID, confirm provider delivery status and arrival in the operations inbox, reply to verify Reply-To, and check an email-contact confirmation. No live messages are sent by the automated tests.
+- The application does not yet have durable lead storage. Add a supported private lead store plus delivery-event monitoring before treating email alone as a reliable lead ledger. Failed or unconfirmed sends retain the visitor's form text in the open page and offer direct contact options.
 
 ## Custom Domain
 - In Cloudflare Pages → Custom Domains → Add metroglasspro.com
@@ -90,3 +95,12 @@ The second scan informed service scope, quote guidance, and route corrections; s
 - NYC project requirements reference: https://www.nyc.gov/site/buildings/codes/2022-construction-codes.page
 
 The Markdown alternates and directory are convenience formats generated from visible HTML. They are not a promise of recommendation placement or an extra Google ranking signal. Genuine project examples and customer proof can be added as they become available; typical scenarios must stay labeled as typical.
+
+## Canonical indexing and presentation cleanup (September 5, 2026)
+
+- Generate agent representations only for live canonical content; exclude exact redirect sources in `_redirects` and support retained extensionless legacy articles.
+- The sitemap and generated directory now cover 46 canonical content URLs. Keep old redirects in place; do not submit their source URLs for indexing.
+- Main-content links point directly to canonical pages. Legacy article FAQ markup now has matching visible answers.
+- The homepage presents six services, an actual project photo, a shorter selection of guides, and less repetitive shower-only navigation. The estimate form uses fewer nested panels and clearer labels.
+- Check `npm run build`, `npm run check:aeo`, and `npm run test:aeo`. Preview both legacy extensionless article URLs in HTML and Markdown on Cloudflare before merging because its asset routing differs from a local static server.
+- Check the homepage, a service page, and service-prefilled contact form at desktop and narrow widths. The deployed public URLs, not local export counts, are the indexing baseline.

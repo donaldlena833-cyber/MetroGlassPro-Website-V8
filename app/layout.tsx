@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="font-sans pb-[84px] lg:pb-0">
+      <body className="font-sans pb-[calc(84px+env(safe-area-inset-bottom))] lg:pb-0">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, '\\u003c') }} />
         <LeadAttributionTracker />
         <ScrollObserver />

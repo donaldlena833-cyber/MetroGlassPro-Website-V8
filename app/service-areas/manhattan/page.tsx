@@ -109,11 +109,11 @@ export default function ManhattanPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent Manhattan projects & insights</h2>
           <div className="space-y-3 mb-10">
-            <Link href="/blog/frameless-shower-doors-manhattan-nyc-planning-guide/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">Frameless Shower Doors in Manhattan Planning Guide</span>
+            <Link href="/blog/finished-tile-shower-glass-measurement-manhattan/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Measuring Shower Glass After Finished Tile</span>
               <span className="text-warm text-[13px] block mt-1">A Manhattan-specific guide for measuring, building access, COI timing, hardware, and clean install planning.</span>
             </Link>
-            <Link href="/blog/shower-door-repair-manhattan-nyc-planning-guide/" className="glass-card p-4 card-lift block">
+            <Link href="/shower-door-repair-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Shower Door Repair in Manhattan</span>
               <span className="text-warm text-[13px] block mt-1">A repair-first path for Manhattan buyers deciding between hinge, sweep, leak, alignment, and replacement conversations.</span>
             </Link>

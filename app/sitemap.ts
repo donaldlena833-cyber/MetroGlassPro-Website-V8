@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 const base = 'https://metroglasspro.com'
 const siteUpdated = new Date('2026-08-12T00:00:00.000Z')
 const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
-const revisedRoutes = new Set(['/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
+const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
 
 const coreRoutes = [
   { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
@@ -36,6 +36,26 @@ const coreRoutes = [
 ]
 
 const blogRoutes = [
+  {
+    path: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
+    lastModified: aeoUpdated,
+    priority: 0.7,
+  },
+  {
+    path: '/blog/glass-railings-jersey-city-planning-guide/',
+    lastModified: new Date('2026-05-22T00:00:00.000Z'),
+    priority: 0.7,
+  },
+  {
+    path: '/blog/2026-05-09-honest-shower-door-repair-nyc',
+    lastModified: aeoUpdated,
+    priority: 0.65,
+  },
+  {
+    path: '/blog/2026-05-10-glass-tariffs-shower-door-prices-nyc',
+    lastModified: aeoUpdated,
+    priority: 0.5,
+  },
   {
     path: '/blog/custom-mirrors-manhattan-apartment-guide/',
     lastModified: siteUpdated,

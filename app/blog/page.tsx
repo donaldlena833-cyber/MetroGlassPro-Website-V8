@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Door Guides and Glass Planning Notes',
-  description: 'Practical MetroGlass Pro guides for NYC shower door pricing, repair decisions, and shower glass planning in finished bathrooms.',
+  title: 'NYC Glass Guides: Mirrors, Railings, Partitions and Shower Doors',
+  description: 'Plan custom mirrors, glass railings, office partitions, shower doors, and glass repairs with practical MetroGlass Pro guides and project notes.',
   alternates: { canonical: 'https://metroglasspro.com/blog/' },
   openGraph: {
-    title: 'Shower Door Guides and Glass Planning Notes',
-    description: 'Practical MetroGlass Pro guides for NYC shower door pricing, repair decisions, and shower glass planning in finished bathrooms.',
+    title: 'NYC Glass Guides: Mirrors, Railings, Partitions and Shower Doors',
+    description: 'Plan custom mirrors, glass railings, office partitions, shower doors, and glass repairs with practical MetroGlass Pro guides and project notes.',
     url: 'https://metroglasspro.com/blog/',
     type: 'website',
   },
@@ -37,8 +37,8 @@ const posts = [
     label: 'Partition Guide',
     title: 'Office Glass Partitions in Manhattan: Planning Guide',
     excerpt: 'How to plan office glass partitions around layout, clearances, privacy, hardware, building access, and estimate prep.',
-    image: '/editorial/railing.jpg',
-    imageAlt: 'Architectural glass detail with clean metal and glass lines',
+    image: undefined,
+    imageAlt: '',
     date: 'May 2026',
   },
   {
@@ -57,15 +57,6 @@ const posts = [
     excerpt: 'How to plan wall condition, vanity sizing, outlets, lighting, edge details, building access, and estimate prep before ordering custom mirror glass.',
     image: '/editorial/mirror.jpg',
     imageAlt: 'Custom mirror with clean trim and refined wall fit',
-    date: 'May 2026',
-  },
-  {
-    href: '/blog/frameless-shower-doors-manhattan-buyer-guide/',
-    label: 'Manhattan Guide',
-    title: 'Frameless Shower Doors in Manhattan: Buyer Planning Guide',
-    excerpt: 'How to plan finished tile, layout clearance, hardware, building access, and estimate prep before ordering custom shower glass.',
-    image: '/editorial/shower-door.jpg',
-    imageAlt: 'Frameless shower door glass and hardware in a finished bathroom',
     date: 'May 2026',
   },
   {
@@ -106,10 +97,10 @@ export default function BlogIndex() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Guides</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl lg:text-7xl">
-            Shower glass notes from the field.
+            Plan your next glass project.
           </h1>
           <p className="mt-5 text-warm text-base sm:text-lg max-w-lg leading-relaxed">
-            Buyer-focused notes on pricing, repair decisions, measurement, and installation planning for NYC bathrooms.
+            Guides for mirrors, glass railings, office partitions, shower doors, and repairs. Compare options, prepare photos, and understand what affects measurement and installation.
           </p>
         </div>
       </section>
@@ -122,15 +113,15 @@ export default function BlogIndex() {
 
               return (
               <Wrapper key={post.href} href={post.href} className="group block glass-card overflow-hidden card-lift">
-                <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
-                  <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
+                <div className={post.image ? "grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]" : "grid grid-cols-1"}>
+                  {post.image && <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
                     <img
                       src={post.image}
                       alt={post.imageAlt}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                  </div>
+                  </div>}
                   <div className="p-5 sm:p-7">
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="text-[11px] font-medium tracking-wider uppercase text-orange/70 bg-orange/[0.08] px-2 py-0.5 rounded-full">{post.label}</span>

@@ -29,7 +29,7 @@ const articleJsonLd = {
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-05-19',
-  dateModified: '2026-05-19',
+  dateModified: '2026-09-05',
   mainEntityOfPage: canonical,
   image: heroImage,
 }
@@ -93,7 +93,7 @@ export default function EdisonNjShowerDoorProjectPage() {
             For this Edison, NJ bathroom project, the client wanted the shower glass to work with the colors and finishes already chosen for the renovation. The room pairs white marble-look wall tile with a warm vertical accent tile, white hex mosaic shower floor tile, and brushed brass fixtures.
           </p>
           <p>
-            Clear tempered glass was the right fit here because it keeps the tile work visible instead of adding a tint or green cast to the room. The glass reads clean and simple, while the brushed brass hardware connects back to the shower fixtures and the warmer tones inside the shower.
+            Clear tempered glass keeps the tile work visible, while the brushed brass hardware connects back to the shower fixtures and warmer finishes. Standard clear glass can have a green tint, especially at exposed edges; it should not be confused with low-iron glass, which reduces that tint.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 mb-10">
@@ -157,7 +157,7 @@ export default function EdisonNjShowerDoorProjectPage() {
             <div>
               <h3 className="font-semibold text-charcoal text-[14px] uppercase tracking-wider mb-4">Planning Notes</h3>
               <div className="space-y-2">
-                <Link href="/blog/frameless-shower-doors-manhattan-buyer-guide/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Door Buyer Guide</Link>
+                <Link href="/frameless-shower-doors-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Door Options</Link>
                 <Link href="/blog/finished-tile-shower-glass-measurement-manhattan/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Measuring After Finished Tile</Link>
                 <Link href="/projects/frameless-shower-door-cost-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Cost Guide</Link>
               </div>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 const images = [
-  { src: '/gallery/project-shower-1.jpg', alt: 'Frameless glass shower door with chrome hinges installed in Manhattan apartment bathroom', caption: 'Single-door frameless layout with bright chrome hardware, useful when a finished tile opening has enough swing clearance.' },
+  { src: '/gallery/mirror-1.jpg', alt: 'Frameless shower enclosure with hinged door, fixed glass panel, and metal hardware', caption: 'A hinged shower door and fixed panel fitted to the finished bathroom opening.' },
   { src: '/gallery/project-shower-2.jpg', alt: 'Custom frameless glass enclosure installed in Brooklyn brownstone bathroom', caption: 'Door-and-panel enclosure for a wider opening where one fixed pane keeps the entry clean and stable.' },
   { src: '/gallery/project-shower-3.jpg', alt: 'Full frameless shower enclosure with fixed panel in NYC pre-war apartment', caption: 'Full-height glass helps a compact bathroom feel more open while still controlling splash at the curb.' },
   { src: '/gallery/project-shower-4.jpg', alt: 'Sliding bypass shower doors on bathtub in Queens home', caption: 'Sliding bypass doors work well where a vanity, toilet, or narrow walkway makes a swinging door awkward.' },
@@ -22,7 +22,7 @@ const images = [
   { src: '/gallery/dark-shower-1.jpg', alt: 'Dark-tinted frameless glass shower enclosure in modern NYC bathroom', caption: 'Tinted glass can be a strong design choice when the bathroom already has enough light.' },
   { src: '/gallery/dark-shower-2.jpg', alt: 'Smoked glass frameless shower door with matte black hardware', caption: 'Matte black hardware pairs well with smoked glass, but it should match the fixtures and tile tone.' },
   { src: '/gallery/dark-shower-3.jpg', alt: 'Contemporary dark glass shower door installed in renovated NYC bathroom', caption: 'Darker glass needs careful lighting review so the finished shower still feels practical day to day.' },
-  { src: '/gallery/mirror-1.jpg', alt: 'Custom wall mirror with polished edges installed above vanity in NYC apartment', caption: 'Mirror sizing should account for lights, outlets, medicine cabinets, and vanity width before ordering.' },
+  { src: '/gallery/project-shower-1.jpg', alt: 'Work in progress on a mirrored bathroom cabinet door with exposed hinges and protective tape', caption: 'Mirror cabinet work in progress. Existing hinges, edges, and surrounding finishes need review before repair or replacement.' },
   { src: '/gallery/cabinet-1.jpg', alt: 'Custom glass cabinet doors installed in NYC kitchen', caption: 'Cabinet glass details are measured separately from shower work but need the same clean edge planning.' },
   { src: '/gallery/glass-cabinet-1.jpg', alt: 'Frosted glass cabinet insert for NYC apartment', caption: 'Frosted inserts are useful where the goal is softened visibility instead of a fully clear display.' },
   { src: '/gallery/install-1.jpeg', alt: 'MetroGlass Pro installer measuring shower opening for frameless glass door', caption: 'Field measuring after tile is the step that protects the fit, especially when walls are out of plumb.' },

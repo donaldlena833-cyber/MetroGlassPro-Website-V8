@@ -104,9 +104,9 @@ export default function QueensPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
           <div className="space-y-3 mb-10">
-            <Link href="/blog/frameless-shower-doors-queens-nyc-planning-guide/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">Frameless Shower Doors in Queens Planning Guide</span>
-              <span className="text-warm text-[13px] block mt-1">A Queens-specific guide for homes, co-ops, condos, repair, replacement, photos, and glass layout decisions.</span>
+            <Link href="/blog/tub-shower-glass-doors-nyc-planning-guide/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Tub Shower Glass Doors: Planning Guide</span>
+              <span className="text-warm text-[13px] block mt-1">Plan tub edges, door clearance, sliding layouts, and replacement preparation for a compact bathroom.</span>
             </Link>
             <Link href="/projects/walk-in-shower-panel-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Walk-In Shower Panel Planning</span>
