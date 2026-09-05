@@ -22,10 +22,9 @@ function specificity(entry: Entry, candidate: Representation) {
   return entry.mediaType === '*/*' ? 0 : -1
 }
 
-function preferredRepresentation(header: string | null): Representation | null {
+function preferredRepresentation(header: string | null, offered: Representation[] = ['text/html', 'text/markdown']): Representation | null {
   if (!header) return 'text/html'
   const entries = parseAccept(header)
-  const offered: Representation[] = ['text/html', 'text/markdown']
   let best: { type: Representation; q: number; order: number; offeredOrder: number } | null = null
   offered.forEach((candidate, offeredOrder) => {
     let chosen: { q: number; order: number; specificity: number } | null = null
@@ -59,30 +58,49 @@ function notFoundMarkdown(pathname: string) {
 export async function onRequest(context: PagesContext) {
   const { request } = context
   const url = new URL(request.url)
-  if (!['GET', 'HEAD'].includes(request.method) || url.pathname.startsWith('/api/')) return context.next()
+  if (!['GET', 'HEAD'].includes(request.method) || url.pathname.startsWith('/api/') || /\.[^/]+$/.test(url.pathname)) return context.next()
+
+  const htmlResponse = await context.next()
+  const htmlWithVary = () => {
+    const copy = new Response(request.method === 'HEAD' ? null : htmlResponse.body, htmlResponse)
+    varyAccept(copy.headers)
+    if (htmlResponse.ok && htmlResponse.headers.get('content-type')?.includes('text/html')) {
+      copy.headers.append('Link', `<${url.origin}${markdownAssetPath(url.pathname)}>; rel="alternate"; type="text/markdown"`)
+    }
+    return copy
+  }
+
+  // Existing redirects and error statuses must survive content negotiation.
+  if (htmlResponse.status !== 200 && htmlResponse.status !== 404) return htmlWithVary()
 
   const preferred = preferredRepresentation(request.headers.get('accept'))
+  if (htmlResponse.status === 404) {
+    if (preferred === 'text/markdown') return new Response(request.method === 'HEAD' ? null : notFoundMarkdown(url.pathname), { status: 404, headers: { 'Content-Type': 'text/markdown; charset=utf-8', Vary: 'Accept' } })
+    return htmlWithVary()
+  }
   if (preferred === null) return new Response(request.method === 'HEAD' ? null : 'Not Acceptable\n\nAvailable: text/html, text/markdown\n', { status: 406, headers: { 'Content-Type': 'text/plain; charset=utf-8', Vary: 'Accept' } })
 
   if (preferred === 'text/markdown') {
     const markdownUrl = new URL(request.url)
     markdownUrl.pathname = markdownAssetPath(url.pathname)
-    const markdownRequest = new Request(markdownUrl, request)
+    markdownUrl.search = ''
+    const headers = new Headers(request.headers)
+    headers.set('Accept', 'text/markdown')
+    headers.delete('If-None-Match')
+    headers.delete('If-Modified-Since')
+    const markdownRequest = new Request(markdownUrl, { method: 'GET', headers })
     const asset = await context.env.ASSETS.fetch(markdownRequest)
-    if (asset.status === 200) {
+    if (asset.status === 200 && !asset.headers.get('Content-Type')?.includes('text/html')) {
       const response = new Response(request.method === 'HEAD' ? null : asset.body, asset)
       response.headers.set('Content-Type', 'text/markdown; charset=utf-8')
       response.headers.set('Cache-Control', 'public, max-age=300, stale-while-revalidate=86400')
+      response.headers.set('Link', `<${url.origin}${url.pathname}>; rel="canonical"`)
       varyAccept(response.headers)
       return response
     }
-    const htmlResponse = await context.next()
-    if (htmlResponse.status === 404) return new Response(request.method === 'HEAD' ? null : notFoundMarkdown(url.pathname), { status: 404, headers: { 'Content-Type': 'text/markdown; charset=utf-8', Vary: 'Accept' } })
+    if (preferredRepresentation(request.headers.get('accept'), ['text/html'])) return htmlWithVary()
     return new Response(request.method === 'HEAD' ? null : 'Not Acceptable\n\nA Markdown representation is not available for this page.\n', { status: 406, headers: { 'Content-Type': 'text/plain; charset=utf-8', Vary: 'Accept' } })
   }
 
-  const response = await context.next()
-  const copy = new Response(request.method === 'HEAD' ? null : response.body, response)
-  varyAccept(copy.headers)
-  return copy
+  return htmlWithVary()
 }

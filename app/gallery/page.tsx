@@ -71,7 +71,7 @@ export default function GalleryPage() {
             If you are planning a renovation, the most useful photos to send are the full shower opening, the curb or tub edge, both side walls, the fixture finish, and any nearby vanity or toilet clearance. Those details help us suggest a glass setup that fits the room instead of just filling the opening.
           </p>
           <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
-            Google searches like frameless shower doors NYC, shower door installation near me, and custom glass shower doors Brooklyn usually lead to the same practical question: which layout will actually work in your bathroom once tile, slope, fixtures, and building access are real.
+            Compare the glass layouts below with your own bathroom. Tile, curb slope, nearby fixtures, and building access help determine which configuration will fit.
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
             <Link href="/frameless-shower-doors-nyc/" className="text-orange font-medium hover:opacity-70 transition-opacity">Frameless shower doors →</Link>

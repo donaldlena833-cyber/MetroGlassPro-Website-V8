@@ -26,7 +26,7 @@
 /blog/seven-warning-signs-shower-door-seal-failing               /shower-door-repair-nyc/      301
 /blog/bathroom-mirror-installation-proper-mounting-techniques    /custom-mirrors-nyc/          301
 /blog/smart-glass-technology-nyc-apartments-privacy-control      /glass-partitions-nyc/        301
-/blog/how-insurance-handles-broken-residential-glass-new-york    /shower-door-repair-nyc/      301
+/blog/how-insurance-handles-broken-residential-glass-new-york /glass-repair-nyc/ 301
 /blog/sliding-frameless-shower-doors-small-bathrooms             /blog/tub-shower-glass-doors-nyc-planning-guide/ 301
 /blog/sliding-frameless-shower-doors-small-bathrooms/            /blog/tub-shower-glass-doors-nyc-planning-guide/ 301
 
@@ -35,10 +35,10 @@
 /blog/frameless-shower-doors-manhattan-buyer-guide/              /service-areas/manhattan/ 301
 
 # ── Additional indexed blog posts — redirect to best match ──
-/blog/24-hour-glass-repair-near-me-response-times               /shower-door-repair-nyc/      301
+/blog/24-hour-glass-repair-near-me-response-times /glass-repair-nyc/ 301
 /blog/cleaning-hacks-frameless-shower-doors-crystal-clear        /frameless-shower-doors-nyc/  301
 /blog/choosing-hardware-finishes-frameless-shower-doors-budget   /frameless-shower-doors-nyc/  301
-/blog/science-behind-double-pane-window-fogging-fix              /services/    301
+/blog/science-behind-double-pane-window-fogging-fix /glazing-nyc/ 301
 /blog/preventing-leaks-frameless-shower-doors-silicone-sealing   /shower-door-repair-nyc/      301
 /blog/frameless-shower-doors-vs-semi-frameless                   /frameless-shower-doors-nyc/  301
 /blog/seven-landmark-loft-projects-metroglass-pro-manhattan      /gallery/     301
@@ -49,14 +49,14 @@
 /blog/employee-spotlight-master-glazier-antonio-skilled-craftsman /about/       301
 
 # ── Search Console legacy blog slugs from the previous site ──
-/blog/24-hour-glass-repair-near-me-response-times-v5             /shower-door-repair-nyc/      301
+/blog/24-hour-glass-repair-near-me-response-times-v5 /glass-repair-nyc/ 301
 /blog/antique-mirror-restoration-techniques-nyc-preservation     /custom-mirrors-nyc/          301
-/blog/best-glass-thickness-stair-railings-residential            /services/                    301
+/blog/best-glass-thickness-stair-railings-residential /glass-railings-nyc/ 301
 /blog/breaking-myths-custom-glass-too-expensive-nyc              /services/                    301
 /blog/behind-scenes-day-brooklyn-glass-fabrication-shop          /gallery/                     301
 /blog/custom-glass-cabinet-doors-kitchen-bathroom-nyc            /services/                    301
 /blog/custom-glass-wine-room-door-budget                         /glass-partitions-nyc/        301
-/blog/emergency-glass-repair-first-30-minutes                    /shower-door-repair-nyc/      301
+/blog/emergency-glass-repair-first-30-minutes /glass-repair-nyc/ 301
 /blog/glass-thickness-guide-residential-commercial-applications   /services/                    301
 /blog/hard-water-stain-removal-products-glass-pro-ranked         /frameless-shower-doors-nyc/  301
 /blog/how-thick-glass-frameless-shower-door-engineer-explains    /frameless-shower-doors-nyc/  301
@@ -64,24 +64,24 @@
 /blog/nyc-measurement-guide-frameless-shower-doors               /frameless-shower-doors-nyc/  301
 /blog/professional-shower-door-installation-time-nyc             /shower-door-installation-nyc/ 301
 /blog/shower-door-hinge-replacement-diy-vs-professional          /shower-door-repair-nyc/      301
-/blog/why-tempered-required-glass-near-stairs-code               /services/                    301
+/blog/why-tempered-required-glass-near-stairs-code /glass-railings-nyc/ 301
 /blog/winterizing-tips-glass-shower-enclosures-brownstones       /frameless-shower-doors-nyc/  301
 
 # ── Legacy service sub-pages ──
-/services/glass-repair        /shower-door-repair-nyc/      301
-/services/glass-repair/       /shower-door-repair-nyc/      301
+/services/glass-repair /glass-repair-nyc/ 301
+/services/glass-repair/ /glass-repair-nyc/ 301
 /services/custom-mirrors      /custom-mirrors-nyc/          301
 /services/custom-mirrors/     /custom-mirrors-nyc/          301
-/services/repairs             /shower-door-repair-nyc/      301
-/services/repairs/            /shower-door-repair-nyc/      301
+/services/repairs /glass-repair-nyc/ 301
+/services/repairs/ /glass-repair-nyc/ 301
 /services/shower-doors        /frameless-shower-doors-nyc/  301
 /services/shower-doors/       /frameless-shower-doors-nyc/  301
 /services/wall-mirrors        /custom-mirrors-nyc/          301
 /services/wall-mirrors/       /custom-mirrors-nyc/          301
 /services/glass-cabinets      /services/                    301
 /services/glass-cabinets/     /services/                    301
-/services/glass-railings      /services/                    301
-/services/glass-railings/     /services/                    301
+/services/glass-railings /glass-railings-nyc/ 301
+/services/glass-railings/ /glass-railings-nyc/ 301
 
 # ── Legacy top-level routes from the previous site ──
 /portfolio                    /gallery/                     301
@@ -164,3 +164,7 @@
 # ── Canonical host (www → non-www) is handled at Cloudflare DNS level ──
 # Note: Configure canonical host (www vs non-www) in Cloudflare DNS settings.
 # The canonical base is https://metroglasspro.com (non-www).
+
+/glazing-nyc /glazing-nyc/ 301
+/glass-railings-nyc /glass-railings-nyc/ 301
+/glass-repair-nyc /glass-repair-nyc/ 301

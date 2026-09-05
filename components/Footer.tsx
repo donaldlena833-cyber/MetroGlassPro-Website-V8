@@ -1,14 +1,7 @@
 import Link from 'next/link'
+import { glassServices } from '@/content/service-catalog'
 
-const mainLinks = [
-  { href: '/frameless-shower-doors-nyc/', label: 'Shower Doors' },
-  { href: '/shower-door-installation-nyc/', label: 'Installation' },
-  { href: '/shower-door-replacement-nyc/', label: 'Replacement' },
-  { href: '/shower-door-repair-nyc/', label: 'Repair' },
-  { href: '/custom-mirrors-nyc/', label: 'Mirrors' },
-  { href: '/glass-partitions-nyc/', label: 'Partitions' },
-  { href: '/service-areas/manhattan/', label: 'Manhattan' },
-]
+const mainLinks = glassServices.map((service) => ({ href: service.href, label: service.name }))
 
 const companyLinks = [
   { href: '/about/', label: 'About' },
@@ -38,13 +31,13 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <span className="font-serif text-charcoal text-lg">MetroGlass Pro</span>
             </Link>
-            <p className="text-charcoal/60 text-[13px] leading-relaxed max-w-xs">Manhattan first custom shower door and glass installation company known for precise fit, clean installs, and smooth building coordination.</p>
+            <p className="text-charcoal/60 text-[13px] leading-relaxed max-w-xs">Shower doors, glazing, railings, mirrors, partitions, and glass repair across NYC. Direct estimates, careful installation, and building coordination.</p>
           </div>
 
           {/* Services */}
           <div>
             <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/60 mb-4">Services</p>
-            <nav className="flex flex-col gap-2.5">
+            <nav aria-label="Footer services" className="flex flex-col gap-2.5">
               {mainLinks.map((l) => (
                 <Link key={l.href} href={l.href} className="text-charcoal/70 text-[13px] hover:text-charcoal transition-colors duration-300">
                   {l.label}
