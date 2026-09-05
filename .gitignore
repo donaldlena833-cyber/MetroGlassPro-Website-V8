@@ -6,3 +6,4 @@ out/
 *.tsbuildinfo
 public/optimized/
 lib/responsive-images.json
+lib/analytics-config.json

@@ -10,8 +10,8 @@
     "postbuild": "node scripts/generate-agent-content.mjs",
     "test:aeo": "node --experimental-strip-types --test tests/aeo.test.mjs tests/contact.test.mjs",
     "check:aeo": "node scripts/check-agent-content.mjs",
-    "prebuild": "node scripts/optimize-images.mjs",
-    "predev": "node scripts/optimize-images.mjs"
+    "prebuild": "node scripts/optimize-images.mjs && node scripts/prepare-analytics.mjs",
+    "predev": "node scripts/optimize-images.mjs && node scripts/prepare-analytics.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",

@@ -8,6 +8,7 @@ import MobileCtaBar from '@/components/MobileCtaBar'
 import ScrollObserver from '@/components/ScrollObserver'
 import LeadAttributionTracker from '@/components/LeadAttributionTracker'
 import { businessJsonLd } from '@/content/business'
+import analyticsConfig from '@/lib/analytics-config.json'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,12 +24,7 @@ const instrumentSerif = Instrument_Serif({
   variable: '--font-instrument-serif',
 })
 
-const configuredGoogleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
-// This previously configured stream returns HTTP 404 from Google's tag endpoint.
-// Keep the working Ads tag; GA4 resumes when the deployment has a valid stream ID.
-const googleAnalyticsId = configuredGoogleAnalyticsId === 'G-46MYS2R9QW'
-  ? undefined
-  : configuredGoogleAnalyticsId
+const { googleAnalyticsId } = analyticsConfig
 const googleAdsId = 'AW-934489946'
 const googleTagId = googleAnalyticsId || googleAdsId
 
