@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -93,7 +94,7 @@ export default function DesignConsultationArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img
+            <ResponsiveImage
               src="/editorial/design-process-sketch.jpg"
               alt="Napkin sketch of a bathroom design with shower enclosure configurations rendered on a tablet — hardware finishes annotated in gold, black, and chrome"
               className="w-full h-full object-cover"
@@ -259,7 +260,7 @@ export default function DesignConsultationArticle() {
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="relative overflow-hidden">
-        <img src="/editorial/water-droplets.jpg" alt="Water on glass surface" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <ResponsiveImage src="/editorial/water-droplets.jpg" alt="Water on glass surface" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div className="relative bg-charcoal/70 py-20 sm:py-28">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-3xl sm:text-5xl">

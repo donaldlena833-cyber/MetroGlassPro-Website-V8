@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -32,7 +33,7 @@ export default function SlidingBypassArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img src="/editorial/configurations/sliding-bypass-doors.jpg" alt="Frameless sliding bypass shower door with satin brass barn-door style track hardware — close-up of roller mechanism" className="w-full h-full object-cover" />
+            <ResponsiveImage src="/editorial/configurations/sliding-bypass-doors.jpg" alt="Frameless sliding bypass shower door with satin brass barn-door style track hardware — close-up of roller mechanism" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>

@@ -9,7 +9,9 @@
     "lint": "next lint",
     "postbuild": "node scripts/generate-agent-content.mjs",
     "test:aeo": "node --experimental-strip-types --test tests/aeo.test.mjs tests/contact.test.mjs",
-    "check:aeo": "node scripts/check-agent-content.mjs"
+    "check:aeo": "node scripts/check-agent-content.mjs",
+    "prebuild": "node scripts/optimize-images.mjs",
+    "predev": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
@@ -24,6 +26,7 @@
     "autoprefixer": "^10",
     "linkedom": "0.18.12",
     "postcss": "^8",
+    "sharp": "0.34.5",
     "tailwindcss": "^3.4.0",
     "turndown": "7.2.0",
     "typescript": "^5"

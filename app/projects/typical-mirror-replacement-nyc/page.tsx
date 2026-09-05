@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -36,7 +37,7 @@ export default function TypicalMirrorReplacement() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden bg-cream-dark">
-            <img src="/gallery/mirror-cabinet-blue-tape.jpg" alt="Medicine cabinet mirror replacement in NYC — mirror taped with blue tape during silicone curing period" className="w-full h-auto" loading="lazy" />
+            <ResponsiveImage src="/gallery/mirror-cabinet-blue-tape.jpg" alt="Medicine cabinet mirror replacement in NYC — mirror taped with blue tape during silicone curing period" className="w-full h-auto" loading="lazy" />
           </div>
           <p className="mt-3 text-charcoal/30 text-[13px] italic">A medicine cabinet mirror taped in place during the silicone curing period — a real photo from one of our NYC installations.</p>
         </div>

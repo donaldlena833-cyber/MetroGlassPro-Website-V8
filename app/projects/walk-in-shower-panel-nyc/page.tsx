@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -32,7 +33,7 @@ export default function WalkInPanelArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-3xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial" style={{ maxWidth: '500px', margin: '0 auto' }}>
-            <img src="/editorial/configurations/walk-in-panel.jpg" alt="Walk-in frameless glass shower panel with satin brass wall-mount clamps — single fixed panel with no door" className="w-full h-auto" />
+            <ResponsiveImage src="/editorial/configurations/walk-in-panel.jpg" alt="Walk-in frameless glass shower panel with satin brass wall-mount clamps — single fixed panel with no door" className="w-full h-auto" />
           </div>
         </div>
       </section>

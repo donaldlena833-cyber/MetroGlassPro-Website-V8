@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -58,7 +59,7 @@ export default function CRLGenevaVsVienna() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden bg-cream-dark">
-            <img src="/editorial/tools.jpg" alt="Shower door hardware and installation tools" className="w-full h-auto" loading="lazy" />
+            <ResponsiveImage src="/editorial/tools.jpg" alt="Shower door hardware and installation tools" className="w-full h-auto" loading="lazy" />
           </div>
         </div>
       </section>

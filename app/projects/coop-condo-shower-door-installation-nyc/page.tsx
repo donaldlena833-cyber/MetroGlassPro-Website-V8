@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -93,7 +94,7 @@ export default function CoopCondoArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img src="/editorial/shower-door.jpg" alt="Frameless shower door installed in a NYC co-op apartment bathroom" className="w-full h-full object-cover" />
+            <ResponsiveImage src="/editorial/shower-door.jpg" alt="Frameless shower door installed in a NYC co-op apartment bathroom" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -272,7 +273,7 @@ export default function CoopCondoArticle() {
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="relative overflow-hidden">
-        <img src="/editorial/water-droplets.jpg" alt="Water on glass surface" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <ResponsiveImage src="/editorial/water-droplets.jpg" alt="Water on glass surface" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div className="relative bg-charcoal/70 py-20 sm:py-28">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-3xl sm:text-5xl">

@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ShowerDoorQuickAnswers from '@/components/ShowerDoorQuickAnswers'
@@ -221,7 +222,7 @@ export default function FramelessShowerDoorsNYC() {
             ].map((item, i) => (
               <div key={item.t} className="glass-card overflow-hidden card-lift">
                 <div className="aspect-[16/10] overflow-hidden bg-cream">
-                  <img
+                  <ResponsiveImage
                     src={item.img}
                     alt={item.alt}
                     className="w-full h-full object-cover mix-blend-multiply"
@@ -305,7 +306,7 @@ export default function FramelessShowerDoorsNYC() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="rounded-lg overflow-hidden bg-cream-dark order-2 lg:order-1">
-              <img src="/gallery/mirror-1.jpg" alt="Frameless shower door installed in NYC apartment" className="w-full h-auto" loading="lazy" />
+              <ResponsiveImage src="/gallery/mirror-1.jpg" alt="Frameless shower door installed in NYC apartment" className="w-full h-auto" loading="lazy" />
             </div>
             <div className="order-1 lg:order-2">
               <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">NYC Building Ready</p>
@@ -456,7 +457,7 @@ export default function FramelessShowerDoorsNYC() {
               { src: '/gallery/project-shower-6.jpg', alt: 'Frameless door chrome hardware NYC' },
             ].map((img) => (
               <div key={img.src} className="gallery-item aspect-square bg-cream-dark">
-                <img src={img.src} alt={img.alt} width={500} height={500} loading="lazy" className="w-full h-full object-cover" />
+                <ResponsiveImage src={img.src} alt={img.alt} width={500} height={500} loading="lazy" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -505,7 +506,7 @@ export default function FramelessShowerDoorsNYC() {
 
       {/* ═══ CTA ═══ */}
       <section className="relative overflow-hidden">
-        <img src="/editorial/water-droplets.jpg" alt="Water on glass" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <ResponsiveImage src="/editorial/water-droplets.jpg" alt="Water on glass" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div className="relative bg-charcoal/70 py-20 sm:py-32">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-3xl sm:text-5xl">

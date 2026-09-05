@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -77,7 +78,7 @@ export default function EdisonNjShowerDoorProjectPage() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[4/5] sm:aspect-[60/37]">
-            <img
+            <ResponsiveImage
               src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg"
               alt="Finished clear tempered shower door in an Edison NJ bathroom with brushed brass hardware, warm vertical tile, and white marble-look wall tile."
               className="w-full h-full object-cover"
@@ -100,7 +101,7 @@ export default function EdisonNjShowerDoorProjectPage() {
             {projectImages.map((image) => (
               <div key={image.src} className="glass-card overflow-hidden">
                 <div className="aspect-[3/4] img-editorial">
-                  <img
+                  <ResponsiveImage
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover"

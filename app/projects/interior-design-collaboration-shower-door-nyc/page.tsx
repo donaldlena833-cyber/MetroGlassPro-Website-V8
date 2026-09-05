@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -43,7 +44,7 @@ export default function InteriorDesignCollaborationArticle() {
           <div className="rounded-lg overflow-hidden img-editorial aspect-[4/5] sm:aspect-[6/5]">
             <picture className="block w-full h-full">
               <source media="(min-width: 640px)" srcSet="/gallery/jakob-interior-design-collaboration-desktop.jpg" />
-              <img
+              <ResponsiveImage
                 src="/gallery/jakob-interior-design-collaboration-mobile.jpg"
                 alt="Frameless tub enclosure with chrome hardware and rain shower head against white marble tile, remediated NYC project"
                 className="w-full h-full object-cover"

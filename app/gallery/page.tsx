@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -87,7 +88,7 @@ export default function GalleryPage() {
             {images.map((img, i) => (
               <figure key={img.src} className={`bg-cream-dark anim-scale-in d${Math.min(i + 1, 8)}`}>
                 <div className="gallery-item aspect-square">
-                  <img src={img.src} alt={img.alt} width={500} height={500} loading={i < 4 ? 'eager' : 'lazy'} className="w-full h-full object-cover" />
+                  <ResponsiveImage src={img.src} alt={img.alt} width={500} height={500} sizes="(min-width: 1280px) 282px, (min-width: 1024px) calc((100vw - 116px) / 4), (min-width: 768px) calc((100vw - 104px) / 3), (min-width: 640px) calc((100vw - 92px) / 2), calc((100vw - 60px) / 2)" loading={i < 4 ? 'eager' : 'lazy'} className="w-full h-full object-cover" />
                 </div>
                 <figcaption className="bg-cream px-3 py-3 text-[12px] leading-relaxed text-warm">{img.caption}</figcaption>
               </figure>

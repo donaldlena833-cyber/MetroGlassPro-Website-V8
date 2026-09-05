@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -34,7 +35,7 @@ export default function SingleSwingDoorArticle() {
       <section className="bg-cream pb-6 sm:pb-10">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial aspect-[16/9]">
-            <img src="/editorial/configurations/single-swing-door.jpg" alt="Single swing frameless shower door with satin brass hinges and towel bar handle" className="w-full h-full object-cover" />
+            <ResponsiveImage src="/editorial/configurations/single-swing-door.jpg" alt="Single swing frameless shower door with satin brass hinges and towel bar handle" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>

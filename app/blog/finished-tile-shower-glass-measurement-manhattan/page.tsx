@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideFaqs from '@/components/GuideFaqs'
@@ -77,7 +78,7 @@ export default function FinishedTileGlassMeasurementPage() {
       <section className="bg-cream pb-8 sm:pb-12">
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="rounded-lg overflow-hidden img-editorial">
-            <img
+            <ResponsiveImage
               src="/editorial/design-process-sketch.jpg"
               alt="Shower glass planning sketch for measuring a finished Manhattan bathroom opening"
               className="w-full h-auto block"
