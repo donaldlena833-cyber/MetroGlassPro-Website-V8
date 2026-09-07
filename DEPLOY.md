@@ -104,3 +104,33 @@ The Markdown alternates and directory are convenience formats generated from vis
 - The homepage presents six services, an actual project photo, a shorter selection of guides, and less repetitive shower-only navigation. The estimate form uses fewer nested panels and clearer labels.
 - Check `npm run build`, `npm run check:aeo`, and `npm run test:aeo`. Preview both legacy extensionless article URLs in HTML and Markdown on Cloudflare before merging because its asset routing differs from a local static server.
 - Check the homepage, a service page, and service-prefilled contact form at desktop and narrow widths. The deployed public URLs, not local export counts, are the indexing baseline.
+
+## Safe blog publication queue
+
+`_drafts/` is a publication queue, not a research folder. Keep unfinished articles
+elsewhere. Before queueing, review factual claims, original evidence, image rights,
+existing coverage, links and business promises. The authorized website program can
+approve factual work; a metadata flag alone is not evidence of an editorial review.
+
+The publisher requires `status: approved` and a real `date: YYYY-MM-DD` in the
+draft's frontmatter. The date is both the intended publication date and the earliest
+eligible day, evaluated in UTC. Missing approval, missing/invalid dates and future
+dates are held without changing or deleting the draft. One eligible article is
+selected per run, in filename order; held entries do not block later eligible ones.
+Do not add approval flags to the existing bulk SEO research drafts automatically.
+
+Existing article routes, legacy HTML articles, blog entries and sitemap entries
+are protected against overwrite. Update an existing page in its source instead.
+If the blog/sitemap insertion markers change, publication fails before writing.
+
+The existing 11:00 UTC schedule is unchanged. The workflow runs only on `main`,
+serializes publisher runs, and requires publication tests, the full production build
+(including prebuild/postbuild), AEO checks and mocked contact tests before committing.
+An empty or held-only queue is a successful no-op. Failed checks leave the remote
+draft and published source unchanged; a non-fast-forward push is not forced.
+
+Run `npm run test:publish` locally when editing the publisher. Its integration
+fixtures use temporary directories and do not write to the real queue or send mail.
+Preparing source or pushing a commit is not proof of deployment. Verify the
+Cloudflare production deployment and canonical public URL after publication,
+then add genuinely new URLs to the existing GSC indexing tracker.
