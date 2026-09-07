@@ -1,9 +1,17 @@
 import test from 'node:test'
 import { glassServices, quoteServiceFromId, serviceCategory, servicePhotoTip } from '../content/service-catalog.ts'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { onRequest } from '../functions/_middleware.ts'
 import { detectAttribution, getLeadAttribution, trackLeadEvent } from '../lib/lead-attribution.ts'
 import { onRequestPost } from '../functions/api/contact.ts'
+
+test('hinge article author and publisher resolve to the logo-bearing business entity', () => {
+  const source = readFileSync(new URL('../app/projects/crl-geneva-vs-vienna-hinges/page.tsx', import.meta.url), 'utf8')
+  assert.match(source, /const metroGlassOrganization = \{[\s\S]*'@id': 'https:\/\/metroglasspro\.com\/#organization'[\s\S]*logo: \{ '@type': 'ImageObject'/)
+  assert.match(source, /author: metroGlassOrganization/)
+  assert.match(source, /publisher: metroGlassOrganization/)
+})
 
 function pageContext(accept, { pathname = '/frameless-shower-doors-nyc/', method = 'GET', htmlStatus = 200, assetStatus = 200 } = {}) {
   return {
