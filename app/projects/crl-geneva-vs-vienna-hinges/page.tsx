@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: ['https://metroglasspro.com/editorial/tools.jpg'] },
 }
 
+const metroGlassOrganization = {
+  '@type': 'Organization',
+  '@id': 'https://metroglasspro.com/#organization',
+  name: 'MetroGlass Pro',
+  url: 'https://metroglasspro.com',
+  logo: { '@type': 'ImageObject', url: 'https://metroglasspro.com/assets/logo.png' },
+}
+
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -23,12 +31,8 @@ const articleJsonLd = {
   description: 'A practical comparison of CRL Geneva and Vienna hinges for frameless shower door hardware selection in NYC bathrooms.',
   datePublished: '2026-02-01',
   dateModified: '2026-07-05',
-  author: { '@type': 'Organization', name: 'MetroGlass Pro' },
-  publisher: {
-    '@type': 'Organization',
-    name: 'MetroGlass Pro',
-    logo: { '@type': 'ImageObject', url: 'https://metroglasspro.com/assets/logo.png' },
-  },
+  author: metroGlassOrganization,
+  publisher: metroGlassOrganization,
   mainEntityOfPage: 'https://metroglasspro.com/projects/crl-geneva-vs-vienna-hinges/',
   image: 'https://metroglasspro.com/editorial/tools.jpg',
 }
