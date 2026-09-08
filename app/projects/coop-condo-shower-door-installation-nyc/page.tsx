@@ -53,15 +53,23 @@ const faqJsonLd = {
   })),
 }
 
+const metroGlassOrganization = {
+  '@type': 'Organization',
+  '@id': 'https://metroglasspro.com/#organization',
+  name: 'MetroGlass Pro',
+  url: 'https://metroglasspro.com',
+  logo: { '@type': 'ImageObject', url: 'https://metroglasspro.com/assets/logo.png' },
+}
+
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'Co-op & Condo Shower Door Installation NYC — What You Need to Know',
   description: 'A practical guide for NYC co-op and condo owners installing frameless shower doors: building requirements, COI, freight access, quiet hours, and what to expect.',
-  author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
-  publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
+  author: metroGlassOrganization,
+  publisher: metroGlassOrganization,
   datePublished: '2026-03-11',
-  dateModified: '2026-07-05',
+  dateModified: '2026-09-08',
   mainEntityOfPage: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
   image: 'https://metroglasspro.com/editorial/shower-door.jpg',
 }
