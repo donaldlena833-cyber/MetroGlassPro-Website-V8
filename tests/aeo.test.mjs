@@ -13,6 +13,20 @@ test('hinge article author and publisher resolve to the logo-bearing business en
   assert.match(source, /publisher: metroGlassOrganization/)
 })
 
+test('priority repair and installation guides identify a logo-bearing author and publisher', () => {
+  const installation = readFileSync(new URL('../app/projects/coop-condo-shower-door-installation-nyc/page.tsx', import.meta.url), 'utf8')
+  assert.match(installation, /const metroGlassOrganization = \{[\s\S]*logo: \{ '@type': 'ImageObject'/)
+  assert.match(installation, /author: metroGlassOrganization/)
+  assert.match(installation, /publisher: metroGlassOrganization/)
+
+  const repair = readFileSync(new URL('../public/blog/2026-05-09-honest-shower-door-repair-nyc.html', import.meta.url), 'utf8')
+  const article = JSON.parse(repair.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/)?.[1] || '{}')
+  for (const organization of [article.author, article.publisher]) {
+    assert.equal(organization?.['@id'], 'https://metroglasspro.com/#organization')
+    assert.equal(organization?.logo?.url, 'https://metroglasspro.com/assets/logo.png')
+  }
+})
+
 function pageContext(accept, { pathname = '/frameless-shower-doors-nyc/', method = 'GET', htmlStatus = 200, assetStatus = 200 } = {}) {
   return {
     request: new Request(`https://metroglasspro.com${pathname}`, { method, headers: accept ? { Accept: accept } : {} }),
