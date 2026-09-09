@@ -27,6 +27,16 @@ test('priority repair and installation guides identify a logo-bearing author and
   }
 })
 
+test('installation page avoids unsupported timing and availability promises', () => {
+  const source = readFileSync(new URL('../app/shower-door-installation-nyc/page.tsx', import.meta.url), 'utf8')
+  assert.doesNotMatch(source, /Most installations take about 2 to 4 hours/)
+  assert.doesNotMatch(source, /shower is usable the same day/)
+  assert.doesNotMatch(source, /Same-week measurement available/)
+  assert.match(source, /Cure time depends on the sealant used/)
+  assert.match(source, /required cure time for the sealant used/)
+  assert.match(source, /Send photos and project details to start/)
+})
+
 function pageContext(accept, { pathname = '/frameless-shower-doors-nyc/', method = 'GET', htmlStatus = 200, assetStatus = 200 } = {}) {
   return {
     request: new Request(`https://metroglasspro.com${pathname}`, { method, headers: accept ? { Accept: accept } : {} }),
