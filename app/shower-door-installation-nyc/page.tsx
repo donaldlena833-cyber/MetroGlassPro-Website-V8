@@ -17,7 +17,7 @@ const faqs = [
   { q: 'What types of shower doors can you install?', a: 'We install frameless, semi-frameless, and framed shower doors in all configurations, including single swing, sliding bypass, pivot, neo-angle, 90 degree corner, and walk-in panels. We also install bathtub enclosures and shower-over-tub combos.' },
   { q: 'How do you handle installations in NYC apartments?', a: 'We coordinate with your building management, provide Certificates of Insurance (COI), reserve freight elevators, and work within building quiet hours. We regularly install in co-ops, condos, and apartment buildings and plan around those requirements from the start.' },
   { q: 'Do I need to remove my old shower door first?', a: 'No. We handle removal of your existing door or enclosure as part of the installation. We carefully remove old glass, hardware, and any remaining silicone or adhesive, then prep the walls and tile before the new install.' },
-  { q: 'How long does installation take?', a: 'Most installations take about 2 to 4 hours. We arrive with everything pre-fabricated and ready to install, with no glass cutting on site. Your shower is usable the same day, though we recommend waiting 24 hours for silicone to fully cure.' },
+  { q: 'How long does installation take?', a: 'Installation timing depends on the enclosure, site access, removal work, and building rules. We confirm the expected on-site window after reviewing the layout and access requirements. Cure time depends on the sealant used, so follow the wait time provided after installation before using the shower.' },
 ]
 
 const quotePrepItems = [
@@ -184,7 +184,7 @@ export default function ShowerDoorInstallationNYC() {
               { n: '03', t: 'Hardware Mounting', d: 'We mount hinges, U-channels, wall clamps, and any support brackets using proper anchoring. Every fastener is placed with precision, especially on tile walls.' },
               { n: '04', t: 'Glass Installation', d: 'Panels are lifted into position, connected to hardware, and aligned. We check level and plumb at every step — critical in NYC buildings where walls are rarely perfectly straight.' },
               { n: '05', t: 'Sealing & Finishing', d: 'All glass-to-wall and glass-to-tile joints are sealed with clear, mold-resistant silicone. Handles, towel bars, and sweeps are installed. We test the door operation and adjust as needed.' },
-              { n: '06', t: 'Cleanup & Walkthrough', d: 'We clean up all debris, wipe down the glass, and walk you through care instructions. Your bathroom is left spotless and the shower is usable the same day.' },
+              { n: '06', t: 'Cleanup & Walkthrough', d: 'We remove installation debris, wipe down the glass, review operation and care, and explain the required cure time for the sealant used before the shower can be used.' },
             ].map((s) => (
               <div key={s.n} className="flex gap-5 sm:gap-8 py-8 border-b border-charcoal/[0.06] last:border-b-0">
                 <span className="text-charcoal/10 font-serif text-4xl leading-none shrink-0">{s.n}</span>
@@ -298,7 +298,7 @@ export default function ShowerDoorInstallationNYC() {
       <section className="bg-charcoal py-20 sm:py-28 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
           <h2 className="heading-serif text-white text-3xl sm:text-5xl">Ready to schedule your installation?</h2>
-          <p className="mt-4 text-white/40 text-base sm:text-lg">Free estimate. Same-week measurement available.</p>
+          <p className="mt-4 text-white/40 text-base sm:text-lg">Send photos and project details to start.</p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
             <Link href="/contact/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">Request an Estimate</Link>
             <Link href="/frameless-shower-doors-nyc/" className="btn-pill btn-outline-light px-8 sm:px-10 py-3.5 text-sm">Learn About Frameless Doors</Link>
