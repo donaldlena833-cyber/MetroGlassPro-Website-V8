@@ -27,6 +27,14 @@ test('priority repair and installation guides identify a logo-bearing author and
   }
 })
 
+test('design consultation article identifies a logo-bearing author and publisher', () => {
+  const source = readFileSync(new URL('../app/projects/shower-glass-design-consultation-nyc/page.tsx', import.meta.url), 'utf8')
+  assert.match(source, /const metroGlassOrganization = \{[\s\S]*'@id': 'https:\/\/metroglasspro\.com\/#organization'[\s\S]*logo: \{[\s\S]*'@type': 'ImageObject'[\s\S]*url: 'https:\/\/metroglasspro\.com\/assets\/logo\.png'/)
+  assert.match(source, /author: metroGlassOrganization/)
+  assert.match(source, /publisher: metroGlassOrganization/)
+  assert.match(source, /dateModified: '2026-09-11'/)
+})
+
 test('installation page avoids unsupported timing and availability promises', () => {
   const source = readFileSync(new URL('../app/shower-door-installation-nyc/page.tsx', import.meta.url), 'utf8')
   assert.doesNotMatch(source, /Most installations take about 2 to 4 hours/)

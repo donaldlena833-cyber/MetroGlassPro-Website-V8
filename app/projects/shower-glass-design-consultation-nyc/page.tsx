@@ -53,15 +53,26 @@ const faqJsonLd = {
   })),
 }
 
+const metroGlassOrganization = {
+  '@type': 'Organization',
+  '@id': 'https://metroglasspro.com/#organization',
+  name: 'MetroGlass Pro',
+  url: 'https://metroglasspro.com',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://metroglasspro.com/assets/logo.png',
+  },
+}
+
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'We Design Before We Install: Shower Glass Consultation for Architects and Designers',
   description: 'How MetroGlass Pro renders multiple shower enclosure configurations in your client\'s actual bathroom before fabrication, a design-first process for architects, interior designers, and renovation professionals.',
-  author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
-  publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
+  author: metroGlassOrganization,
+  publisher: metroGlassOrganization,
   datePublished: '2026-03-11',
-  dateModified: '2026-03-11',
+  dateModified: '2026-09-11',
   mainEntityOfPage: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/',
   image: 'https://metroglasspro.com/editorial/design-process-sketch.jpg',
 }
