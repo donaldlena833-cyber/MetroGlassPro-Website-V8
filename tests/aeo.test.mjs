@@ -45,6 +45,22 @@ test('installation page avoids unsupported timing and availability promises', ()
   assert.match(source, /Send photos and project details to start/)
 })
 
+test('frameless service page avoids unsupported trust and turnaround claims', () => {
+  const source = readFileSync(new URL('../app/frameless-shower-doors-nyc/page.tsx', import.meta.url), 'utf8')
+  const facts = readFileSync(new URL('../content/shower-door-facts.ts', import.meta.url), 'utf8')
+  const footer = readFileSync(new URL('../components/Footer.tsx', import.meta.url), 'utf8')
+  const combined = `${source}\n${facts}\n${footer}`
+
+  assert.doesNotMatch(combined, /200\+ NYC Installs|over 200 times/)
+  assert.doesNotMatch(combined, /Licensed & Insured|fully licensed and insured|Licensed and insured in New York/i)
+  assert.doesNotMatch(combined, /ready to use the same day|Most quotes delivered same day/)
+  assert.doesNotMatch(combined, /5[–-]7 Business Days|2[–-]4 Hours|1\.5 to 2 weeks/)
+  assert.match(source, /Management makes the final acceptance decision/)
+  assert.match(source, /follow the exact cure and shower-use instructions/)
+  assert.match(source, /Send photos and rough dimensions to start a project-specific estimate/)
+  assert.match(footer, /Call or text to confirm current availability/)
+})
+
 function pageContext(accept, { pathname = '/frameless-shower-doors-nyc/', method = 'GET', htmlStatus = 200, assetStatus = 200 } = {}) {
   return {
     request: new Request(`https://metroglasspro.com${pathname}`, { method, headers: accept ? { Accept: accept } : {} }),
