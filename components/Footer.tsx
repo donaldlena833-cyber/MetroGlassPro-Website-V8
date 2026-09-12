@@ -76,14 +76,14 @@ export default function Footer() {
             <div className="space-y-2.5">
               <a href="tel:+13329993846" className="block text-charcoal/70 text-[13px] hover:text-charcoal transition-colors">(332) 999-3846</a>
               <a href="mailto:operations@metroglasspro.com" className="block text-charcoal/70 text-[13px] hover:text-charcoal transition-colors">operations@metroglasspro.com</a>
-              <p className="text-charcoal/60 text-[13px]">Monday to Friday, 8am to 6pm. Saturday, 9am to 2pm.</p>
-              <p className="text-charcoal/60 text-[13px]">COI ready for co-ops and condos</p>
+              <p className="text-charcoal/60 text-[13px]">Call or text to confirm current availability.</p>
+              <p className="text-charcoal/60 text-[13px]">Share building documentation and access requirements early.</p>
             </div>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-charcoal/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-charcoal/60">
-          <p>© {new Date().getFullYear()} MetroGlass Pro. Licensed and insured in New York.</p>
+          <p>© {new Date().getFullYear()} MetroGlass Pro. Custom glass services in New York City.</p>
           <p>Manhattan first. Also serving Brooklyn, Queens, The Bronx, and Staten Island.</p>
         </div>
       </div>
