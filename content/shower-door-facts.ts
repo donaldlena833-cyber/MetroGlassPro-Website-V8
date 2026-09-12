@@ -10,4 +10,4 @@ export const showerDoorPriceSummary = 'Published planning ranges start around $8
 
 export const showerDoorLeakAnswer = 'Frameless shower doors are designed to contain normal shower spray, but they are not watertight tanks. Door clearances, showerhead direction, curb slope, seals, and the enclosure layout all affect water containment. If water escapes, send photos of the door, curb, and the area that gets wet so we can assess whether a seal, adjustment, or a different layout is needed.'
 
-export const showerDoorTimelineAnswer = 'Our published planning timeline is about 1.5 to 2 weeks from measurement to installation, including roughly 5 to 7 business days for fabrication and 2 to 4 hours on installation day. Confirm current availability, hardware lead times, building access, and the sealant curing time for your project before booking.'
+export const showerDoorTimelineAnswer = 'The schedule is confirmed after final field measurements. Glass and hardware selection, supplier availability, building access, removal work, and the sealant used can all affect timing. Ask for the current fabrication window, installation plan, and cure instructions before booking.'

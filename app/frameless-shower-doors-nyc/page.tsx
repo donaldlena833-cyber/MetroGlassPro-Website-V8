@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'Can you install frameless shower doors in NYC co-ops and condos?',
-    a: 'Yes — we regularly install in co-ops and condos across Manhattan, Brooklyn, and Queens. We carry full insurance (COI available on request), coordinate with building management for elevator reservations and freight access, and work within building quiet hours.',
+    a: 'Co-op and condo requirements vary. Send management’s insurance wording, elevator or entry rules, work hours, and protection requirements before scheduling so the required documentation and logistics can be confirmed for your project.',
   },
   {
     q: 'Do frameless shower doors leak?',
@@ -46,8 +46,8 @@ const faqs = [
     a: 'All five boroughs — Manhattan, Brooklyn, Queens, The Bronx, and Staten Island. We also serve parts of Long Island and Northern New Jersey.',
   },
   {
-    q: 'Are you licensed and insured?',
-    a: 'Yes. MetroGlass Pro is fully licensed and insured in New York, and we can provide a Certificate of Insurance (COI) for co-op and condo buildings on request.',
+    q: 'What building documents should I confirm before scheduling?',
+    a: 'Ask MetroGlass Pro to confirm current insurance documentation for your project, then send your building’s exact certificate holder and additional insured wording. Building management determines whether submitted documents are accepted.',
   },
 ]
 
@@ -110,12 +110,12 @@ export default function FramelessShowerDoorsNYC() {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/editorial/shower-door.jpg')" }} />
         <div className="absolute inset-0 backdrop-blur-[2px] bg-cream/50" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-10 text-center py-20 sm:py-28">
-          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-5 anim-fade-up">NYC&apos;s Custom Glass Specialists</p>
+          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-5 anim-fade-up">Custom Shower Glass in NYC</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl lg:text-7xl anim-hero">
             Frameless Shower Doors in NYC
           </h1>
           <p className="mt-6 text-charcoal/60 text-base sm:text-lg leading-relaxed max-w-xl mx-auto anim-fade-up d2">
-            Custom-measured, precision-fabricated frameless glass doors installed across all five boroughs. Premium hardware, expert fitting, no shortcuts.
+            Custom-measured frameless glass doors for apartments and homes across all five boroughs, with layout, hardware, access, and building requirements reviewed before scheduling.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 anim-fade-up d3">
             <Link href="/contact/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">
@@ -133,11 +133,11 @@ export default function FramelessShowerDoorsNYC() {
       {/* ═══ TRUST STRIP ═══ */}
       <section className="bg-cream-light py-6 sm:py-8 border-y border-charcoal/[0.04]">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-2 text-charcoal/40 text-[12px] sm:text-[13px] font-medium tracking-wider uppercase">
-          <span>200+ NYC Installs</span>
+          <span>Custom Measurements</span>
           <span className="hidden sm:inline">·</span>
-          <span>Licensed & Insured</span>
+          <span>Five Borough Service</span>
           <span className="hidden sm:inline">·</span>
-          <span>COI Available</span>
+          <span>Project-Specific Quotes</span>
           <span className="hidden sm:inline">·</span>
           <span>Free Estimates</span>
         </div>
@@ -314,14 +314,14 @@ export default function FramelessShowerDoorsNYC() {
                 Co-op & condo install realities.
               </h2>
               <p className="text-warm text-[15px] leading-relaxed mb-6">
-                Installing glass in a NYC apartment building isn&apos;t the same as a house. We&apos;ve done it over 200 times and handle the logistics that other installers overlook.
+                NYC apartment projects can add building management, documentation, elevator, protection, and work-hour requirements. Confirm those details before fabrication or scheduling.
               </p>
               <div className="space-y-4">
                 {[
-                  { t: 'Certificate of Insurance (COI)', d: 'We provide COIs naming your building as additional insured — required by most co-op and condo boards before any work can begin.' },
-                  { t: 'Elevator & Freight Coordination', d: 'Large glass panels need freight elevator access. We coordinate with your super or management company to reserve elevator time on install day.' },
-                  { t: 'Quiet Hours & Building Rules', d: 'Most NYC buildings restrict work to weekday business hours. We schedule around your building\'s specific rules — no surprises, no complaints.' },
-                  { t: 'Doorman & Access Protocols', d: 'We arrive with proper identification, check in with the front desk, and follow all building access procedures. Professional from first impression to last.' },
+                  { t: 'Insurance Documentation', d: 'Ask management for its exact certificate holder and additional insured wording, then send those requirements before scheduling. Management makes the final acceptance decision.' },
+                  { t: 'Elevator & Freight Coordination', d: 'Confirm whether large glass panels require freight elevator access and who must reserve the elevator before an installation date is set.' },
+                  { t: 'Work Hours & Protection Rules', d: 'Send the building’s approved work hours, hallway or elevator protection rules, and any notice requirements so they can be included in the installation plan.' },
+                  { t: 'Doorman & Access Protocols', d: 'Confirm check-in, identification, service-entry, parking, and access instructions before installation day.' },
                 ].map((item) => (
                   <div key={item.t} className="glass-card p-4 sm:p-5">
                     <h3 className="font-semibold text-charcoal text-[14px] mb-1">{item.t}</h3>
@@ -346,9 +346,9 @@ export default function FramelessShowerDoorsNYC() {
 
           <div className="space-y-0">
             {[
-              { step: '01', t: 'Free In-Home Measurement', time: 'Day 1', d: 'We visit your bathroom, take precision measurements with digital templates, discuss glass type and hardware options, and provide a quote — usually on the same visit. Takes about 30 minutes.' },
-              { step: '02', t: 'Custom Fabrication', time: '5–7 Business Days', d: 'Your glass is cut to exact specifications at our fabrication partner. Every panel is tempered, polished, and inspected before delivery. No stock sizes — everything is custom.' },
-              { step: '03', t: 'Professional Installation', time: '2–4 Hours', d: 'Our team arrives with the glass, hardware, and all tools. We install, seal, align, and test everything. We leave your bathroom spotless and ready to use the same day (silicone needs 24 hours to fully cure).' },
+              { step: '01', t: 'Project Review & Field Measure', time: 'Initial Review', d: 'We review photos and rough dimensions first. If a field measure is needed, we confirm that visit and discuss the enclosure layout, glass, hardware, access, and building requirements.' },
+              { step: '02', t: 'Custom Fabrication', time: 'Confirmed After Measure', d: 'Fabrication timing depends on the final field measurements, glass, hardware, supplier availability, and project conditions. The current schedule is confirmed before approval.' },
+              { step: '03', t: 'Installation & Cure Guidance', time: 'Project-Specific', d: 'Installation duration depends on the enclosure, access, removal work, and building rules. After sealing, follow the exact cure and shower-use instructions provided for the product used.' },
             ].map((s, i) => (
               <div key={s.step} className="flex gap-5 sm:gap-8 py-8 sm:py-10 border-b border-charcoal/[0.06] last:border-b-0">
                 <div className="shrink-0">
@@ -513,7 +513,7 @@ export default function FramelessShowerDoorsNYC() {
               Ready for frameless shower doors?
             </h2>
             <p className="mt-4 sm:mt-5 text-white/50 text-base sm:text-lg">
-              Free estimate. No obligation. Most quotes delivered same day.
+              Send photos and rough dimensions to start a project-specific estimate.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Link href="/contact/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">
