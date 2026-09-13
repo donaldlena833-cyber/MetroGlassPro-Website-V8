@@ -61,6 +61,18 @@ test('frameless service page avoids unsupported trust and turnaround claims', ()
   assert.match(footer, /Call or text to confirm current availability/)
 })
 
+test('replacement page avoids blanket schedule, popularity, and removal claims', () => {
+  const source = readFileSync(new URL('../app/shower-door-replacement-nyc/page.tsx', import.meta.url), 'utf8')
+
+  assert.doesNotMatch(source, /one of our most common jobs|most common replacement we do/i)
+  assert.doesNotMatch(source, /single visit|1\.5[–-]2 weeks|5[–-]7 Days|2[–-]4 Hours/)
+  assert.doesNotMatch(source, /provide a quote on the spot|damage is unavoidable \(rare\)/i)
+  assert.doesNotMatch(source, /single most impactful|Adds real value for co-op and condo resales/i)
+  assert.match(source, /Removal and installation may be planned together or separately/)
+  assert.match(source, /perfect concealment cannot be guaranteed/)
+  assert.match(source, /Stop using a door with cracked or significantly chipped glass/)
+})
+
 function pageContext(accept, { pathname = '/frameless-shower-doors-nyc/', method = 'GET', htmlStatus = 200, assetStatus = 200 } = {}) {
   return {
     request: new Request(`https://metroglasspro.com${pathname}`, { method, headers: accept ? { Accept: accept } : {} }),
