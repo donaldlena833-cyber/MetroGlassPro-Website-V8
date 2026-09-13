@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shower Door Replacement NYC',
-  description: 'Replace old framed, leaking, cracked, or corroded shower doors in NYC. Explore frameless upgrades and send photos for a fast Manhattan-first estimate.',
+  description: 'Replace old framed, leaking, cracked, or corroded shower doors in NYC. Explore frameless upgrades and send photos for a Manhattan-first estimate.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-replacement-nyc/' },
   openGraph: {
     title: 'Shower Door Replacement NYC | MetroGlass Pro',
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 }
 
 const faqs = [
-  { q: 'Can I upgrade from framed to frameless?', a: 'Yes — this is one of our most common jobs. We remove the old framed door and all its tracks, fill any holes in the tile or wall, and install a new frameless door. The transformation is dramatic, and it makes any bathroom look larger and more modern.' },
-  { q: 'How long does a shower door replacement take?', a: 'The full process from measurement to install is typically 1.5–2 weeks. Removal of the old door and installation of the new one happens in a single visit, usually 2–4 hours.' },
-  { q: 'Do you repair shower doors or only replace?', a: 'We do both. For broken hinges, damaged seals, stuck rollers, or cracked hardware, we can often repair what you have. But if the glass is cracked, the frame is corroded, or you want to upgrade, replacement is the better value.' },
-  { q: 'Will replacing my shower door damage the tile?', a: 'We take great care during removal to protect your tile. Some old installations leave screw holes or adhesive marks — we patch and clean these as part of the replacement. If tile damage is unavoidable (rare), we let you know before proceeding.' },
+  { q: 'Can I upgrade from framed to frameless?', a: 'A framed-to-frameless change can work when the finished walls and curb, opening, swing clearance, and anchoring points suit the new layout. Old screw holes, adhesive, or marks may remain after removal, so those conditions and any repair scope should be reviewed before work begins.' },
+  { q: 'How long does a shower door replacement take?', a: 'Timing depends on the site review, final field measurement, glass and hardware selection, fabrication availability, removal conditions, and any building access rules. Removal and installation may be planned together or separately; the project schedule is confirmed after those details are known.' },
+  { q: 'Do you repair shower doors or only replace?', a: 'We assess both paths. A hinge, seal, roller, or alignment problem may be repairable when the glass and supporting parts remain suitable. Cracked glass, a badly corroded frame, incompatible parts, or a requested layout change can point toward replacement.' },
+  { q: 'Will replacing my shower door damage the tile?', a: 'Removal is planned to reduce risk, but old anchors, adhesive, concealed damage, or brittle tile can affect the result. Existing holes and marks may need patching, and perfect concealment cannot be guaranteed. We review visible conditions and the removal plan before proceeding.' },
 ]
 
 const replacementQuoteChecklist = [
@@ -90,7 +90,7 @@ export default function ShowerDoorReplacementNYC() {
             Shower Door Replacement NYC
           </h1>
           <p className="mt-5 sm:mt-6 text-warm text-base sm:text-lg max-w-xl leading-relaxed">
-            Old, foggy, or broken shower door? We remove the old and install the new — frameless, framed, or semi-frameless — in a single visit.
+            Replace an old or damaged enclosure with a framed, semi-frameless, or frameless layout planned around the finished opening, removal conditions, and building access.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link href="/contact/" className="btn-pill btn-primary px-8 py-3.5 text-sm">
@@ -139,12 +139,12 @@ export default function ShowerDoorReplacementNYC() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
-              { t: 'Leaking onto the floor', d: 'Worn seals, warped frames, or poor original installation let water escape. Constant puddles damage flooring and can cause mold.' },
-              { t: 'Corroded or rusted frame', d: 'Metal frames in humid NYC bathrooms eventually corrode — especially cheap aluminum. Once the frame is going, replacement is more cost-effective than repair.' },
-              { t: 'Foggy or stained glass', d: 'Hard water deposits, mineral buildup, and etched glass can\'t always be cleaned away. New glass transforms the entire look of your bathroom.' },
-              { t: 'Difficult to open/close', d: 'Sticky rollers, misaligned tracks, and bent frames make daily use frustrating. A new door operates smoothly from day one.' },
-              { t: 'Outdated style', d: 'Brass-framed doors from the 1990s and early 2000s are the most common replacement we do. The upgrade to frameless is the single biggest visual improvement you can make.' },
-              { t: 'Cracked or chipped glass', d: 'Any crack in tempered glass is a safety risk — the entire panel can shatter unexpectedly. This is the one situation where replacement is urgent, not optional.' },
+              { t: 'Leaking onto the floor', d: 'Worn seals, warped frames, poor alignment, showerhead direction, or an unsuitable layout can let water escape. The cause should be identified before choosing repair or replacement.' },
+              { t: 'Corroded or rusted frame', d: 'Corroded frames and tracks can be difficult to restore, but the surrounding glass, tile, and available replacement parts still need to be assessed before choosing a scope.' },
+              { t: 'Foggy or stained glass', d: 'Mineral buildup may be cleanable, while permanently etched or damaged glass may support a replacement decision. Photos help separate a maintenance issue from a glass condition issue.' },
+              { t: 'Difficult to open or close', d: 'Rollers, hinges, tracks, alignment, and frame condition all affect operation. Some problems can be repaired; others require a new compatible door or enclosure.' },
+              { t: 'A different layout or finish', d: 'A replacement can change the door type, panel layout, or hardware finish when the opening, clearances, and mounting conditions support the new design.' },
+              { t: 'Cracked or chipped glass', d: 'Stop using a door with cracked or significantly chipped glass and keep people away from it. Send clear photos so safe next steps and a replacement scope can be discussed.' },
             ].map((item) => (
               <div key={item.t} className="glass-card p-5 sm:p-6">
                 <h3 className="font-semibold text-charcoal text-[15px] mb-2">{item.t}</h3>
@@ -167,9 +167,9 @@ export default function ShowerDoorReplacementNYC() {
 
           <div className="space-y-0">
             {[
-              { n: '01', t: 'Assessment & Measurement', time: 'Day 1', d: 'We evaluate your current setup, discuss what you want (frameless upgrade? same style but new?), measure precisely, and provide a quote on the spot.' },
-              { n: '02', t: 'Custom Fabrication', time: '5–7 Days', d: 'Your new glass panels are cut and tempered to your exact measurements. Hardware is prepped in your chosen finish.' },
-              { n: '03', t: 'Removal & Install', time: '2–4 Hours', d: 'We carefully remove the old door, clean and prep the surfaces, then install the new glass and hardware. Old materials are hauled away.' },
+              { n: '01', t: 'Project Review & Field Measure', time: 'Scope First', d: 'We review the current enclosure, the desired layout, finished surfaces, clearances, access, and building requirements. Final field measurements are taken when the opening is ready.' },
+              { n: '02', t: 'Quote & Fabrication Plan', time: 'Confirmed After Measure', d: 'The quote and schedule are based on the approved glass layout, hardware, final measurements, supplier availability, and any removal or building coordination required.' },
+              { n: '03', t: 'Removal & Installation', time: 'Project-Specific', d: 'Removal and installation are planned around the existing anchors and surfaces, the new enclosure, site access, and the cure guidance for the sealant used.' },
             ].map((s) => (
               <div key={s.n} className="flex gap-5 sm:gap-8 py-8 sm:py-10 border-b border-charcoal/[0.06] last:border-b-0">
                 <span className="text-charcoal/10 font-serif text-4xl sm:text-5xl leading-none shrink-0">{s.n}</span>
@@ -191,20 +191,20 @@ export default function ShowerDoorReplacementNYC() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Most Popular Upgrade</p>
+              <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Layout Option</p>
               <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-6">
-                Framed to frameless: the biggest bathroom upgrade.
+                What changes in a framed-to-frameless replacement.
               </h2>
               <p className="text-warm text-[15px] leading-relaxed mb-6">
-                Replacing an old framed shower door with a custom frameless enclosure is the single most impactful visual upgrade you can make to a NYC bathroom — without a full renovation.
+                Moving from a framed door to a frameless layout can reduce visible metal and change how the opening feels, but the finished surfaces, support, clearances, and marks left by the old frame all affect what is practical.
               </p>
               <div className="space-y-3">
                 {[
-                  'Instantly makes your bathroom look larger and brighter',
-                  'Removes bulky metal frames that collect mold and grime',
-                  'Adds real value for co-op and condo resales',
-                  'Modern hardware options (matte black, brass) to match current trends',
-                  'Premium glass that\'s easier to keep clean than old framed doors',
+                  'Uses less visible framing when the opening supports it',
+                  'Requires suitable finished walls, curb, and anchoring points',
+                  'May expose old holes, adhesive, or surface differences after removal',
+                  'Allows hardware and finish choices that coordinate with the room',
+                  'Still needs a layout that manages door swing and normal shower spray',
                 ].map((p) => (
                   <div key={p} className="flex gap-3 items-start text-[14px] sm:text-[15px]">
                     <span className="text-orange mt-0.5 shrink-0">✓</span>
