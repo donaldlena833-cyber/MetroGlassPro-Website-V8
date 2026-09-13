@@ -70,6 +70,8 @@ type AnalyticsWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknow
 
 export function trackLeadEvent(event: 'contact_click' | 'generate_lead', method: 'phone' | 'sms' | 'email' | 'form', reportedSource = '', service = '') {
   try {
+    const consent = JSON.parse(localStorage.getItem('site-cookie-choice-v1') || 'null')
+    if (!consent || consent.expires <= Date.now() || (!consent.analytics && !consent.marketing)) return
     const attribution = getLeadAttribution()
     const params = {
       contact_method: method,

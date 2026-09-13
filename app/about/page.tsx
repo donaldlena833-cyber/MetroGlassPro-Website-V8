@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'About Our NYC Glass Team',
   description: 'Meet Donald Lena and learn how MetroGlass Pro approaches NYC shower doors and custom glass with precise measurements, clean installs, and building-ready coordination.',
   alternates: { canonical: 'https://metroglasspro.com/about/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'About',
     description: 'Meet Donald Lena and learn how MetroGlass Pro approaches Manhattan shower doors and custom glass with precise measurements, clean installs, and building-ready coordination.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function AboutPage() {

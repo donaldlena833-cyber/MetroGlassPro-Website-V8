@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   title: 'Real Projects and Buyer Guides',
   description: 'Browse MetroGlass Pro project stories, before and afters, and practical shower door guides from Manhattan and NYC jobs.',
   alternates: { canonical: 'https://metroglasspro.com/projects/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Real Projects and Buyer Guides',
     description: 'Browse project stories, before and afters, and practical shower door guides from Manhattan and NYC jobs.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function ProjectsIndex() {

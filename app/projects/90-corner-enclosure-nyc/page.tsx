@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: '90° Corner Frameless Shower Enclosure — NYC Guide',
   description: 'Two glass walls meeting at 90° — the luxury standard for NYC shower enclosures. Why corners work in tight bathrooms, engineering, and cost.',
   alternates: { canonical: 'https://metroglasspro.com/projects/90-corner-enclosure-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: '90° Corner Frameless Shower Enclosure — NYC Guide',
     description: 'The luxury standard. Two glass walls at 90° for NYC built-in showers.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function CornerEnclosureArticle() {

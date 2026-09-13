@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Door + Fixed Panel Frameless Shower — NYC Guide',
   description: 'When your shower opening is too wide for a single door, a door + fixed panel is the answer. NYC tub-to-shower conversions, hardware matching, and sizing.',
   alternates: { canonical: 'https://metroglasspro.com/projects/door-fixed-panel-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Door + Fixed Panel Frameless Shower — NYC Guide',
     description: 'For wider openings and tub-to-shower conversions. When and why to choose door + fixed panel.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function DoorFixedPanelArticle() {

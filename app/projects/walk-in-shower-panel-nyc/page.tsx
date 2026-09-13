@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Walk-In Frameless Shower Panel — NYC Guide',
   description: 'The wet room look: a single fixed glass panel with no door. Why it\'s the most premium shower option in NYC and what waterproofing it requires.',
   alternates: { canonical: 'https://metroglasspro.com/projects/walk-in-shower-panel-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Walk-In Frameless Shower Panel — NYC Guide',
     description: 'No door, just glass. The wet room trend taking over NYC luxury bathrooms.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function WalkInPanelArticle() {

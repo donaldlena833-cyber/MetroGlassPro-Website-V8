@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: 'article',
     images: [{ url: 'https://metroglasspro.com/editorial/design-process-sketch.jpg', width: 1200, height: 630, alt: 'Shower glass design sketch showing bathroom configuration renders on tablet' }],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const faqs = [

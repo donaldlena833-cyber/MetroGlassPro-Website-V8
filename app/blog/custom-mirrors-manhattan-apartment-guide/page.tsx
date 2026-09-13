@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const faqs = [

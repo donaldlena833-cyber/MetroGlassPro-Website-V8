@@ -71,6 +71,7 @@ export default function EstimateRequestForm() {
       setSubmitState('success')
       trackLeadEvent('generate_lead', 'form', values.howHeard, values.service)
       setFiles([])
+      try { sessionStorage.setItem('received-metroglasspro.com', 'received'); sessionStorage.setItem('received-metroglasspro-reference', typeof payload.requestId === 'string' ? payload.requestId : ''); window.location.assign('/thank-you/'); } catch { /* Keep the existing receipt visible. */ }
     } catch (error) {
       setSubmitState('error')
       setErrorMessage(error instanceof Error && error.name !== 'TimeoutError' && error.name !== 'TypeError' ? error.message : 'We could not confirm your request was sent. Your details are still here. Please email or text us below.')

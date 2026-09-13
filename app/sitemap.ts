@@ -9,6 +9,7 @@ const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
 const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
 
 const coreRoutes = [
+  { path: '/terms/', changeFrequency: 'yearly' as const, priority: 0.2 },
   { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
   { path: '/frameless-shower-doors-nyc/', changeFrequency: 'monthly' as const, priority: 0.95 },
   { path: '/services/', changeFrequency: 'monthly' as const, priority: 0.9 },

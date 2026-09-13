@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Custom Shower Doors Queens NY',
   description: 'Custom shower doors, frameless glass, repair, and replacement for Queens homes, co-ops, condos, and multi-unit buildings. Photo estimates and COI support.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/queens/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Custom Shower Doors Queens NY',
     description: 'Custom shower doors and frameless shower glass for Queens homes, co-ops, condos, and multi-unit buildings.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function QueensPage() {

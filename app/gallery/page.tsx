@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'NYC Shower Door & Glass Gallery',
   description: 'Compare MetroGlass Pro shower door layouts, frameless glass details, mirrors, and install planning examples for Manhattan, Brooklyn, Queens, and NYC bathrooms.',
   alternates: { canonical: 'https://metroglasspro.com/gallery/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'NYC Shower Door Gallery | MetroGlass Pro',
     description: 'Compare shower door layouts, frameless glass details, mirrors, and install planning examples across NYC.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const images = [

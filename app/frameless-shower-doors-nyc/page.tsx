@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Frameless Shower Doors NYC',
   description: 'Custom frameless shower doors for NYC apartments, co-ops, and condos. Compare layouts, glass, hardware, cost, and building needs before requesting a quote.',
   alternates: { canonical: 'https://metroglasspro.com/frameless-shower-doors-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Frameless Shower Doors NYC | MetroGlass Pro',
     description: 'Custom frameless shower doors in NYC with precise measurement, premium hardware, clean installation, and co-op or condo coordination.',
     url: 'https://metroglasspro.com/frameless-shower-doors-nyc/',

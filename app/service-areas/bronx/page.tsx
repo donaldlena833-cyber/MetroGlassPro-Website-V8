@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Bronx Shower Doors and Custom Glass',
   description: 'Custom shower doors, mirrors, and related glass work across The Bronx. Residential, renovation, and selected commercial projects.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/bronx/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Bronx Shower Doors and Custom Glass',
     description: 'Custom shower doors, mirrors, and related glass work across The Bronx. Residential, renovation, and selected commercial projects.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function BronxPage() {

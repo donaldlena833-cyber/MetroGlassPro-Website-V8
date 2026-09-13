@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Custom Shower Doors Manhattan NY',
   description: 'Custom shower doors, frameless glass, repair, and replacement for Manhattan apartments, co-ops, condos, and brownstones. COI support and photo estimates.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/manhattan/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Custom Shower Doors Manhattan NY',
     description: 'Custom shower doors and frameless shower glass for Manhattan apartments, co-ops, condos, brownstones, and high-rises.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function ManhattanPage() {

@@ -136,18 +136,27 @@ test('detects known referrals without retaining prompts or query strings', () =>
 test('attribution survives navigation; analytics uses separate click and submission events', () => {
   const stored = new Map()
   const events = []
+  const previousStorage = globalThis.localStorage
+  globalThis.localStorage = { getItem: (key) => stored.get(key) || null }
   globalThis.window = { location: { href: 'https://metroglasspro.com/?utm_source=chatgpt.com', pathname: '/' }, sessionStorage: { getItem: (key) => stored.get(key), setItem: (key, value) => stored.set(key, value) }, gtag: (...args) => events.push(args) }
   globalThis.document = { referrer: '' }
   assert.equal(getLeadAttribution().detectedSource, 'ChatGPT')
   window.location = { href: 'https://metroglasspro.com/contact/', pathname: '/contact/' }
   assert.equal(getLeadAttribution().detectedSource, 'ChatGPT')
   assert.equal(getLeadAttribution().landingPath, '/')
+  trackLeadEvent('contact_click', 'phone')
+  assert.equal(events.length, 0, 'No measurement events before consent')
+  stored.set('site-cookie-choice-v1', JSON.stringify({ analytics: true, marketing: false, expires: Date.now() + 60000 }))
   trackLeadEvent('contact_click', 'sms')
   trackLeadEvent('generate_lead', 'form', 'ChatGPT', 'Glass Railing')
   assert.deepEqual(events.map((event) => event[1]), ['contact_click', 'generate_lead'])
   assert.equal(events[1][2].reported_source, 'ChatGPT')
   assert.equal(events[1][2].service_type, 'glass-railings')
   assert.ok(!JSON.stringify(events).includes('utm_source='))
+  stored.set('site-cookie-choice-v1', JSON.stringify({ analytics: false, marketing: false, expires: Date.now() + 60000 }))
+  trackLeadEvent('generate_lead', 'form')
+  assert.equal(events.length, 2, 'Revoking consent blocks further events')
+  globalThis.localStorage = previousStorage
   delete globalThis.window
   delete globalThis.document
 })

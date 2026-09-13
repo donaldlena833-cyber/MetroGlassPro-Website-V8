@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Shower Door Replacement NYC',
   description: 'Replace old framed, leaking, cracked, or corroded shower doors in NYC. Explore frameless upgrades and send photos for a Manhattan-first estimate.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-replacement-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Shower Door Replacement NYC | MetroGlass Pro',
     description: 'Shower door replacement in NYC for old framed doors, leaking enclosures, cracked glass, corroded tracks, and frameless upgrades.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const faqs = [

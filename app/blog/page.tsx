@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'NYC Glass Guides: Mirrors, Railings, Partitions and Shower Doors',
   description: 'Plan custom mirrors, glass railings, office partitions, shower doors, and glass repairs with practical MetroGlass Pro guides and project notes.',
   alternates: { canonical: 'https://metroglasspro.com/blog/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'NYC Glass Guides: Mirrors, Railings, Partitions and Shower Doors',
     description: 'Plan custom mirrors, glass railings, office partitions, shower doors, and glass repairs with practical MetroGlass Pro guides and project notes.',
     url: 'https://metroglasspro.com/blog/',

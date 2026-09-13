@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Shower Door Repair NYC',
   description: 'NYC shower door repair for leaks, dragging glass, loose hinges, worn sweeps, rollers, and failed installations. Send photos for a fast Manhattan-first estimate.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-repair-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Shower Door Repair NYC | MetroGlass Pro',
     description: 'Repair leaking, dragging, or misaligned shower doors in NYC. Send photos for a fast diagnosis and repair-versus-replacement recommendation.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const issues = [

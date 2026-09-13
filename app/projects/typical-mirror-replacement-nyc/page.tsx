@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Mirror Replacement in a NYC Apartment',
   description: 'What a typical mirror replacement looks like in a New York City apartment — sizing, mounting options, timeline, and cost ranges.',
   alternates: { canonical: 'https://metroglasspro.com/projects/typical-mirror-replacement-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Mirror Replacement in a NYC Apartment: What to Expect',
     description: 'What a typical mirror replacement looks like in a NYC apartment — sizing, mounting, timeline, and cost ranges.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function TypicalMirrorReplacement() {

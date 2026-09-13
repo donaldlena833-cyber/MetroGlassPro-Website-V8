@@ -7,7 +7,7 @@ import { glassServiceDetails } from '@/content/glass-service-details'
 export function glassServiceMetadata(id: string): Metadata {
   const detail = glassServiceDetails[id]
   const service = glassServices.find((item) => item.id === id)!
-  return { title: detail.title, description: detail.description, alternates: { canonical: `https://metroglasspro.com${service.href}` }, openGraph: { title: detail.title, description: detail.description, url: `https://metroglasspro.com${service.href}` } }
+  return { title: detail.title, description: detail.description, alternates: { canonical: `https://metroglasspro.com${service.href}` }, openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom glass in New York' }], title: detail.title, description: detail.description, url: `https://metroglasspro.com${service.href}` } }
 }
 
 export default function GlassServicePage({ id }: { id: string }) {

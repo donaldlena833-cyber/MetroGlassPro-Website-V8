@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'NYC Glass Installation and Repair Service Areas',
   description: 'Shower doors, glazing, railings, mirrors, partitions, and glass repair across Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Service Areas',
     description: 'Shower doors, glazing, railings, mirrors, partitions, and glass repair across Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const boroughs = [

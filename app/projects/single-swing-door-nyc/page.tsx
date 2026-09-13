@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Single Swing Frameless Shower Door — NYC Guide',
   description: 'Why the single swing frameless door is NYC\'s most popular shower configuration. Glass thickness, swing direction, and what makes it ideal for apartments.',
   alternates: { canonical: 'https://metroglasspro.com/projects/single-swing-door-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Single Swing Frameless Shower Door — NYC Guide',
     description: 'NYC\'s most popular shower door configuration. Glass thickness, swing direction, and why apartments love it.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function SingleSwingDoorArticle() {

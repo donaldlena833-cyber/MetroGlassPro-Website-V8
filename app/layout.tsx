@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Instrument_Serif, Inter } from 'next/font/google'
-import Script from 'next/script'
+import { CookieConsent } from '@/components/CookieConsent';
+import './readiness.css';
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -26,7 +27,6 @@ const instrumentSerif = Instrument_Serif({
 
 const { googleAnalyticsId } = analyticsConfig
 const googleAdsId = 'AW-934489946'
-const googleTagId = googleAnalyticsId || googleAdsId
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metroglasspro.com'),
@@ -68,19 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main-content">{children}</main>
         <MobileCtaBar />
         <Footer />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-          strategy="lazyOnload"
-        />
-        <Script id="google-tag-config" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            ${googleAnalyticsId ? `gtag('config', '${googleAnalyticsId}');` : ''}
-            gtag('config', '${googleAdsId}');
-          `}
-        </Script>
+<CookieConsent analyticsId={googleAnalyticsId || undefined} adsId={googleAdsId} privacyPath="/privacy-policy/" />
       </body>
     </html>
   )

@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Shower Door Installation NYC',
   description: 'NYC shower door installation for frameless glass, sliders, tub enclosures, and apartment bathrooms. Precise field measurements, clean work, and COI support.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-installation-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Shower Door Installation NYC | MetroGlass Pro',
     description: 'Shower door installation in NYC for frameless glass, framed doors, sliders, tub enclosures, and apartment bathrooms.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const faqs = [

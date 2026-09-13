@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Neo-Angle Frameless Shower Enclosure — NYC Guide',
   description: 'Neo-angle enclosures for non-standard and angled shower bases. Why they\'re common in pre-war NYC buildings and how they maximize space.',
   alternates: { canonical: 'https://metroglasspro.com/projects/neo-angle-enclosure-nyc/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Neo-Angle Frameless Shower Enclosure — NYC Guide',
     description: 'Built for odd-shaped showers in pre-war NYC buildings. 3-panel geometry that maximizes space.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function NeoAngleArticle() {

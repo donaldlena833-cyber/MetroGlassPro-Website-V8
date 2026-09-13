@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Request a Glass Project Estimate',
   description: 'Contact MetroGlass Pro for shower doors, glazing, glass railings, mirrors, partitions, or repair. A short project note and one phone number or email gets you started.',
   alternates: { canonical: 'https://metroglasspro.com/contact/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Request a Glass Project Estimate',
     description: 'Tell us what you need and how to reach you. Photos and measurements can come later.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function ContactPage() {

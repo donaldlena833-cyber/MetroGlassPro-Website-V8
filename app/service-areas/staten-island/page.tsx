@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: 'Staten Island Shower Doors and Custom Glass',
   description: 'Custom shower doors, mirrors, and related glass work across Staten Island. Great fit for single-family homes, townhouses, and new construction.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/staten-island/' },
-  openGraph: {
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Staten Island Shower Doors and Custom Glass',
     description: 'Custom shower doors, mirrors, and related glass work across Staten Island. Great fit for single-family homes, townhouses, and new construction.',
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 export default function StatenIslandPage() {
