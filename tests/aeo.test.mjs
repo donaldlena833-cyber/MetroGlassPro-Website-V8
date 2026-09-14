@@ -73,6 +73,17 @@ test('replacement page avoids blanket schedule, popularity, and removal claims',
   assert.match(source, /Stop using a door with cracked or significantly chipped glass/)
 })
 
+test('co-op and condo guide keeps approval, insurance, and timing project-specific', () => {
+  const source = readFileSync(new URL('../app/projects/coop-condo-shower-door-installation-nyc/page.tsx', import.meta.url), 'utf8')
+
+  assert.doesNotMatch(source, /over 200 NYC buildings|almost always require|provides COIs at no charge|within 24 hours|Typically 10[–-]14 days|5[–-]7 business days|2[–-]4 hours|about two weeks|do them every week/i)
+  assert.doesNotMatch(source, /almost universally enforce quiet hours|Monday through Friday, 8 AM to 5 PM|most co-ops do not require board approval/i)
+  assert.match(source, /Requirements vary by property/)
+  assert.match(source, /the building or its management company decides whether the submission is acceptable/)
+  assert.match(source, /a glass estimate is not a permit determination/)
+  assert.match(source, /dateModified: '2026-09-14'/)
+})
+
 function pageContext(accept, { pathname = '/frameless-shower-doors-nyc/', method = 'GET', htmlStatus = 200, assetStatus = 200 } = {}) {
   return {
     request: new Request(`https://metroglasspro.com${pathname}`, { method, headers: accept ? { Accept: accept } : {} }),

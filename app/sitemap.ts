@@ -6,6 +6,9 @@ export const dynamic = 'force-static'
 const base = 'https://metroglasspro.com'
 const siteUpdated = new Date('2026-08-12T00:00:00.000Z')
 const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
+const projectModifiedDates = new Map([
+  ['coop-condo-shower-door-installation-nyc', new Date('2026-09-14T00:00:00.000Z')],
+])
 const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
 
 const coreRoutes = [
@@ -108,7 +111,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((project) => indexTargetProjectSlugs.has(project.slug))
     .map((project) => ({
       url: `${base}/projects/${project.slug}/`,
-      lastModified: project.slug === 'frameless-shower-door-cost-nyc' ? aeoUpdated : new Date(`${project.date}T00:00:00.000Z`),
+      lastModified: projectModifiedDates.get(project.slug) ?? (project.slug === 'frameless-shower-door-cost-nyc' ? aeoUpdated : new Date(`${project.date}T00:00:00.000Z`)),
       changeFrequency: project.scenarioType === 'typical' ? 'yearly' as const : 'monthly' as const,
       priority: project.slug === 'frameless-shower-door-cost-nyc' ? 0.85 : 0.7,
     }))

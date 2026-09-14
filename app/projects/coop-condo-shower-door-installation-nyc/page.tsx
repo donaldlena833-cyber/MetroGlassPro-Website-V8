@@ -19,27 +19,27 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'Do I need board approval to install a shower door in my NYC co-op?',
-    a: 'Most co-ops do not require board approval for a shower door replacement — it falls under minor cosmetic work. However, your management company will almost always require a Certificate of Insurance (COI) from the installer and advance notice for freight elevator use. Some stricter co-ops require a signed alteration agreement even for small jobs. Always check with your managing agent first.',
+    a: 'Ask your managing agent before scheduling. A building may treat a shower door as minor work, but its board, alteration agreement, insurance, access, and notice rules are specific to that property. Get the written requirements and share them with the installer before fabrication or an installation date is confirmed.',
   },
   {
     q: 'What is a COI and why does my building need one?',
-    a: 'A Certificate of Insurance (COI) proves your installer carries general liability and workers\' compensation insurance. NYC co-ops and condos require this to protect the building and other residents in case of property damage or injury during the work. MetroGlass Pro provides COIs at no charge, and we issue them within 24 hours, naming your building and management company as additional insured.',
+    a: 'A certificate of insurance summarizes specified insurance coverage. If your building requests one, ask management for its exact certificate holder, additional insured, policy limit, and submission instructions. Send those requirements to MetroGlass Pro so current documentation and timing can be confirmed for your project; the building makes the final acceptance decision.',
   },
   {
     q: 'How do you handle freight elevator reservations?',
-    a: 'We coordinate directly with your building\'s super or management office. Glass panels are heavy and fragile — they need a freight elevator, not the passenger elevator. We schedule our arrival to match your building\'s reserved freight window and stage materials in the lobby or service area as required.',
+    a: 'First confirm who must reserve the elevator, the allowed delivery entrance, protection rules, panel-size limits, and the approved arrival window. Share those instructions before installation is scheduled. The installation plan can then account for the building\'s actual access route instead of assuming a passenger or freight elevator is available.',
   },
   {
     q: 'Can you work within my building\'s quiet hours?',
-    a: 'Yes. Most NYC buildings restrict construction noise to weekdays between 8 AM and 5 PM (some allow until 6 PM). Shower door installation is not excessively loud — no demolition or power-cutting — but we always confirm your building\'s specific rules and work within them.',
+    a: 'Send the building\'s permitted work days and hours, notice period, and any drilling restrictions with the estimate request. On-site work can be planned within an approved window once the installation scope and access requirements are known.',
   },
   {
     q: 'What if my bathroom has old tile — can you still install frameless glass?',
-    a: 'In most cases, yes. Frameless doors mount to the wall with clips, hinges, or U-channels that anchor into the tile and substrate behind it. If your tile is loose, cracked, or hollow behind the mounting points, we\'ll let you know before we drill. Occasionally, pre-war tile needs a slightly different anchoring approach, and we plan for that during the measurement visit.',
+    a: 'It depends on the tile, substrate, proposed hardware, and mounting locations. Loose or cracked tile and uncertain backing can change the layout or require other work before glass installation. Send overall and close-up photos, but expect the mounting conditions to be assessed before fabrication.',
   },
   {
     q: 'How long does the whole process take from first call to installed door?',
-    a: 'Typically 10–14 days. We schedule a measurement visit (about 30 minutes), then custom-fabricate your glass (5–7 business days). Installation day itself is 2–4 hours. Building coordination — COI, freight elevator reservation — happens in parallel and doesn\'t add to the timeline.',
+    a: 'There is no single timeline for every building or enclosure. Field measurement, final design approval, glass fabrication, insurance review, elevator reservations, permitted work hours, removal work, and sealant cure instructions can all affect the schedule. MetroGlass Pro confirms timing after the glass scope and building requirements are reviewed.',
   },
 ]
 
@@ -69,7 +69,7 @@ const articleJsonLd = {
   author: metroGlassOrganization,
   publisher: metroGlassOrganization,
   datePublished: '2026-03-11',
-  dateModified: '2026-09-08',
+  dateModified: '2026-09-14',
   mainEntityOfPage: 'https://metroglasspro.com/projects/coop-condo-shower-door-installation-nyc/',
   image: 'https://metroglasspro.com/editorial/shower-door.jpg',
 }
@@ -94,7 +94,7 @@ export default function CoopCondoArticle() {
           <h1 className="heading-serif text-charcoal text-3xl sm:text-5xl lg:text-6xl">
             Co-op &amp; Condo Shower Door Installation in NYC: What You Need to Know
           </h1>
-          <p className="mt-4 text-charcoal/30 text-sm">March 2026</p>
+          <p className="mt-4 text-charcoal/30 text-sm">Published March 2026 · Updated September 14, 2026</p>
         </div>
       </section>
 
@@ -111,93 +111,71 @@ export default function CoopCondoArticle() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 prose-mgp">
           <p>
-            If you own a co-op or condo in New York City and you&apos;re thinking about upgrading your shower door, the glass itself is the easy part. The harder part — the part most installers gloss over — is dealing with your building. COI paperwork, freight elevator scheduling, superintendent coordination, quiet hours, and alteration agreements can turn a straightforward bathroom upgrade into a headache if your installer doesn&apos;t know the drill.
+            A shower door project in a New York City co-op or condo has two scopes: the glass work and the building&apos;s access and documentation process. The useful first step is to get the property&apos;s written requirements before anyone promises a delivery or installation date.
           </p>
           <p>
-            We&apos;ve installed frameless shower doors in over 200 NYC buildings — from pre-war co-ops on the Upper West Side to new-construction condos in Williamsburg. Here&apos;s what every co-op and condo owner should know before starting the process.
+            The checklist below separates what the resident needs to obtain, what MetroGlass Pro needs to review, and what should be confirmed before custom glass is fabricated.
           </p>
 
-          <h2>The Certificate of Insurance (COI) — your building&apos;s #1 requirement</h2>
+          <h2>Start with the building&apos;s written instructions</h2>
           <p>
-            Before any work happens in a NYC co-op or condo, your management company will ask for a Certificate of Insurance from the contractor. This document proves the installer carries general liability insurance (typically $1M–$2M) and workers&apos; compensation coverage. The COI needs to name your building&apos;s management company and sometimes the co-op corporation or condo association as &ldquo;additional insured.&rdquo;
+            Ask the managing agent or superintendent whether the work needs advance notice, an alteration form, insurance documentation, an approved vendor list, an elevator reservation, hallway protection, or restricted work hours. Requirements vary by property, so a rule from another building is not reliable evidence for yours.
           </p>
           <p>
-            This is non-negotiable. If your installer can&apos;t provide a COI, your building will not allow them in. Some buildings also require the COI to be on file at least 48 hours before the scheduled work date.
-          </p>
-          <p>
-            At MetroGlass Pro, we issue COIs at no extra charge. We send them directly to your management office within 24 hours of your request, customized with your building&apos;s exact naming requirements. We handle this for every co-op and condo job. It&apos;s standard for us, not an afterthought.
+            Send the actual instructions with the estimate request. If the building uses a portal or a management-company form, confirm who must upload each document and when the building will give written clearance.
           </p>
 
-          <h2>Freight elevator access and material staging</h2>
+          <h2>Certificate of insurance and building approval</h2>
           <p>
-            Glass panels are heavy, fragile, and awkward to carry. A single 3/8&quot; tempered glass panel for a standard shower door weighs roughly 70–90 lbs. It cannot go in a passenger elevator — buildings will not allow it, and it&apos;s a liability risk.
+            If management requests a certificate of insurance, obtain its exact certificate holder, additional insured wording, policy limits, submission address, and lead time. MetroGlass Pro can then confirm whether current documentation can meet that request. A certificate request is not automatically approved; the building or its management company decides whether the submission is acceptable.
           </p>
           <p>
-            Most NYC co-ops and condos have designated freight elevator hours, often in the morning (typically 8–10 AM or 9–11 AM). We coordinate with your building super or management office to reserve the freight elevator on install day. When we arrive, we stage materials in the service entrance or lobby staging area as your building requires, then move everything up in a single freight trip.
-          </p>
-          <p>
-            For walk-up buildings (typically 5 stories or fewer), freight isn&apos;t an issue — but we still need to plan for stairway clearance. Most glass panels fit through standard NYC stairwells, but unusually large panels or tight turns on narrow pre-war staircases occasionally require us to adjust the panel breakdown.
+            Do not schedule around a generic promise such as &ldquo;COI available&rdquo; or assume every building uses the same form. Treat written approval and the installation appointment as separate checkpoints.
           </p>
 
-          <h2>Quiet hours and building work schedules</h2>
+          <h2>Plan the complete access route</h2>
           <p>
-            NYC residential buildings almost universally enforce quiet hours for construction work. The typical window is Monday through Friday, 8 AM to 5 PM (some buildings allow until 6 PM). Saturday work is permitted in some condos but rarely in co-ops. Sunday work is almost never allowed.
+            Glass panel size, stair turns, elevator dimensions, loading access, service entrances, and floor protection can affect both the enclosure layout and the installation plan. Ask who reserves the elevator and whether the building limits delivery times or panel sizes.
           </p>
           <p>
-            Shower door installation is not a loud job — there&apos;s no jackhammering, no tile demolition, and no power-cutting glass on-site. The noisiest part is drilling anchor holes into tile and wall substrate for hinges and clips, which takes about 10–15 minutes total. Still, we always confirm your building&apos;s specific rules and schedule within them. Most installations are completed well within a single work-hours window.
-          </p>
-
-          <h2>Alteration agreements: when do you need one?</h2>
-          <p>
-            For most co-ops and condos, replacing a shower door counts as minor cosmetic work — not a formal alteration. That means you typically don&apos;t need board approval or an alteration agreement.
-          </p>
-          <p>
-            However, some stricter co-ops (especially older ones on the Upper East Side, Park Avenue, and Central Park West) require a signed minor alteration agreement for any contractor work inside the unit, even for a shower door. This is a simple form — usually one or two pages — that your managing agent provides.
-          </p>
-          <p>
-            If your building requires one, we&apos;ll help you fill out the contractor information section and provide all the documentation (COI, scope of work description) that the agreement calls for.
+            Share photos of the lobby or service entrance only when management allows it. More important, provide the written route and restrictions so the field-measurement and delivery plan use the same assumptions.
           </p>
 
-          <h2>Pre-war buildings: tile, plumbing, and anchoring considerations</h2>
+          <h2>Work hours, drilling, and alteration agreements</h2>
           <p>
-            Pre-war co-ops (built before ~1940) come with their own quirks. The tile is often original subway tile or hex mosaic set in a thick mortar bed. The walls behind the tile may be plaster over metal lath rather than cement board or drywall.
+            Buildings set their own permitted work days, work hours, notice periods, and drilling rules. Some may treat a shower enclosure as minor work; others may require an alteration package or board review. Ask the building to classify the proposed work instead of relying on a citywide rule of thumb.
           </p>
           <p>
-            This affects how we anchor the glass hardware. Modern frameless shower doors mount with wall clips, U-channels, or hinges that require drilling into the wall. In pre-war buildings, we use specific anchoring techniques for plaster-and-lath walls — typically sleeve anchors or toggle bolts rather than standard wall plugs — to ensure a rock-solid mount.
-          </p>
-          <p>
-            We identify this during the measurement visit. If we see potential issues (hollow-sounding tile, crumbling grout, or substrate that won&apos;t hold an anchor), we&apos;ll tell you before any work begins. No surprises on install day.
+            If the shower door is part of a larger bathroom renovation involving plumbing, walls, waterproofing, structure, or other trades, the project team should separately confirm permit and code responsibilities. The <a href="https://www.nyc.gov/site/buildings/codes/2022-construction-codes.page">NYC Department of Buildings publishes the current construction-code resources</a>; a glass estimate is not a permit determination.
           </p>
 
-          <h2>New construction condos: tempered glass code compliance</h2>
+          <h2>Tile, substrate, and mounting conditions</h2>
           <p>
-            If you&apos;re in a newer condo (built after 2010), your bathroom likely already meets current NYC building code for wet-area glass. All glass in shower enclosures must be tempered safety glass per NYC Building Code and ANSI Z97.1/CPSC 16 CFR 1201 standards — every panel we install meets or exceeds these requirements.
+            The visible tile does not reveal every condition behind it. Loose tile, cracks, uncertain backing, waterproofing details, out-of-plumb walls, and the proposed hinge or channel locations can change the appropriate enclosure or require other work first.
           </p>
           <p>
-            New-construction condos also tend to have cement board or Kerdi membrane behind the tile, which makes anchoring hardware straightforward. The biggest variable in new builds is usually the tile format (large-format porcelain requires carbide or diamond-tip bits and a steady hand to avoid cracking).
+            Send straight-on photos of the full opening and close-ups of any damage. Final mounting and glass decisions should follow a site assessment; do not choose anchors or assume the existing finish can support a specific layout from photos alone.
           </p>
 
-          <h2>What the process actually looks like, step by step</h2>
-          <p>
-            Here&apos;s how a typical co-op or condo shower door installation works with MetroGlass Pro:
-          </p>
+          <h2>What to send for a useful first review</h2>
           <ul>
-            <li><strong>Day 1 — Contact and quote.</strong> You reach out with your bathroom dimensions or photos. We give you a ballpark range and schedule a measurement visit.</li>
-            <li><strong>Day 2–3 — Measurement visit.</strong> We come to your apartment (30 minutes), template the opening to 1/16&quot; accuracy, discuss glass thickness, hardware finish, and configuration. We also assess wall conditions and any building-specific logistics.</li>
-            <li><strong>Day 3 — COI and building coordination.</strong> We send the COI to your management company and work with your super to schedule the freight elevator for install day. This happens in parallel with fabrication.</li>
-            <li><strong>Day 3–10 — Custom fabrication.</strong> Your glass is cut, tempered, and polished to your exact measurements. Hardware is matched and prepared.</li>
-            <li><strong>Day 10–14 — Installation.</strong> We arrive during your building&apos;s approved work hours, bring everything up via freight, and install in 2–4 hours. We clean up, remove all packaging, and walk you through care instructions.</li>
+            <li><strong>Opening:</strong> full shower photos, approximate width and height, curb or tub details, and the nearby toilet or vanity.</li>
+            <li><strong>Desired layout:</strong> swing door, slider, door with fixed panel, corner enclosure, or an undecided note.</li>
+            <li><strong>Existing work:</strong> whether tile is finished, whether an old enclosure must be removed, and any visible cracks or loose finishes.</li>
+            <li><strong>Building:</strong> address, building type, floor, permitted work hours, access route, protection rules, and elevator instructions.</li>
+            <li><strong>Documents:</strong> the management form, insurance wording, alteration instructions, or design drawings that apply to this unit.</li>
           </ul>
-          <p>
-            Total timeline: about two weeks from first call to finished shower. The glass looks incredible. The building paperwork is handled. And you didn&apos;t have to chase your installer for a single document.
-          </p>
 
-          <h2>Why building experience matters for your installer</h2>
+          <h2>A realistic sequence without a blanket deadline</h2>
+          <ol>
+            <li><strong>Initial review.</strong> Photos, rough dimensions, desired layout, removal needs, and building instructions define the first scope.</li>
+            <li><strong>Field measurement.</strong> Finished conditions, hardware locations, swing clearance, and access are checked before custom glass is ordered.</li>
+            <li><strong>Scope and approvals.</strong> Confirm the enclosure, price, fabrication basis, required documents, and who is responsible for building clearance.</li>
+            <li><strong>Fabrication and scheduling.</strong> Timing is confirmed for the selected glass and hardware after approvals and access windows are known.</li>
+            <li><strong>Installation and cure instructions.</strong> Protect the route and work area, install to the agreed scope, and follow the specific sealant cure and shower-use instructions provided after installation.</li>
+          </ol>
           <p>
-            An installer who&apos;s never worked in a NYC co-op will waste your time and possibly get turned away at the door. We&apos;ve seen it happen — a homeowner books an installer, the installer shows up without a COI, the doorman calls management, and the whole job gets rescheduled two weeks later. Or worse: the installer doesn&apos;t reserve the freight elevator and tries to carry glass through the passenger elevator, scratching the cab walls on the way up.
-          </p>
-          <p>
-            At MetroGlass Pro, co-op and condo installations are our core business. We know the protocols because we do them every week. We carry the insurance, we provide the paperwork, and we coordinate with your building so install day goes smoothly.
+            The duration depends on the enclosure, finished site conditions, material availability, building review, elevator access, removal work, and the permitted installation window. Ask for the project-specific sequence in writing rather than planning around a universal two-week promise.
           </p>
 
           <h2>Match the building plan to the right shower door page</h2>
@@ -207,7 +185,7 @@ export default function CoopCondoArticle() {
 
           <h2>Ready to get started?</h2>
           <p>
-            If you&apos;re a co-op or condo owner in NYC looking to install or replace a shower door, we&apos;d love to hear from you. Free estimates, COI provided, and we handle all the building coordination.
+            Send shower photos, rough dimensions, the building&apos;s written requirements, and your preferred contact method. MetroGlass Pro will review the glass scope and identify the documentation and access details that still need confirmation.
           </p>
         </div>
 
@@ -215,7 +193,7 @@ export default function CoopCondoArticle() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 mt-10">
           <div className="glass-card p-6 sm:p-8 text-center">
             <p className="font-serif text-charcoal text-xl sm:text-2xl mb-2">Free estimates for co-op &amp; condo owners</p>
-            <p className="text-warm text-[14px] mb-5">COI provided at no charge. We handle all building coordination.</p>
+            <p className="text-warm text-[14px] mb-5">Share the building instructions early so documentation, access, and scheduling can be reviewed with the glass scope.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">
                 Get a Free Estimate
@@ -285,10 +263,10 @@ export default function CoopCondoArticle() {
         <div className="relative bg-charcoal/70 py-20 sm:py-28">
           <div className="max-w-2xl mx-auto px-6 sm:px-10 text-center">
             <h2 className="heading-serif text-white text-3xl sm:text-5xl">
-              Your building. Our expertise.
+              Bring the building requirements into the estimate.
             </h2>
             <p className="mt-4 text-white/50 text-base sm:text-lg">
-              We handle COIs, freight coordination, and building protocols — so you don&apos;t have to.
+              Send the management instructions, shower photos, and access details so the next step is based on your actual property.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Link href="/contact/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">
