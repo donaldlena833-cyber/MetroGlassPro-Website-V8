@@ -18,7 +18,7 @@ const reviews = [
 
 const faqs = [
   { q: 'What glass services does MetroGlass Pro offer?', a: 'We install shower doors, glazing, glass railings, custom mirrors, and interior glass partitions, and assess glass repair and replacement needs across NYC. Send your project type, location, photos, and any plans for an estimate.' },
-  { q: 'How long does shower door installation take?', a: 'Most shower door installations take about 2 to 4 hours once the glass is ready. Other glass projects have schedules based on their scope, fabrication, and site access. We confirm timing after reviewing the project.' },
+  { q: 'How long does shower door installation take?', a: 'The on-site window depends on the enclosure, removal work, access, protection, and building rules. We confirm timing after reviewing the layout and site conditions. Follow the sealant-specific cure instructions provided after installation before using the shower.' },
   { q: 'Do frameless shower doors leak?', a: showerDoorLeakAnswer },
   { q: 'How much do frameless doors cost?', a: showerDoorPriceSummary },
   { q: 'Which areas do you serve?', a: 'Manhattan is our priority, and we also work across Brooklyn, Queens, The Bronx, and Staten Island. We support select projects on Long Island and in Northern New Jersey as well.' },

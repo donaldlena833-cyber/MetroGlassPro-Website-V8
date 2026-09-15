@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shower Door Installation NYC',
-  description: 'NYC shower door installation for frameless glass, sliders, tub enclosures, and apartment bathrooms. Precise field measurements, clean work, and COI support.',
+  description: 'NYC shower door installation for frameless glass, sliders, tub enclosures, and apartment bathrooms. Field measurements and building-specific planning.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-installation-nyc/' },
   openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Shower Door Installation NYC | MetroGlass Pro',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: 'What types of shower doors can you install?', a: 'We install frameless, semi-frameless, and framed shower doors in all configurations, including single swing, sliding bypass, pivot, neo-angle, 90 degree corner, and walk-in panels. We also install bathtub enclosures and shower-over-tub combos.' },
-  { q: 'How do you handle installations in NYC apartments?', a: 'We coordinate with your building management, provide Certificates of Insurance (COI), reserve freight elevators, and work within building quiet hours. We regularly install in co-ops, condos, and apartment buildings and plan around those requirements from the start.' },
-  { q: 'Do I need to remove my old shower door first?', a: 'No. We handle removal of your existing door or enclosure as part of the installation. We carefully remove old glass, hardware, and any remaining silicone or adhesive, then prep the walls and tile before the new install.' },
+  { q: 'How do you handle installations in NYC apartments?', a: 'Send the requirements from your building or management company before scheduling. We review the requested COI details, delivery route, elevator reservation, protection rules, and permitted work hours as part of the installation plan. Building management makes the final decision on access and documentation.' },
+  { q: 'Do I need to remove my old shower door first?', a: 'Tell us about the existing enclosure when requesting an estimate. Removal and surface cleanup can be included, but the scope depends on the glass, hardware, sealant, tile condition, and whether the old mounting points will remain visible.' },
   { q: 'How long does installation take?', a: 'Installation timing depends on the enclosure, site access, removal work, and building rules. We confirm the expected on-site window after reviewing the layout and access requirements. Cure time depends on the sealant used, so follow the wait time provided after installation before using the shower.' },
 ]
 
@@ -90,7 +90,7 @@ export default function ShowerDoorInstallationNYC() {
             Shower Door Installation NYC
           </h1>
           <p className="mt-5 sm:mt-6 text-warm text-base sm:text-lg max-w-xl leading-relaxed">
-            From measurement to final polish — we handle every step of your shower door installation in-house. No subcontractors, no shortcuts.
+            From field measurement through installation, the plan follows the finished opening, selected hardware, existing enclosure, and building access requirements.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link href="/contact/" className="btn-pill btn-primary px-8 py-3.5 text-sm">
@@ -206,14 +206,14 @@ export default function ShowerDoorInstallationNYC() {
               Why NYC shower door installation is different.
             </h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              Installing shower glass in a New York City apartment comes with challenges that suburban installers never deal with. Here&apos;s what we navigate every day.
+              Apartment access and finished bathroom conditions can change how a shower-glass installation is measured, delivered, protected, and scheduled.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             {[
               { t: 'Small, Irregular Bathrooms', d: 'NYC bathrooms are famously compact and often have walls that aren\'t plumb. Every panel must be custom-measured to fit precisely.' },
-              { t: 'Building Access Logistics', d: 'Freight elevators, lobby check-ins, COI requirements, superintendent coordination — we handle all of it.' },
-              { t: 'Noise & Hour Restrictions', d: 'Most buildings limit construction to weekdays between 8am–5pm. We schedule accordingly and communicate proactively.' },
+              { t: 'Building Access Logistics', d: 'Ask management whether the project needs a COI, reserved elevator, service entrance, protection, or advance notice. Share the exact instructions before scheduling.' },
+              { t: 'Work-Hour Restrictions', d: 'Permitted work hours vary by property. Confirm the building schedule and any noise or delivery rules so they can be included in the installation plan.' },
               { t: 'Pre-War Plumbing Realities', d: 'Older buildings often have uneven tile, non-standard shower bases, and walls that require special anchoring solutions.' },
             ].map((item) => (
               <div key={item.t} className="glass-card p-5 sm:p-6">
