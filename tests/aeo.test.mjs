@@ -37,11 +37,17 @@ test('design consultation article identifies a logo-bearing author and publisher
 
 test('installation page avoids unsupported timing and availability promises', () => {
   const source = readFileSync(new URL('../app/shower-door-installation-nyc/page.tsx', import.meta.url), 'utf8')
-  assert.doesNotMatch(source, /Most installations take about 2 to 4 hours/)
+  const homepage = readFileSync(new URL('../app/page.tsx', import.meta.url), 'utf8')
+  const combined = `${source}\n${homepage}`
+  assert.doesNotMatch(combined, /Most (?:shower door )?installations take about 2 to 4 hours/)
   assert.doesNotMatch(source, /shower is usable the same day/)
   assert.doesNotMatch(source, /Same-week measurement available/)
+  assert.doesNotMatch(source, /in-house\. No subcontractors|provide Certificates of Insurance|reserve freight elevators|Most buildings limit construction to weekdays between 8am[–-]5pm|we handle all of it/i)
   assert.match(source, /Cure time depends on the sealant used/)
   assert.match(source, /required cure time for the sealant used/)
+  assert.match(source, /Building management makes the final decision on access and documentation/)
+  assert.match(source, /Removal and surface cleanup can be included/)
+  assert.match(homepage, /sealant-specific cure instructions/)
   assert.match(source, /Send photos and project details to start/)
 })
 

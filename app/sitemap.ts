@@ -9,6 +9,10 @@ const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
 const projectModifiedDates = new Map([
   ['coop-condo-shower-door-installation-nyc', new Date('2026-09-14T00:00:00.000Z')],
 ])
+const routeModifiedDates = new Map([
+  ['/', new Date('2026-09-15T00:00:00.000Z')],
+  ['/shower-door-installation-nyc/', new Date('2026-09-15T00:00:00.000Z')],
+])
 const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
 
 const coreRoutes = [
@@ -102,7 +106,7 @@ const indexTargetProjectSlugs = new Set([
 export default function sitemap(): MetadataRoute.Sitemap {
   const routeEntries = coreRoutes.map((route) => ({
     url: `${base}${route.path}`,
-    lastModified: revisedRoutes.has(route.path) ? aeoUpdated : siteUpdated,
+    lastModified: routeModifiedDates.get(route.path) ?? (revisedRoutes.has(route.path) ? aeoUpdated : siteUpdated),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }))
