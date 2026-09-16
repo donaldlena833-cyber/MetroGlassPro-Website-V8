@@ -12,6 +12,7 @@ const projectModifiedDates = new Map([
 const routeModifiedDates = new Map([
   ['/', new Date('2026-09-15T00:00:00.000Z')],
   ['/shower-door-installation-nyc/', new Date('2026-09-15T00:00:00.000Z')],
+  ['/shower-door-repair-nyc/', new Date('2026-09-16T00:00:00.000Z')],
 ])
 const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
 

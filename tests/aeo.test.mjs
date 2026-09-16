@@ -79,6 +79,16 @@ test('replacement page avoids blanket schedule, popularity, and removal claims',
   assert.match(source, /Stop using a door with cracked or significantly chipped glass/)
 })
 
+test('repair page keeps diagnosis, activity, and building logistics project-specific', () => {
+  const source = readFileSync(new URL('../app/shower-door-repair-nyc/page.tsx', import.meta.url), 'utf8')
+
+  assert.doesNotMatch(source, /fast Manhattan-first estimate|fast diagnosis|sort out every week|regularly evaluate shower doors installed by others/i)
+  assert.doesNotMatch(source, /we work in Manhattan apartments, co-ops, condos, brownstones/i)
+  assert.match(source, /Send photos for a Manhattan-first assessment/)
+  assert.match(source, /Photos help determine whether an on-site assessment is appropriate/)
+  assert.match(source, /requirements before scheduling so they can be reviewed for the specific property/)
+})
+
 test('co-op and condo guide keeps approval, insurance, and timing project-specific', () => {
   const source = readFileSync(new URL('../app/projects/coop-condo-shower-door-installation-nyc/page.tsx', import.meta.url), 'utf8')
 
