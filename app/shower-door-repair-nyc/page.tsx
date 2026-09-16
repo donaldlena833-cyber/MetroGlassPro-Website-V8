@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shower Door Repair NYC',
-  description: 'NYC shower door repair for leaks, dragging glass, loose hinges, worn sweeps, rollers, and failed installations. Send photos for a fast Manhattan-first estimate.',
+  description: 'NYC shower door repair for leaks, dragging glass, loose hinges, worn sweeps, rollers, and failed installations. Send photos for a Manhattan-first assessment.',
   alternates: { canonical: 'https://metroglasspro.com/shower-door-repair-nyc/' },
   openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Shower Door Repair NYC | MetroGlass Pro',
-    description: 'Repair leaking, dragging, or misaligned shower doors in NYC. Send photos for a fast diagnosis and repair-versus-replacement recommendation.',
+    description: 'Repair leaking, dragging, or misaligned shower doors in NYC. Send photos for a repair-versus-replacement assessment.',
   },
   twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
@@ -133,11 +133,11 @@ const faqs = [
   },
   {
     q: 'Can you fix a shower door another installer put in?',
-    a: 'Yes. We regularly evaluate shower doors installed by others, especially when the problem is bad alignment, poor sealing, wrong hardware, or an install that never felt right from day one.',
+    a: 'We can evaluate shower doors installed by others, including problems involving alignment, sealing, hardware, or an enclosure that never fit the opening correctly. Photos help determine whether an on-site assessment is appropriate.',
   },
   {
     q: 'Do you handle repair work in Manhattan co-ops and condos?',
-    a: 'Yes. We work in Manhattan apartments, co-ops, condos, brownstones, and other occupied buildings. If the building needs a COI or scheduling coordination, we plan for that up front.',
+    a: 'We can evaluate repair work in Manhattan co-ops, condos, apartments, brownstones, and other occupied buildings. Share any COI, elevator, access, or work-hour requirements before scheduling so they can be reviewed for the specific property.',
   },
 ]
 
@@ -203,7 +203,7 @@ export default function ShowerDoorRepairPage() {
           <div className="max-w-2xl mb-12 anim-fade-up">
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What buyers usually notice first.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              A repair lead usually starts with a symptom, not a diagnosis. These are the problems Manhattan buyers mention most when they call, text photos, or ask whether the enclosure can be saved.
+              A repair inquiry usually begins with a symptom, not a diagnosis. These are the problems photos and a short description can help us assess before recommending repair or replacement.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -308,7 +308,7 @@ export default function ShowerDoorRepairPage() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Symptom Checks</p>
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">The kinds of repair calls we sort out every week.</h2>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">The repair symptoms photos can help us assess.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="glass-card p-6">
@@ -335,7 +335,7 @@ export default function ShowerDoorRepairPage() {
         <div className="max-w-5xl mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
           <div>
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Quote Readiness</p>
-            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What helps us diagnose the repair faster.</h2>
+            <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What helps us assess the repair before a visit.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
               A few clear details can separate a simple sweep or alignment fix from a replacement conversation. Send the problem photos first, then we can tell you what is worth checking on site.
             </p>
