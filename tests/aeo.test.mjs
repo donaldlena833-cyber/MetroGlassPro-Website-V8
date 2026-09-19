@@ -29,10 +29,16 @@ test('priority repair and installation guides identify a logo-bearing author and
 
 test('design consultation article identifies a logo-bearing author and publisher', () => {
   const source = readFileSync(new URL('../app/projects/shower-glass-design-consultation-nyc/page.tsx', import.meta.url), 'utf8')
+  const projects = readFileSync(new URL('../content/projects.ts', import.meta.url), 'utf8')
   assert.match(source, /const metroGlassOrganization = \{[\s\S]*'@id': 'https:\/\/metroglasspro\.com\/#organization'[\s\S]*logo: \{[\s\S]*'@type': 'ImageObject'[\s\S]*url: 'https:\/\/metroglasspro\.com\/assets\/logo\.png'/)
   assert.match(source, /author: metroGlassOrganization/)
   assert.match(source, /publisher: metroGlassOrganization/)
-  assert.match(source, /dateModified: '2026-09-11'/)
+  assert.match(source, /dateModified: '2026-09-19'/)
+  assert.doesNotMatch(source, /issued within 24 hours|5[–-]7 business days|typically two weeks|every week|no charge|don&apos;t charge separately/i)
+  assert.match(source, /Building management makes the final acceptance decision/)
+  assert.match(source, /an estimate or design discussion is not a confirmed installation date/)
+  assert.match(source, /Shower Glass Planning for Architects and Designers/)
+  assert.match(projects, /slug: 'shower-glass-design-consultation-nyc'[\s\S]*scenarioType: 'typical'/)
 })
 
 test('installation page avoids unsupported timing and availability promises', () => {
