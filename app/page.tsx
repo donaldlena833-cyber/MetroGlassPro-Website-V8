@@ -204,6 +204,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="bg-cream py-16 sm:py-24 border-t border-charcoal/15" aria-labelledby="le-yard-project">
+        <div className="max-w-3xl mx-auto px-6 sm:px-10">
+          <p className="text-charcoal/60 text-sm font-medium tracking-widest uppercase">Current collaboration · Hell&apos;s Kitchen</p>
+          <h2 id="le-yard-project" className="heading-serif text-charcoal text-4xl sm:text-5xl mt-4">Glass work for Le Yard.</h2>
+          <p className="mt-6 text-warm text-lg leading-relaxed">
+            MetroGlass Pro is handling the glass work for <a href="https://leyardny.com/" className="underline underline-offset-4 hover:text-charcoal">Le Yard</a>,
+            a neighborhood restaurant taking shape on Ninth Avenue in Manhattan.
+            <a href="https://lokeilremodeling.com/" className="underline underline-offset-4 hover:text-charcoal"> LOKEIL Remodeling</a> is handling the renovation,
+            with co-founder <a href="https://donaldlena.com/" className="underline underline-offset-4 hover:text-charcoal">Donald Lena</a> helping bring the restaurant to life.
+          </p>
+        </div>
+      </section>
+
       {/* ═══ 7. FAQ ═══ */}
       <section className="bg-cream py-16 sm:py-24">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
