@@ -8,6 +8,7 @@ const siteUpdated = new Date('2026-08-12T00:00:00.000Z')
 const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
 const projectModifiedDates = new Map([
   ['coop-condo-shower-door-installation-nyc', new Date('2026-09-14T00:00:00.000Z')],
+  ['shower-glass-design-consultation-nyc', new Date('2026-09-19T00:00:00.000Z')],
 ])
 const routeModifiedDates = new Map([
   ['/', new Date('2026-09-15T00:00:00.000Z')],
