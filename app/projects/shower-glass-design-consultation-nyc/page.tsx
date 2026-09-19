@@ -3,12 +3,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Shower Glass Design Consultation in NYC',
+  title: 'Shower Glass Planning for NYC Design Teams',
   description: 'Compare sliding, fixed-panel, and swing-door shower glass layouts in the actual bathroom before fabrication begins with MetroGlass Pro.',
   alternates: { canonical: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/' },
   openGraph: {
-    title: 'Shower Glass Design Consultation — Configuration Renders Before Install',
-    description: 'We don\'t just install glass. We study your bathroom, render multiple configurations with different hardware finishes, and help you choose the right enclosure before a single panel is cut.',
+    title: 'Shower Glass Planning Before Fabrication',
+    description: 'A practical guide to comparing shower glass layouts, hardware, field conditions, and project requirements before fabrication.',
     url: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/',
     type: 'article',
     images: [{ url: 'https://metroglasspro.com/editorial/design-process-sketch.jpg', width: 1200, height: 630, alt: 'Shower glass design sketch showing bathroom configuration renders on tablet' }],
@@ -19,19 +19,19 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'Do you provide configuration renders before installation?',
-    a: 'Yes. After the in-home measurement visit, we prepare visual layouts showing how different enclosure types — swing door, door-plus-fixed-panel, sliding bypass, walk-in panel — would look and function in your specific bathroom. We include hardware finish options so you can compare chrome, matte black, satin brass, and brushed nickel side by side.',
+    a: 'Photos, plans, and field conditions can be used to compare swing-door, fixed-panel, sliding, and walk-in layouts. Confirm in the written estimate whether a project includes rendered layouts, shop drawings, finish samples, or another review format before fabrication.',
   },
   {
     q: 'Can architects or designers send us drawings instead of scheduling a site visit?',
-    a: 'Absolutely. If you have floor plans, elevations, or 3D renders with dimensions, we can work from those to prepare a glass specification and configuration recommendation. We still recommend a site visit before fabrication to verify dimensions to 1/16" accuracy, but the design conversation can happen entirely from drawings.',
+    a: 'Drawings, elevations, and renderings can start the review. Final fabrication dimensions, supporting conditions, and clearances still need to be confirmed for the specific project before glass is ordered.',
   },
   {
     q: 'Do you work directly with the design team or only with the homeowner?',
-    a: 'Either way. On renovation projects, we often coordinate directly with the architect or interior designer — reviewing tile selections, hardware palettes, and clearance requirements before the homeowner is involved in the glass decision. We\'re comfortable in that workflow and can provide specification sheets, shop drawings, and COIs as needed.',
+    a: 'A project can be coordinated with the homeowner, contractor, architect, or interior designer. Identify the decision-maker and send the relevant finish, clearance, drawing, access, and building-document requirements so the needed review and deliverables can be defined.',
   },
   {
     q: 'How early in a renovation should we bring in the glass installer?',
-    a: 'Ideally before tile is set. Knowing the enclosure type early allows us to advise on wall blocking for heavy glass panels, drain positioning relative to the door swing, and niche placement that won\'t interfere with hinges or clips. Bringing us in after tile is finished works too — we do it regularly — but earlier involvement avoids costly surprises.',
+    a: 'Discussing the enclosure before tile is set can help the project team consider backing, curb and wall conditions, door clearance, showerhead direction, and niche placement. Final measurements should be based on the finished conditions required for the selected system.',
   },
   {
     q: 'What information do you need to prepare a configuration recommendation?',
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: 'Is there a charge for the design consultation?',
-    a: 'No. The consultation, measurement visit, and configuration review are all part of our standard process. We don\'t charge separately for design guidance — it\'s how we work on every project.',
+    a: 'The review scope and any fee should be confirmed for the individual project. Send the available photos or drawings first; the written estimate should state whether measurement, layouts, samples, specifications, or shop drawings are included.',
   },
 ]
 
@@ -67,12 +67,12 @@ const metroGlassOrganization = {
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'We Design Before We Install: Shower Glass Consultation for Architects and Designers',
-  description: 'How MetroGlass Pro renders multiple shower enclosure configurations in your client\'s actual bathroom before fabrication, a design-first process for architects, interior designers, and renovation professionals.',
+  headline: 'Shower Glass Planning for Architects and Designers',
+  description: 'A practical guide to comparing shower enclosure configurations, hardware, field conditions, and project requirements before fabrication.',
   author: metroGlassOrganization,
   publisher: metroGlassOrganization,
   datePublished: '2026-03-11',
-  dateModified: '2026-09-11',
+  dateModified: '2026-09-19',
   mainEntityOfPage: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/',
   image: 'https://metroglasspro.com/editorial/design-process-sketch.jpg',
 }
@@ -90,12 +90,12 @@ export default function DesignConsultationArticle() {
             ← Back to Projects
           </Link>
           <div className="flex flex-wrap gap-2 mb-4">
-            <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Design Process</span>
+            <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Planning Guide</span>
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">For Architects &amp; Designers</span>
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">NYC</span>
           </div>
           <h1 className="heading-serif text-charcoal text-3xl sm:text-5xl lg:text-[56px]">
-            We Design Before We Install: Shower Glass Consultation for Architects and Designers
+            Shower Glass Planning for Architects and Designers
           </h1>
           <p className="mt-4 text-charcoal/30 text-sm">March 2026</p>
         </div>
@@ -111,7 +111,7 @@ export default function DesignConsultationArticle() {
               className="w-full h-full object-cover"
             />
           </div>
-          <p className="mt-3 text-charcoal/25 text-xs italic text-center">From concept sketch to fabrication — we render multiple configurations before cutting a single panel.</p>
+          <p className="mt-3 text-charcoal/25 text-xs italic text-center">Use plans, photos, and finish references to compare enclosure options before fabrication.</p>
         </div>
       </section>
 
@@ -120,29 +120,29 @@ export default function DesignConsultationArticle() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 prose-mgp">
 
           <p>
-            Most glass installers show up, measure, and fabricate whatever the homeowner describes over the phone. That works for simple jobs. But if you&apos;re an architect specifying glass for a gut renovation, an interior designer coordinating a hardware palette across an entire bathroom, or a GC managing a high-end condo buildout — you need more than a tape measure and a lead time.
+            A shower enclosure affects door clearance, sight lines, hardware, supporting conditions, and how water is contained. Those decisions are useful before fabrication whether the project is led by a homeowner, architect, interior designer, or general contractor.
           </p>
           <p>
-            You need someone who understands configurations, who can look at a bathroom and tell you why a sliding bypass will create sight-line problems at that vanity angle, or why a door-plus-fixed-panel with a channel mount will read cleaner than a full corner enclosure in a narrow space. Someone who thinks about the glass decision before the tile is grouted, not after.
+            The first useful step is to compare the layouts that fit the actual room. A sliding system avoids a door arc, while a swing door or door-plus-fixed-panel may provide a different opening and visual balance. The right choice depends on the measured opening, finished surfaces, nearby fixtures, showerhead direction, and the selected hardware system.
           </p>
           <p>
-            That&apos;s how we work at MetroGlass Pro. We consult before we install.
+            MetroGlass Pro can review the available photos, plans, and project requirements, then identify what still needs to be confirmed before glass is ordered.
           </p>
 
           <h2>Your bathroom, multiple configurations</h2>
           <p>
-            When we take on a project — whether it comes through the homeowner, the designer, or the contractor — the first thing we do after measuring is study the space. Not just the opening width. The full bathroom: where the vanity sits relative to the shower entry, how the door swing interacts with the toilet clearance, where the showerhead and body sprays land, whether there&apos;s a bench or niche that constrains hinge placement.
+            A useful review covers more than opening width. It should consider where the vanity and toilet sit relative to the shower entry, how a door swing uses the available clearance, where the showerhead directs water, and whether a bench or niche affects panel and hardware placement.
           </p>
           <p>
-            From there, we prepare multiple enclosure options for the same bathroom. A typical consultation might include three scenarios:
+            Depending on the room and the agreed review scope, the comparison may include these configurations:
           </p>
           <ul>
-            <li><strong>Option A — Single swing door.</strong> The most minimal read. One glass panel, two wall-mount hinges, a single handle. Works beautifully when the opening is 28&quot;–32&quot; and there&apos;s adequate swing clearance outside the shower.</li>
-            <li><strong>Option B — Door plus fixed panel.</strong> Better for openings wider than 34&quot;. The fixed panel gives structure and reduces the weight on the hinges. We show how a glass-to-glass clamp versus a U-channel mount affects the visual weight of the connection.</li>
-            <li><strong>Option C — Sliding bypass or barn-door track.</strong> Ideal when swing clearance is limited — common in NYC tub-shower combos. We illustrate the track profile and how it reads against the tile format above the opening.</li>
+            <li><strong>Option A — Single swing door.</strong> A door-only layout that requires adequate clearance and suitable finished conditions for the selected hinges.</li>
+            <li><strong>Option B — Door plus fixed panel.</strong> A layout for openings where a fixed panel and door create the needed overall span. The connection and support method must match the system and site conditions.</li>
+            <li><strong>Option C — Sliding bypass or barn-door track.</strong> A layout that avoids a swing arc but adds track, overlap, handle, and access considerations.</li>
           </ul>
           <p>
-            Each option is presented with hardware finish variations. The same enclosure reads completely differently in polished chrome versus satin brass versus matte black. When your client is choosing between a warm and cool material palette, seeing the glass hardware in context — not in a catalog swatch — makes the decision immediate.
+            Hardware finish is another decision to record. Polished chrome, brushed finishes, matte black, and brass tones can read differently beside the selected plumbing fixtures and tile. Confirm the exact finish and product availability in the project estimate rather than relying on a generic color name.
           </p>
 
           <h2>Why this matters for the design team</h2>
@@ -150,50 +150,50 @@ export default function DesignConsultationArticle() {
             If you&apos;ve ever had a client approve a bathroom design and then watched the glass installer show up with hardware that clashes with the faucet finish, you know the problem. Glass is one of the last trades to touch a bathroom, but it&apos;s one of the first things you see when you walk in. A mismatched hinge finish or an awkward panel proportion can undermine months of design work.
           </p>
           <p>
-            By involving us early — ideally during schematic design or at latest during the tile selection phase — we can align the glass specification with the rest of the material palette. We&apos;ll tell you which CRL hinge profiles pair well with your plumbing fixtures, whether the glass thickness you&apos;re specifying requires a header bar for structural support, and whether a 90° corner enclosure is actually feasible given the wall conditions behind the tile.
+            Discussing the enclosure before tile is set can help the project team consider the material palette, intended hardware, supporting conditions, and whether the proposed corner or multi-panel layout needs additional field verification.
           </p>
           <p>
-            We&apos;ve worked with designers who send us their mood boards and fixture schedules. We&apos;ve worked with architects who send CAD elevations. We&apos;ve worked with GCs who call us to the site during rough-in to discuss blocking locations for heavy glass panels. Every one of those conversations prevents a problem that would otherwise surface on install day.
+            Mood boards, fixture schedules, elevations, and site photos can all help define the request. They do not replace final field confirmation where the selected system requires it.
           </p>
 
-          <h2>The details that get missed</h2>
+          <h2>Questions to resolve before fabrication</h2>
           <p>
-            Here are real scenarios we&apos;ve caught during the consultation phase — issues that would have been expensive to fix after fabrication:
+            Use these planning questions to surface conflicts while the layout can still be adjusted:
           </p>
           <ul>
-            <li><strong>Drain position vs. door swing.</strong> The linear drain was centered in the shower, but a swing door opening inward would have landed directly on it, creating a trip hazard at the threshold. We recommended an outward swing with a small fixed panel — same aesthetic, no interference with the drain.</li>
-            <li><strong>Niche placement conflicting with hinge location.</strong> A recessed shampoo niche was spec&apos;d at a height that would have put it exactly where the top hinge needed to anchor. Moving the niche up 4&quot; during tile layout solved it. After tile? That&apos;s a demolition conversation.</li>
-            <li><strong>Glass weight exceeding wall capacity.</strong> A 1/2&quot; glass panel at 72&quot; tall weighs over 100 lbs. The designer had specified a frameless walk-in panel mounted to a half-wall with no header. The half-wall was standard drywall over metal studs with no blocking. We flagged it during the measurement visit and coordinated with the GC to add plywood blocking behind the tile before the panel was ordered.</li>
-            <li><strong>Hardware finish mismatch.</strong> The plumbing fixtures were Waterworks burnished brass. The client had asked a previous installer for &ldquo;gold hardware.&rdquo; Gold and burnished brass are not the same finish. We brought satin brass and polished brass hinge samples to the site so the designer could compare them against the actual faucet in the actual light of the bathroom.</li>
+            <li><strong>Door clearance and water direction.</strong> Check the proposed swing against the curb, drain, toilet, vanity, and circulation path, and confirm where the showerhead directs water.</li>
+            <li><strong>Niches and hardware zones.</strong> Compare the niche, plumbing, and tile layout with the intended hinge, clip, channel, and handle locations.</li>
+            <li><strong>Supporting conditions.</strong> The project team should confirm that walls, curbs, half-walls, and ceilings are suitable for the selected glass and hardware system before fabrication.</li>
+            <li><strong>Finish matching.</strong> Record the exact hardware finish and compare a current sample or manufacturer reference with the fixtures when a close match matters.</li>
           </ul>
           <p>
-            None of these are exotic situations. They happen on standard NYC bathroom renovations, every week. The difference is whether your glass installer catches them or creates them.
+            The answers belong in the project record so the estimate, drawings, field measurements, and approved selection describe the same enclosure.
           </p>
 
-          <h2>What we provide to the design team</h2>
+          <h2>Define the design deliverables</h2>
           <p>
-            Depending on the project scope, we can deliver:
+            Ask the estimate to identify which of these items are included for the project:
           </p>
           <ul>
             <li><strong>Configuration layouts</strong> showing enclosure options overlaid on your bathroom plan or elevation.</li>
             <li><strong>Hardware finish comparison</strong> — physical samples or annotated references matched against your specified plumbing fixtures.</li>
             <li><strong>Glass specification sheets</strong> with thickness, tempering certification, edge treatment, and coating options (clear, low-iron, frosted, rain texture).</li>
             <li><strong>Shop drawings</strong> for review before fabrication, showing exact dimensions, hinge placement, clip locations, and silicone joint details.</li>
-            <li><strong>COI and building documentation</strong> for co-op and condo projects — issued within 24 hours, naming your client&apos;s building and management company as additional insured.</li>
+            <li><strong>Building documentation review</strong> using the property&apos;s exact certificate holder, additional insured, policy-limit, submission, access, and scheduling requirements. Building management makes the final acceptance decision.</li>
           </ul>
           <p>
-            All of this is included in our standard process. We don&apos;t charge separately for consultation or specification work. It&apos;s how we operate on every project, because it&apos;s how good glass work gets done.
+            Deliverables, fees, and timing depend on the agreed project scope. Confirm them in writing before relying on a render, sample, specification, shop drawing, or building-document submission.
           </p>
 
           <h2>A note on timing</h2>
           <p>
-            The ideal moment to bring us in is before tile is set — during rough-in or tile layout. That gives us the best opportunity to advise on blocking, drain coordination, and niche placement. But we understand that&apos;s not always how projects unfold.
+            Reviewing the intended enclosure during rough-in or tile layout gives the project team an opportunity to consider backing, drain coordination, niche placement, and door clearance before the finished surfaces limit the options.
           </p>
           <p>
-            If you&apos;re calling us after tile is finished, that&apos;s fine. We do it constantly. We&apos;ll work with what&apos;s there and flag any constraints honestly. If a configuration won&apos;t work because of existing conditions, we&apos;ll tell you — and we&apos;ll tell you what will.
+            If tile is already finished, send photos of the opening, curb, side walls, nearby fixtures, and any existing glass or holes. Those conditions narrow the suitable options and help determine whether an on-site assessment is needed.
           </p>
           <p>
-            Our fabrication lead time is 5–7 business days after final measurements are confirmed. Total timeline from first call to installed glass is typically two weeks.
+            Review, measurement, fabrication, documentation, delivery, and installation timing varies with the selected system, current material availability, site access, and building requirements. Request a project-specific schedule; an estimate or design discussion is not a confirmed installation date.
           </p>
 
           <h2>For architects, designers, and contractors</h2>
@@ -201,7 +201,7 @@ export default function DesignConsultationArticle() {
             If you&apos;re working on a residential project in NYC and you want a glass installer who operates as a design collaborator — not just a subcontractor who shows up with a drill — we&apos;d like to work with you.
           </p>
           <p>
-            Send us your floor plans, elevations, or just a few photos of the space. We&apos;ll come back with configuration options, hardware recommendations, and a clear specification — before anything is fabricated.
+            Send floor plans, elevations, or clear photos of the space. MetroGlass Pro can review the request and identify the measurements, conditions, selections, and deliverables that need confirmation before fabrication.
           </p>
         </div>
 
@@ -209,7 +209,7 @@ export default function DesignConsultationArticle() {
         <div className="max-w-3xl mx-auto px-6 sm:px-10 mt-10">
           <div className="glass-card p-6 sm:p-8 text-center">
             <p className="font-serif text-charcoal text-xl sm:text-2xl mb-2">Working on a project?</p>
-            <p className="text-warm text-[14px] mb-5">Send us drawings, dimensions, or photos. We&apos;ll prepare configuration options and hardware recommendations — no charge.</p>
+            <p className="text-warm text-[14px] mb-5">Send drawings, dimensions, or photos so the next planning and measurement steps can be defined for your project.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">
                 Start a Consultation
@@ -278,7 +278,7 @@ export default function DesignConsultationArticle() {
               Glass is a design decision. Treat it like one.
             </h2>
             <p className="mt-4 text-white/50 text-base sm:text-lg">
-              We consult, configure, and install — so the glass works with the design, not against it.
+              Start with the room, the selected finishes, and the project requirements before the glass is ordered.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Link href="/contact/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">
