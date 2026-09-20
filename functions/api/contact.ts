@@ -5,6 +5,7 @@ interface Env {
   CONTACT_TO_EMAIL?: string
   CONTACT_FROM_EMAIL?: string
   CONTACT_FROM_NAME?: string
+  CONTACT_BLOCKED_EMAILS?: string
 }
 
 type PagesContext = {
@@ -53,6 +54,15 @@ function json(data: Record<string, unknown>, status = 200) {
 function clean(value: unknown, max = 500) {
   if (typeof value !== 'string') return ''
   return value.trim().replace(/\s+/g, ' ').slice(0, max)
+}
+
+function isBlockedSubmission(submission: Submission, env: Env) {
+  // Match this reported spam identity despite case, spacing or punctuation changes.
+  const name = submission.name.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]/g, '')
+  if (name === 'robertphory') return true
+
+  const blockedEmails = (env.CONTACT_BLOCKED_EMAILS || '').split(',').map((email) => email.trim().toLowerCase()).filter(Boolean)
+  return blockedEmails.includes(submission.email.toLowerCase())
 }
 
 function arrayBufferToBase64(buffer: ArrayBuffer) {
@@ -328,7 +338,7 @@ export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) =
 
   const submission = buildSubmission(rawPayload)
 
-  if (submission.website) {
+  if (submission.website || isBlockedSubmission(submission, env)) {
     return json({ ok: true })
   }
 

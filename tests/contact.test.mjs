@@ -6,6 +6,39 @@ const env = { RESEND_API_KEY: 'test-key-never-live', CONTACT_TO_EMAIL: 'operatio
 const lead = { name: 'Test visitor', contact: 'visitor@example.com', message: 'A mirror in Queens.' }
 const request = (body) => new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
 
+test('reported spam names and blocked email addresses never send notifications or confirmations', async (t) => {
+  const fetch = t.mock.method(globalThis, 'fetch', async () => { throw new Error('Must not send') })
+  const settings = { ...env, CONTACT_BLOCKED_EMAILS: ' spam@example.com, SECOND@example.com ' }
+  const bodies = [
+    ...['RobertPhory', ' ROBERT PHORY ', 'Robert-Phory', 'ＲｏｂｅｒｔＰｈｏｒｙ'].map((name) => ({ ...lead, name })),
+    { ...lead, contact: 'SPAM@example.com' },
+    { name: 'Different name', email: 'second@example.com', message: 'Legacy form' },
+  ]
+  for (const body of bodies) {
+    for (const format of ['json', 'multipart', 'urlencoded']) {
+      let req = request(body)
+      if (format !== 'json') {
+        const form = format === 'multipart' ? new FormData() : new URLSearchParams()
+        Object.entries(body).forEach(([key, value]) => form.set(key, value))
+        req = new Request('https://metroglasspro.com/api/contact', { method: 'POST', body: form })
+      }
+      const response = await onRequestPost({ request: req, env: settings })
+      assert.equal(response.status, 200)
+      assert.deepEqual(await response.json(), { ok: true })
+    }
+  }
+  assert.equal(fetch.mock.callCount(), 0)
+})
+
+test('the targeted block preserves unrelated customers including similar names', async (t) => {
+  const fetch = t.mock.method(globalThis, 'fetch', async () => new Response('{"id":"accepted-customer"}'))
+  for (const name of ['Robert', 'Robert Smith', 'Phory', 'RobertPhoryson']) {
+    const response = await onRequestPost({ request: request({ ...lead, name }), env: { ...env, CONTACT_BLOCKED_EMAILS: 'spam@example.com' } })
+    assert.ok((await response.json()).requestId)
+  }
+  assert.equal(fetch.mock.callCount(), 8)
+})
+
 test('minimal email and phone requests succeed without requiring both contacts or a service', async (t) => {
   const sent = []
   t.mock.method(globalThis, 'fetch', async (_url, options) => {
