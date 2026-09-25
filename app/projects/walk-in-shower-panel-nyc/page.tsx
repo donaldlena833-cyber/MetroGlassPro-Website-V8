@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Walk-In Frameless Shower Panel — NYC Guide',
-  description: 'The wet room look: a single fixed glass panel with no door. Why it\'s the most premium shower option in NYC and what waterproofing it requires.',
+  description: 'The wet room look: a single fixed glass panel with no door. Layout and water-control considerations for a fixed walk-in shower panel.',
   alternates: { canonical: 'https://metroglasspro.com/projects/walk-in-shower-panel-nyc/' },
   openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Walk-In Frameless Shower Panel — NYC Guide',
-    description: 'No door, just glass. The wet room trend taking over NYC luxury bathrooms.',
+    description: 'No door, just glass. A fixed-panel layout with water-control considerations.',
   },
   twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
@@ -24,7 +24,7 @@ export default function WalkInPanelArticle() {
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Configuration Guide</span>
           </div>
           <h1 className="heading-serif text-charcoal text-3xl sm:text-5xl lg:text-6xl">
-            Walk-In Shower Panel: The Wet Room Look Taking Over NYC
+            Walk-In Shower Panel: Layout and Water Control
           </h1>
           <p className="mt-4 text-charcoal/30 text-sm">February 2026</p>
         </div>
@@ -55,7 +55,7 @@ export default function WalkInPanelArticle() {
             The result is the most open, spa-like shower experience you can get in a residential bathroom. There&apos;s no door to clean, no hinges to maintain, and no hardware beyond the wall clamps holding the glass. It&apos;s glass at its most minimal.
           </p>
 
-          <h2>Why it&apos;s the most premium look in NYC bathrooms</h2>
+          <h2>When an open layout makes sense</h2>
           <p>
             Walk-in panels read as luxury because they demand a thoughtfully designed bathroom. You can&apos;t just drop one into any layout — the shower needs to be wide enough, the drain needs to be positioned correctly, and the floor needs proper waterproofing and slope. When all of that comes together, the result is a bathroom that looks like it belongs in a design magazine.
           </p>
@@ -68,7 +68,7 @@ export default function WalkInPanelArticle() {
             <li><strong>Master bathrooms</strong> in larger apartments where there&apos;s room for a generous shower footprint</li>
           </ul>
           <p>
-            The glass itself is almost always 1/2&quot; (12mm) tempered for walk-in panels. Since there are no hinges or moving parts, the panel is permanently fixed — so it needs to be heavy enough to feel substantial and rigid enough to resist any lateral pressure. Two wall clamps at top and bottom hold it in place.
+            Glass thickness and support hardware depend on panel dimensions, wall construction, manufacturer requirements, and a field review. The final system must be designed for the actual opening.
           </p>
 
           <h2>Waterproofing considerations</h2>
@@ -76,7 +76,7 @@ export default function WalkInPanelArticle() {
             The biggest difference between a walk-in panel and every other shower configuration: there&apos;s no door to contain the water. This means the rest of the bathroom needs to be built to handle some water escape. It&apos;s not as dramatic as it sounds, but it does require planning:
           </p>
           <ul>
-            <li><strong>Floor slope:</strong> The shower floor must slope toward the drain at a minimum of 1/4&quot; per foot. This keeps water flowing toward the drain rather than pooling or running toward the open entry. We check this during measurement and flag any slope issues before installation.</li>
+            <li><strong>Floor slope:</strong> Drainage and floor slope should be designed and checked by the responsible bathroom contractor under applicable requirements. A glass measurement does not verify waterproofing.</li>
             <li><strong>Drain placement:</strong> The drain should be positioned between the showerhead and the open entry — ideally at or near the center of the shower floor. This catches the majority of water before it can reach the opening.</li>
             <li><strong>Panel width and positioning:</strong> The glass panel blocks direct spray from the showerhead. We position it so the showerhead spray zone is fully behind the glass. The open entry is on the side furthest from the water source.</li>
             <li><strong>Bathroom floor:</strong> For a true wet room, the bathroom floor outside the shower should also be tiled and waterproofed, with a slight slope back toward the shower drain. This isn&apos;t always necessary — it depends on the layout — but we recommend it for fully open designs.</li>

@@ -3,26 +3,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'See Every Shower Door Option First',
-  description: 'Compare hinged, sliding, corner, and neo-angle shower door renders in your actual bathroom before fabrication. See the options, then decide.',
-  keywords: [
-    'custom frameless shower door NYC',
-    'shower door options small bathroom',
-    'frameless shower enclosure NYC',
-    'neo-angle shower door NYC',
-    'corner shower enclosure NYC',
-    'shower door design consultation NYC',
-    'sliding shower door small bathroom NYC',
-    'hinged shower door NYC',
-    'custom shower glass Manhattan',
-    'shower door before and after NYC',
-    'visualize shower door options',
-    'shower glass installation NYC',
-  ],
+  title: 'Comparing Shower Door Layouts Before Fabrication',
+  description: 'Compare possible hinged, sliding, corner, and neo-angle shower door layouts. Field measurements determine which fit a specific bathroom.',
   alternates: { canonical: 'https://metroglasspro.com/projects/visualize-shower-door-options-nyc/' },
   openGraph: {
-    title: 'See Every Shower Door Option First',
-    description: 'We render your actual bathroom with 4 different frameless shower door configurations before fabrication begins. NYC custom glass.',
+    title: 'Comparing Shower Door Layouts Before Fabrication',
+    description: 'Illustrative shower glass layouts can help discuss options before field measurements and fabrication.',
     url: 'https://metroglasspro.com/projects/visualize-shower-door-options-nyc/',
     type: 'article',
     images: ['https://metroglasspro.com/gallery/visualize-feature-neo-angle.jpg'],
@@ -36,8 +22,8 @@ export const metadata: Metadata = {
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'See Every Shower Door Option Before You Commit',
-  description: 'MetroGlass Pro renders your actual bathroom with multiple frameless shower enclosure configurations before any glass is fabricated, so you choose with confidence.',
+  headline: 'Comparing Shower Door Layouts Before Fabrication',
+  description: 'Illustrative layout options for discussing shower glass before field measurements and fabrication.',
   author: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   publisher: { '@type': 'Organization', name: 'MetroGlass Pro', url: 'https://metroglasspro.com' },
   datePublished: '2026-04-01',
@@ -62,7 +48,7 @@ export default function VisualizeShowerDoorOptionsPage() {
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Frameless Shower Enclosure</span>
           </div>
           <h1 className="heading-serif text-charcoal text-3xl sm:text-5xl lg:text-6xl">
-            We Show You Every Option Before Any Glass Gets Cut
+            Compare Layout Options Before Ordering Glass
           </h1>
           <p className="mt-4 text-charcoal/30 text-sm">April 1, 2026</p>
         </div>
@@ -88,7 +74,7 @@ export default function VisualizeShowerDoorOptionsPage() {
             Most glass companies take your measurements, show you a catalog, and ask you to pick something. You are choosing from a list of descriptions and stock photos that have nothing to do with your actual bathroom. That is how clients end up with an enclosure that looks fine on paper and wrong in person.
           </p>
           <p>
-            We do it differently. Before any glass is ordered or fabricated, we generate renders of your real space with multiple frameless shower door configurations so you can see exactly what each option looks like at your dimensions, with your tile, in your bathroom. That process is what we call Visualize.
+            Visual examples can make a discussion about hinged, sliding, and angled layouts easier. A rendering is only a planning aid; field measurements, hardware limits, and the actual room determine what can be built.
           </p>
 
           <h2>The Starting Point</h2>
@@ -111,7 +97,7 @@ export default function VisualizeShowerDoorOptionsPage() {
               </div>
               <div className="p-5">
                 <p>
-                  The bathroom before any glass. Solid tile work, a clean layout, and a shower that reads as unfinished without an enclosure. From this photo we generated four separate configuration renders for the client to compare.
+                  The bathroom before any glass. Solid tile work, a clean layout, and a shower that reads as unfinished without an enclosure. The images below illustrate several possible configurations; they do not establish that each option fits a particular opening.
                 </p>
               </div>
             </div>
@@ -230,7 +216,7 @@ export default function VisualizeShowerDoorOptionsPage() {
               </div>
               <div className="p-5">
                 <p>
-                  Curved track with two sliding panels meeting at center. Chrome hardware throughout. The inset diagram shows the radius dimensions. This was the final selection, fabricated and installed within seven business days of approval.
+                  Curved track with two sliding panels meeting at center. Chrome hardware throughout. The inset diagram shows the radius dimensions. This illustration shows a neo-angle option. Fabrication and installation timing must be confirmed for each project.
                 </p>
               </div>
             </div>
@@ -238,31 +224,31 @@ export default function VisualizeShowerDoorOptionsPage() {
 
           <h2>Why Seeing It First Changes Everything</h2>
           <p>
-            Choosing a shower enclosure without seeing it in your space is a real risk, especially in NYC bathrooms where a few inches in the wrong direction can make an enclosure feel oversized or mismatched. The Visualize process removes that risk entirely.
+            Choosing a shower enclosure without seeing it in your space is a real risk, especially in NYC bathrooms where a few inches in the wrong direction can make an enclosure feel oversized or mismatched. Visual examples can help narrow the questions to resolve during measurement.
           </p>
           <p>
-            We generate these renders before any glass is ordered. That means no fabrication costs committed, no delivery scheduled, and no installation booked until you have seen every option and made a confident decision. For architects and interior designers, it also means you can present the client with visual options before bringing us on site for measurements, which speeds up the approval process on renovation projects.
+            Ask about layout options before glass is ordered. Drawings or illustrations can help a homeowner, architect, or designer compare ideas, but they are not fabrication drawings or a confirmed schedule.
           </p>
           <p>
-            The renders are generated from the actual photo of the space. Not a stock bathroom. Not a generic floor plan. Your tile, your vanity, your niche, your exact dimensions. That level of specificity is what makes the Visualize process useful rather than cosmetic.
+            Photos of the space can inform a design discussion. Accurate glass dimensions still require field measurement after the surrounding finishes are complete.
           </p>
 
           <h2>What Architects and Contractors Should Know</h2>
           <p>
-            We work directly with architects, general contractors, and interior designers across Manhattan, Brooklyn, Queens, and the tri-state area. If you have a bathroom in renovation and the shower enclosure is still undecided, send us the space photo and we can turn around a Visualize render set quickly, often within 24 to 48 hours.
+            Architects, general contractors, interior designers, and homeowners can send photos or plans when the shower enclosure is still undecided. We will confirm which design review is available for the project.
           </p>
           <p>
-            We do not charge for the initial render set on new projects. It is part of how we work. And once the client approves a configuration, we move fast. Our standard turnaround from field measurements to completed installation is five to seven business days.
+            Pricing and timing for any design work, measurement, fabrication, and installation are confirmed in a project-specific estimate.
           </p>
 
           <div className="mt-10 p-6 bg-charcoal/[0.03] rounded-lg border border-charcoal/[0.06]">
             <p className="text-[13px] text-charcoal/50 font-medium uppercase tracking-wider mb-3">Project Details</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-charcoal/70">
               <div><span className="text-charcoal/40">Configurations presented,</span> Hinged, Sliding, 90-Degree Corner, Neo-Angle Curved.</div>
-              <div><span className="text-charcoal/40">Final selection,</span> Neo-angle curved enclosure.</div>
+              <div><span className="text-charcoal/40">Illustrated option,</span> Neo-angle curved enclosure.</div>
               <div><span className="text-charcoal/40">Glass,</span> Clear tempered frameless.</div>
               <div><span className="text-charcoal/40">Hardware,</span> Chrome finish throughout.</div>
-              <div><span className="text-charcoal/40">Turnaround,</span> Five to seven business days from approval.</div>
+              <div><span className="text-charcoal/40">Timing,</span> Confirm after field measurements and supplier review.</div>
               <div><span className="text-charcoal/40">Service area,</span> NYC and tri-state.</div>
             </div>
           </div>
@@ -277,7 +263,7 @@ export default function VisualizeShowerDoorOptionsPage() {
               <div className="space-y-2">
                 <Link href="/shower-door-installation-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Shower Door Installation →</Link>
                 <Link href="/frameless-shower-doors-nyc/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Frameless Shower Doors →</Link>
-                <Link href="/contact/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Request a Visualize Render →</Link>
+                <Link href="/contact/" className="text-orange text-[14px] hover:opacity-70 transition-opacity block">Discuss Layout Options →</Link>
               </div>
             </div>
             <div>
@@ -295,8 +281,8 @@ export default function VisualizeShowerDoorOptionsPage() {
       <section className="bg-charcoal py-20 sm:py-24 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
           <h2 className="heading-serif text-white text-3xl sm:text-4xl">Want to see your bathroom before we build?</h2>
-          <p className="mt-3 text-white/40 text-base">Send us a photo and we will render every enclosure option in your actual space.</p>
-          <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm mt-8 inline-flex">Get a Free Render</Link>
+          <p className="mt-3 text-white/40 text-base">Send photos or plans and ask which enclosure layouts may be worth considering.</p>
+          <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm mt-8 inline-flex">Ask About Layout Options</Link>
         </div>
       </section>
     </>

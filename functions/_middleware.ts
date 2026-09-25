@@ -64,7 +64,8 @@ export async function onRequest(context: PagesContext) {
   const htmlWithVary = () => {
     const copy = new Response(request.method === 'HEAD' ? null : htmlResponse.body, htmlResponse)
     varyAccept(copy.headers)
-    if (htmlResponse.ok && htmlResponse.headers.get('content-type')?.includes('text/html')) {
+    // These exported utility pages are noindex and have no Markdown asset.
+    if (htmlResponse.ok && !['/thank-you/', '/404/'].includes(url.pathname) && htmlResponse.headers.get('content-type')?.includes('text/html')) {
       copy.headers.append('Link', `<${url.origin}${markdownAssetPath(url.pathname)}>; rel="alternate"; type="text/markdown"`)
     }
     return copy

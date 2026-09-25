@@ -192,7 +192,6 @@ export default function HomePage() {
                   &ldquo;{r.text}&rdquo;
                 </p>
                 <p className="mt-5 text-warm text-sm font-medium tracking-wide uppercase">{r.name}</p>
-                <p className="text-orange/60 text-lg tracking-[4px] mt-1" aria-label="5 out of 5 stars" role="img">★★★★★</p>
               </div>
             ))}
           </div>

@@ -1,15 +1,13 @@
 import type { Metadata } from 'next'
 import { Instrument_Serif, Inter } from 'next/font/google'
-import { CookieConsent } from '@/components/CookieConsent';
+import LegacyTrackingCleanup from '@/components/LegacyTrackingCleanup'
 import './readiness.css';
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MobileCtaBar from '@/components/MobileCtaBar'
 import ScrollObserver from '@/components/ScrollObserver'
-import LeadAttributionTracker from '@/components/LeadAttributionTracker'
 import { businessJsonLd } from '@/content/business'
-import analyticsConfig from '@/lib/analytics-config.json'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,9 +22,6 @@ const instrumentSerif = Instrument_Serif({
   display: 'swap',
   variable: '--font-instrument-serif',
 })
-
-const { googleAnalyticsId } = analyticsConfig
-const googleAdsId = 'AW-934489946'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metroglasspro.com'),
@@ -62,14 +57,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans pb-[calc(84px+env(safe-area-inset-bottom))] lg:pb-0">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, '\\u003c') }} />
-        <LeadAttributionTracker />
+        <LegacyTrackingCleanup />
         <ScrollObserver />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
         <main id="main-content">{children}</main>
         <MobileCtaBar />
         <Footer />
-<CookieConsent analyticsId={googleAnalyticsId || undefined} adsId={googleAdsId} privacyPath="/privacy-policy/" />
       </body>
     </html>
   )

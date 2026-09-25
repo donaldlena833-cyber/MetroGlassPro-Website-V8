@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Single Swing Frameless Shower Door — NYC Guide',
-  description: 'Why the single swing frameless door is NYC\'s most popular shower configuration. Glass thickness, swing direction, and what makes it ideal for apartments.',
+  description: 'When a single swing frameless door may work for an NYC bathroom. Glass thickness, swing direction, and what makes it ideal for apartments.',
   alternates: { canonical: 'https://metroglasspro.com/projects/single-swing-door-nyc/' },
   openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
     title: 'Single Swing Frameless Shower Door — NYC Guide',
-    description: 'NYC\'s most popular shower door configuration. Glass thickness, swing direction, and why apartments love it.',
+    description: 'Single swing door layout considerations. Glass thickness, swing direction, and why apartments love it.',
   },
   twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
@@ -26,7 +26,7 @@ export default function SingleSwingDoorArticle() {
             <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2.5 py-1 rounded-full">Configuration Guide</span>
           </div>
           <h1 className="heading-serif text-charcoal text-3xl sm:text-5xl lg:text-6xl">
-            Single Swing Frameless Shower Door: NYC&apos;s Most Popular Configuration
+            Single Swing Frameless Shower Door: Layout and Clearance Guide
           </h1>
           <p className="mt-4 text-charcoal/30 text-sm">February 2026</p>
         </div>
@@ -43,7 +43,7 @@ export default function SingleSwingDoorArticle() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 prose-mgp">
           <p>
-            If you&apos;re looking at frameless shower doors for a NYC apartment, chances are you&apos;ll end up with a single swing door. It&apos;s the most common configuration we install — by a wide margin — and for good reason. One glass panel, two hinges, a handle. Clean, minimal, and it works in nearly every bathroom layout.
+            If you&apos;re looking at frameless shower doors for a NYC apartment, chances are you&apos;ll end up with a single swing door. A single swing door is one possible layout. It needs suitable wall support, hinge capacity, and clear swing space.
           </p>
 
           <h2>Why NYC apartments love the single swing door</h2>
@@ -63,7 +63,7 @@ export default function SingleSwingDoorArticle() {
           </p>
           <ul>
             <li><strong>Weight:</strong> A 3/8&quot; panel weighs roughly 5 lbs per square foot. A typical 30&quot;×72&quot; door comes in around 75 lbs — manageable for standard wall-mount hinges and safe for tile walls with proper anchoring.</li>
-            <li><strong>Strength:</strong> 3/8&quot; tempered glass is extremely strong. It exceeds ANSI Z97.1 safety standards and handles daily use without any concern.</li>
+            <li><strong>Strength:</strong> 3/8&quot; tempered glass is extremely strong. The actual glass product and installation should be checked against applicable safety requirements.</li>
             <li><strong>Cost:</strong> 3/8&quot; glass is more affordable than 1/2&quot;, and the hardware can be lighter-duty, which saves further.</li>
           </ul>
           <p>
@@ -78,10 +78,10 @@ export default function SingleSwingDoorArticle() {
             <strong>Outward swing (into the bathroom)</strong> is the default in most NYC apartments. The door swings away from the showerhead and water, which means less water escapes when you open it. It also means you don&apos;t lose any usable space inside the shower.
           </p>
           <p>
-            <strong>Inward swing (into the shower)</strong> makes sense when the bathroom is so tight that an outward-swinging door would hit the toilet, vanity, or bathroom door. This is more common than you&apos;d think in NYC — especially in older co-ops where the toilet is 18&quot; from the shower opening. Inward swing solves the clearance problem, though you lose a few inches of standing room inside the shower.
+            <strong>Inward swing (into the shower)</strong> makes sense when the bathroom is so tight that an outward-swinging door would hit the toilet, vanity, or bathroom door. This is more common than you&apos;d think in NYC — especially in older co-ops where the toilet is 18&quot; from the shower opening. An inward swing may affect emergency access and must be checked against the applicable code, hardware, and room layout.
           </p>
           <p>
-            Many of the hinges we use — including the CRL Geneva — support 180° swing, meaning the door can swing both directions. We default to outward but can configure for either direction during fabrication.
+            Many of the hinges we use — including the CRL Geneva — support 180° swing, meaning the door can swing both directions. Swing direction depends on the hardware, available clearance, and applicable requirements; it must be decided for the specific opening.
           </p>
           <p>
             The key measurement: you need at least the full width of the door panel as clear swing space. A 28&quot; door needs 28&quot; of clearance in the direction it swings. We check this during the measurement visit and recommend the best direction based on your specific layout.
@@ -89,7 +89,7 @@ export default function SingleSwingDoorArticle() {
 
           <h2>What a single swing door costs in NYC</h2>
           <p>
-            A single swing frameless door typically falls in the $800–$1,500 range installed, depending on glass thickness, hardware finish, and door size. This makes it the most affordable frameless configuration — and often the best value when upgrading from a framed door.
+            The published planning range for a single swing frameless door starts around $800–$1,600+. A project-specific quote depends on dimensions, glass, hardware, access, and installation conditions.
           </p>
         </div>
       </section>

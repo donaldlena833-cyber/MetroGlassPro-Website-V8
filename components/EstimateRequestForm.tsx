@@ -4,7 +4,7 @@ import type { ChangeEvent, FormEvent } from 'react'
 import { useState, useEffect } from 'react'
 import { quoteServiceFromId, serviceOptions } from '@/content/service-catalog'
 import { splitContact } from '@/lib/contact-details'
-import { getLeadAttribution, referralOptions, trackLeadEvent } from '@/lib/lead-attribution'
+import { referralOptions } from '@/lib/lead-attribution'
 
 const initialValues = { name: '', contact: '', service: '', message: '', website: '', howHeard: '' }
 const inputClassName = 'w-full min-w-0 px-4 py-3 bg-white border border-charcoal/20 rounded-xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:ring-2 focus:ring-charcoal/30'
@@ -59,7 +59,6 @@ export default function EstimateRequestForm() {
     try {
       const formData = new FormData()
       Object.entries(values).forEach(([key, value]) => formData.append(key, value))
-      Object.entries(getLeadAttribution()).forEach(([key, value]) => formData.append(key, value))
       files.forEach((file) => formData.append('attachments', file))
       const response = await fetch('/api/contact', { method: 'POST', body: formData, signal: AbortSignal.timeout(20000) })
       const payload = await response.json().catch(() => ({}))
@@ -69,7 +68,6 @@ export default function EstimateRequestForm() {
       }
       setReference(typeof payload.requestId === 'string' ? payload.requestId : '')
       setSubmitState('success')
-      trackLeadEvent('generate_lead', 'form', values.howHeard, values.service)
       setFiles([])
       try { sessionStorage.setItem('received-metroglasspro.com', 'received'); sessionStorage.setItem('received-metroglasspro-reference', typeof payload.requestId === 'string' ? payload.requestId : ''); window.location.assign('/thank-you/'); } catch { /* Keep the existing receipt visible. */ }
     } catch (error) {

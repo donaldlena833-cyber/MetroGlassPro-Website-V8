@@ -213,7 +213,7 @@ export default function FramelessShowerDoorsNYC() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {[
-              { t: 'Single Swing Door', d: 'The most popular configuration. A single tempered glass panel on pivot or continuous hinges. Clean, minimal, opens inward or outward.', img: '/editorial/configurations/single-swing-door.jpg', alt: 'Single swing frameless shower door with satin brass hinges and handle' },
+              { t: 'Single Swing Door', d: 'A clean single-door layout. Swing direction, hinge choice, and clearances need a review of the actual opening.', img: '/editorial/configurations/single-swing-door.jpg', alt: 'Single swing frameless shower door with satin brass hinges and handle' },
               { t: 'Door + Fixed Panel', d: 'Ideal for wider openings. One swinging door plus a stationary glass panel, connected with a glass-to-glass hinge or U-channel.', img: '/editorial/configurations/door-fixed-panel.jpg', alt: 'Frameless shower door with fixed glass panel and satin brass hardware' },
               { t: 'Sliding Bypass Doors', d: 'Two panels on a track — one slides behind the other. Perfect for tub-shower combos where swing clearance is limited.', img: '/editorial/configurations/sliding-bypass-doors.jpg', alt: 'Sliding bypass frameless shower doors with satin brass barn-door track' },
               { t: 'Neo-Angle Enclosures', d: 'Three glass panels forming a corner entry. Fits non-standard or angled shower bases common in older NYC buildings.', img: '/editorial/configurations/neo-angle-enclosure.jpg', alt: 'Neo-angle frameless glass shower enclosure with brass clamps — top view' },

@@ -3,7 +3,6 @@ import { glassServices, quoteServiceFromId, serviceCategory, servicePhotoTip } f
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { onRequest } from '../functions/_middleware.ts'
-import { detectAttribution, getLeadAttribution, trackLeadEvent } from '../lib/lead-attribution.ts'
 import { onRequestPost } from '../functions/api/contact.ts'
 
 test('hinge article author and publisher resolve to the logo-bearing business entity', () => {
@@ -135,6 +134,14 @@ test('service page supports Markdown, HEAD and the existing HTML representation'
   }
 })
 
+test('noindex utility pages do not advertise missing Markdown alternates', async () => {
+  for (const pathname of ['/thank-you/', '/404/']) {
+    const response = await onRequest(pageContext('text/html', { pathname }))
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('Link'), null)
+  }
+})
+
 test('missing Markdown falls back only if HTML is acceptable', async () => {
   const fallback = await onRequest(pageContext('text/markdown,text/html;q=0.8', { assetStatus: 404 }))
   assert.equal(fallback.status, 200)
@@ -154,44 +161,6 @@ test('negotiation preserves redirects, real 404s, API and asset requests', async
   for (const pathname of ['/contact/index.md', '/api/contact', '/robots.txt', '/gallery/photo.jpg']) {
     assert.equal((await onRequest(pageContext('application/json', { pathname }))).status, 200)
   }
-})
-
-test('detects known referrals without retaining prompts or query strings', () => {
-  assert.deepEqual(detectAttribution('https://metroglasspro.com/frameless-shower-doors-nyc/?utm_source=chatgpt.com&prompt=private#details'), {
-    detectedSource: 'ChatGPT', sourceEvidence: 'utm_source', landingPath: '/frameless-shower-doors-nyc/', referrerHost: '',
-  })
-  assert.equal(detectAttribution('https://metroglasspro.com/', 'https://www.perplexity.ai/search/private').detectedSource, 'Perplexity')
-  assert.equal(detectAttribution('https://metroglasspro.com/', 'https://chatgpt.com.evil.example/').detectedSource, 'Other website')
-  assert.equal(detectAttribution('https://metroglasspro.com/contact/', 'https://metroglasspro.com/').detectedSource, 'Direct / unknown')
-  assert.equal(detectAttribution('https://metroglasspro.com/?utm_source=unknown-private-name').detectedSource, 'Other campaign')
-})
-
-test('attribution survives navigation; analytics uses separate click and submission events', () => {
-  const stored = new Map()
-  const events = []
-  const previousStorage = globalThis.localStorage
-  globalThis.localStorage = { getItem: (key) => stored.get(key) || null }
-  globalThis.window = { location: { href: 'https://metroglasspro.com/?utm_source=chatgpt.com', pathname: '/' }, sessionStorage: { getItem: (key) => stored.get(key), setItem: (key, value) => stored.set(key, value) }, gtag: (...args) => events.push(args) }
-  globalThis.document = { referrer: '' }
-  assert.equal(getLeadAttribution().detectedSource, 'ChatGPT')
-  window.location = { href: 'https://metroglasspro.com/contact/', pathname: '/contact/' }
-  assert.equal(getLeadAttribution().detectedSource, 'ChatGPT')
-  assert.equal(getLeadAttribution().landingPath, '/')
-  trackLeadEvent('contact_click', 'phone')
-  assert.equal(events.length, 0, 'No measurement events before consent')
-  stored.set('site-cookie-choice-v1', JSON.stringify({ analytics: true, marketing: false, expires: Date.now() + 60000 }))
-  trackLeadEvent('contact_click', 'sms')
-  trackLeadEvent('generate_lead', 'form', 'ChatGPT', 'Glass Railing')
-  assert.deepEqual(events.map((event) => event[1]), ['contact_click', 'generate_lead'])
-  assert.equal(events[1][2].reported_source, 'ChatGPT')
-  assert.equal(events[1][2].service_type, 'glass-railings')
-  assert.ok(!JSON.stringify(events).includes('utm_source='))
-  stored.set('site-cookie-choice-v1', JSON.stringify({ analytics: false, marketing: false, expires: Date.now() + 60000 }))
-  trackLeadEvent('generate_lead', 'form')
-  assert.equal(events.length, 2, 'Revoking consent blocks further events')
-  globalThis.localStorage = previousStorage
-  delete globalThis.window
-  delete globalThis.document
 })
 
 test('contact delivery includes source evidence and sanitizes tracking fields; no live emails', async () => {

@@ -43,15 +43,6 @@ const posts = [
     date: 'May 2026',
   },
   {
-    href: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
-    label: 'Project Note',
-    title: 'Edison NJ Clear Tempered Shower Door Project',
-    excerpt: 'A renovated Edison bathroom finished with clear tempered glass, brushed brass hardware, and a fixed panel plus hinged door configuration.',
-    image: '/gallery/edison-nj-clear-tempered-shower-door-hero.jpg',
-    imageAlt: 'Clear tempered shower door in an Edison NJ bathroom with brushed brass hardware and warm tile finishes',
-    date: 'May 2026',
-  },
-  {
     href: '/blog/custom-mirrors-manhattan-apartment-guide/',
     label: 'Mirror Guide',
     title: 'Custom Mirrors in Manhattan Apartments: Buyer Planning Guide',
@@ -126,7 +117,7 @@ export default function BlogIndex() {
                   <div className="p-5 sm:p-7">
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="text-[11px] font-medium tracking-wider uppercase text-orange/70 bg-orange/[0.08] px-2 py-0.5 rounded-full">{post.label}</span>
-                      <span className="text-[11px] font-medium tracking-wider uppercase text-charcoal/40 bg-charcoal/[0.04] px-2 py-0.5 rounded-full">Buyer Guide</span>
+
                     </div>
                     <h2 className="font-serif text-charcoal text-xl sm:text-2xl mb-2 group-hover:text-charcoal/80 transition-colors">
                       {post.title}

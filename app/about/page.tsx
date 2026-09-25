@@ -74,7 +74,7 @@ export default function AboutPage() {
             <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">How They Work</p>
             <h2 className="heading-serif text-charcoal text-4xl sm:text-5xl">What clients should feel throughout the work.</h2>
             <p className="mt-5 text-warm text-[15px] leading-relaxed">
-              The goal was never to sound bigger than everyone else. It was to run projects in a way that feels calm, organized, and trustworthy when the space is tight, the tile is finished, and the building expects professionalism from day one. Those standards were shaped across 200 plus NYC installs, where measurement discipline and clean execution matter every single time.
+              The goal was never to sound bigger than everyone else. It was to run projects in a way that feels calm, organized, and trustworthy when the space is tight, the tile is finished, and the building expects professionalism from day one. Measurement discipline and clean execution matter on every project.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

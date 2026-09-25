@@ -10,7 +10,7 @@ const companyLinks = [
   { href: '/reviews/', label: 'Reviews' },
   { href: '/service-areas/', label: 'Service Areas' },
   { href: '/contact/', label: 'Contact' },
-  { href: '/privacy-policy/', label: 'Privacy Policy' },
+  { href: '/blog/', label: 'Planning Guides' },
 ]
 
 const areaLinks = [
@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/60 mb-4">Company</p>
-            <nav className="flex flex-col gap-2.5">
+            <nav aria-label="Footer company" className="flex flex-col gap-2.5">
               {companyLinks.map((l) => (
                 <Link key={l.href} href={l.href} className="text-charcoal/70 text-[13px] hover:text-charcoal transition-colors duration-300">
                   {l.label}
@@ -61,7 +61,7 @@ export default function Footer() {
           {/* Areas */}
           <div>
             <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/60 mb-4">Areas</p>
-            <nav className="flex flex-col gap-2.5">
+            <nav aria-label="Footer service areas" className="flex flex-col gap-2.5">
               {areaLinks.map((l) => (
                 <Link key={l.href} href={l.href} className="text-charcoal/70 text-[13px] hover:text-charcoal transition-colors duration-300">
                   {l.label}
@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-charcoal/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-charcoal/60">
           <p>© {new Date().getFullYear()} MetroGlass Pro. Custom glass services in New York City.</p>
-          <p>Manhattan first. Also serving Brooklyn, Queens, The Bronx, and Staten Island.</p>
+          <nav aria-label="Legal" className="flex items-center gap-6"><Link href="/privacy-policy/" className="inline-flex min-h-11 items-center hover:text-charcoal">Privacy</Link><Link href="/terms/" className="inline-flex min-h-11 items-center hover:text-charcoal">Terms</Link></nav>
         </div>
       </div>
     </footer>

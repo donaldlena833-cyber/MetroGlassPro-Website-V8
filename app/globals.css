@@ -319,3 +319,7 @@ body {
 
 /* Keep in-page section headings visible below the fixed navigation. */
 main [id] { scroll-margin-top: 100px; }
+
+/* Keep the mobile keyboard and form controls clear of the contact bar. */
+body:has(input:focus, textarea:focus, select:focus) .mobile-contact-bar { display: none; }
+:focus-visible { outline: 2px solid #a74e19; outline-offset: 4px; }

@@ -46,7 +46,7 @@ export default function DoorFixedPanelArticle() {
 
           <h2>When you need a fixed panel</h2>
           <p>
-            The general rule: if your shower opening is wider than 36&quot;, you split it into two pieces — a swinging door and a stationary (fixed) panel. The fixed panel is permanently mounted to the wall or a support bar, and the door hinges off either the wall or the fixed panel itself.
+            A wider opening may benefit from a swinging door paired with a stationary panel; dimensions alone do not determine the layout. The fixed panel is permanently mounted to the wall or a support bar, and the door hinges off either the wall or the fixed panel itself.
           </p>
           <p>
             This is extremely common in NYC bathrooms that have had the bathtub removed and replaced with a walk-in shower. The old tub opening is typically 60&quot; wide — way too wide for a single door. A door + fixed panel fills that space cleanly: usually a 24–28&quot; door plus a 30–34&quot; fixed panel.
@@ -64,8 +64,8 @@ export default function DoorFixedPanelArticle() {
           </p>
           <ul>
             <li><strong>The opening is rarely perfectly level or plumb.</strong> Older NYC buildings settle, tile work varies, and walls are almost never straight. We measure every edge with precision tools and fabricate the glass to match the actual dimensions — not the &quot;should be&quot; dimensions.</li>
-            <li><strong>The fixed panel needs a support bar.</strong> For wider configurations, the fixed panel is stabilized with a support bar running from the top of the glass to the opposite wall. This prevents lateral movement and keeps everything rigid.</li>
-            <li><strong>COI and building coordination</strong> is the same as any other install — we handle it all.</li>
+            <li><strong>Panel support is project-specific.</strong> For wider configurations, the fabricator should select and confirm an appropriate support method for the panel size and surrounding surfaces.</li>
+            <li><strong>COI and building coordination</strong> is the same as any other install — share the requirements early so they can be reviewed before scheduling.</li>
           </ul>
 
           <h2>Hardware matching: door + panel</h2>
@@ -85,7 +85,7 @@ export default function DoorFixedPanelArticle() {
 
           <h2>Typical cost range</h2>
           <p>
-            Door + fixed panel configurations typically run $1,200–$2,200 installed in NYC, depending on the total glass area, thickness, and hardware finish. It&apos;s more than a single swing door because there&apos;s more glass and more hardware — but for wider openings, it&apos;s the only frameless option that works well.
+            Our published planning range for a door with a fixed panel starts around $1,400–$2,600+. The final quote depends on the measured opening, glass, hardware, access, and installation conditions.
           </p>
         </div>
       </section>
