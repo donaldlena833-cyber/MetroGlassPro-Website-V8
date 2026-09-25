@@ -78,12 +78,12 @@ export default function HomePage() {
             <p className="mt-6 text-sm text-warm">All five boroughs · Field measurements · COI on request</p>
           </div>
           <figure>
-            <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-2xl bg-cream-dark">
-              <ResponsiveImage src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg" alt="Clear tempered shower glass with brass hardware during MetroGlass Pro's Edison installation" fetchPriority="high" loading="eager" sizes="(min-width: 1280px) 568px, (min-width: 1024px) calc(50vw - 72px), (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)" className="absolute inset-0 w-full h-full object-cover object-center" />
+            <div className="relative aspect-[4/5] sm:aspect-[5/4] lg:aspect-auto lg:h-[560px] overflow-hidden rounded-2xl bg-cream-dark">
+              <ResponsiveImage src="/gallery/install-6.jpeg" alt="Finished frameless shower enclosure with brass hardware in a tiled bathroom" fetchPriority="high" loading="eager" sizes="(min-width: 1280px) 568px, (min-width: 1024px) calc(50vw - 72px), (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)" className="absolute inset-0 w-full h-full object-cover object-center" />
             </div>
             <figcaption className="flex flex-wrap justify-between gap-2 mt-4 text-sm text-warm">
               <span>From our work · Custom shower glass</span>
-              <Link href="/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/" className="text-orange underline underline-offset-4">View the Edison project</Link>
+              <Link href="/gallery/" className="text-orange underline underline-offset-4">View the gallery</Link>
             </figcaption>
           </figure>
         </div>
