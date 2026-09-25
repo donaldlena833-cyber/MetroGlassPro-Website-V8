@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center mb-4" aria-label="MetroGlass Pro home">
-              <Image src="/assets/metroglass-pro-square.svg" alt="MGP" width={64} height={64} className="w-16 h-16" />
+              <Image src="/assets/mgp-logo.svg" alt="MGP" width={120} height={70} className="w-[120px] h-auto" />
             </Link>
             <p className="text-charcoal/60 text-[13px] leading-relaxed max-w-xs">Shower doors, glazing, railings, mirrors, partitions, and glass repair across NYC. Direct estimates, careful installation, and building coordination.</p>
           </div>

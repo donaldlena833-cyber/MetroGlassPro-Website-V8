@@ -26,7 +26,7 @@ export default function Header() {
     <header className={`sticky top-0 z-50 ${scrolled ? 'glass shadow-sm' : 'bg-cream/95'}`}>
       <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between gap-5 h-[70px]">
         <Link href="/" className="shrink-0" aria-label="MetroGlass Pro home">
-          <Image src="/assets/metroglass-pro-square.svg" alt="MGP" width={52} height={52} priority className="w-12 sm:w-[52px] h-auto" />
+          <Image src="/assets/mgp-logo.svg" alt="MGP" width={110} height={64} priority className="w-[100px] sm:w-[110px] h-auto" />
         </Link>
         <ul className="hidden lg:flex items-center gap-6 text-sm text-charcoal/80">
           <li>
