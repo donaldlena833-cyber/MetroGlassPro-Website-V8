@@ -2,8 +2,8 @@
   "name": "MetroGlassPro",
   "short_name": "MGP",
   "icons": [
-    { "src": "/assets/favicon-192x192.png?v=20260925m", "sizes": "192x192", "type": "image/png" },
-    { "src": "/assets/favicon-512x512.png?v=20260925m", "sizes": "512x512", "type": "image/png" }
+    { "src": "/assets/favicon-192x192.png?v=20260925m2", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/favicon-512x512.png?v=20260925m2", "sizes": "512x512", "type": "image/png" }
   ],
   "theme_color": "#F0EBE4",
   "background_color": "#F0EBE4",

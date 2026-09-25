@@ -39,12 +39,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico?v=20260925m', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
-      { url: '/assets/favicon-32x32.png?v=20260925m', sizes: '32x32', type: 'image/png' },
-      { url: '/assets/favicon-16x16.png?v=20260925m', sizes: '16x16', type: 'image/png' },
-      { url: '/icon.svg?v=20260925m', sizes: 'any', type: 'image/svg+xml' },
+      { url: '/favicon.ico?v=20260925m2', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+      { url: '/assets/favicon-32x32.png?v=20260925m2', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/favicon-16x16.png?v=20260925m2', sizes: '16x16', type: 'image/png' },
+      { url: '/icon.svg?v=20260925m2', sizes: 'any', type: 'image/svg+xml' },
     ],
-    apple: [{ url: '/assets/favicon-180x180.png?v=20260925m', sizes: '180x180' }],
+    apple: [{ url: '/assets/favicon-180x180.png?v=20260925m2', sizes: '180x180' }],
   },
   other: { 'theme-color': '#F0EBE4' },
 }
