@@ -32,7 +32,7 @@ test('design consultation article identifies a logo-bearing author and publisher
   assert.match(source, /const metroGlassOrganization = \{[\s\S]*'@id': 'https:\/\/metroglasspro\.com\/#organization'[\s\S]*logo: \{[\s\S]*'@type': 'ImageObject'[\s\S]*url: 'https:\/\/metroglasspro\.com\/assets\/logo\.png'/)
   assert.match(source, /author: metroGlassOrganization/)
   assert.match(source, /publisher: metroGlassOrganization/)
-  assert.match(source, /dateModified: '2026-09-19'/)
+  assert.match(source, /dateModified: '2026-09-25'/)
   assert.doesNotMatch(source, /issued within 24 hours|5[–-]7 business days|typically two weeks|every week|no charge|don&apos;t charge separately/i)
   assert.match(source, /Building management makes the final acceptance decision/)
   assert.match(source, /an estimate or design discussion is not a confirmed installation date/)
@@ -191,6 +191,8 @@ test('all service quote paths use known choices and service-specific guidance', 
     assert.equal(serviceCategory(service.quoteLabel), service.id)
     assert.equal(servicePhotoTip(service.quoteLabel), service.photoTip)
   }
+  assert.equal(quoteServiceFromId('shower-door-repair'), 'Shower Door Repair or Leak Issue')
+  assert.equal(quoteServiceFromId('shower-door-replacement'), 'Shower Door Replacement')
   assert.equal(quoteServiceFromId('<script>unknown</script>'), '')
   assert.equal(serviceCategory('private user message'), 'other')
   assert.equal(serviceCategory('Shower Door Repair or Leak Issue'), 'shower-doors')

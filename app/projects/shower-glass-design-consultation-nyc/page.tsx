@@ -72,7 +72,7 @@ const articleJsonLd = {
   author: metroGlassOrganization,
   publisher: metroGlassOrganization,
   datePublished: '2026-03-11',
-  dateModified: '2026-09-19',
+  dateModified: '2026-09-25',
   mainEntityOfPage: 'https://metroglasspro.com/projects/shower-glass-design-consultation-nyc/',
   image: 'https://metroglasspro.com/editorial/design-process-sketch.jpg',
 }
@@ -259,7 +259,7 @@ export default function DesignConsultationArticle() {
             </Link>
             <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-5 hover:bg-charcoal/[0.02] transition-colors">
               <h3 className="font-serif text-charcoal text-lg mb-1">CRL Geneva vs Vienna Hinges</h3>
-              <p className="text-warm text-[13px]">Comparing two of the most popular frameless hinge profiles.</p>
+              <p className="text-warm text-[13px]">Comparing two frameless hinge profiles and their fit requirements.</p>
             </Link>
             <Link href="/services/" className="glass-card p-5 hover:bg-charcoal/[0.02] transition-colors">
               <h3 className="font-serif text-charcoal text-lg mb-1">All Services</h3>

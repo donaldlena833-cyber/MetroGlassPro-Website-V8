@@ -3,41 +3,41 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'NYC Shower Door & Glass Gallery',
-  description: 'Compare MetroGlass Pro shower door layouts, frameless glass details, mirrors, and install planning examples for Manhattan, Brooklyn, Queens, and NYC bathrooms.',
+  title: 'Shower Door and Glass Photo Gallery',
+  description: 'Compare shower door layouts, glass details, mirrors, and installation planning examples before requesting a project-specific estimate.',
   alternates: { canonical: 'https://metroglasspro.com/gallery/' },
   openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
-    title: 'NYC Shower Door Gallery | MetroGlass Pro',
-    description: 'Compare shower door layouts, frameless glass details, mirrors, and install planning examples across NYC.',
+    title: 'Shower Door and Glass Photo Gallery | MetroGlass Pro',
+    description: 'Compare shower door layouts, glass details, mirrors, and installation planning examples.',
   },
   twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
 }
 
 const images = [
-  { src: '/gallery/mirror-1.jpg', alt: 'Frameless shower enclosure with hinged door, fixed glass panel, and metal hardware', caption: 'A hinged shower door and fixed panel fitted to the finished bathroom opening.' },
-  { src: '/gallery/project-shower-2.jpg', alt: 'Custom frameless glass enclosure installed in Brooklyn brownstone bathroom', caption: 'Door-and-panel enclosure for a wider opening where one fixed pane keeps the entry clean and stable.' },
-  { src: '/gallery/project-shower-3.jpg', alt: 'Full frameless shower enclosure with fixed panel in NYC pre-war apartment', caption: 'Full-height glass helps a compact bathroom feel more open while still controlling splash at the curb.' },
-  { src: '/gallery/project-shower-4.jpg', alt: 'Sliding bypass shower doors on bathtub in Queens home', caption: 'Sliding bypass doors work well where a vanity, toilet, or narrow walkway makes a swinging door awkward.' },
-  { src: '/gallery/project-shower-5.jpg', alt: 'Floor-to-ceiling frameless glass shower panel in Manhattan high-rise', caption: 'A tall fixed panel can preserve the open look of a renovation while keeping the wet zone defined.' },
-  { src: '/gallery/project-shower-6.jpg', alt: 'Frameless shower door with polished chrome hardware and towel bar', caption: 'Hardware finish, handle placement, and towel-bar clearance should be chosen before fabrication.' },
-  { src: '/gallery/dark-shower-1.jpg', alt: 'Dark-tinted frameless glass shower enclosure in modern NYC bathroom', caption: 'Tinted glass can be a strong design choice when the bathroom already has enough light.' },
-  { src: '/gallery/dark-shower-2.jpg', alt: 'Smoked glass frameless shower door with matte black hardware', caption: 'Matte black hardware pairs well with smoked glass, but it should match the fixtures and tile tone.' },
-  { src: '/gallery/dark-shower-3.jpg', alt: 'Contemporary dark glass shower door installed in renovated NYC bathroom', caption: 'Darker glass needs careful lighting review so the finished shower still feels practical day to day.' },
-  { src: '/gallery/project-shower-1.jpg', alt: 'Work in progress on a mirrored bathroom cabinet door with exposed hinges and protective tape', caption: 'Mirror cabinet work in progress. Existing hinges, edges, and surrounding finishes need review before repair or replacement.' },
-  { src: '/gallery/cabinet-1.jpg', alt: 'Custom glass cabinet doors installed in NYC kitchen', caption: 'Cabinet glass details are measured separately from shower work but need the same clean edge planning.' },
-  { src: '/gallery/glass-cabinet-1.jpg', alt: 'Frosted glass cabinet insert for NYC apartment', caption: 'Frosted inserts are useful where the goal is softened visibility instead of a fully clear display.' },
-  { src: '/gallery/install-1.jpeg', alt: 'MetroGlass Pro installer measuring shower opening for frameless glass door', caption: 'Field measuring after tile is the step that protects the fit, especially when walls are out of plumb.' },
-  { src: '/gallery/install-2.jpeg', alt: 'Frameless shower door being fitted during installation in Queens bathroom', caption: 'Installation fit checks include hinge position, sweep contact, and whether the door clears nearby fixtures.' },
-  { src: '/gallery/install-3.jpeg', alt: 'Precision glass measurement for shower enclosure in Brooklyn apartment', caption: 'Photos and rough dimensions help with early pricing, but final glass should follow an on-site measure.' },
-  { src: '/gallery/install-4.jpeg', alt: 'Heavy tempered glass panel being positioned during Manhattan install', caption: 'Large panels require access planning for elevators, turns, stairs, and finished surfaces.' },
-  { src: '/gallery/install-5.jpeg', alt: 'Completed frameless shower door installation in Staten Island home', caption: 'A clean completed install should look intentional from both inside and outside the shower.' },
-  { src: '/gallery/install-6.jpeg', alt: 'Glass enclosure installation during Bronx bathroom renovation', caption: 'Renovation timing matters: the glass quote gets more accurate once tile and curb conditions are final.' },
-  { src: '/gallery/install-7.jpeg', alt: 'Frameless shower door with brushed nickel hinges and handle', caption: 'Brushed nickel is a common choice when the bathroom already uses softer silver plumbing fixtures.' },
-  { src: '/gallery/install-8.jpeg', alt: 'Bathroom mirror installation with J-channel mounting in Manhattan', caption: 'J-channel mounting can give a vanity mirror a crisp finish when the wall and lights are ready.' },
-  { src: '/gallery/install-9.jpeg', alt: 'Frameless shower enclosure installed in Long Island master bathroom', caption: 'Larger bathrooms still need the same fit decisions: panel width, door swing, curb slope, and hardware finish.' },
-  { src: '/gallery/install-10.jpeg', alt: 'Custom frameless shower door installed in New Jersey home', caption: 'Suburban layouts often give more room, but the glass still depends on finished tile and opening accuracy.' },
-  { src: '/gallery/install-11.jpeg', alt: 'Pivot frameless shower door installed in NYC co-op building', caption: 'Pivot and hinge choices should account for building access, door weight, and the way the bathroom is used.' },
-  { src: '/gallery/install-12.jpeg', alt: 'Neo-angle frameless glass enclosure in Brooklyn corner shower', caption: 'Neo-angle enclosures are useful for corner showers where a standard rectangular opening would waste space.' },
+  { src: '/gallery/mirror-1.jpg', alt: 'Frameless shower enclosure with a hinged door and fixed glass panel', caption: 'A hinged shower door and fixed panel fitted to the finished bathroom opening.' },
+  { src: '/gallery/project-shower-2.jpg', alt: 'Frameless door and fixed panel in a tiled bathroom', caption: 'Door-and-panel enclosure for a wider opening where one fixed pane keeps the entry clean and stable.' },
+  { src: '/gallery/project-shower-3.jpg', alt: 'Full-height glass enclosure with a fixed panel', caption: 'Full-height glass helps a compact bathroom feel more open while still controlling splash at the curb.' },
+  { src: '/gallery/project-shower-4.jpg', alt: 'Sliding bypass shower doors above a bathtub', caption: 'Sliding bypass doors work well where a vanity, toilet, or narrow walkway makes a swinging door awkward.' },
+  { src: '/gallery/project-shower-5.jpg', alt: 'Tall fixed shower glass panel', caption: 'A tall fixed panel can preserve the open look of a renovation while keeping the wet zone defined.' },
+  { src: '/gallery/project-shower-6.jpg', alt: 'Frameless shower door with chrome hardware and towel bar', caption: 'Hardware finish, handle placement, and towel-bar clearance should be chosen before fabrication.' },
+  { src: '/gallery/dark-shower-1.jpg', alt: 'Dark-tinted glass shower enclosure', caption: 'Tinted glass can be a strong design choice when the bathroom already has enough light.' },
+  { src: '/gallery/dark-shower-2.jpg', alt: 'Smoked glass shower door with matte black hardware', caption: 'Matte black hardware pairs well with smoked glass, but it should match the fixtures and tile tone.' },
+  { src: '/gallery/dark-shower-3.jpg', alt: 'Dark glass shower door in a tiled bathroom', caption: 'Darker glass needs careful lighting review so the finished shower still feels practical day to day.' },
+  { src: '/gallery/project-shower-1.jpg', alt: 'Mirrored bathroom cabinet door with exposed hinges and protective tape', caption: 'Mirror cabinet work in progress. Existing hinges, edges, and surrounding finishes need review before repair or replacement.' },
+  { src: '/gallery/cabinet-1.jpg', alt: 'Glass-front cabinet doors', caption: 'Cabinet glass details are measured separately from shower work but need the same clean edge planning.' },
+  { src: '/gallery/glass-cabinet-1.jpg', alt: 'Frosted glass cabinet insert', caption: 'Frosted inserts are useful where the goal is softened visibility instead of a fully clear display.' },
+  { src: '/gallery/install-1.jpeg', alt: 'Person measuring a shower opening for glass', caption: 'Field measuring after tile is the step that protects the fit, especially when walls are out of plumb.' },
+  { src: '/gallery/install-2.jpeg', alt: 'Glass shower door being fitted during installation', caption: 'Installation fit checks include hinge position, sweep contact, and whether the door clears nearby fixtures.' },
+  { src: '/gallery/install-3.jpeg', alt: 'Person measuring an opening for a glass enclosure', caption: 'Photos and rough dimensions help with early pricing, but final glass should follow an on-site measure.' },
+  { src: '/gallery/install-4.jpeg', alt: 'Large glass panel being positioned during installation', caption: 'Large panels require access planning for elevators, turns, stairs, and finished surfaces.' },
+  { src: '/gallery/install-5.jpeg', alt: 'Frameless shower door with clear glass', caption: 'A clean completed install should look intentional from both inside and outside the shower.' },
+  { src: '/gallery/install-6.jpeg', alt: 'Glass enclosure during a bathroom renovation', caption: 'Renovation timing matters: the glass quote gets more accurate once tile and curb conditions are final.' },
+  { src: '/gallery/install-7.jpeg', alt: 'Frameless shower door with brushed nickel hardware', caption: 'Brushed nickel is a common choice when the bathroom already uses softer silver plumbing fixtures.' },
+  { src: '/gallery/install-8.jpeg', alt: 'Bathroom mirror with J-channel mounting', caption: 'J-channel mounting can give a vanity mirror a crisp finish when the wall and lights are ready.' },
+  { src: '/gallery/install-9.jpeg', alt: 'Large frameless shower glass enclosure', caption: 'Larger bathrooms still need the same fit decisions: panel width, door swing, curb slope, and hardware finish.' },
+  { src: '/gallery/install-10.jpeg', alt: 'Custom frameless shower door', caption: 'Suburban layouts often give more room, but the glass still depends on finished tile and opening accuracy.' },
+  { src: '/gallery/install-11.jpeg', alt: 'Pivot-style frameless shower door', caption: 'Pivot and hinge choices should account for building access, door weight, and the way the bathroom is used.' },
+  { src: '/gallery/install-12.jpeg', alt: 'Neo-angle glass shower enclosure', caption: 'Neo-angle enclosures are useful for corner showers where a standard rectangular opening would waste space.' },
 ]
 
 const planningLinks = [
@@ -62,17 +62,11 @@ export default function GalleryPage() {
     <>
       <section className="bg-cream pt-20 sm:pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
-          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Portfolio</p>
-          <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">Our work.</h1>
-          <p className="mt-5 text-warm text-lg max-w-lg">Custom shower glass, mirrors, and installations across all NYC boroughs.</p>
+          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Photo Gallery</p>
+          <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">Glass layouts and details.</h1>
+          <p className="mt-5 text-warm text-lg max-w-lg">Shower glass, mirrors, installation details, and layout examples.</p>
           <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
-            Use this gallery to compare shower door layouts, hardware finishes, mirror installs, and glass panel details before requesting an estimate. Photos help homeowners decide whether a bathroom needs a single swing door, fixed panel, slider, open panel, mirror replacement, or a more custom enclosure.
-          </p>
-          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
-            If you are planning a renovation, the most useful photos to send are the full shower opening, the curb or tub edge, both side walls, the fixture finish, and any nearby vanity or toilet clearance. Those details help us suggest a glass setup that fits the room instead of just filling the opening.
-          </p>
-          <p className="mt-4 text-warm text-base leading-relaxed max-w-2xl">
-            Compare the glass layouts below with your own bathroom. Tile, curb slope, nearby fixtures, and building access help determine which configuration will fit.
+            Compare layouts and finishes here, then send photos of your own opening, tile, curb, and nearby fixtures. The images are visual references; field conditions determine what can be built and quoted.
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
             <Link href="/frameless-shower-doors-nyc/" className="text-orange font-medium hover:opacity-70 transition-opacity">Frameless shower doors →</Link>

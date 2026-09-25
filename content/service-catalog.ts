@@ -15,6 +15,8 @@ export const serviceOptions = [
 ]
 
 export function quoteServiceFromId(id: string) {
+  if (id === 'shower-door-repair') return 'Shower Door Repair or Leak Issue'
+  if (id === 'shower-door-replacement') return 'Shower Door Replacement'
   return glassServices.find((service) => service.id === id)?.quoteLabel || ''
 }
 

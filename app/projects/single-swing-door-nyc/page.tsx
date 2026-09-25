@@ -43,10 +43,10 @@ export default function SingleSwingDoorArticle() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 prose-mgp">
           <p>
-            If you&apos;re looking at frameless shower doors for a NYC apartment, chances are you&apos;ll end up with a single swing door. A single swing door is one possible layout. It needs suitable wall support, hinge capacity, and clear swing space.
+            A single swing door is one possible layout for a NYC apartment bathroom. It needs suitable wall support, hinge capacity, and clear swing space.
           </p>
 
-          <h2>Why NYC apartments love the single swing door</h2>
+          <h2>When a single swing door fits</h2>
           <p>
             Most NYC bathrooms are compact. A single swing door keeps things simple — there&apos;s no fixed panel eating into the opening width, no track system along the top or bottom, and no multi-panel engineering to complicate the install. You get one clean sheet of tempered glass that swings open and closed.
           </p>
@@ -120,7 +120,7 @@ export default function SingleSwingDoorArticle() {
       <section className="bg-charcoal py-20 sm:py-24 text-center">
         <div className="max-w-2xl mx-auto px-6 sm:px-10">
           <h2 className="heading-serif text-white text-3xl sm:text-4xl">Ready for a single swing door?</h2>
-          <p className="mt-3 text-white/40 text-base">Free estimate. Most quotes delivered same day.</p>
+          <p className="mt-3 text-white/40 text-base">Send photos and rough dimensions to start a project-specific estimate.</p>
           <Link href="/contact/" className="btn-pill btn-primary px-10 py-3.5 text-sm mt-8 inline-flex">Get a Free Estimate</Link>
         </div>
       </section>

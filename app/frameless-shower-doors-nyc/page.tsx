@@ -35,11 +35,11 @@ const faqs = [
   },
   {
     q: 'What glass thickness should I choose — 3/8″ or 1/2″?',
-    a: '3/8″ (10mm) tempered glass is the industry standard for most residential shower doors and works well in nearly all NYC bathrooms. 1/2″ (12mm) glass feels more substantial and premium — it\'s a great choice for large panels, heavy frameless enclosures, or luxury renovations where you want maximum solidity.',
+    a: '3/8″ (10mm) and 1/2″ (12mm) tempered glass are possible options for some frameless layouts. Panel size, weight, hardware rating, support, and applicable requirements determine the suitable specification for a particular opening.',
   },
   {
     q: 'What hardware finishes do you offer?',
-    a: 'We offer chrome, brushed nickel, matte black, satin brass, polished brass, and oil-rubbed bronze. Chrome and brushed nickel are the most popular for NYC apartments; matte black and satin brass are trending in modern renovations.',
+    a: 'Finish options can include chrome, brushed nickel, matte black, satin brass, polished brass, and oil-rubbed bronze. Match the selected hardware to the bathroom fixtures and confirm current supplier availability.',
   },
   {
     q: 'Which areas in NYC do you serve?',
@@ -279,10 +279,10 @@ export default function FramelessShowerDoorsNYC() {
               <h3 className="font-serif text-charcoal text-2xl mb-6">Hardware Finishes</h3>
               <div className="space-y-4">
                 {[
-                  { finish: 'Chrome', note: 'Timeless, easy to match. The most popular choice for NYC apartments. Extremely durable.' },
+                  { finish: 'Chrome', note: 'A bright silver finish that can coordinate with common plumbing fixtures.' },
                   { finish: 'Brushed Nickel', note: 'Warm silver tone that hides water spots and fingerprints. Great for busy bathrooms.' },
-                  { finish: 'Matte Black', note: 'Bold, modern, trending in NYC renovations. Pairs well with white tile and marble.' },
-                  { finish: 'Satin Brass', note: 'Warm gold tone that elevates any bathroom. Growing fast in popularity for luxury builds.' },
+                  { finish: 'Matte Black', note: 'A strong contrast against light tile; check how it coordinates with the rest of the room.' },
+                  { finish: 'Satin Brass', note: 'A warm metal finish that can coordinate with brass fixtures and cabinet hardware.' },
                   { finish: 'Polished Brass', note: 'Classic luxury look. Works well in traditional and pre-war styled bathrooms.' },
                   { finish: 'Oil-Rubbed Bronze', note: 'Deep, rich brown with copper undertones. Ideal for rustic or transitional designs.' },
                 ].map((h) => (

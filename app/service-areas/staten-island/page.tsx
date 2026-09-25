@@ -3,97 +3,47 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Staten Island Shower Doors and Custom Glass',
-  description: 'Custom shower doors, mirrors, and related glass work across Staten Island. Great fit for single-family homes, townhouses, and new construction.',
+  description: 'Planning shower door, mirror, or other glass work on Staten Island? Send photos, rough dimensions, and access details for a project-specific review.',
   alternates: { canonical: 'https://metroglasspro.com/service-areas/staten-island/' },
-  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }],
-    title: 'Staten Island Shower Doors and Custom Glass',
-    description: 'Custom shower doors, mirrors, and related glass work across Staten Island. Great fit for single-family homes, townhouses, and new construction.',
-  },
-  twitter: { images: ['/assets/og-default.jpg'],  card: 'summary_large_image' },
+  openGraph: { images: [{ url: '/assets/og-default.jpg', width: 1200, height: 630, alt: 'MetroGlass Pro custom shower doors and glass installation' }] },
+  twitter: { images: ['/assets/og-default.jpg'], card: 'summary_large_image' },
 }
 
 export default function StatenIslandPage() {
-  return (
-    <>
-      <section className="bg-cream pt-20 sm:pt-32 pb-14 sm:pb-20">
-        <div className="max-w-3xl mx-auto px-6 sm:px-10 anim-hero">
-          <Link href="/service-areas/" className="text-orange text-[13px] font-medium hover:opacity-70 transition-opacity mb-6 inline-block">
-            ← All Service Areas
-          </Link>
-          <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Staten Island</p>
-          <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl">
-            Shower Glass Installation in Staten Island
-          </h1>
-          <p className="mt-5 text-warm text-base sm:text-lg max-w-xl leading-relaxed">
-            Staten Island's single-family homes and townhouses often have larger master bathrooms than other boroughs — which means more room for impressive frameless glass enclosures. We serve the entire island, from the North Shore to Tottenville, with the same custom-measured, precision-installed glass we deliver across NYC.
-          </p>
+  return <>
+    <section className="bg-cream pt-20 sm:pt-32 pb-16 sm:pb-20">
+      <div className="max-w-3xl mx-auto px-6 sm:px-10">
+        <Link href="/service-areas/" className="text-orange text-[13px] font-medium mb-6 inline-block">← All service areas</Link>
+        <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Staten Island</p>
+        <h1 className="heading-serif text-charcoal text-4xl sm:text-6xl">Shower doors and custom glass on Staten Island.</h1>
+        <p className="mt-5 text-warm text-base sm:text-lg leading-relaxed">MetroGlass Pro reviews Staten Island shower door, mirror, and glass project inquiries. Photos of the space help us identify the right next step before confirming a visit, materials, or timing.</p>
+      </div>
+    </section>
+    <section className="bg-cream-light py-16 sm:py-24">
+      <div className="max-w-3xl mx-auto px-6 sm:px-10">
+        <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-5">Details that shape the quote</h2>
+        <ul className="space-y-3 text-warm text-[15px] leading-relaxed list-disc pl-5">
+          <li>Show the full opening, finished walls, curb or tub edge, and nearby fixtures that affect door swing.</li>
+          <li>Tell us whether the job is in a house or a managed building; include any access, delivery, work-hour, or insurance requirements.</li>
+          <li>Share rough dimensions, the current door or mirror condition, and the glass or hardware finish you have in mind.</li>
+        </ul>
+        <p className="mt-6 text-warm text-[15px] leading-relaxed">A wide opening may need a door and fixed panel; a compact room may call for a different door path. The actual layout follows field measurement and hardware review.</p>
+      </div>
+    </section>
+    <section className="bg-cream py-16 sm:py-24">
+      <div className="max-w-3xl mx-auto px-6 sm:px-10">
+        <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl mb-8">Explore the service you need</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Link href="/frameless-shower-doors-nyc/" className="glass-card p-5 card-lift text-charcoal">New shower enclosure</Link>
+          <Link href="/shower-door-replacement-nyc/" className="glass-card p-5 card-lift text-charcoal">Door replacement</Link>
+          <Link href="/shower-door-repair-nyc/" className="glass-card p-5 card-lift text-charcoal">Repair assessment</Link>
+          <Link href="/custom-mirrors-nyc/" className="glass-card p-5 card-lift text-charcoal">Custom mirror</Link>
         </div>
-      </section>
-
-      <section className="bg-cream pb-16 sm:pb-24">
-        <div className="max-w-3xl mx-auto px-6 sm:px-10">
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Building types we work with</h2>
-          <p className="text-warm text-[15px] leading-relaxed mb-10">
-            Single-family homes, townhouses, semi-detached houses, and new construction. Staten Island master bathrooms tend to be the most spacious in NYC, making them ideal candidates for large frameless enclosures and walk-in showers.
-          </p>
-
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Services available in Staten Island</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {[
-              { t: 'Frameless Shower Doors', href: '/frameless-shower-doors-nyc/' },
-              { t: 'Shower Door Installation', href: '/shower-door-installation-nyc/' },
-              { t: 'Shower Door Replacement', href: '/shower-door-replacement-nyc/' },
-              { t: 'Custom Mirrors', href: '/custom-mirrors-nyc/' },
-              { t: 'Glass Partitions', href: '/glass-partitions-nyc/' },
-              { t: 'Shower Door Repair', href: '/shower-door-repair-nyc/' },
-            ].map((s) => (
-              <Link key={s.t} href={s.href} className="glass-card p-4 card-lift flex items-center gap-3">
-                <span className="text-orange shrink-0">→</span>
-                <span className="text-charcoal font-medium text-[14px]">{s.t}</span>
-              </Link>
-            ))}
-          </div>
-
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Neighborhoods we serve in Staten Island</h2>
-          <div className="flex flex-wrap gap-2 mb-10">
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">St. George</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Todt Hill</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Great Kills</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">New Dorp</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Tottenville</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Eltingville</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Annadale</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Huguenot</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">West Brighton</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Stapleton</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Grymes Hill</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Dongan Hills</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Oakwood</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Westerleigh</span>
-            <span className="text-[12px] sm:text-[13px] text-charcoal/50 bg-charcoal/[0.04] px-3 py-1.5 rounded-full">Travis</span>
-          </div>
-
-          <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
-          <div className="space-y-3 mb-10">
-            <Link href="/projects/typical-mirror-replacement-nyc/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">Mirror Replacement in a NYC Apartment</span>
-              <span className="text-warm text-[13px] block mt-1">What a typical mirror replacement looks like — sizing, mounting, timeline.</span>
-            </Link>
-            <Link href="/projects/crl-geneva-vs-vienna-hinges/" className="glass-card p-4 card-lift block">
-              <span className="text-charcoal font-medium text-[14px]">CRL Geneva vs Vienna Hinges</span>
-              <span className="text-warm text-[13px] block mt-1">Comparing two popular frameless shower door hinges.</span>
-            </Link>
-          </div>
-
-          <div className="glass-card p-6 sm:p-8 text-center">
-            <p className="text-warm text-[15px] mb-2">Staten Island homeowners — we offer free estimates with flexible scheduling.</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 mt-5">
-              <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Get a Free Estimate</Link>
-              <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">(332) 999-3846</a>
-            </div>
-          </div>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Request an estimate</Link>
+          <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">Call (332) 999-3846</a>
         </div>
-      </section>
-    </>
-  )
+      </div>
+    </section>
+  </>
 }

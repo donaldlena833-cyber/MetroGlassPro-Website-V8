@@ -1,11 +1,7 @@
 name: Publish Blog Drafts
 
 on:
-  schedule:
-    - cron: '0 11 * * *'
-  push:
-    paths:
-      - '_drafts/**'
+  # Publication requires a reviewed draft and a deliberate manual run.
   workflow_dispatch:
 
 permissions:

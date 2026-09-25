@@ -6,14 +6,31 @@ export const dynamic = 'force-static'
 const base = 'https://metroglasspro.com'
 const siteUpdated = new Date('2026-08-12T00:00:00.000Z')
 const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
+const releaseUpdated = new Date('2026-09-25T00:00:00.000Z')
 const projectModifiedDates = new Map([
   ['coop-condo-shower-door-installation-nyc', new Date('2026-09-14T00:00:00.000Z')],
-  ['shower-glass-design-consultation-nyc', new Date('2026-09-19T00:00:00.000Z')],
+  ['shower-glass-design-consultation-nyc', releaseUpdated],
+  ['crl-geneva-vs-vienna-hinges', releaseUpdated],
+  ['door-fixed-panel-nyc', releaseUpdated],
+  ['single-swing-door-nyc', releaseUpdated],
+  ['typical-mirror-replacement-nyc', releaseUpdated],
+  ['visualize-shower-door-options-nyc', releaseUpdated],
+  ['walk-in-shower-panel-nyc', releaseUpdated],
 ])
 const routeModifiedDates = new Map([
-  ['/', new Date('2026-09-15T00:00:00.000Z')],
+  ['/', releaseUpdated],
   ['/shower-door-installation-nyc/', new Date('2026-09-15T00:00:00.000Z')],
-  ['/shower-door-repair-nyc/', new Date('2026-09-16T00:00:00.000Z')],
+  ['/shower-door-repair-nyc/', releaseUpdated],
+  ['/shower-door-replacement-nyc/', releaseUpdated],
+  ['/about/', releaseUpdated],
+  ['/blog/', releaseUpdated],
+  ['/frameless-shower-doors-nyc/', releaseUpdated],
+  ['/gallery/', releaseUpdated],
+  ['/privacy-policy/', releaseUpdated],
+  ['/projects/', releaseUpdated],
+  ['/reviews/', releaseUpdated],
+  ['/service-areas/bronx/', releaseUpdated],
+  ['/service-areas/staten-island/', releaseUpdated],
 ])
 const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
 

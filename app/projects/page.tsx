@@ -4,9 +4,8 @@ import Link from 'next/link'
 import { projects, type Project } from '@/content/projects'
 
 const caseSlugs = new Set(['84-clinton-lower-east-side-shower-door-before-after', 'interior-design-collaboration-shower-door-nyc'])
-const isJob = (project: Project) => project.slug.startsWith('metroglasspro-project-') || caseSlugs.has(project.slug)
-const jobs = projects.filter(isJob).sort((a, b) => Number(caseSlugs.has(b.slug)) - Number(caseSlugs.has(a.slug)))
-const guides = projects.filter((project) => !isJob(project))
+const jobs = projects.filter((project) => caseSlugs.has(project.slug))
+const guides = projects.filter((project) => !caseSlugs.has(project.slug))
 
 export const metadata: Metadata = {
   title: 'Glass Projects and Planning Guides',
@@ -17,8 +16,7 @@ export const metadata: Metadata = {
 }
 
 function Cards({ items, kind }: { items: Project[]; kind: 'Project' | 'Planning guide' }) {
-  return <div className="space-y-8">{items.map((p) => {
-    const card = <>
+  return <div className="space-y-8">{items.map((p) => <Link key={p.slug} href={`/projects/${p.slug}/`} className="group block glass-card overflow-hidden card-lift">
     <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
       <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark">
         <ResponsiveImage src={p.image} alt={p.imageAlt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
@@ -30,11 +28,7 @@ function Cards({ items, kind }: { items: Project[]; kind: 'Project' | 'Planning 
         <p className="text-[12px] text-charcoal/50">{new Date(p.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p>
       </div>
     </div>
-    </>
-    return p.slug.startsWith('metroglasspro-project-')
-      ? <div key={p.slug} className="glass-card overflow-hidden">{card}</div>
-      : <Link key={p.slug} href={`/projects/${p.slug}/`} className="group block glass-card overflow-hidden card-lift">{card}</Link>
-  })}</div>
+  </Link>)}</div>
 }
 
 export default function ProjectsIndex() {
@@ -56,6 +50,7 @@ export default function ProjectsIndex() {
           </div>
         </Link>
         <Cards items={jobs} kind="Project" />
+        <Link href="/gallery/" className="inline-flex min-h-11 items-center mt-8 text-orange underline underline-offset-4">Browse more glass photos</Link>
       </div>
     </section>
     <section aria-labelledby="project-guides" className="bg-cream-light py-20">

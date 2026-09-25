@@ -30,7 +30,7 @@ const articleJsonLd = {
   headline: 'CRL Geneva vs Vienna Hinges for Frameless Shower Doors',
   description: 'A practical comparison of CRL Geneva and Vienna hinges for frameless shower door hardware selection in NYC bathrooms.',
   datePublished: '2026-02-01',
-  dateModified: '2026-07-05',
+  dateModified: '2026-09-25',
   author: metroGlassOrganization,
   publisher: metroGlassOrganization,
   mainEntityOfPage: 'https://metroglasspro.com/projects/crl-geneva-vs-vienna-hinges/',
@@ -72,7 +72,7 @@ export default function CRLGenevaVsVienna() {
       <section className="bg-cream pb-20 sm:pb-28">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 prose-mgp">
           <p>
-            When we install frameless shower doors, one of the most important hardware decisions is the hinge. It carries the full weight of the glass panel and determines how the door swings, how it looks, and how long it lasts. Two of the most popular options we work with are the <strong>CRL Geneva</strong> and the <strong>CRL Vienna</strong> — both made by C.R. Laurence, the industry&apos;s leading glass hardware manufacturer.
+            A hinge carries the glass door and affects swing, clearances, appearance, and maintenance. The <strong>CRL Geneva</strong> and <strong>CRL Vienna</strong> are two C.R. Laurence hinge lines worth comparing. The right choice depends on the actual panel, mounting surface, hardware specifications, and layout.
           </p>
           <p>
             This is a high-level comparison based on our installation experience. For exact specifications, always refer to the current CRL product catalog.

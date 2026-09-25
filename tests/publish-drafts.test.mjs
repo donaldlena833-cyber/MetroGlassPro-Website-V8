@@ -168,9 +168,10 @@ test('a repeated processed draft cannot duplicate its route or discovery entries
   assert.deepEqual(f.snapshot(), before)
 })
 
-test('workflow keeps one main-branch lane and checks before the restricted commit', () => {
+test('publication requires a manual run and checks before the restricted commit', () => {
   const workflow = readFileSync(new URL('../.github/workflows/publish-blog.yml', import.meta.url), 'utf8')
-  assert.match(workflow, /cron: '0 11 \* \* \*'/)
+  assert.match(workflow, /^  workflow_dispatch:/m)
+  assert.doesNotMatch(workflow, /^  (?:schedule|push):/m)
   assert.match(workflow, /if: github\.ref == 'refs\/heads\/main'/)
   assert.match(workflow, /group: metroglass-blog-publisher\n  cancel-in-progress: false/)
   const commit = workflow.indexOf('- name: Commit and push')

@@ -93,8 +93,8 @@ export default function ShowerDoorReplacementNYC() {
             Replace an old or damaged enclosure with a framed, semi-frameless, or frameless layout planned around the finished opening, removal conditions, and building access.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Link href="/contact/" className="btn-pill btn-primary px-8 py-3.5 text-sm">
-              Get a Free Estimate
+            <Link href="/contact/?service=shower-door-replacement" className="btn-pill btn-primary px-8 py-3.5 text-sm">
+              Request a Replacement Estimate
             </Link>
             <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3.5 text-sm">
               (332) 999-3846
