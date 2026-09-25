@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { glassServices } from '@/content/service-catalog'
 
 const companyLinks = [
@@ -24,7 +25,9 @@ export default function Header() {
   return (
     <header className={`sticky top-0 z-50 ${scrolled ? 'glass shadow-sm' : 'bg-cream/95'}`}>
       <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between gap-5 h-[70px]">
-        <Link href="/" className="font-serif text-charcoal text-xl tracking-tight shrink-0">MetroGlass Pro</Link>
+        <Link href="/" className="shrink-0" aria-label="MetroGlass Pro home">
+          <Image src="/assets/metroglass-pro-wordmark.svg" alt="MetroGlass Pro" width={185} height={55} priority className="w-[165px] sm:w-[185px] h-auto" />
+        </Link>
         <ul className="hidden lg:flex items-center gap-6 text-sm text-charcoal/80">
           <li>
             <details className="relative group" onKeyDown={(event) => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus() } }}>

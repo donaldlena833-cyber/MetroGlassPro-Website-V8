@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { glassServices } from '@/content/service-catalog'
 
 const mainLinks = glassServices.map((service) => ({ href: service.href, label: service.name }))
@@ -28,8 +29,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <span className="font-serif text-charcoal text-lg">MetroGlass Pro</span>
+            <Link href="/" className="inline-flex items-center mb-4" aria-label="MetroGlass Pro home">
+              <Image src="/assets/metroglass-pro-wordmark.svg" alt="MetroGlass Pro" width={180} height={53} className="w-[180px] h-auto" />
             </Link>
             <p className="text-charcoal/60 text-[13px] leading-relaxed max-w-xs">Shower doors, glazing, railings, mirrors, partitions, and glass repair across NYC. Direct estimates, careful installation, and building coordination.</p>
           </div>
