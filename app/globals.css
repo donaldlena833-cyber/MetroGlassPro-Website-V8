@@ -71,6 +71,13 @@ body {
   min-height: 44px;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.desktop-estimate-link { display: none; }
+@media (min-width: 1024px) {
+  .desktop-estimate-link { display: inline-flex; }
+}
+@media (max-width: 1023px) {
+  body:has(.mobile-contact-bar) { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
 .btn-primary {
   background: #B44D00;
   color: white;

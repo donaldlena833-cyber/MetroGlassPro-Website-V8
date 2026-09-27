@@ -1,6 +1,12 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function MobileCtaBar() {
+  const pathname = usePathname()
+  if (pathname === '/' || pathname === '/contact' || pathname === '/contact/') return null
+
   return (
     <div className="mobile-contact-bar lg:hidden fixed inset-x-0 bottom-0 z-50 border-t border-charcoal/[0.08] bg-cream/95 backdrop-blur-md">
       <div className="max-w-md mx-auto grid grid-cols-3 gap-2 px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">

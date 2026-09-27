@@ -43,13 +43,13 @@ export default function ProjectsIndex() {
     <section aria-labelledby="project-work" className="bg-cream pb-20">
       <div className="max-w-4xl mx-auto px-6 sm:px-10">
         <h2 id="project-work" className="heading-serif text-charcoal text-3xl sm:text-4xl mb-8">Completed work</h2>
-        <Link href="/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/" className="group block glass-card overflow-hidden card-lift mb-8">
+        <Cards items={jobs} kind="Project" />
+        <Link href="/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/" className="group block glass-card overflow-hidden card-lift mt-8 mb-8">
           <div className="grid grid-cols-1 sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
             <div className="aspect-[16/10] sm:aspect-auto overflow-hidden bg-cream-dark"><ResponsiveImage src="/gallery/edison-nj-clear-tempered-shower-door-hero.jpg" alt="Clear shower glass with brass hardware in the Edison, New Jersey project" className="w-full h-full object-cover" loading="lazy" /></div>
-            <div className="p-5 sm:p-7"><p className="text-[11px] font-medium tracking-wider uppercase text-orange mb-3">Project · Edison, New Jersey</p><h3 className="font-serif text-charcoal text-xl sm:text-2xl mb-2">Clear Glass Shower Enclosure in Edison</h3><p className="text-warm text-[14px] leading-relaxed">See the photographed shower glass project featured on the homepage.</p></div>
+            <div className="p-5 sm:p-7"><p className="text-[11px] font-medium tracking-wider uppercase text-orange mb-3">Project · Edison, New Jersey</p><h3 className="font-serif text-charcoal text-xl sm:text-2xl mb-2">Clear Glass Shower Enclosure in Edison</h3><p className="text-warm text-[14px] leading-relaxed">A photographed shower enclosure with clear glass and brass hardware.</p></div>
           </div>
         </Link>
-        <Cards items={jobs} kind="Project" />
         <Link href="/gallery/" className="inline-flex min-h-11 items-center mt-8 text-orange underline underline-offset-4">Browse more glass photos</Link>
       </div>
     </section>

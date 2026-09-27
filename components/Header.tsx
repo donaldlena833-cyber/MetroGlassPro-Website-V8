@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { glassServices } from '@/content/service-catalog'
 
 const companyLinks = [
@@ -13,6 +14,8 @@ const companyLinks = [
 ]
 
 export default function Header() {
+  const pathname = usePathname()
+  const isContactPage = pathname === '/contact' || pathname === '/contact/'
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -31,7 +34,7 @@ export default function Header() {
         <ul className="hidden lg:flex items-center gap-6 text-sm text-charcoal/80">
           <li>
             <details className="relative group" onKeyDown={(event) => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus() } }}>
-              <summary className="cursor-pointer py-3 hover:text-orange">Glass Services</summary>
+              <summary className="flex cursor-pointer list-none items-center gap-1.5 py-3 hover:text-orange [&::-webkit-details-marker]:hidden">Glass Services<svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-3 w-3 transition-transform group-open:rotate-180"><path d="m3 6 5 5 5-5" /></svg></summary>
               <ul className="absolute top-full left-0 w-64 bg-cream-light border border-charcoal/10 rounded-xl shadow-lg p-3">
                 {glassServices.map((service) => <li key={service.id}><Link href={service.href} onClick={(event) => event.currentTarget.closest('details')?.removeAttribute('open')} className="block px-3 py-3 rounded-lg hover:bg-charcoal/5">{service.name}</Link></li>)}
                 <li><Link href="/services/" onClick={(event) => event.currentTarget.closest('details')?.removeAttribute('open')} className="block px-3 py-3 border-t border-charcoal/10 text-orange">All glass services</Link></li>
@@ -40,14 +43,14 @@ export default function Header() {
           </li>
           {companyLinks.map((link) => <li key={link.href}><Link href={link.href} className="py-3 hover:text-orange">{link.label}</Link></li>)}
         </ul>
-        <Link href="/contact/" className="hidden lg:inline-flex btn-pill btn-primary px-6 py-3 text-sm">Get Estimate</Link>
+        {!isContactPage && <Link href="/contact/" className="desktop-estimate-link btn-pill btn-primary px-6 py-3 text-sm">Get Estimate</Link>}
         <button onClick={() => setOpen(!open)} className="lg:hidden min-w-11 min-h-11 flex items-center justify-center text-charcoal" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">{open ? <path strokeLinecap="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeWidth={1.5} d="M4 7h16M4 12h16M4 17h16" />}</svg>
         </button>
       </nav>
       <nav id="mobile-menu" aria-label="Mobile navigation" hidden={!open} className="lg:hidden max-h-[calc(100dvh-154px-env(safe-area-inset-bottom))] overflow-y-auto bg-cream border-t border-charcoal/10 px-6 pb-6" onKeyDown={(event) => { if (event.key === 'Escape') setOpen(false) }}>
         <ul className="grid grid-cols-2 gap-x-4 pt-3">{glassServices.map((service) => <li key={service.id}><Link href={service.href} onClick={() => setOpen(false)} className="block py-3 text-sm text-charcoal">{service.name}</Link></li>)}<li><Link href="/services/" onClick={() => setOpen(false)} className="block py-3 text-sm text-orange">All services</Link></li>{companyLinks.map((link) => <li key={link.href}><Link href={link.href} onClick={() => setOpen(false)} className="block py-3 text-sm text-charcoal">{link.label}</Link></li>)}</ul>
-        <Link href="/contact/" onClick={() => setOpen(false)} className="mt-4 block text-center btn-pill btn-primary px-8 py-3 text-sm">Get Estimate</Link>
+        {!isContactPage && <Link href="/contact/" onClick={() => setOpen(false)} className="mt-4 block text-center btn-pill btn-primary px-8 py-3 text-sm">Get Estimate</Link>}
       </nav>
     </header>
   )
