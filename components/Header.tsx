@@ -43,7 +43,9 @@ export default function Header() {
           </li>
           {companyLinks.map((link) => <li key={link.href}><Link href={link.href} className="py-3 hover:text-orange">{link.label}</Link></li>)}
         </ul>
-        {!isContactPage && <Link href="/contact/" className="desktop-estimate-link btn-pill btn-primary px-6 py-3 text-sm">Get Estimate</Link>}
+        {isContactPage
+          ? <span aria-hidden="true" className="desktop-estimate-link w-[138px]" />
+          : <Link href="/contact/" className="desktop-estimate-link btn-pill btn-primary px-6 py-3 text-sm">Get Estimate</Link>}
         <button onClick={() => setOpen(!open)} className="lg:hidden min-w-11 min-h-11 flex items-center justify-center text-charcoal" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">{open ? <path strokeLinecap="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeWidth={1.5} d="M4 7h16M4 12h16M4 17h16" />}</svg>
         </button>
