@@ -9,3 +9,14 @@
 .readiness-page p { color:inherit; font-size:16px; line-height:1.8; margin:16px 0; overflow-wrap:anywhere; }
 .readiness-page a { color:inherit; text-decoration:underline; text-underline-offset:4px; }
 .readiness-page button { padding:12px 20px; border:1px solid currentColor; min-height:44px; color:inherit; background:transparent; cursor:pointer; }
+
+.mgp-cookie-settings { position:fixed; z-index:60; bottom:12px; left:12px; padding:7px 10px; border:1px solid #b8ad9f; border-radius:3px; background:#f6f3ed; color:#25251f; font-size:11px; cursor:pointer; }
+.mgp-consent { position:fixed; z-index:60; right:16px; bottom:16px; left:16px; display:flex; align-items:center; justify-content:space-between; gap:24px; max-width:960px; margin:auto; padding:20px 24px; border:1px solid #b8ad9f; border-radius:4px; background:#f6f3ed; color:#25251f; box-shadow:0 12px 40px #0002; }
+.mgp-consent strong { font-size:18px; font-weight:600; }
+.mgp-consent p { max-width:620px; margin:6px 0 0; font-size:13px; line-height:1.55; }
+.mgp-consent a { text-decoration:underline; text-underline-offset:3px; }
+.mgp-consent-actions { display:flex; flex-shrink:0; gap:8px; }
+.mgp-consent-actions button { min-height:44px; padding:9px 14px; border:1px solid #25251f; border-radius:3px; background:transparent; color:#25251f; font-size:12px; cursor:pointer; }
+.mgp-consent-actions button:nth-child(2) { background:#25251f; color:#fff; }
+@media (max-width:1023px) { .mgp-cookie-settings { bottom:96px; } .mgp-consent { bottom:96px; } }
+@media (max-width:700px) { .mgp-consent { align-items:stretch; flex-direction:column; gap:16px; padding:18px; } .mgp-consent-actions { flex-wrap:wrap; } }
