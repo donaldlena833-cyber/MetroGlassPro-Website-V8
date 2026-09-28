@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Instrument_Serif, Inter } from 'next/font/google'
-import LegacyTrackingCleanup from '@/components/LegacyTrackingCleanup'
+import GoogleAnalyticsConsent from '@/components/GoogleAnalyticsConsent'
 import './readiness.css';
 import './globals.css'
 import Header from '@/components/Header'
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, '\\u003c') }} />
-        <LegacyTrackingCleanup />
+        <GoogleAnalyticsConsent />
         <ScrollObserver />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
