@@ -69,6 +69,15 @@ export default function EstimateRequestForm() {
       setReference(typeof payload.requestId === 'string' ? payload.requestId : '')
       setSubmitState('success')
       setFiles([])
+      const pixelWindow = window as Window & { oaiq?: (...args: unknown[]) => void; __mgpAdsMeasurementAllowed?: boolean }
+      if (pixelWindow.__mgpAdsMeasurementAllowed) {
+        const eventId = typeof payload.requestId === 'string' && payload.requestId ? { event_id: payload.requestId } : undefined
+        pixelWindow.oaiq?.('measure', 'lead_created', { type: 'customer_action' }, eventId)
+      }
+      if (pixelWindow.__mgpAdsMeasurementAllowed && pixelWindow.oaiq) {
+        // Give the SDK time to transmit its batched lead event before navigation.
+        await new Promise((resolve) => setTimeout(resolve, 500))
+      }
       try { sessionStorage.setItem('received-metroglasspro.com', 'received'); sessionStorage.setItem('received-metroglasspro-reference', typeof payload.requestId === 'string' ? payload.requestId : ''); window.location.assign('/thank-you/'); } catch { /* Keep the existing receipt visible. */ }
     } catch (error) {
       setSubmitState('error')
