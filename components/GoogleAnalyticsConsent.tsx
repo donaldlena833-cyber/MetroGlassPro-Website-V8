@@ -8,23 +8,33 @@ const MEASUREMENT_ID = 'G-46MYS2R9QW'
 // Google lists this as the installable tag for the dedicated MetroGlass Pro stream.
 // The G- ID returns 404 from gtag/js. We route events only to the GA4 destination.
 const SCRIPT_ID = 'AW-934489946'
-const CHOICE_KEY = 'mgp-analytics-consent-v1'
+const PIXEL_ID = 'LBnjZbztWd5CAZeRm4zCDV'
+const CHOICE_KEY = 'mgp-measurement-consent-v2'
+const OLD_CHOICE_KEY = 'mgp-analytics-consent-v1'
 const CHOICE_LIFETIME = 180 * 24 * 60 * 60 * 1000
 
-type Choice = { allowed: boolean; expires: number }
+type Choice = { analytics: boolean; ads: boolean; expires: number }
 type TagWindow = Window & {
   dataLayer?: unknown[]
   gtag?: (...args: unknown[]) => void
+  oaiq?: (...args: unknown[]) => void
+  __mgpAdsMeasurementAllowed?: boolean
   [key: `ga-disable-${string}`]: boolean
 }
 
-function storedChoice(): Choice | null {
+function storedChoice(): { choice: Choice | null; prompt: boolean } {
   try {
     const value = JSON.parse(localStorage.getItem(CHOICE_KEY) || 'null') as Choice | null
-    return value && typeof value.allowed === 'boolean' && value.expires > Date.now() ? value : null
-  } catch {
-    return null
-  }
+    if (value && typeof value.analytics === 'boolean' && typeof value.ads === 'boolean' && value.expires > Date.now()) {
+      return { choice: value, prompt: false }
+    }
+    const old = JSON.parse(localStorage.getItem(OLD_CHOICE_KEY) || 'null') as { allowed?: boolean; expires?: number } | null
+    if (old && typeof old.allowed === 'boolean' && typeof old.expires === 'number' && old.expires > Date.now()) {
+      // Existing analytics permission never grants permission for a new ad pixel.
+      return { choice: { analytics: old.allowed, ads: false, expires: old.expires }, prompt: true }
+    }
+  } catch { /* Ask again when storage cannot be read. */ }
+  return { choice: null, prompt: true }
 }
 
 function clearAnalyticsCookies() {
@@ -44,24 +54,34 @@ export default function GoogleAnalyticsConsent() {
   const [choice, setChoice] = useState<Choice | null>(null)
   const [ready, setReady] = useState(false)
   const [open, setOpen] = useState(false)
-  const loaded = useRef(false)
+  const googleLoaded = useRef(false)
+  const pixelLoaded = useRef(false)
   const lastPage = useRef<string | null>(null)
+  const lastPixelPage = useRef<string | null>(null)
 
   useEffect(() => {
     const saved = storedChoice()
-    if (!saved?.allowed) clearAnalyticsCookies()
+    if (!saved.choice?.analytics) clearAnalyticsCookies()
     try { localStorage.removeItem('site-cookie-choice-v1') } catch { /* Old preference is retired. */ }
-    setChoice(saved)
-    setOpen(!saved)
+    setChoice(saved.choice)
+    setOpen(saved.prompt)
     setReady(true)
   }, [])
 
   useEffect(() => {
     if (!ready) return
     const tagWindow = window as unknown as TagWindow
-    tagWindow[`ga-disable-${MEASUREMENT_ID}`] = !choice?.allowed
-    if (!choice?.allowed || loaded.current) return
-    loaded.current = true
+    tagWindow[`ga-disable-${MEASUREMENT_ID}`] = !choice?.analytics
+    tagWindow.__mgpAdsMeasurementAllowed = Boolean(choice?.ads)
+    if (choice?.ads && !pixelLoaded.current) {
+      pixelLoaded.current = true
+      // Add one setup script to the document head only after ad measurement consent.
+      const script = document.createElement('script')
+      script.text = `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("consent",false);oaiq("init",{pixelId:"${PIXEL_ID}",debug:true});oaiq("consent",true);`
+      document.head.prepend(script)
+    }
+    if (!choice?.analytics || googleLoaded.current) return
+    googleLoaded.current = true
 
     tagWindow.dataLayer = tagWindow.dataLayer || []
     // eslint-disable-next-line prefer-rest-params
@@ -81,7 +101,7 @@ export default function GoogleAnalyticsConsent() {
   }, [choice, ready])
 
   useEffect(() => {
-    if (!choice?.allowed || !loaded.current || !pathname || lastPage.current === pathname) return
+    if (!choice?.analytics || !googleLoaded.current || !pathname || lastPage.current === pathname) return
     const previousPage = lastPage.current
     lastPage.current = pathname
     ;(window as unknown as TagWindow).gtag?.('event', 'page_view', {
@@ -91,12 +111,26 @@ export default function GoogleAnalyticsConsent() {
     })
   }, [choice, pathname])
 
-  function save(allowed: boolean) {
-    const next = { allowed, expires: Date.now() + CHOICE_LIFETIME }
-    try { localStorage.setItem(CHOICE_KEY, JSON.stringify(next)) } catch { /* Apply to this visit. */ }
-    if (!allowed) clearAnalyticsCookies()
-    // A reload also stops an already loaded tag when permission is withdrawn.
-    if (choice?.allowed) { location.reload(); return }
+  useEffect(() => {
+    if (!choice?.ads || !pixelLoaded.current || !pathname || lastPixelPage.current === pathname) return
+    lastPixelPage.current = pathname
+    ;(window as unknown as TagWindow).oaiq?.('measure', 'page_viewed', {
+      type: 'contents',
+      contents: [{ id: pathname, content_type: 'page' }],
+    })
+  }, [choice, pathname])
+
+  function save(analytics: boolean, ads: boolean) {
+    const next = { analytics, ads, expires: Date.now() + CHOICE_LIFETIME }
+    try {
+      localStorage.setItem(CHOICE_KEY, JSON.stringify(next))
+      localStorage.removeItem(OLD_CHOICE_KEY)
+    } catch { /* Apply to this visit. */ }
+    if (!analytics) clearAnalyticsCookies()
+    if (choice?.ads && !ads) (window as unknown as TagWindow).oaiq?.('consent', false)
+    if (!ads) (window as unknown as TagWindow).__mgpAdsMeasurementAllowed = false
+    // Reload to stop tags already loaded when either permission is withdrawn.
+    if ((choice?.analytics && !analytics) || (choice?.ads && !ads)) { location.reload(); return }
     setChoice(next)
     setOpen(false)
   }
@@ -106,11 +140,12 @@ export default function GoogleAnalyticsConsent() {
     {ready && open && <section className="mgp-consent" aria-label="Cookie preferences">
       <div>
         <strong>Your privacy choices</strong>
-        <p>With your permission, Google Analytics helps us understand visits. The site works without optional cookies. You can change this choice anytime. <Link href="/privacy-policy/">Privacy policy</Link></p>
+        <p>Google Analytics helps us understand visits. With separate permission, the OpenAI Pixel measures ad visits and confirmed estimate requests. The site works without optional cookies. You can change this choice anytime. <Link href="/privacy-policy/">Privacy policy</Link></p>
       </div>
       <div className="mgp-consent-actions">
-        <button type="button" onClick={() => save(false)}>Reject optional</button>
-        <button type="button" onClick={() => save(true)}>Allow analytics</button>
+        <button type="button" onClick={() => save(false, false)}>Reject optional</button>
+        <button type="button" onClick={() => save(true, false)}>Analytics only</button>
+        <button type="button" onClick={() => save(true, true)}>Allow analytics and ad measurement</button>
         {choice && <button type="button" onClick={() => setOpen(false)}>Close</button>}
       </div>
     </section>}
