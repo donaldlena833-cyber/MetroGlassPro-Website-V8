@@ -12,6 +12,7 @@ const PIXEL_ID = 'LBnjZbztWd5CAZeRm4zCDV'
 const CHOICE_KEY = 'mgp-measurement-consent-v2'
 const OLD_CHOICE_KEY = 'mgp-analytics-consent-v1'
 const CHOICE_LIFETIME = 180 * 24 * 60 * 60 * 1000
+const CAMPAIGN_PARAMETERS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_id', 'utm_content'] as const
 
 type Choice = { analytics: boolean; ads: boolean; expires: number }
 type TagWindow = Window & {
@@ -47,6 +48,36 @@ function clearAnalyticsCookies() {
       document.cookie = `${name}=; Max-Age=0; path=/;${domain ? ` domain=${domain};` : ''} SameSite=Lax`
     }
   }
+}
+
+function analyticsPageLocation(pathname: string) {
+  const url = new URL(pathname, location.origin)
+  const incoming = new URLSearchParams(location.search)
+  // Campaign tags are useful in GA4; arbitrary landing-page parameters may contain private data.
+  for (const name of CAMPAIGN_PARAMETERS) {
+    const value = incoming.get(name)
+    if (value && value.length <= 120 && /^[a-zA-Z0-9._~-]+$/.test(value)) url.searchParams.set(name, value)
+  }
+  // OpenAI ad clicks may carry oppref without UTM tags. Attribute those visits
+  // without sending the opaque click identifier to Google Analytics.
+  if (incoming.get('oppref')) {
+    if (!url.searchParams.has('utm_source')) url.searchParams.set('utm_source', 'chatgpt')
+    if (!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', 'cpc')
+    if (!url.searchParams.has('utm_campaign')) url.searchParams.set('utm_campaign', 'openai_ads')
+  }
+  return url.href
+}
+
+function analyticsReferrer(previousPage: string | null) {
+  if (previousPage) {
+    const url = new URL(previousPage)
+    return url.origin + url.pathname
+  }
+  if (!document.referrer) return undefined
+  try {
+    const url = new URL(document.referrer)
+    return url.origin === location.origin ? url.origin + url.pathname : url.origin + '/'
+  } catch { return undefined }
 }
 
 export default function GoogleAnalyticsConsent() {
@@ -101,13 +132,15 @@ export default function GoogleAnalyticsConsent() {
   }, [choice, ready])
 
   useEffect(() => {
-    if (!choice?.analytics || !googleLoaded.current || !pathname || lastPage.current === pathname) return
+    if (!choice?.analytics || !googleLoaded.current || !pathname) return
+    const pageLocation = analyticsPageLocation(pathname)
+    if (lastPage.current === pageLocation) return
     const previousPage = lastPage.current
-    lastPage.current = pathname
+    lastPage.current = pageLocation
     ;(window as unknown as TagWindow).gtag?.('event', 'page_view', {
       send_to: MEASUREMENT_ID,
-      page_location: location.origin + pathname,
-      page_referrer: previousPage ? location.origin + previousPage : '',
+      page_location: pageLocation,
+      page_referrer: analyticsReferrer(previousPage),
     })
   }, [choice, pathname])
 
