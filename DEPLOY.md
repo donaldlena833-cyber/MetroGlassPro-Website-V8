@@ -45,7 +45,7 @@
 ## After Deploy
 - Submit sitemap in Google Search Console:
   https://metroglasspro.com/sitemap.xml
-- In a fresh browser, verify no Google request before consent. Allow analytics, then verify a `page_view` request to `G-46MYS2R9QW` returns 204 and appears in GA4 Realtime.
+- In a fresh browser, verify analytics loads without a popup. Verify the privacy-page opt-out stops Google requests. With analytics enabled, verify a `page_view` request to `G-46MYS2R9QW` returns 204 and appears in GA4 Realtime.
 - Submit a test contact form and confirm it lands in the destination inbox
 - Test all redirects: /blog, /visualize, /services/glass-repair, /services/custom-mirrors
 - Run Lighthouse audit on homepage — target 90+ all categories
