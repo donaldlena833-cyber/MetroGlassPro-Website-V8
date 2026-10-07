@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
@@ -23,19 +22,19 @@ type TagWindow = Window & {
   [key: `ga-disable-${string}`]: boolean
 }
 
-function storedChoice(): { choice: Choice | null; prompt: boolean } {
+function storedChoice(): Choice {
   try {
     const value = JSON.parse(localStorage.getItem(CHOICE_KEY) || 'null') as Choice | null
     if (value && typeof value.analytics === 'boolean' && typeof value.ads === 'boolean' && value.expires > Date.now()) {
-      return { choice: value, prompt: false }
+      return value
     }
     const old = JSON.parse(localStorage.getItem(OLD_CHOICE_KEY) || 'null') as { allowed?: boolean; expires?: number } | null
     if (old && typeof old.allowed === 'boolean' && typeof old.expires === 'number' && old.expires > Date.now()) {
       // Existing analytics permission never grants permission for a new ad pixel.
-      return { choice: { analytics: old.allowed, ads: false, expires: old.expires }, prompt: true }
+      return { analytics: old.allowed, ads: false, expires: old.expires }
     }
-  } catch { /* Ask again when storage cannot be read. */ }
-  return { choice: null, prompt: true }
+  } catch { /* Use the visit default when storage cannot be read. */ }
+  return { analytics: true, ads: false, expires: Date.now() + CHOICE_LIFETIME }
 }
 
 function clearAnalyticsCookies() {
@@ -84,19 +83,26 @@ export default function GoogleAnalyticsConsent() {
   const pathname = usePathname()
   const [choice, setChoice] = useState<Choice | null>(null)
   const [ready, setReady] = useState(false)
-  const [open, setOpen] = useState(false)
   const googleLoaded = useRef(false)
   const pixelLoaded = useRef(false)
   const lastPage = useRef<string | null>(null)
   const lastPixelPage = useRef<string | null>(null)
 
   useEffect(() => {
-    const saved = storedChoice()
-    if (!saved.choice?.analytics) clearAnalyticsCookies()
-    try { localStorage.removeItem('site-cookie-choice-v1') } catch { /* Old preference is retired. */ }
-    setChoice(saved.choice)
-    setOpen(saved.prompt)
-    setReady(true)
+    const sync = () => {
+      const saved = storedChoice()
+      const privacySignal = (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl || navigator.doNotTrack === '1'
+      const next = privacySignal ? { ...saved, analytics: false, ads: false } : saved
+      if (!next.analytics) clearAnalyticsCookies()
+      setChoice(next)
+      setReady(true)
+    }
+    sync()
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === CHOICE_KEY || event.key === OLD_CHOICE_KEY) location.reload()
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
   }, [])
 
   useEffect(() => {
@@ -111,6 +117,7 @@ export default function GoogleAnalyticsConsent() {
       script.text = `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("consent",false);oaiq("init",{pixelId:"${PIXEL_ID}",debug:true});oaiq("consent",true);`
       document.head.prepend(script)
     }
+    tagWindow.gtag?.('consent', 'update', { analytics_storage: choice?.analytics ? 'granted' : 'denied' })
     if (!choice?.analytics || googleLoaded.current) return
     googleLoaded.current = true
 
@@ -154,33 +161,29 @@ export default function GoogleAnalyticsConsent() {
   }, [choice, pathname])
 
   function save(analytics: boolean, ads: boolean) {
+    const privacySignal = (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl || navigator.doNotTrack === '1'
+    analytics = privacySignal ? false : analytics
+    ads = privacySignal ? false : ads
     const next = { analytics, ads, expires: Date.now() + CHOICE_LIFETIME }
+    let persisted = false
     try {
       localStorage.setItem(CHOICE_KEY, JSON.stringify(next))
       localStorage.removeItem(OLD_CHOICE_KEY)
+      persisted = true
     } catch { /* Apply to this visit. */ }
     if (!analytics) clearAnalyticsCookies()
     if (choice?.ads && !ads) (window as unknown as TagWindow).oaiq?.('consent', false)
     if (!ads) (window as unknown as TagWindow).__mgpAdsMeasurementAllowed = false
     // Reload to stop tags already loaded when either permission is withdrawn.
-    if ((choice?.analytics && !analytics) || (choice?.ads && !ads)) { location.reload(); return }
+    if (persisted && ((choice?.analytics && !analytics) || (choice?.ads && !ads))) { location.reload(); return }
     setChoice(next)
-    setOpen(false)
   }
 
-  return <>
-    <button className="mgp-cookie-settings" type="button" onClick={() => setOpen(true)}>Cookie settings</button>
-    {ready && open && <section className="mgp-consent" aria-label="Cookie preferences">
-      <div>
-        <strong>Your privacy choices</strong>
-        <p>Google Analytics helps us understand visits. With separate permission, the OpenAI Pixel measures ad visits and confirmed estimate requests. The site works without optional cookies. You can change this choice anytime. <Link href="/privacy-policy/">Privacy policy</Link></p>
-      </div>
-      <div className="mgp-consent-actions">
-        <button type="button" onClick={() => save(false, false)}>Reject optional</button>
-        <button type="button" onClick={() => save(true, false)}>Analytics only</button>
-        <button type="button" onClick={() => save(true, true)}>Allow analytics and ad measurement</button>
-        {choice && <button type="button" onClick={() => setOpen(false)}>Close</button>}
-      </div>
-    </section>}
-  </>
+  if (!ready || pathname?.replace(/\/$/, '') !== '/privacy-policy') return null
+  return <section className="mgp-privacy-controls" aria-label="Website analytics settings">
+    <h2>Website analytics</h2>
+    <p>Google Analytics is {choice?.analytics ? 'on' : 'off'} in this browser. Ad measurement is {choice?.ads ? 'on' : 'off'}.</p>
+    <button type="button" onClick={() => save(!choice?.analytics, Boolean(choice?.ads))}>{choice?.analytics ? 'Turn off analytics' : 'Turn on analytics'}</button>
+    <button type="button" onClick={() => save(Boolean(choice?.analytics), !choice?.ads)}>{choice?.ads ? 'Turn off ad measurement' : 'Allow ad measurement'}</button>
+  </section>
 }
