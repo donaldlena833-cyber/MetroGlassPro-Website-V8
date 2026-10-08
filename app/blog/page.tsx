@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
 }
 
-const posts: { href: string; label: string; title: string; excerpt: string; image?: string; imageAlt: string; date: string; legacyStatic?: boolean }[] = [
+const posts = [
   ...neighborhoodGuides.map((guide) => ({ href: `/blog/${guide.slug}/`, label: guide.neighborhood, title: guide.title, excerpt: guide.description, image: guide.photo, imageAlt: guide.photoAlt, date: 'October 2026', legacyStatic: false })),
   {
     href: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
@@ -103,7 +103,7 @@ export default function BlogIndex() {
         <div className="max-w-4xl mx-auto px-6 sm:px-10">
           <div className="space-y-8">
             {posts.map((post) => {
-              const Wrapper = post.legacyStatic ? 'a' : Link
+              const Wrapper = 'legacyStatic' in post && post.legacyStatic ? 'a' : Link
 
               return (
               <Wrapper key={post.href} href={post.href} className="group block glass-card overflow-hidden card-lift">
