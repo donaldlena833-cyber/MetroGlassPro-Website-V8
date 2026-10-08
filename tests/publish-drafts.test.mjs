@@ -8,6 +8,31 @@ import { spawnSync } from 'node:child_process'
 
 const processor = fileURLToPath(new URL('../scripts/process-drafts.mjs', import.meta.url))
 
+test('current production index and sitemap accept a new approved article without losing neighborhood entries', (t) => {
+  const f = fixture(t)
+  f.put('app/blog/page.tsx', readFileSync(new URL('../app/blog/page.tsx', import.meta.url), 'utf8'))
+  f.put('app/sitemap.ts', readFileSync(new URL('../app/sitemap.ts', import.meta.url), 'utf8'))
+  f.put('_drafts/ready.md', draft({ slug: 'publisher-integration-review' }))
+  const result = f.run()
+  assert.equal(result.status, 0, result.stderr)
+  assert.equal(result.output, 'published=true\n')
+  assert.match(f.read('app/blog/page.tsx'), /neighborhoodGuides\.map/)
+  assert.match(f.read('app/blog/page.tsx'), /2026-05-09-honest-shower-door-repair-nyc/)
+  assert.match(f.read('app/sitemap.ts'), /neighborhoodGuides\.map/)
+})
+
+test('each new neighborhood page is protected from approved-draft replacement', (t) => {
+  for (const slug of ['gowanus-shower-glass-patterned-tile', 'financial-district-shower-door-movement', 'midtown-west-mirror-shower-glass-coordination']) {
+    const f = fixture(t)
+    f.put(`app/blog/${slug}/page.tsx`, readFileSync(new URL(`../app/blog/${slug}/page.tsx`, import.meta.url), 'utf8'))
+    f.put('_drafts/collision.md', draft({ slug }))
+    const before = f.snapshot()
+    const result = f.run()
+    assert.notEqual(result.status, 0)
+    assert.deepEqual(f.snapshot(), before)
+  }
+})
+
 function fixture(t) {
   const root = mkdtempSync(path.join(tmpdir(), 'metroglass-publisher-'))
   t.after(() => rmSync(root, { recursive: true, force: true }))

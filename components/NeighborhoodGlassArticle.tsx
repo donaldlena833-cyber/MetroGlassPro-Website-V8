@@ -5,22 +5,17 @@ import ResponsiveImage from '@/components/ResponsiveImage'
 import EstimateRequestForm from '@/components/EstimateRequestForm'
 import { neighborhoodGuides } from '@/content/neighborhood-guides'
 
-export const dynamicParams = false
-export function generateStaticParams() { return neighborhoodGuides.map(({ slug }) => ({ neighborhood: slug })) }
-type Props = { params: Promise<{ neighborhood: string }> }
 const origin = 'https://metroglasspro.com'
 const date = '2026-10-08'
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { neighborhood } = await params
-  const guide = neighborhoodGuides.find((item) => item.slug === neighborhood)
+export function metadataForGuide(slug: string): Metadata {
+  const guide = neighborhoodGuides.find((item) => item.slug === slug)
   if (!guide) return {}
   const canonical = `${origin}/blog/${guide.slug}/`
   return { title: guide.title, description: guide.description, alternates: { canonical },
     openGraph: { title: guide.title, description: guide.description, url: canonical, type: 'article', publishedTime: date, modifiedTime: date, images: [{ url: `${origin}${guide.photo}`, alt: guide.photoAlt }] } }
 }
-export default async function NeighborhoodPage({ params }: Props) {
-  const { neighborhood } = await params
-  const guide = neighborhoodGuides.find((item) => item.slug === neighborhood)
+export default function NeighborhoodGlassArticle({ slug }: { slug: string }) {
+  const guide = neighborhoodGuides.find((item) => item.slug === slug)
   if (!guide) notFound()
   const canonical = `${origin}/blog/${guide.slug}/`
   const organization = { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'MetroGlass Pro', url: origin, logo: { '@type': 'ImageObject', url: `${origin}/assets/logo.png` } }
