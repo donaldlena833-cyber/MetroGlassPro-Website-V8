@@ -10,8 +10,9 @@ const initialValues = { name: '', contact: '', service: '', message: '', website
 const inputClassName = 'w-full min-w-0 px-4 py-3 bg-white border border-charcoal/20 rounded-xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:ring-2 focus:ring-charcoal/30'
 const labelClassName = 'block text-sm font-medium text-charcoal mb-2'
 
-export default function EstimateRequestForm() {
-  const [values, setValues] = useState(initialValues)
+type ProjectContext = { label: string; url: string; scope: string; service: string }
+export default function EstimateRequestForm({ projectContext }: { projectContext?: ProjectContext } = {}) {
+  const [values, setValues] = useState({ ...initialValues, service: projectContext?.service || '', message: projectContext?.scope || '' })
   const [files, setFiles] = useState<File[]>([])
   const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [onlineAvailable, setOnlineAvailable] = useState(true)
@@ -41,6 +42,7 @@ export default function EstimateRequestForm() {
     values.service && `Service: ${values.service}`,
     values.message && `Project: ${values.message}`,
     values.howHeard && `Found you through: ${values.howHeard}`,
+    projectContext && `Article: ${projectContext.label}\n${projectContext.url}`,
   ].filter(Boolean).join('\n')
   const emailHref = `mailto:operations@metroglasspro.com?subject=${encodeURIComponent('Glass project estimate')}&body=${encodeURIComponent(draft)}`
   const smsHref = `sms:+13329993846?body=${encodeURIComponent(draft)}`
@@ -58,7 +60,7 @@ export default function EstimateRequestForm() {
     setErrorMessage('')
     try {
       const formData = new FormData()
-      Object.entries(values).forEach(([key, value]) => formData.append(key, value))
+      Object.entries(values).forEach(([key, value]) => formData.append(key, key === 'message' && projectContext ? `${value}\n\nArticle: ${projectContext.label}\n${projectContext.url}` : value))
       files.forEach((file) => formData.append('attachments', file))
       const response = await fetch('/api/contact', { method: 'POST', body: formData, signal: AbortSignal.timeout(20000) })
       const payload = await response.json().catch(() => ({}))
@@ -102,7 +104,7 @@ export default function EstimateRequestForm() {
       <p className="mt-4 text-warm">We’ll review your project and contact you with the next step. For urgent help, call <a href="tel:+13329993846" className="underline">(332) 999-3846</a>.</p>
       <p className="mt-4 text-warm">More photos? <a href="sms:+13329993846" className="underline">Text them to us.</a></p>
       {reference && <p className="mt-4 text-xs text-warm break-all">Request reference: {reference}</p>}
-      <button type="button" onClick={() => { setValues(initialValues); setReference(''); setSubmitState('idle') }} className="btn-pill btn-primary mt-6 px-6 py-3">Start another request</button>
+      <button type="button" onClick={() => { setValues({ ...initialValues, service: projectContext?.service || '', message: projectContext?.scope || '' }); setReference(''); setSubmitState('idle') }} className="btn-pill btn-primary mt-6 px-6 py-3">Start another request</button>
     </div>
   )
 

@@ -1,6 +1,7 @@
 import ResponsiveImage from '@/components/ResponsiveImage'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { neighborhoodGuides } from '@/content/neighborhood-guides'
 
 export const metadata: Metadata = {
   title: 'NYC Glass Guides: Mirrors, Railings, Partitions and Shower Doors',
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
   },
 }
 
-const posts = [
+const posts: { href: string; label: string; title: string; excerpt: string; image?: string; imageAlt: string; date: string; legacyStatic?: boolean }[] = [
+  ...neighborhoodGuides.map((guide) => ({ href: `/blog/${guide.slug}/`, label: guide.neighborhood, title: guide.title, excerpt: guide.description, image: guide.photo, imageAlt: guide.photoAlt, date: 'October 2026', legacyStatic: false })),
   {
     href: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
     label: 'Tub Glass Guide',
