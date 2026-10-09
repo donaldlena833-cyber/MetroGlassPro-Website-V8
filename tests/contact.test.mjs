@@ -6,6 +6,44 @@ const env = { RESEND_API_KEY: 'test-key-never-live', CONTACT_TO_EMAIL: 'operatio
 const lead = { name: 'Test visitor', contact: 'visitor@example.com', message: 'A mirror in Queens.' }
 const request = (body) => new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
 
+test('reported Katie email is discarded before any mail or background work in every supported format', async (t) => {
+  const fetch = t.mock.method(globalThis, 'fetch', async () => { throw new Error('Must not send') })
+  const tasks = []
+  for (const email of ['katieODola4668@gmail.com', 'KATIEODOLA4668@GMAIL.COM', ' \tKatieODola4668@Gmail.com\n ']) {
+    for (const body of [
+      { ...lead, name: 'KatyOa1492', contact: email, service: 'Custom Mirror' },
+      { name: 'Different name', email, service: 'Custom Mirror', message: 'Legacy form' },
+      { email }, // The block also precedes normal validation and mail configuration.
+    ]) {
+      for (const format of ['json', 'multipart', 'urlencoded']) {
+        let req = request(body)
+        if (format !== 'json') {
+          const form = format === 'multipart' ? new FormData() : new URLSearchParams()
+          Object.entries(body).forEach(([key, value]) => form.set(key, value))
+          req = new Request('https://metroglasspro.com/api/contact', { method: 'POST', body: form })
+        }
+        for (const settings of [env, {}]) {
+          const response = await onRequestPost({ request: req.clone(), env: settings, waitUntil: (task) => tasks.push(task) })
+          assert.equal(response.status, 200)
+          assert.deepEqual(await response.json(), { ok: true })
+        }
+      }
+    }
+  }
+  assert.equal(fetch.mock.callCount(), 0)
+  assert.equal(tasks.length, 0)
+})
+
+test('other Gmail customers, nearby addresses and the reported name with a different email still send', async (t) => {
+  const fetch = t.mock.method(globalThis, 'fetch', async () => new Response('{"id":"accepted-customer"}'))
+  for (const contact of ['customer@gmail.com', 'katieodola4669@gmail.com', 'katieodola4668+project@gmail.com', 'katieodola4668@example.com']) {
+    const response = await onRequestPost({ request: request({ ...lead, name: 'KatyOa1492', contact, service: 'Custom Mirror' }), env })
+    assert.equal(response.status, 200)
+    assert.ok((await response.json()).requestId)
+  }
+  assert.equal(fetch.mock.callCount(), 8)
+})
+
 test('reported spam names and blocked email addresses never send notifications or confirmations', async (t) => {
   const fetch = t.mock.method(globalThis, 'fetch', async () => { throw new Error('Must not send') })
   const settings = { ...env, CONTACT_BLOCKED_EMAILS: ' spam@example.com, SECOND@example.com ' }
