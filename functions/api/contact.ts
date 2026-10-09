@@ -57,12 +57,16 @@ function clean(value: unknown, max = 500) {
 }
 
 function isBlockedSubmission(submission: Submission, env: Env) {
+  // Exact reported spam address only; leave other Gmail addresses and aliases alone.
+  const email = submission.email.trim().toLowerCase()
+  if (email === 'katieodola4668@gmail.com') return true
+
   // Match this reported spam identity despite case, spacing or punctuation changes.
   const name = submission.name.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]/g, '')
   if (name === 'robertphory') return true
 
   const blockedEmails = (env.CONTACT_BLOCKED_EMAILS || '').split(',').map((email) => email.trim().toLowerCase()).filter(Boolean)
-  return blockedEmails.includes(submission.email.toLowerCase())
+  return blockedEmails.includes(email)
 }
 
 function arrayBufferToBase64(buffer: ArrayBuffer) {
