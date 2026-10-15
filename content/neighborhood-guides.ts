@@ -1,6 +1,9 @@
+import { batchTwoGuides } from './neighborhood-guides-batch-two'
+
 export type NeighborhoodGuide = {
   slug: string; neighborhood: string; title: string; description: string;
-  photo: string; photoAlt: string; photoCaption: string; intro: string[]; takeaway: string;
+  publishDate: string; modifiedDate: string; relatedSlugs?: string[];
+  photo: string; photoAlt: string; photoCaption: string; photoDisplay?: 'detail'; intro: string[]; takeaway: string;
   sections: { id: string; title: string; paragraphs: string[]; checklist?: string[]; links?: { label: string; href: string }[] }[];
   illustration: { src: string; alt: string; caption: string; after: number; portrait?: boolean };
   brief: { service: string; scope: string; photos: string[] };
@@ -8,7 +11,7 @@ export type NeighborhoodGuide = {
 
 export const neighborhoodGuides: NeighborhoodGuide[] = [
   {
-    slug: 'gowanus-shower-glass-patterned-tile', neighborhood: 'Gowanus · Brooklyn',
+    slug: 'gowanus-shower-glass-patterned-tile', neighborhood: 'Gowanus · Brooklyn', publishDate: '2026-10-08', modifiedDate: '2026-10-08',
     title: 'Where should the glass meet your Gowanus shower tile?',
     description: 'Plan shower glass around patterned tile, the finished curb and hardware positions. A Gowanus homeowner’s brief, with a real MetroGlass Pro work photo.',
     photo: '/gallery/edison-nj-clear-tempered-shower-door-angle.jpg',
@@ -41,7 +44,7 @@ export const neighborhoodGuides: NeighborhoodGuide[] = [
     brief: { service: 'Frameless Shower Door', scope: 'Gowanus shower glass: tile pattern, panel line, finished curb and hardware coordination.', photos: ['The room from the doorway', 'The finished curb and wall boundaries', 'Tile or hardware selections and unfinished items'] },
   },
   {
-    slug: 'financial-district-shower-door-movement', neighborhood: 'Financial District · Manhattan',
+    slug: 'financial-district-shower-door-movement', neighborhood: 'Financial District · Manhattan', publishDate: '2026-10-08', modifiedDate: '2026-10-08',
     title: 'A FiDi shower door needs room to open, not just room to fit.',
     description: 'Compare sliding and swing shower-door movement in a Financial District apartment, including nearby fixtures, usable entry and building access.',
     photo: '/gallery/84-clinton-after-preview.jpg',
@@ -74,7 +77,7 @@ export const neighborhoodGuides: NeighborhoodGuide[] = [
     brief: { service: 'Frameless Shower Door', scope: 'Financial District shower glass: usable entry, swing or sliding movement, nearby fixtures and building access.', photos: ['Bathroom doorway toward the shower', 'Neighboring vanity, toilet and room door', 'Existing rail, hinges or handles if retained'] },
   },
   {
-    slug: 'midtown-west-mirror-shower-glass-coordination', neighborhood: 'Midtown West / Hudson Yards · Manhattan',
+    slug: 'midtown-west-mirror-shower-glass-coordination', neighborhood: 'Midtown West / Hudson Yards · Manhattan', publishDate: '2026-10-08', modifiedDate: '2026-10-08',
     title: 'Before a Midtown West mirror refresh, open every door.',
     description: 'Coordinate a bathroom mirror or mirrored cabinet with lights, faucet, storage movement and neighboring shower glass in Midtown West and Hudson Yards.',
     photo: '/gallery/mirror-cabinet-blue-tape.jpg',
@@ -106,4 +109,5 @@ export const neighborhoodGuides: NeighborhoodGuide[] = [
     illustration: { src: '/editorial/neighborhoods/midtown-mirror-movement.png', alt: 'Concept mirror cabinet with an open door above a basin, a light above and a nearby shower-glass edge.', caption: 'Original coordination illustration. It is not the pictured cabinet, a measured room, or an electrical or mounting instruction.', after: 1 },
     brief: { service: 'Custom Mirror', scope: 'Midtown West / Hudson Yards mirror or cabinet-face replacement: retained storage, lights, faucet and neighboring shower-glass movement.', photos: ['Open and closed mirror cabinet or existing wall mirror', 'Full vanity wall including lights and faucet', 'Nearby shower glass and any available product label'] },
   },
+  ...batchTwoGuides,
 ]
