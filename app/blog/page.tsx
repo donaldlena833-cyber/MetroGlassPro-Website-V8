@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 
 const posts = [
-  ...neighborhoodGuides.map((guide) => ({ href: `/blog/${guide.slug}/`, label: guide.neighborhood, title: guide.title, excerpt: guide.description, image: guide.photo, imageAlt: guide.photoAlt, date: 'October 2026', legacyStatic: false })),
+  ...neighborhoodGuides.map((guide) => ({ href: `/blog/${guide.slug}/`, label: guide.neighborhood, title: guide.title, excerpt: guide.description, image: guide.photo, imageAlt: guide.photoAlt, date: new Date(`${guide.publishDate}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }), legacyStatic: false })),
   {
     href: '/blog/tub-shower-glass-doors-nyc-planning-guide/',
     label: 'Tub Glass Guide',

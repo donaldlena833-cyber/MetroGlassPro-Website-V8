@@ -22,7 +22,7 @@ test('current production index and sitemap accept a new approved article without
 })
 
 test('each new neighborhood page is protected from approved-draft replacement', (t) => {
-  for (const slug of ['gowanus-shower-glass-patterned-tile', 'financial-district-shower-door-movement', 'midtown-west-mirror-shower-glass-coordination']) {
+  for (const slug of ['gowanus-shower-glass-patterned-tile', 'financial-district-shower-door-movement', 'midtown-west-mirror-shower-glass-coordination', 'long-island-city-glass-partition-mounting', 'downtown-brooklyn-shower-glass-tile-handoff', 'mott-haven-glass-repair-turnover-scope']) {
     const f = fixture(t)
     f.put(`app/blog/${slug}/page.tsx`, readFileSync(new URL(`../app/blog/${slug}/page.tsx`, import.meta.url), 'utf8'))
     f.put('_drafts/collision.md', draft({ slug }))

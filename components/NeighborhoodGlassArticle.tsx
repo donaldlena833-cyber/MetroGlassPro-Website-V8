@@ -6,31 +6,30 @@ import EstimateRequestForm from '@/components/EstimateRequestForm'
 import { neighborhoodGuides } from '@/content/neighborhood-guides'
 
 const origin = 'https://metroglasspro.com'
-const date = '2026-10-08'
 export function metadataForGuide(slug: string): Metadata {
   const guide = neighborhoodGuides.find((item) => item.slug === slug)
   if (!guide) return {}
   const canonical = `${origin}/blog/${guide.slug}/`
   return { title: guide.title, description: guide.description, alternates: { canonical },
-    openGraph: { title: guide.title, description: guide.description, url: canonical, type: 'article', publishedTime: date, modifiedTime: date, images: [{ url: `${origin}${guide.photo}`, alt: guide.photoAlt }] } }
+    openGraph: { title: guide.title, description: guide.description, url: canonical, type: 'article', publishedTime: guide.publishDate, modifiedTime: guide.modifiedDate, images: [{ url: `${origin}${guide.photo}`, alt: guide.photoAlt }] } }
 }
 export default function NeighborhoodGlassArticle({ slug }: { slug: string }) {
   const guide = neighborhoodGuides.find((item) => item.slug === slug)
   if (!guide) notFound()
   const canonical = `${origin}/blog/${guide.slug}/`
   const organization = { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'MetroGlass Pro', url: origin, logo: { '@type': 'ImageObject', url: `${origin}/assets/logo.png` } }
-  const schema = { '@context': 'https://schema.org', '@type': 'Article', '@id': `${canonical}#article`, headline: guide.title, description: guide.description, datePublished: date, dateModified: date, mainEntityOfPage: canonical, author: organization, publisher: organization, image: `${origin}${guide.photo}` }
+  const schema = { '@context': 'https://schema.org', '@type': 'Article', '@id': `${canonical}#article`, headline: guide.title, description: guide.description, datePublished: guide.publishDate, dateModified: guide.modifiedDate, mainEntityOfPage: canonical, author: organization, publisher: organization, image: `${origin}${guide.photo}` }
   return <article className="bg-cream text-charcoal">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
     <header className="max-w-6xl mx-auto px-6 sm:px-10 pt-20 sm:pt-28 pb-10 anim-hero">
       <Link href="/blog/" className="text-orange text-sm underline underline-offset-4">MetroGlass Pro · Glass guides</Link>
       <p className="mt-8 text-sm text-warm">{guide.neighborhood}</p>
       <h1 className="heading-serif text-4xl sm:text-6xl max-w-3xl mt-3">{guide.title}</h1>
-      <p className="mt-5 text-sm text-warm">By <Link href="/about/" className="underline underline-offset-4">MetroGlass Pro</Link> · <time dateTime={date}>October 8, 2026</time></p>
+      <p className="mt-5 text-sm text-warm">By <Link href="/about/" className="underline underline-offset-4">MetroGlass Pro</Link> · <time dateTime={guide.publishDate}>{new Date(`${guide.publishDate}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time></p>
       <a href="#estimate-brief" className="btn-pill btn-primary px-6 py-3 mt-6 inline-flex">Plan this glass project</a>
     </header>
     <figure className="max-w-6xl mx-auto px-6 sm:px-10 mb-12">
-      <ResponsiveImage src={guide.photo} alt={guide.photoAlt} className="w-full max-h-[660px] object-contain bg-cream-dark" loading="eager" sizes="(min-width: 1280px) 1080px, 100vw" />
+      <ResponsiveImage src={guide.photo} alt={guide.photoAlt} className={guide.photoDisplay === 'detail' ? 'w-full max-w-lg mx-auto h-auto bg-cream-dark' : 'w-full max-h-[660px] object-contain bg-cream-dark'} loading="eager" sizes={guide.photoDisplay === 'detail' ? '(min-width: 640px) 512px, 100vw' : '(min-width: 1280px) 1080px, 100vw'} />
       <figcaption className="text-sm text-warm leading-relaxed max-w-3xl mt-4">{guide.photoCaption}</figcaption>
     </figure>
     <div className="max-w-6xl mx-auto px-6 sm:px-10 grid lg:grid-cols-[minmax(0,720px)_1fr] gap-12 pb-16">
@@ -67,7 +66,7 @@ export default function NeighborhoodGlassArticle({ slug }: { slug: string }) {
     </div>
     <section className="max-w-6xl mx-auto px-6 sm:px-10 border-t border-charcoal/15 py-12">
       <h2 className="font-serif text-3xl mb-6">Another room question?</h2>
-      <div className="space-y-5">{neighborhoodGuides.filter((item) => item.slug !== guide.slug).map((item) => <Link key={item.slug} href={`/blog/${item.slug}/`} className="block underline underline-offset-4 hover:text-orange transition-colors">{item.title}</Link>)}</div>
+      <div className="space-y-5">{neighborhoodGuides.filter((item) => item.slug !== guide.slug && (guide.relatedSlugs ? guide.relatedSlugs.includes(item.slug) : item.publishDate === guide.publishDate)).map((item) => <Link key={item.slug} href={`/blog/${item.slug}/`} className="block underline underline-offset-4 hover:text-orange transition-colors">{item.title}</Link>)}</div>
     </section>
   </article>
 }
