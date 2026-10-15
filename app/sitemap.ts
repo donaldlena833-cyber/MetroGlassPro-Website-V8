@@ -24,7 +24,7 @@ const routeModifiedDates = new Map([
   ['/shower-door-repair-nyc/', releaseUpdated],
   ['/shower-door-replacement-nyc/', releaseUpdated],
   ['/about/', releaseUpdated],
-  ['/blog/', new Date('2026-10-08T00:00:00.000Z')],
+  ['/blog/', new Date('2026-10-15T00:00:00.000Z')],
   ['/frameless-shower-doors-nyc/', releaseUpdated],
   ['/gallery/', releaseUpdated],
   ['/privacy-policy/', releaseUpdated],
@@ -64,7 +64,7 @@ const coreRoutes = [
 ]
 
 const blogRoutes = [
-  ...neighborhoodGuides.map((guide) => ({ path: `/blog/${guide.slug}/`, lastModified: new Date('2026-10-08T00:00:00.000Z'), priority: 0.7 })),
+  ...neighborhoodGuides.map((guide) => ({ path: `/blog/${guide.slug}/`, lastModified: new Date(`${guide.modifiedDate}T00:00:00.000Z`), priority: 0.7 })),
   {
     path: '/blog/edison-nj-clear-tempered-shower-door-bathroom-renovation/',
     lastModified: aeoUpdated,
