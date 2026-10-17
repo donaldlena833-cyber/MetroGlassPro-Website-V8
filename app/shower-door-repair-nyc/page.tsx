@@ -94,6 +94,7 @@ export default function ShowerDoorRepairPage() {
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Repair may be possible</p>
           <h2 className="font-serif text-charcoal text-3xl mb-4">The glass and fit are sound.</h2>
           <p className="text-warm text-[15px] leading-relaxed">Worn sweeps, sealant, or serviceable hardware may be addressed without replacing the whole enclosure. The condition and available parts determine the scope.</p>
+          <p className="mt-4 text-warm text-[15px] leading-relaxed"><Link href="/projects/interior-design-collaboration-shower-door-nyc/" className="text-orange underline underline-offset-4">See our documented tub-enclosure remediation</Link> for an example involving mismatched clips and failed silicone.</p>
         </div>
         <div className="glass-card p-6 sm:p-8">
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Replacement may be safer</p>
@@ -123,7 +124,7 @@ export default function ShowerDoorRepairPage() {
           <p className="pb-6 text-warm text-[15px] leading-relaxed">{faq.a}</p>
         </details>)}
         <div className="mt-10 flex flex-wrap gap-4 text-orange text-[14px] underline underline-offset-4">
-          <Link href="/blog/2026-05-09-honest-shower-door-repair-nyc/">Read the repair planning guide</Link>
+          <a href="/blog/2026-05-09-honest-shower-door-repair-nyc">Read the repair planning guide</a>
           <Link href="/service-areas/manhattan/">Manhattan service details</Link>
         </div>
       </div>

@@ -106,6 +106,14 @@ export default function BrooklynPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent projects & insights</h2>
           <div className="space-y-3 mb-10">
+            <Link href="/blog/gowanus-shower-glass-patterned-tile/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Shower Glass and Patterned Tile in Gowanus</span>
+              <span className="text-warm text-[13px] block mt-1">Plan the glass edge, finished curb, tile pattern, and fittings together.</span>
+            </Link>
+            <Link href="/blog/downtown-brooklyn-shower-glass-tile-handoff/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">The Tile-to-Glass Handoff in Downtown Brooklyn</span>
+              <span className="text-warm text-[13px] block mt-1">Record finished surfaces, remaining work, and measurement readiness before fabrication.</span>
+            </Link>
             <Link href="/projects/door-fixed-panel-nyc/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Door and Fixed Panel Layout</span>
               <span className="text-warm text-[13px] block mt-1">A common custom shower door layout for Brooklyn renovations with one fixed return and one operating door.</span>

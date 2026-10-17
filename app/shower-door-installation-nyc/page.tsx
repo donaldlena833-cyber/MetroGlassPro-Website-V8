@@ -33,6 +33,8 @@ const installationFitItems = [
     title: 'New glass after finished tile',
     description:
       'Best when the walls, curb, and tile are already complete. We measure the real opening, then fabricate the glass to the final conditions.',
+    href: '/blog/finished-tile-shower-glass-measurement-manhattan/',
+    linkLabel: 'Review measurement after finished tile',
   },
   {
     title: 'Replacing a dated door',
@@ -48,6 +50,8 @@ const installationFitItems = [
     title: 'Choosing a layout before ordering',
     description:
       'Swing clearance, panel width, tub edge, shower curb, vanity position, and toilet location decide whether a hinged door, slider, fixed panel, or walk-in panel makes sense.',
+    href: '/projects/shower-glass-design-consultation-nyc/',
+    linkLabel: 'Plan the enclosure with your design team',
   },
 ]
 
@@ -119,6 +123,7 @@ export default function ShowerDoorInstallationNYC() {
               <div key={item.title} className="glass-card p-5 sm:p-6">
                 <h3 className="font-serif text-charcoal text-xl mb-2">{item.title}</h3>
                 <p className="text-warm text-[14px] sm:text-[15px] leading-relaxed">{item.description}</p>
+                {item.href && <Link href={item.href} className="mt-4 inline-block text-orange text-[14px] underline underline-offset-4">{item.linkLabel}</Link>}
               </div>
             ))}
           </div>
