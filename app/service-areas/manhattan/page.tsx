@@ -109,6 +109,14 @@ export default function ManhattanPage() {
 
           <h2 className="font-serif text-charcoal text-2xl sm:text-3xl mb-4">Recent Manhattan projects & insights</h2>
           <div className="space-y-3 mb-10">
+            <Link href="/blog/financial-district-shower-door-movement/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Shower Door Movement in a Financial District Bathroom</span>
+              <span className="text-warm text-[13px] block mt-1">Compare usable entry, sliding travel, swing clearance, and nearby fixtures before choosing the enclosure.</span>
+            </Link>
+            <Link href="/blog/midtown-west-mirror-shower-glass-coordination/" className="glass-card p-4 card-lift block">
+              <span className="text-charcoal font-medium text-[14px]">Mirror and Shower Glass Coordination in Midtown West</span>
+              <span className="text-warm text-[13px] block mt-1">Review cabinet movement, lighting, faucets, and neighboring glass before ordering a replacement mirror.</span>
+            </Link>
             <Link href="/blog/finished-tile-shower-glass-measurement-manhattan/" className="glass-card p-4 card-lift block">
               <span className="text-charcoal font-medium text-[14px]">Measuring Shower Glass After Finished Tile</span>
               <span className="text-warm text-[13px] block mt-1">A Manhattan-specific guide for measuring, building access, COI timing, hardware, and clean install planning.</span>

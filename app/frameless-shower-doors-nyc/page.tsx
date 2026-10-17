@@ -213,13 +213,13 @@ export default function FramelessShowerDoorsNYC() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {[
-              { t: 'Single Swing Door', d: 'A clean single-door layout. Swing direction, hinge choice, and clearances need a review of the actual opening.', img: '/editorial/configurations/single-swing-door.jpg', alt: 'Single swing frameless shower door with satin brass hinges and handle' },
-              { t: 'Door + Fixed Panel', d: 'Ideal for wider openings. One swinging door plus a stationary glass panel, connected with a glass-to-glass hinge or U-channel.', img: '/editorial/configurations/door-fixed-panel.jpg', alt: 'Frameless shower door with fixed glass panel and satin brass hardware' },
-              { t: 'Sliding Bypass Doors', d: 'Two panels on a track — one slides behind the other. Perfect for tub-shower combos where swing clearance is limited.', img: '/editorial/configurations/sliding-bypass-doors.jpg', alt: 'Sliding bypass frameless shower doors with satin brass barn-door track' },
-              { t: 'Neo-Angle Enclosures', d: 'Three glass panels forming a corner entry. Fits non-standard or angled shower bases common in older NYC buildings.', img: '/editorial/configurations/neo-angle-enclosure.jpg', alt: 'Neo-angle frameless glass shower enclosure with brass clamps — top view' },
-              { t: '90° Corner Enclosures', d: 'Two glass walls meeting at a right angle with a door panel. A true luxury look for built-in shower niches.', img: '/editorial/configurations/90-corner-enclosure.jpg', alt: '90-degree corner frameless glass enclosure with satin brass glass-to-glass hinge' },
-              { t: 'Walk-In / Open Entry', d: 'A single fixed panel with no door — the "wet room" look. Increasingly popular in high-end NYC bathroom renovations.', img: '/editorial/configurations/walk-in-panel.jpg', alt: 'Walk-in frameless glass shower panel with satin brass wall clamps' },
-            ].map((item, i) => (
+              { t: 'Single Swing Door', href: '/projects/single-swing-door-nyc/', d: 'A clean single-door layout. Swing direction, hinge choice, and clearances need a review of the actual opening.', img: '/editorial/configurations/single-swing-door.jpg', alt: 'Single swing frameless shower door with satin brass hinges and handle' },
+              { t: 'Door + Fixed Panel', href: '/projects/door-fixed-panel-nyc/', d: 'Ideal for wider openings. One swinging door plus a stationary glass panel, connected with a glass-to-glass hinge or U-channel.', img: '/editorial/configurations/door-fixed-panel.jpg', alt: 'Frameless shower door with fixed glass panel and satin brass hardware' },
+              { t: 'Sliding Bypass Doors', href: '/projects/sliding-bypass-doors-nyc/', d: 'Two panels on a track — one slides behind the other. Perfect for tub-shower combos where swing clearance is limited.', img: '/editorial/configurations/sliding-bypass-doors.jpg', alt: 'Sliding bypass frameless shower doors with satin brass barn-door track' },
+              { t: 'Neo-Angle Enclosures', href: '/projects/neo-angle-enclosure-nyc/', d: 'Three glass panels forming a corner entry. Fits non-standard or angled shower bases common in older NYC buildings.', img: '/editorial/configurations/neo-angle-enclosure.jpg', alt: 'Neo-angle frameless glass shower enclosure with brass clamps — top view' },
+              { t: '90° Corner Enclosures', href: '/projects/90-corner-enclosure-nyc/', d: 'Two glass walls meeting at a right angle with a door panel. A true luxury look for built-in shower niches.', img: '/editorial/configurations/90-corner-enclosure.jpg', alt: '90-degree corner frameless glass enclosure with satin brass glass-to-glass hinge' },
+              { t: 'Walk-In / Open Entry', href: '/projects/walk-in-shower-panel-nyc/', d: 'A single fixed panel with no door — the "wet room" look. Increasingly popular in high-end NYC bathroom renovations.', img: '/editorial/configurations/walk-in-panel.jpg', alt: 'Walk-in frameless glass shower panel with satin brass wall clamps' },
+            ].map((item) => (
               <div key={item.t} className="glass-card overflow-hidden card-lift">
                 <div className="aspect-[16/10] overflow-hidden bg-cream">
                   <ResponsiveImage
@@ -230,7 +230,7 @@ export default function FramelessShowerDoorsNYC() {
                   />
                 </div>
                 <div className="p-6 sm:p-8">
-                  <h3 className="font-serif text-charcoal text-lg sm:text-xl mb-2">{item.t}</h3>
+                  <h3 className="font-serif text-charcoal text-lg sm:text-xl mb-2"><Link href={item.href} className="underline underline-offset-4 hover:text-orange transition-colors">{item.t}</Link></h3>
                   <p className="text-warm text-[14px] sm:text-[15px] leading-relaxed">{item.d}</p>
                 </div>
               </div>

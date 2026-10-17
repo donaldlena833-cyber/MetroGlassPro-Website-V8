@@ -28,6 +28,7 @@ export default function BronxPage() {
           <li>For a managed building, share COI wording, approved work hours, elevator or service-entry rules, and any protection requirements.</li>
         </ul>
         <p className="mt-6 text-warm text-[15px] leading-relaxed">Final glass dimensions and a schedule depend on field conditions, the selected materials, and building approval where required.</p>
+        <p className="mt-6 text-warm text-[15px] leading-relaxed">Preparing a repair during an apartment turnover? <Link href="/blog/mott-haven-glass-repair-turnover-scope/" className="text-orange underline underline-offset-4">Use the Mott Haven glass repair guide</Link> to record existing glass, hardware, damage, and the work that needs assessment.</p>
       </div>
     </section>
     <section className="bg-cream py-16 sm:py-24">

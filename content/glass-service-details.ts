@@ -42,6 +42,7 @@ export const glassServiceDetails: Record<string, GlassServiceDetail> = {
     ],
     links: [
       { href: '/blog/custom-mirrors-manhattan-apartment-guide/', label: 'Planning mirrors for a Manhattan apartment', note: 'Wall layout, proportions, and installation planning.' },
+      { href: '/blog/midtown-west-mirror-shower-glass-coordination/', label: 'Mirror and cabinet movement in Midtown West', note: 'Coordinate the replacement with lights, faucets, retained storage, and neighboring shower glass.' },
       { href: '/projects/typical-mirror-replacement-nyc/', label: 'Typical mirror replacement scenario', note: 'An illustrative planning example, not a completed project case study.' },
     ],
   },
@@ -74,6 +75,7 @@ export const glassServiceDetails: Record<string, GlassServiceDetail> = {
     ],
     links: [
       { href: '/blog/office-glass-partitions-manhattan-planning-guide/', label: 'Manhattan office partition planning guide', note: 'Layout decisions, occupied spaces, and building coordination.' },
+      { href: '/blog/long-island-city-glass-partition-mounting/', label: 'Long Island City partition support planning', note: 'Separate the visible finish line from the floor, wall, and ceiling construction that needs review.' },
       { href: 'https://glassed.vitroglazings.com/determining-the-right-glass-for-the-right-acoustics', label: 'Vitro: glass and acoustic performance', note: 'Manufacturer guidance on assessing the complete glazing system.' },
     ],
   },
@@ -171,6 +173,7 @@ export const glassServiceDetails: Record<string, GlassServiceDetail> = {
     ],
     links: [
       { href: '/shower-door-repair-nyc/', label: 'Shower door repair, leaks, and hardware', note: 'Detailed guidance for an existing shower enclosure.' },
+      { href: '/blog/mott-haven-glass-repair-turnover-scope/', label: 'Record the glass repair scope before an apartment turnover', note: 'A Mott Haven planning guide for documenting glass condition, hardware, and the proposed work.' },
       { href: '/glazing-nyc/', label: 'Glazing and replacement glass', note: 'Planning replacement glass within an existing opening or system.' },
     ],
   },

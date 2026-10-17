@@ -8,6 +8,7 @@ const base = 'https://metroglasspro.com'
 const siteUpdated = new Date('2026-08-12T00:00:00.000Z')
 const aeoUpdated = new Date('2026-09-05T00:00:00.000Z')
 const releaseUpdated = new Date('2026-09-25T00:00:00.000Z')
+const crawlPathUpdated = new Date('2026-10-17T00:00:00.000Z')
 const projectModifiedDates = new Map([
   ['coop-condo-shower-door-installation-nyc', new Date('2026-09-14T00:00:00.000Z')],
   ['shower-glass-design-consultation-nyc', releaseUpdated],
@@ -20,17 +21,23 @@ const projectModifiedDates = new Map([
 ])
 const routeModifiedDates = new Map([
   ['/', releaseUpdated],
-  ['/shower-door-installation-nyc/', new Date('2026-09-15T00:00:00.000Z')],
-  ['/shower-door-repair-nyc/', releaseUpdated],
+  ['/shower-door-installation-nyc/', crawlPathUpdated],
+  ['/shower-door-repair-nyc/', crawlPathUpdated],
   ['/shower-door-replacement-nyc/', releaseUpdated],
   ['/about/', releaseUpdated],
   ['/blog/', new Date('2026-10-15T00:00:00.000Z')],
-  ['/frameless-shower-doors-nyc/', releaseUpdated],
+  ['/frameless-shower-doors-nyc/', crawlPathUpdated],
   ['/gallery/', releaseUpdated],
   ['/privacy-policy/', releaseUpdated],
   ['/projects/', releaseUpdated],
   ['/reviews/', releaseUpdated],
-  ['/service-areas/bronx/', releaseUpdated],
+  ['/service-areas/bronx/', crawlPathUpdated],
+  ['/service-areas/brooklyn/', crawlPathUpdated],
+  ['/service-areas/manhattan/', crawlPathUpdated],
+  ['/service-areas/queens/', crawlPathUpdated],
+  ['/custom-mirrors-nyc/', crawlPathUpdated],
+  ['/glass-partitions-nyc/', crawlPathUpdated],
+  ['/glass-repair-nyc/', crawlPathUpdated],
   ['/service-areas/staten-island/', releaseUpdated],
 ])
 const revisedRoutes = new Set(['/blog/', '/service-areas/manhattan/', '/service-areas/queens/', '/shower-door-repair-nyc/', '/', '/frameless-shower-doors-nyc/', '/service-areas/brooklyn/', '/gallery/', '/about/', '/contact/', '/privacy-policy/', '/services/', '/service-areas/', '/custom-mirrors-nyc/', '/glass-partitions-nyc/', '/glass-railings-nyc/', '/glazing-nyc/', '/glass-repair-nyc/'])
