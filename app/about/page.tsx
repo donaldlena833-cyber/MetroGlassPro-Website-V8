@@ -39,6 +39,21 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section id="miloti-windows" className="bg-cream-light py-16 sm:py-20 border-y border-charcoal/[0.06]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div>
+            <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Our sister company</p>
+            <h2 className="heading-serif text-charcoal text-3xl sm:text-4xl">Window and door work, in the same family.</h2>
+          </div>
+          <div>
+            <p className="text-warm text-base leading-relaxed">
+              Miloti Windows is our sister company for window and door repair and replacement across New York City. MetroGlass Pro focuses on custom glass, shower doors, mirrors, partitions, railings, and glazing.
+            </p>
+            <a href="https://milotiwindows.com" className="inline-block mt-5 text-orange text-sm font-medium underline underline-offset-4 hover:opacity-70 transition-opacity">Explore Miloti Windows</a>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-cream-light py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-6 sm:px-10">
           <div className="max-w-2xl mb-12 anim-fade-up">
