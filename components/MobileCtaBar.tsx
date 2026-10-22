@@ -14,6 +14,9 @@ export default function MobileCtaBar() {
     '/blog/long-island-city-glass-partition-mounting',
     '/blog/downtown-brooklyn-shower-glass-tile-handoff',
     '/blog/mott-haven-glass-repair-turnover-scope',
+    '/blog/bedford-stuyvesant-mirror-retained-trim',
+    '/blog/crown-heights-shower-threshold-enclosure',
+    '/blog/central-east-harlem-glass-partition-privacy',
   ].includes(articlePath || '')
   const textBody = 'Hi MetroGlass Pro, I want a quote and can send project photos.' + (hasArticleBrief ? `\nArticle: https://metroglasspro.com${articlePath}/` : '')
 

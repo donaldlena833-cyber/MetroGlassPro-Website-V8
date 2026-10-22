@@ -25,7 +25,7 @@ const routeModifiedDates = new Map([
   ['/shower-door-repair-nyc/', crawlPathUpdated],
   ['/shower-door-replacement-nyc/', releaseUpdated],
   ['/about/', releaseUpdated],
-  ['/blog/', new Date('2026-10-15T00:00:00.000Z')],
+  ['/blog/', new Date('2026-10-22T00:00:00.000Z')],
   ['/frameless-shower-doors-nyc/', crawlPathUpdated],
   ['/gallery/', releaseUpdated],
   ['/privacy-policy/', releaseUpdated],
