@@ -1,3 +1,4 @@
+import { batchThreeGuides } from './neighborhood-guides-batch-three'
 import { batchTwoGuides } from './neighborhood-guides-batch-two'
 
 export type NeighborhoodGuide = {
@@ -110,4 +111,5 @@ export const neighborhoodGuides: NeighborhoodGuide[] = [
     brief: { service: 'Custom Mirror', scope: 'Midtown West / Hudson Yards mirror or cabinet-face replacement: retained storage, lights, faucet and neighboring shower-glass movement.', photos: ['Open and closed mirror cabinet or existing wall mirror', 'Full vanity wall including lights and faucet', 'Nearby shower glass and any available product label'] },
   },
   ...batchTwoGuides,
+  ...batchThreeGuides,
 ]
