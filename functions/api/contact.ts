@@ -6,6 +6,8 @@ interface Env {
   CONTACT_FROM_EMAIL?: string
   CONTACT_FROM_NAME?: string
   CONTACT_BLOCKED_EMAILS?: string
+  NEXOSERVE_LEADS_URL?: string
+  NEXOSERVE_GBP_ID?: string
 }
 
 type PagesContext = {
@@ -300,6 +302,45 @@ async function sendEmail(
   }
 }
 
+function refererPath(request: Request) {
+  try {
+    return new URL(request.headers.get('referer') || '').pathname.slice(0, 200)
+  } catch {
+    return ''
+  }
+}
+
+// Copy of an accepted lead for the NexoServe dashboard. The Resend email stays the
+// owner's notification; NexoServe owner emails are off for this business.
+async function sendLeadCopy(env: Env, requestId: string, submission: Submission, pagePath: string, photoCount: number) {
+  const details = buildRows(submission)
+    .filter(([label]) => !['Name', 'Phone', 'Email', 'Service', 'Message'].includes(label))
+    .map(([label, value]) => `${label}: ${value}`)
+  if (photoCount) details.push(`Photos: ${photoCount} attached to the email`)
+  try {
+    const response = await fetch(env.NEXOSERVE_LEADS_URL!, {
+      method: 'POST',
+      signal: AbortSignal.timeout(10000),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        gbpId: env.NEXOSERVE_GBP_ID,
+        fullName: submission.name,
+        email: submission.email,
+        phone: submission.phone,
+        message: [submission.message, details.join('\n')].filter(Boolean).join('\n\n'),
+        service: submission.service,
+        source: 'contact',
+        pagePath: pagePath || undefined,
+      }),
+    })
+    const result = await response.json().catch(() => null) as { id?: unknown } | null
+    // 422 = no valid US phone; quarantined = held by the NexoServe spam filter. The email above still delivered both.
+    console.info(JSON.stringify({ event: 'nexoserve_lead', requestId, status: response.status, accepted: response.ok, quarantined: result?.id === 'received' }))
+  } catch {
+    console.error(JSON.stringify({ event: 'nexoserve_lead', requestId, accepted: false, reason: 'network_or_timeout' }))
+  }
+}
+
 function mailConfigured(env: Env) {
   return Boolean(env.RESEND_API_KEY?.trim() && isValidEmail(env.CONTACT_TO_EMAIL || '') && isValidEmail(env.CONTACT_FROM_EMAIL || '') && !env.CONTACT_FROM_EMAIL?.endsWith('@resend.dev'))
 }
@@ -379,6 +420,13 @@ export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) =
 
   if (!accepted) {
     return json({ requestId, error: 'We could not confirm your request was sent. Please use the email or text option below.' }, 502)
+  }
+
+  if (env.NEXOSERVE_LEADS_URL && env.NEXOSERVE_GBP_ID) {
+    const copy = sendLeadCopy(env, requestId, submission, refererPath(request), attachments.length)
+    // Like the confirmation, the dashboard copy cannot turn an accepted lead into a failed submission.
+    if (waitUntil) waitUntil(copy)
+    else await copy
   }
 
   if (submission.email) {
