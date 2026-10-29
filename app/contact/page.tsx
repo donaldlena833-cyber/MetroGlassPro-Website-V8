@@ -20,7 +20,7 @@ export default function ContactPage() {
           <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-4">Contact</p>
           <h1 className="heading-serif text-charcoal text-4xl sm:text-5xl lg:text-6xl">Let’s talk about your project.</h1>
           <p className="mt-4 text-warm text-lg max-w-2xl">A quick note is all it takes to get started.</p>
-          <p className="mt-4 text-sm text-charcoal">Prefer to talk? <a href="tel:+13329993846" className="underline underline-offset-4">Call</a><span aria-hidden="true"> · </span><a href="sms:+13329993846" className="underline underline-offset-4">Text us</a><span aria-hidden="true"> · </span><a href="mailto:operations@metroglasspro.com" className="underline underline-offset-4">Email us</a></p>
+          <p className="mt-4 text-sm text-charcoal">Prefer to talk? <a href="tel:+19297557176" className="underline underline-offset-4">Call</a><span aria-hidden="true"> · </span><a href="sms:+13329993846" className="underline underline-offset-4">Text us</a><span aria-hidden="true"> · </span><a href="mailto:operations@metroglasspro.com" className="underline underline-offset-4">Email us</a></p>
         </div>
       </section>
 
@@ -32,9 +32,9 @@ export default function ContactPage() {
             {/* Info */}
             <div className="min-w-0">
               <div className="space-y-8">
-                <a href="tel:+13329993846" className="block group">
+                <a href="tel:+19297557176" className="block group">
                   <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/70 mb-1">Phone</p>
-                  <p className="font-serif text-charcoal text-2xl break-words group-hover:text-orange transition-colors">(332) 999-3846</p>
+                  <p className="font-serif text-charcoal text-2xl break-words group-hover:text-orange transition-colors">(929) 755-7176</p>
                 </a>
                 <a href="sms:+13329993846?body=Hi%20MetroGlass%20Pro%2C%20I%20want%20a%20quote%20and%20can%20send%20project%20photos." className="block group">
                   <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/70 mb-1">Text Photos</p>

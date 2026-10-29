@@ -96,8 +96,8 @@ export default function ShowerDoorReplacementNYC() {
             <Link href="/contact/?service=shower-door-replacement" className="btn-pill btn-primary px-8 py-3.5 text-sm">
               Request a Replacement Estimate
             </Link>
-            <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3.5 text-sm">
-              (332) 999-3846
+            <a href="tel:+19297557176" className="btn-pill btn-outline px-8 py-3.5 text-sm">
+              (929) 755-7176
             </a>
           </div>
         </div>
