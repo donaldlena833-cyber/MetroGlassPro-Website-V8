@@ -152,7 +152,7 @@ export default function BrooklynPage() {
             <p className="text-warm text-[15px] mb-2">Brooklyn brownstone, loft, and condo bathrooms often have unique dimensions, so every panel gets measured to the actual finished opening.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 mt-5">
               <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Get a Free Estimate</Link>
-              <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">(332) 999-3846</a>
+              <a href="tel:+19297557176" className="btn-pill btn-outline px-8 py-3 text-sm">(929) 755-7176</a>
             </div>
           </div>
         </div>
