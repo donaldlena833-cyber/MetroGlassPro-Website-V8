@@ -198,8 +198,8 @@ export default function CoopCondoArticle() {
               <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">
                 Get a Free Estimate
               </Link>
-              <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">
-                Call (332) 999-3846
+              <a href="tel:+19297557176" className="btn-pill btn-outline px-8 py-3 text-sm">
+                Call (929) 755-7176
               </a>
             </div>
           </div>
@@ -272,8 +272,8 @@ export default function CoopCondoArticle() {
               <Link href="/contact/" className="btn-pill btn-primary px-8 sm:px-10 py-3.5 text-sm">
                 Request an Estimate
               </Link>
-              <a href="tel:+13329993846" className="btn-pill btn-outline-light px-8 sm:px-10 py-3.5 text-sm">
-                Call (332) 999-3846
+              <a href="tel:+19297557176" className="btn-pill btn-outline-light px-8 sm:px-10 py-3.5 text-sm">
+                Call (929) 755-7176
               </a>
             </div>
           </div>

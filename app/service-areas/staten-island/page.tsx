@@ -41,7 +41,7 @@ export default function StatenIslandPage() {
         </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link href="/contact/" className="btn-pill btn-primary px-8 py-3 text-sm">Request an estimate</Link>
-          <a href="tel:+13329993846" className="btn-pill btn-outline px-8 py-3 text-sm">Call (332) 999-3846</a>
+          <a href="tel:+19297557176" className="btn-pill btn-outline px-8 py-3 text-sm">Call (929) 755-7176</a>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MobileCtaBar from '@/components/MobileCtaBar'
+import CallClickTracker from '@/components/CallClickTracker'
 import ScrollObserver from '@/components/ScrollObserver'
 import { businessJsonLd } from '@/content/business'
 
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, '\\u003c') }} />
         <GoogleAnalyticsConsent />
+        <CallClickTracker />
         <ScrollObserver />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />

@@ -101,7 +101,7 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
   if (submitState === 'success') return (
     <div className="glass-card p-6 sm:p-8" role="status">
       <h2 className="font-serif text-charcoal text-3xl">Your request is on its way.</h2>
-      <p className="mt-4 text-warm">We’ll review your project and contact you with the next step. For urgent help, call <a href="tel:+13329993846" className="underline">(332) 999-3846</a>.</p>
+      <p className="mt-4 text-warm">We’ll review your project and contact you with the next step. For urgent help, call <a href="tel:+19297557176" className="underline">(929) 755-7176</a>.</p>
       <p className="mt-4 text-warm">More photos? <a href="sms:+13329993846" className="underline">Text them to us.</a></p>
       {reference && <p className="mt-4 text-xs text-warm break-all">Request reference: {reference}</p>}
       <button type="button" onClick={() => { setValues({ ...initialValues, service: projectContext?.service || '', message: projectContext?.scope || '' }); setReference(''); setSubmitState('idle') }} className="btn-pill btn-primary mt-6 px-6 py-3">Start another request</button>
@@ -112,7 +112,7 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
     <div className="glass-card p-5 sm:p-8">
       <h2 className="font-serif text-charcoal text-3xl">Tell us what you need.</h2>
       <p className="mt-2 mb-6 text-warm text-sm">Just the basics. Measurements and building details can come later.</p>
-      <noscript><p className="mb-6">Call <a className="underline" href="tel:+13329993846">(332) 999-3846</a>, <a className="underline" href="sms:+13329993846">text us</a>, or <a className="underline" href="mailto:operations@metroglasspro.com">email operations@metroglasspro.com</a> to request an estimate without JavaScript.</p></noscript>
+      <noscript><p className="mb-6">Call <a className="underline" href="tel:+19297557176">(929) 755-7176</a>, <a className="underline" href="sms:+13329993846">text us</a>, or <a className="underline" href="mailto:operations@metroglasspro.com">email operations@metroglasspro.com</a> to request an estimate without JavaScript.</p></noscript>
       <form action="/api/contact" method="post" onSubmit={handleSubmit} className="space-y-4" aria-label="Request a MetroGlass Pro estimate" aria-busy={submitState === 'submitting'}>
         <input type="text" name="website" value={values.website} onChange={(event) => updateField('website', event.target.value)} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
         <div className="grid sm:grid-cols-2 gap-4">

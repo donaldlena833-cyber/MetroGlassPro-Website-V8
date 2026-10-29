@@ -128,7 +128,7 @@ const directory = [
   '## Contact and estimates',
   '',
   '- [Request an estimate](https://metroglasspro.com/contact/): photos, location, service, and building details.',
-  '- Phone or text: +1-332-999-3846. Email: operations@metroglasspro.com.',
+  '- Phone: +1-929-755-7176. Text photos: +1-332-999-3846. Email: operations@metroglasspro.com.',
   '- [Service areas](https://metroglasspro.com/service-areas/): five NYC boroughs, with select Long Island and Northern New Jersey projects.',
   '',
   '## Reading formats',

@@ -75,7 +75,7 @@ export default function Footer() {
           <div>
             <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/60 mb-4">Contact</p>
             <div className="space-y-2.5">
-              <a href="tel:+13329993846" className="block text-charcoal/70 text-[13px] hover:text-charcoal transition-colors">(332) 999-3846</a>
+              <a href="tel:+19297557176" className="block text-charcoal/70 text-[13px] hover:text-charcoal transition-colors">(929) 755-7176</a>
               <a href="mailto:operations@metroglasspro.com" className="block text-charcoal/70 text-[13px] hover:text-charcoal transition-colors">operations@metroglasspro.com</a>
               <p className="text-charcoal/60 text-[13px]">Call or text to confirm current availability.</p>
               <p className="text-charcoal/60 text-[13px]">Share building documentation and access requirements early.</p>

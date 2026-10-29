@@ -36,7 +36,7 @@ export default function GlassServicePage({ id }: { id: string }) {
               <p className="text-orange text-[13px] font-semibold tracking-widest uppercase mb-5">MetroGlass Pro · New York City</p>
               <h1 className="heading-serif text-charcoal text-5xl sm:text-6xl lg:text-7xl">{detail.title}</h1>
               <p className="mt-6 text-warm text-lg leading-relaxed">{detail.answer}</p>
-              <div className="flex flex-wrap gap-3 mt-8"><Link href={quote} className="btn-pill btn-primary px-7 py-3.5 text-sm">Request an estimate</Link><a href="tel:+13329993846" className="btn-pill btn-outline px-7 py-3.5 text-sm">Call (332) 999-3846</a></div>
+              <div className="flex flex-wrap gap-3 mt-8"><Link href={quote} className="btn-pill btn-primary px-7 py-3.5 text-sm">Request an estimate</Link><a href="tel:+19297557176" className="btn-pill btn-outline px-7 py-3.5 text-sm">Call (929) 755-7176</a></div>
             </div>
             <aside className="glass-card p-6 sm:p-8">
               <h2 className="font-serif text-charcoal text-3xl mb-4">Start with the right details.</h2>

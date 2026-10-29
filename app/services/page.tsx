@@ -41,7 +41,7 @@ export default function ServicesPage() {
         </div>
       </section>
       <GuideFaqs questions={questions} />
-      <section className="bg-charcoal py-16 sm:py-20"><div className="max-w-3xl mx-auto px-6 sm:px-10 text-center"><h2 className="font-serif text-white text-4xl sm:text-5xl mb-5">Show us the project.</h2><p className="text-white/80 text-lg leading-relaxed mb-8">Send photos, your borough, and what you want installed, replaced, or repaired. We will review the details and confirm the next step.</p><div className="flex flex-wrap justify-center gap-4"><Link href="/contact/" className="btn-pill btn-primary px-8 py-3.5 text-sm">Get a glass estimate</Link><a href="tel:+13329993846" className="btn-pill btn-outline-light px-8 py-3.5 text-sm">Call (332) 999-3846</a></div></div></section>
+      <section className="bg-charcoal py-16 sm:py-20"><div className="max-w-3xl mx-auto px-6 sm:px-10 text-center"><h2 className="font-serif text-white text-4xl sm:text-5xl mb-5">Show us the project.</h2><p className="text-white/80 text-lg leading-relaxed mb-8">Send photos, your borough, and what you want installed, replaced, or repaired. We will review the details and confirm the next step.</p><div className="flex flex-wrap justify-center gap-4"><Link href="/contact/" className="btn-pill btn-primary px-8 py-3.5 text-sm">Get a glass estimate</Link><a href="tel:+19297557176" className="btn-pill btn-outline-light px-8 py-3.5 text-sm">Call (929) 755-7176</a></div></div></section>
     </>
   )
 }
