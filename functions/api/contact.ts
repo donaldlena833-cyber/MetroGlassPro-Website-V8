@@ -6,8 +6,6 @@ interface Env {
   CONTACT_FROM_EMAIL?: string
   CONTACT_FROM_NAME?: string
   CONTACT_BLOCKED_EMAILS?: string
-  NEXOSERVE_LEADS_URL?: string
-  NEXOSERVE_GBP_ID?: string
 }
 
 type PagesContext = {
@@ -310,20 +308,26 @@ function refererPath(request: Request) {
   }
 }
 
+// Not secrets. Only requests to the live domain send the copy, so previews and
+// local runs never add leads to the NexoServe dashboard.
+const NEXOSERVE_LEADS_URL = 'https://polite-crocodile-120.convex.site/api/contact-message'
+const NEXOSERVE_GBP_ID = 'qh7de5bj2c6vwxpbzkghp1nj898h7qek'
+const LIVE_HOSTS = ['metroglasspro.com', 'www.metroglasspro.com']
+
 // Copy of an accepted lead for the NexoServe dashboard. The Resend email stays the
 // owner's notification; NexoServe owner emails are off for this business.
-async function sendLeadCopy(env: Env, requestId: string, submission: Submission, pagePath: string, photoCount: number) {
+async function sendLeadCopy(requestId: string, submission: Submission, pagePath: string, photoCount: number) {
   const details = buildRows(submission)
     .filter(([label]) => !['Name', 'Phone', 'Email', 'Service', 'Message'].includes(label))
     .map(([label, value]) => `${label}: ${value}`)
   if (photoCount) details.push(`Photos: ${photoCount} attached to the email`)
   try {
-    const response = await fetch(env.NEXOSERVE_LEADS_URL!, {
+    const response = await fetch(NEXOSERVE_LEADS_URL, {
       method: 'POST',
       signal: AbortSignal.timeout(10000),
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        gbpId: env.NEXOSERVE_GBP_ID,
+        gbpId: NEXOSERVE_GBP_ID,
         fullName: submission.name,
         email: submission.email,
         phone: submission.phone,
@@ -422,8 +426,8 @@ export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) =
     return json({ requestId, error: 'We could not confirm your request was sent. Please use the email or text option below.' }, 502)
   }
 
-  if (env.NEXOSERVE_LEADS_URL && env.NEXOSERVE_GBP_ID) {
-    const copy = sendLeadCopy(env, requestId, submission, refererPath(request), attachments.length)
+  if (LIVE_HOSTS.includes(new URL(request.url).hostname)) {
+    const copy = sendLeadCopy(requestId, submission, refererPath(request), attachments.length)
     // Like the confirmation, the dashboard copy cannot turn an accepted lead into a failed submission.
     if (waitUntil) waitUntil(copy)
     else await copy

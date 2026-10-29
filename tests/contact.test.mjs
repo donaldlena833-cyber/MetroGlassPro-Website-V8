@@ -4,7 +4,9 @@ import { onRequestGet, onRequestPost } from '../functions/api/contact.ts'
 
 const env = { RESEND_API_KEY: 'test-key-never-live', CONTACT_TO_EMAIL: 'operations@example.com', CONTACT_FROM_EMAIL: 'website@example.com' }
 const lead = { name: 'Test visitor', contact: 'visitor@example.com', message: 'A mirror in Queens.' }
-const request = (body) => new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+// Preview host: the NexoServe lead copy only runs on the live domain.
+const previewUrl = 'https://preview.metroglasspro-website-v8.pages.dev/api/contact'
+const request = (body) => new Request(previewUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
 
 test('reported Katie email is discarded before any mail or background work in every supported format', async (t) => {
   const fetch = t.mock.method(globalThis, 'fetch', async () => { throw new Error('Must not send') })
@@ -20,7 +22,7 @@ test('reported Katie email is discarded before any mail or background work in ev
         if (format !== 'json') {
           const form = format === 'multipart' ? new FormData() : new URLSearchParams()
           Object.entries(body).forEach(([key, value]) => form.set(key, value))
-          req = new Request('https://metroglasspro.com/api/contact', { method: 'POST', body: form })
+          req = new Request(previewUrl, { method: 'POST', body: form })
         }
         for (const settings of [env, {}]) {
           const response = await onRequestPost({ request: req.clone(), env: settings, waitUntil: (task) => tasks.push(task) })
@@ -58,7 +60,7 @@ test('reported spam names and blocked email addresses never send notifications o
       if (format !== 'json') {
         const form = format === 'multipart' ? new FormData() : new URLSearchParams()
         Object.entries(body).forEach(([key, value]) => form.set(key, value))
-        req = new Request('https://metroglasspro.com/api/contact', { method: 'POST', body: form })
+        req = new Request(previewUrl, { method: 'POST', body: form })
       }
       const response = await onRequestPost({ request: req, env: settings })
       assert.equal(response.status, 200)
@@ -163,7 +165,7 @@ test('multipart phone-only requests retain optional photos and service scope', a
   const form = new FormData()
   Object.entries({ ...lead, contact: '212-555-0100', service: 'Glass Partition' }).forEach(([key, value]) => form.set(key, value))
   form.append('attachments', new File(['test-photo-bytes'], 'test.jpg', { type: 'image/jpeg' }))
-  const response = await onRequestPost({ request: new Request('https://metroglasspro.com/api/contact', { method: 'POST', body: form }), env })
+  const response = await onRequestPost({ request: new Request(previewUrl, { method: 'POST', body: form }), env })
   assert.equal(response.status, 200)
   assert.equal(sent.length, 1)
   assert.match(sent[0].text, /Glass Partition/)
@@ -171,9 +173,10 @@ test('multipart phone-only requests retain optional photos and service scope', a
   assert.equal(sent[0].attachments[0].content, btoa('test-photo-bytes'))
 })
 
-const nexoserve = { NEXOSERVE_LEADS_URL: 'https://example.convex.site/api/contact-message', NEXOSERVE_GBP_ID: 'test-gbp-id' }
+const leadsUrl = 'https://polite-crocodile-120.convex.site/api/contact-message'
+const live = (body) => new Request('https://metroglasspro.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
 
-test('an accepted lead is copied to NexoServe with the extra form details in the message', async (t) => {
+test('an accepted lead on the live domain is copied to NexoServe with the extra form details in the message', async (t) => {
   const calls = []
   t.mock.method(globalThis, 'fetch', async (url, options) => {
     calls.push({ url, body: JSON.parse(options.body) })
@@ -184,13 +187,13 @@ test('an accepted lead is copied to NexoServe with the extra form details in the
   form.append('attachments', new File(['photo'], 'a.jpg', { type: 'image/jpeg' }))
   const req = new Request('https://metroglasspro.com/api/contact', { method: 'POST', body: form, headers: { Referer: 'https://metroglasspro.com/shower-doors/?utm_source=x' } })
   const tasks = []
-  const response = await onRequestPost({ request: req, env: { ...env, ...nexoserve }, waitUntil: (task) => tasks.push(task) })
+  const response = await onRequestPost({ request: req, env, waitUntil: (task) => tasks.push(task) })
   assert.equal(response.status, 200)
   await Promise.all(tasks)
-  const copy = calls.find((call) => call.url === nexoserve.NEXOSERVE_LEADS_URL)
+  const copy = calls.find((call) => call.url === leadsUrl)
   assert.ok(copy)
   assert.deepEqual(copy.body, {
-    gbpId: 'test-gbp-id',
+    gbpId: 'qh7de5bj2c6vwxpbzkghp1nj898h7qek',
     fullName: 'Test visitor',
     email: '',
     phone: '(212) 274-3392',
@@ -201,19 +204,18 @@ test('an accepted lead is copied to NexoServe with the extra form details in the
   })
 })
 
-test('the NexoServe copy is skipped without its settings, after a failed email, and for blocked leads', async (t) => {
+test('the NexoServe copy is skipped off the live domain, after a failed email, and for blocked leads', async (t) => {
   const urls = []
   let resendOk = true
   t.mock.method(globalThis, 'fetch', async (url) => {
     urls.push(url)
     return resendOk ? new Response('{"id":"accepted"}') : new Response('{}', { status: 500 })
   })
-  await onRequestPost({ request: request(lead), env: { ...env, NEXOSERVE_LEADS_URL: nexoserve.NEXOSERVE_LEADS_URL } })
-  await onRequestPost({ request: request(lead), env: { ...env, NEXOSERVE_GBP_ID: nexoserve.NEXOSERVE_GBP_ID } })
-  await onRequestPost({ request: request({ ...lead, website: 'bot' }), env: { ...env, ...nexoserve } })
+  assert.equal((await onRequestPost({ request: request(lead), env })).status, 200)
+  await onRequestPost({ request: live({ ...lead, website: 'bot' }), env })
   resendOk = false
-  assert.equal((await onRequestPost({ request: request(lead), env: { ...env, ...nexoserve } })).status, 502)
-  assert.ok(!urls.includes(nexoserve.NEXOSERVE_LEADS_URL))
+  assert.equal((await onRequestPost({ request: live(lead), env })).status, 502)
+  assert.ok(!urls.includes(leadsUrl))
 })
 
 test('a NexoServe outage or rejection never fails the visitor or logs customer details', async (t) => {
@@ -221,16 +223,16 @@ test('a NexoServe outage or rejection never fails the visitor or logs customer d
   t.mock.method(console, 'info', (message) => logs.push(message))
   t.mock.method(console, 'error', (message) => logs.push(message))
   for (const failure of [() => { throw new Error('private-outage') }, () => new Response('{"error":"private-422"}', { status: 422 })]) {
-    t.mock.method(globalThis, 'fetch', async (url) => url === nexoserve.NEXOSERVE_LEADS_URL ? failure() : new Response('{"id":"accepted"}'))
+    t.mock.method(globalThis, 'fetch', async (url) => url === leadsUrl ? failure() : new Response('{"id":"accepted"}'))
     const tasks = []
-    const response = await onRequestPost({ request: request(lead), env: { ...env, ...nexoserve }, waitUntil: (task) => tasks.push(task) })
+    const response = await onRequestPost({ request: live(lead), env, waitUntil: (task) => tasks.push(task) })
     assert.equal(response.status, 200)
     assert.equal((await response.json()).ok, true)
     await Promise.all(tasks)
   }
-  t.mock.method(globalThis, 'fetch', async (url) => new Response(url === nexoserve.NEXOSERVE_LEADS_URL ? '{"id":"received"}' : '{"id":"accepted"}'))
+  t.mock.method(globalThis, 'fetch', async (url) => new Response(url === leadsUrl ? '{"id":"received"}' : '{"id":"accepted"}'))
   const tasks = []
-  await onRequestPost({ request: request(lead), env: { ...env, ...nexoserve }, waitUntil: (task) => tasks.push(task) })
+  await onRequestPost({ request: live(lead), env, waitUntil: (task) => tasks.push(task) })
   await Promise.all(tasks)
   assert.ok(logs.some((line) => line.includes('"event":"nexoserve_lead"') && line.includes('"status":422')))
   assert.ok(logs.some((line) => line.includes('"event":"nexoserve_lead"') && line.includes('"quarantined":true')))
