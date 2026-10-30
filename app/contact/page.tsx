@@ -45,9 +45,9 @@ export default function ContactPage() {
                   <p className="font-serif text-charcoal text-2xl break-words group-hover:text-orange transition-colors">operations@metroglasspro.com</p>
                 </a>
                 <div>
-                  <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/70 mb-1">Hours</p>
-                  <p className="text-charcoal/70 text-[15px]">Monday to Friday, 8am to 6pm</p>
-                  <p className="text-charcoal/70 text-[15px]">Saturday, 9am to 2pm</p>
+                  <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/70 mb-1">Contact Hours</p>
+                  <p className="text-charcoal/70 text-[15px]">Monday to Saturday, 8am to 7pm</p>
+                  <p className="text-charcoal/70 text-[15px]">Sunday, 10am to 7pm</p>
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-charcoal/70 mb-1">Service Area</p>
