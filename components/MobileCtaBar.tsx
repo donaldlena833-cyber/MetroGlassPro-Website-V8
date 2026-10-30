@@ -17,6 +17,9 @@ export default function MobileCtaBar() {
     '/blog/bedford-stuyvesant-mirror-retained-trim',
     '/blog/crown-heights-shower-threshold-enclosure',
     '/blog/central-east-harlem-glass-partition-privacy',
+    '/blog/bushwick-glass-shelf-contents-support',
+    '/blog/greenpoint-mirror-proportions-wall-review',
+    '/blog/astoria-final-glass-measure-tile-changes',
   ].includes(articlePath || '')
   const textBody = 'Hi MetroGlass Pro, I want a quote and can send project photos.' + (hasArticleBrief ? `\nArticle: https://metroglasspro.com${articlePath}/` : '')
 
