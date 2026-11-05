@@ -20,6 +20,9 @@ export default function MobileCtaBar() {
     '/blog/bushwick-glass-shelf-contents-support',
     '/blog/greenpoint-mirror-proportions-wall-review',
     '/blog/astoria-final-glass-measure-tile-changes',
+    '/blog/upper-west-side-shower-door-repair-or-replace',
+    '/blog/upper-east-side-mirror-delivery-route',
+    '/blog/east-village-cabinet-glass-insert',
   ].includes(articlePath || '')
   const textBody = 'Hi MetroGlass Pro, I want a quote and can send project photos.' + (hasArticleBrief ? `\nArticle: https://metroglasspro.com${articlePath}/` : '')
 
