@@ -1,3 +1,4 @@
+import { batchSixGuides } from './neighborhood-guides-batch-six'
 import { batchFiveGuides } from './neighborhood-guides-batch-five'
 import { batchFourGuides } from './neighborhood-guides-batch-four'
 import { batchThreeGuides } from './neighborhood-guides-batch-three'
@@ -116,4 +117,5 @@ export const neighborhoodGuides: NeighborhoodGuide[] = [
   ...batchThreeGuides,
   ...batchFourGuides,
   ...batchFiveGuides,
+  ...batchSixGuides,
 ]
