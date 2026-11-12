@@ -23,6 +23,9 @@ export default function MobileCtaBar() {
     '/blog/upper-west-side-shower-door-repair-or-replace',
     '/blog/upper-east-side-mirror-delivery-route',
     '/blog/east-village-cabinet-glass-insert',
+    '/blog/lower-east-side-window-condensation-check',
+    '/blog/chelsea-compare-glass-finishes-in-place',
+    '/blog/williamsburg-mirror-reflection-lighting',
   ].includes(articlePath || '')
   const textBody = 'Hi MetroGlass Pro, I want a quote and can send project photos.' + (hasArticleBrief ? `\nArticle: https://metroglasspro.com${articlePath}/` : '')
 
