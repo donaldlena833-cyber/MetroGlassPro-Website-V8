@@ -1,10 +1,11 @@
 'use client'
 
 import type { ChangeEvent, FormEvent } from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { quoteServiceFromId, serviceOptions } from '@/content/service-catalog'
 import { splitContact } from '@/lib/contact-details'
 import { referralOptions } from '@/lib/lead-attribution'
+import EstimateTurnstile from './EstimateTurnstile'
 
 const initialValues = { name: '', contact: '', service: '', message: '', website: '', howHeard: '' }
 const inputClassName = 'w-full min-w-0 px-4 py-3 bg-white border border-charcoal/20 rounded-xl text-base text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:ring-2 focus:ring-charcoal/30'
@@ -15,10 +16,28 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
   const [values, setValues] = useState({ ...initialValues, service: projectContext?.service || '', message: projectContext?.scope || '' })
   const [files, setFiles] = useState<File[]>([])
   const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [onlineAvailable, setOnlineAvailable] = useState(true)
+  const [onlineAvailable, setOnlineAvailable] = useState(false)
+  const [checkingAvailability, setCheckingAvailability] = useState(true)
+  const [siteKey, setSiteKey] = useState('')
+  const [token, setToken] = useState('')
+  const [verificationReset, setVerificationReset] = useState(0)
+  const [verificationFailed, setVerificationFailed] = useState(false)
+  const handleToken = useCallback((value: string) => {
+    setToken(value)
+    if (value) setVerificationFailed(false)
+  }, [])
+  const handleVerificationFailure = useCallback(() => {
+    setToken('')
+    setVerificationFailed(true)
+  }, [])
   const [errorMessage, setErrorMessage] = useState('')
   const [fileError, setFileError] = useState('')
   const [reference, setReference] = useState('')
+
+  const handleVerificationUnavailable = useCallback(() => {
+    setToken('')
+    setOnlineAvailable(false)
+  }, [])
 
   useEffect(() => {
     const selected = quoteServiceFromId(new URLSearchParams(window.location.search).get('service') || '')
@@ -26,8 +45,14 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
     let active = true
     fetch('/api/contact', { signal: AbortSignal.timeout(5000), cache: 'no-store' })
       .then((response) => response.ok ? response.json() : null)
-      .then((status) => { if (active && status?.formAvailable === false) setOnlineAvailable(false) })
-      .catch(() => { /* A failed availability check must not prevent a submission. */ })
+      .then((status) => {
+        if (active && status?.formAvailable && typeof status.turnstileSiteKey === 'string' && status.turnstileSiteKey) {
+          setSiteKey(status.turnstileSiteKey)
+          setOnlineAvailable(true)
+        }
+      })
+      .catch(() => { /* The draft links remain available. */ })
+      .finally(() => { if (active) setCheckingAvailability(false) })
     return () => { active = false }
   }, [])
 
@@ -49,7 +74,7 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (submitState === 'submitting') return
+    if (submitState === 'submitting' || !onlineAvailable || !token) return
     if (!splitContact(values.contact)) {
       setErrorMessage('Enter a phone number or a valid email address so we can reply.')
       event.currentTarget.querySelector<HTMLInputElement>('[name="contact"]')?.focus()
@@ -61,6 +86,7 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
     try {
       const formData = new FormData()
       Object.entries(values).forEach(([key, value]) => formData.append(key, key === 'message' && projectContext ? `${value}\n\nArticle: ${projectContext.label}\n${projectContext.url}` : value))
+      formData.set('turnstileToken', token)
       files.forEach((file) => formData.append('attachments', file))
       const response = await fetch('/api/contact', { method: 'POST', body: formData, signal: AbortSignal.timeout(20000) })
       const payload = await response.json().catch(() => ({}))
@@ -72,16 +98,18 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
       setSubmitState('success')
       setFiles([])
       const pixelWindow = window as Window & { oaiq?: (...args: unknown[]) => void; __mgpAdsMeasurementAllowed?: boolean }
-      if (pixelWindow.__mgpAdsMeasurementAllowed) {
+      if (pixelWindow.__mgpAdsMeasurementAllowed && !payload.duplicate) {
         const eventId = typeof payload.requestId === 'string' && payload.requestId ? { event_id: payload.requestId } : undefined
         pixelWindow.oaiq?.('measure', 'lead_created', { type: 'customer_action' }, eventId)
       }
-      if (pixelWindow.__mgpAdsMeasurementAllowed && pixelWindow.oaiq) {
+      if (pixelWindow.__mgpAdsMeasurementAllowed && pixelWindow.oaiq && !payload.duplicate) {
         // Give the SDK time to transmit its batched lead event before navigation.
         await new Promise((resolve) => setTimeout(resolve, 500))
       }
       try { sessionStorage.setItem('received-metroglasspro.com', 'received'); sessionStorage.setItem('received-metroglasspro-reference', typeof payload.requestId === 'string' ? payload.requestId : ''); window.location.assign('/thank-you/'); } catch { /* Keep the existing receipt visible. */ }
     } catch (error) {
+      setToken('')
+      setVerificationReset((current) => current + 1)
       setSubmitState('error')
       setErrorMessage(error instanceof Error && error.name !== 'TimeoutError' && error.name !== 'TypeError' ? error.message : 'We could not confirm your request was sent. Your details are still here. Please email or text us below.')
     }
@@ -104,7 +132,7 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
       <p className="mt-4 text-warm">We’ll review your project and contact you with the next step. For urgent help, call <a href="tel:+19297557176" className="underline">(929) 755-7176</a>.</p>
       <p className="mt-4 text-warm">More photos? <a href="sms:+13329993846" className="underline">Text them to us.</a></p>
       {reference && <p className="mt-4 text-xs text-warm break-all">Request reference: {reference}</p>}
-      <button type="button" onClick={() => { setValues({ ...initialValues, service: projectContext?.service || '', message: projectContext?.scope || '' }); setReference(''); setSubmitState('idle') }} className="btn-pill btn-primary mt-6 px-6 py-3">Start another request</button>
+      <button type="button" onClick={() => { setValues({ ...initialValues, service: projectContext?.service || '', message: projectContext?.scope || '' }); setReference(''); setToken(''); setVerificationFailed(false); setSubmitState('idle') }} className="btn-pill btn-primary mt-6 px-6 py-3">Start another request</button>
     </div>
   )
 
@@ -155,8 +183,12 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
           </div>
         </details>
         {errorMessage && <p role="alert" className="rounded-xl bg-orange/10 p-4 text-sm text-charcoal">{errorMessage}</p>}
-        {onlineAvailable && <button type="submit" disabled={submitState === 'submitting' || Boolean(fileError)} className="btn-pill btn-primary w-full px-6 py-3.5 disabled:opacity-60">{submitState === 'submitting' ? 'Sending…' : 'Send request'}</button>}
-        {(!onlineAvailable || submitState === 'error') && <div className="space-y-3" role="status">
+        {checkingAvailability && <p role="status" className="text-sm text-warm">Checking online availability…</p>}
+        {onlineAvailable && <EstimateTurnstile siteKey={siteKey} reset={verificationReset} onToken={handleToken} onFailure={handleVerificationFailure} onUnavailable={handleVerificationUnavailable} />}
+        {onlineAvailable && !token && !verificationFailed && <p role="status" className="text-sm text-warm">Checking your connection…</p>}
+        {verificationFailed && <button type="button" className="text-sm underline" onClick={() => { setVerificationFailed(false); setVerificationReset((value) => value + 1) }}>Retry security check</button>}
+        {onlineAvailable && <button type="submit" disabled={submitState === 'submitting' || Boolean(fileError) || !token} className="btn-pill btn-primary w-full px-6 py-3.5 disabled:opacity-60">{submitState === 'submitting' ? 'Sending…' : 'Send request'}</button>}
+        {((!onlineAvailable && !checkingAvailability) || submitState === 'error' || verificationFailed) && <div className="space-y-3" role="status">
           <p className="text-sm text-charcoal">{!onlineAvailable ? 'Please send your request by email or text.' : 'You can also send these details directly.'}</p>
           <div className="grid sm:grid-cols-2 gap-3">
             <a href={emailHref} className="btn-pill btn-primary px-4 py-3 text-center text-sm">Open email draft</a>
