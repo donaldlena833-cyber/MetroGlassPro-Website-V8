@@ -172,7 +172,7 @@ test('contact delivery includes source evidence and sanitizes tracking fields; n
     const env = { RESEND_API_KEY: 'test-only', CONTACT_TO_EMAIL: 'inbox@example.com', CONTACT_FROM_EMAIL: 'website@example.com' }
     const response = await onRequestPost({ request: new Request('https://preview.metroglasspro-website-v8.pages.dev/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }), env })
     assert.equal(response.status, 200)
-    assert.equal(sent.length, 2)
+    assert.equal(sent.length, 1)
     assert.match(sent[0].text, /How They Found Us \(Customer Reported\): ChatGPT/)
     assert.match(sent[0].text, /Source Evidence: utm_source/)
     assert.match(sent[0].text, /First Landing Page: \/frameless-shower-doors-nyc\//)
@@ -180,7 +180,7 @@ test('contact delivery includes source evidence and sanitizes tracking fields; n
     assert.ok(!sent[0].html.includes('<script>'))
     const invalid = await onRequestPost({ request: new Request('https://preview.metroglasspro-website-v8.pages.dev/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...payload, email: 'invalid' }) }), env })
     assert.equal(invalid.status, 400)
-    assert.equal(sent.length, 2)
+    assert.equal(sent.length, 1)
   } finally { globalThis.fetch = originalFetch }
 })
 
@@ -206,9 +206,8 @@ test('all non-shower service requests retain their scope in delivery; no live em
     for (const service of glassServices.filter((item) => item.id !== 'shower-doors')) {
       const response = await onRequestPost({ request: new Request('https://preview.metroglasspro-website-v8.pages.dev/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: 'Test visitor', phone: '555-0100', email: 'visitor@example.com', borough: 'Queens', service: service.quoteLabel }) }), env: { RESEND_API_KEY: 'test-only', CONTACT_TO_EMAIL: 'inbox@example.com', CONTACT_FROM_EMAIL: 'website@example.com' } })
       assert.equal(response.status, 200)
-      assert.ok(sent.at(-2).text.includes(service.quoteLabel))
-      assert.ok(!sent.at(-1).text.includes('bathroom'))
+      assert.ok(sent.at(-1).text.includes(service.quoteLabel))
     }
-    assert.equal(sent.length, 10)
+    assert.equal(sent.length, 5)
   } finally { globalThis.fetch = originalFetch }
 })

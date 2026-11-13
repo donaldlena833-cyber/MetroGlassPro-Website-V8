@@ -6,6 +6,7 @@ interface Env {
   CONTACT_FROM_EMAIL?: string
   CONTACT_FROM_NAME?: string
   CONTACT_BLOCKED_EMAILS?: string
+  CONTACT_CUSTOMER_CONFIRMATIONS?: string
 }
 
 type PagesContext = {
@@ -57,6 +58,9 @@ function clean(value: unknown, max = 500) {
 }
 
 function isBlockedSubmission(submission: Submission, env: Env) {
+  // Names do not need links. Project notes can still include them.
+  if (/https?:\/\/|\bwww\./i.test(submission.name.normalize('NFKC'))) return true
+
   // Exact reported spam address only; leave other Gmail addresses and aliases alone.
   const email = submission.email.trim().toLowerCase()
   if (email === 'katieodola4668@gmail.com') return true
@@ -433,7 +437,7 @@ export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) =
     else await copy
   }
 
-  if (submission.email) {
+  if (submission.email && env.CONTACT_CUSTOMER_CONFIRMATIONS === 'true') {
     const confirmation = sendEmail(env, requestId, 'confirmation', {
       to: [submission.email],
       subject: 'We received your MetroGlass Pro request',

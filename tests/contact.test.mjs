@@ -43,7 +43,7 @@ test('other Gmail customers, nearby addresses and the reported name with a diffe
     assert.equal(response.status, 200)
     assert.ok((await response.json()).requestId)
   }
-  assert.equal(fetch.mock.callCount(), 8)
+  assert.equal(fetch.mock.callCount(), 4)
 })
 
 test('reported spam names and blocked email addresses never send notifications or confirmations', async (t) => {
@@ -76,7 +76,7 @@ test('the targeted block preserves unrelated customers including similar names',
     const response = await onRequestPost({ request: request({ ...lead, name }), env: { ...env, CONTACT_BLOCKED_EMAILS: 'spam@example.com' } })
     assert.ok((await response.json()).requestId)
   }
-  assert.equal(fetch.mock.callCount(), 8)
+  assert.equal(fetch.mock.callCount(), 4)
 })
 
 test('minimal email and phone requests succeed without requiring both contacts or a service', async (t) => {
@@ -90,10 +90,9 @@ test('minimal email and phone requests succeed without requiring both contacts o
     const response = await onRequestPost({ request: request({ ...lead, contact }), env })
     assert.equal(response.status, 200)
     assert.equal((await response.json()).ok, true)
-    assert.equal(sent.length - before, contact.includes('@') ? 2 : 1)
+    assert.equal(sent.length - before, 1)
     if (contact.includes('@')) {
       assert.equal(sent[before].reply_to, contact)
-      assert.equal(sent[before + 1].reply_to, env.CONTACT_TO_EMAIL)
       assert.ok(!('replyTo' in sent[before]))
     } else assert.ok(!('reply_to' in sent[before]))
     assert.match(sent[before].text, /Service: Not sure yet/)
@@ -152,7 +151,7 @@ test('a failed customer confirmation never invalidates an accepted operations em
     throw new Error('Confirmation network failure')
   })
   const tasks = []
-  const response = await onRequestPost({ request: request(lead), env, waitUntil: (promise) => tasks.push(promise) })
+  const response = await onRequestPost({ request: request(lead), env: { ...env, CONTACT_CUSTOMER_CONFIRMATIONS: 'true' }, waitUntil: (promise) => tasks.push(promise) })
   assert.equal(response.status, 200)
   assert.equal((await response.json()).ok, true)
   await Promise.all(tasks)
@@ -238,4 +237,12 @@ test('a NexoServe outage or rejection never fails the visitor or logs customer d
   assert.ok(logs.some((line) => line.includes('"event":"nexoserve_lead"') && line.includes('"quarantined":true')))
   assert.ok(!logs.join('').includes('@'))
   assert.ok(!logs.join('').includes('private-'))
+})
+
+
+test('a link in the name never sends an email or a lead copy', async (t) => {
+  const fetch = t.mock.method(globalThis, 'fetch', async () => { throw new Error('Must not send') })
+  const response = await onRequestPost({ request: live({ ...lead, name: 'Payment claim https://example.invalid' }), env })
+  assert.deepEqual(await response.json(), { ok: true })
+  assert.equal(fetch.mock.callCount(), 0)
 })

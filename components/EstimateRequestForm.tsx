@@ -64,7 +64,7 @@ export default function EstimateRequestForm({ projectContext }: { projectContext
       files.forEach((file) => formData.append('attachments', file))
       const response = await fetch('/api/contact', { method: 'POST', body: formData, signal: AbortSignal.timeout(20000) })
       const payload = await response.json().catch(() => ({}))
-      if (!response.ok || payload.ok !== true) {
+      if (!response.ok || payload.ok !== true || typeof payload.requestId !== 'string' || !payload.requestId) {
         if (payload.code === 'CONTACT_UNAVAILABLE') setOnlineAvailable(false)
         throw new Error(payload.error || 'We could not confirm your request was sent. Please use the email or text option below.')
       }
