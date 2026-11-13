@@ -16,6 +16,8 @@
    - CONTACT_TO_EMAIL = the inbox that should receive website leads
    - CONTACT_FROM_EMAIL = required; a sender on your verified Resend domain
    - CONTACT_FROM_NAME = optional, defaults to MetroGlass Pro Website
+   - CONTACT_TURNSTILE_SITE_KEY and CONTACT_TURNSTILE_SECRET = production Turnstile credentials
+   - CONTACT_DB = a private D1 binding initialized with `migrations/contact.sql`
 5. Save and Deploy
 
 ## Contact Form Delivery
@@ -26,10 +28,27 @@
 - Required production settings: `RESEND_API_KEY`, `CONTACT_TO_EMAIL=operations@metroglasspro.com`, and `CONTACT_FROM_EMAIL` using a sender on a Resend-verified domain. The default `onboarding@resend.dev` testing sender is not permitted in production. Store the API key as a Cloudflare Pages secret, never in Git or client code.
 - `GET /api/contact` reports only whether the required settings are present and syntactically valid. It does not verify provider credentials, domain verification, or inbox delivery. Configure both production and preview separately as appropriate, then redeploy.
 - When configuration is incomplete, the form offers email/text drafts with the entered details and clearly tells visitors to press Send in their chosen app. Draft links are contact clicks, not confirmed leads.
-- Online requests support up to three photo/PDF attachments (8MB each, 18MB total). Confirmation emails are sent only when the customer supplies an email; their failure does not invalidate the accepted operations notification.
+- Online requests support up to three photo/PDF attachments (8MB each, 18MB total). Customer confirmation emails are off by default. Only set `CONTACT_CUSTOMER_CONFIRMATIONS=true` when you intend to resume them.
 - Resend requests use `reply_to`, bounded network waits, and acceptance IDs. Logs contain a request reference and provider ID, stage, and status, without contact details or raw provider errors. A successful submission means provider acceptance, not proven inbox delivery.
-- To verify delivery after setup: send one authorized test, locate its request/provider ID, confirm provider delivery status and arrival in the operations inbox, reply to verify Reply-To, and check an email-contact confirmation. No live messages are sent by the automated tests.
-- The application does not yet have durable lead storage. Add a supported private lead store plus delivery-event monitoring before treating email alone as a reliable lead ledger. Failed or unconfirmed sends retain the visitor's form text in the open page and offer direct contact options.
+- To verify delivery after setup, use one authorized test request and match its reference in D1, the Pages log, Resend, and the operations inbox. Confirm the supplied address is the Reply-To and that no customer confirmation is generated while confirmations are off. Automated tests use local SQLite and stub outgoing requests.
+- Verified inquiries and attachments are stored together in D1 before email. A saved request gets a reference even if the notification fails. Review pending or unconfirmed rows in the D1 console, using the query below. A successful Resend API response alone does not establish inbox delivery.
+
+### Provisioning estimate form protection
+
+- Create a managed Turnstile widget for `metroglasspro.com`. Add `www.metroglasspro.com` only if it serves the form rather than redirecting. Use a separate widget and database for any preview that accepts submissions.
+- Create a private D1 database. Apply `migrations/contact.sql` to it (using the D1 console or `wrangler d1 execute <database> --remote --file migrations/contact.sql`). In the Pages project production settings bind it as `CONTACT_DB`. Add the public site key as `CONTACT_TURNSTILE_SITE_KEY` and the secret as encrypted `CONTACT_TURNSTILE_SECRET`. Keep the Resend settings in place and deploy after all bindings are configured.
+- `GET /api/contact` should report `formAvailable: true` and the public site key. The form offers email and text drafts if a required setting is absent. Only form submissions count toward the IP limit of 12 attempts per ten-minute window. The limiter stores a temporary hash rather than the raw IP. Duplicate inquiries with matching contents and attachments within 15 minutes reuse the original reference.
+- To recover leads during an email incident, use the private D1 console:
+
+  ```sql
+  SELECT id, datetime(created_at / 1000, 'unixepoch') AS submitted_utc,
+         notification_status, details
+  FROM contact_inquiries
+  WHERE notification_status IN ('pending', 'unconfirmed')
+  ORDER BY created_at DESC;
+  ```
+
+  For a selected request, read `contact_inquiry_attachment_chunks` by `inquiry_id`, ordered by `attachment_index, chunk_index`. Concatenate each attachment’s base64 chunks and decode them using the filename and content type in `details.attachments`.
 
 ## Custom Domain
 - In Cloudflare Pages → Custom Domains → Add metroglasspro.com

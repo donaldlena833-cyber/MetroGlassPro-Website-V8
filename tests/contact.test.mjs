@@ -1,8 +1,11 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { onRequestGet, onRequestPost } from '../functions/api/contact.ts'
+import { onRequestGet, onRequestPost as protectedPost } from '../functions/api/contact.ts'
+import { protectedContactEnv, contactPost } from './contact-protection-fixture.mjs'
+const onRequestPost = contactPost(protectedPost)
 
-const env = { RESEND_API_KEY: 'test-key-never-live', CONTACT_TO_EMAIL: 'operations@example.com', CONTACT_FROM_EMAIL: 'website@example.com' }
+const mailEnv = { RESEND_API_KEY: 'test-key-never-live', CONTACT_TO_EMAIL: 'operations@example.com', CONTACT_FROM_EMAIL: 'website@example.com' }
+const env = protectedContactEnv(mailEnv)
 const lead = { name: 'Test visitor', contact: 'visitor@example.com', message: 'A mirror in Queens.' }
 // Preview host: the NexoServe lead copy only runs on the live domain.
 const previewUrl = 'https://preview.metroglasspro-website-v8.pages.dev/api/contact'
@@ -85,7 +88,7 @@ test('minimal email and phone requests succeed without requiring both contacts o
     sent.push(JSON.parse(options.body))
     return new Response('{"id":"provider-test"}', { status: 200 })
   })
-  for (const contact of ['visitor@example.com', '(212) 555-0100']) {
+  for (const contact of ['first-time@example.com', '(212) 555-0100']) {
     const before = sent.length
     const response = await onRequestPost({ request: request({ ...lead, contact }), env })
     assert.equal(response.status, 200)
@@ -120,23 +123,26 @@ test('missing mail configuration exposes only availability and offers a usable f
     assert.match(body.error, /email or text/)
     assert.ok(!JSON.stringify(body).includes(missing))
   }
-  assert.deepEqual(await (await onRequestGet({ env })).json(), { formAvailable: true })
+  assert.deepEqual(await (await onRequestGet({ env })).json(), { formAvailable: true, turnstileSiteKey: 'fixture-site-key' })
   assert.deepEqual(await (await onRequestGet({ env: { ...env, CONTACT_FROM_EMAIL: 'onboarding@resend.dev' } })).json(), { formAvailable: false })
   assert.equal(fetch.mock.callCount(), 0)
 })
 
-test('provider errors, network failures and missing acceptance IDs never report success or leak raw errors', async (t) => {
+test('provider errors, network failures and missing acceptance IDs preserve inquiries without claiming delivery or leaking raw errors', async (t) => {
   const failures = [() => new Response('{"message":"private-recipient@example.com"}', { status: 403 }), () => { throw new Error('private-token') }, () => new Response('{}', { status: 200 })]
   const fetch = t.mock.method(globalThis, 'fetch', async () => failures.shift()())
   const logs = []
   t.mock.method(console, 'info', (message) => logs.push(message))
   t.mock.method(console, 'error', (message) => logs.push(message))
   for (let i = 0; i < 3; i++) {
-    const response = await onRequestPost({ request: request(lead), env })
-    assert.equal(response.status, 502)
+    const settings = protectedContactEnv(mailEnv)
+    const response = await onRequestPost({ request: request(lead), env: settings })
+    assert.equal(response.status, 200)
     const body = await response.json()
     assert.ok(body.requestId)
-    assert.notEqual(body.ok, true)
+    assert.equal(body.ok, true)
+    const record = await settings.CONTACT_DB.prepare('SELECT notification_status FROM contact_inquiries WHERE id = ?').bind(body.requestId).first()
+    assert.equal(record.notification_status, 'unconfirmed')
     assert.ok(!JSON.stringify(body).includes('private-'))
   }
   assert.equal(fetch.mock.callCount(), 3)
@@ -151,7 +157,7 @@ test('a failed customer confirmation never invalidates an accepted operations em
     throw new Error('Confirmation network failure')
   })
   const tasks = []
-  const response = await onRequestPost({ request: request(lead), env: { ...env, CONTACT_CUSTOMER_CONFIRMATIONS: 'true' }, waitUntil: (promise) => tasks.push(promise) })
+  const response = await onRequestPost({ request: request(lead), env: { ...protectedContactEnv(mailEnv), CONTACT_CUSTOMER_CONFIRMATIONS: 'true' }, waitUntil: (promise) => tasks.push(promise) })
   assert.equal(response.status, 200)
   assert.equal((await response.json()).ok, true)
   await Promise.all(tasks)
@@ -203,18 +209,20 @@ test('an accepted lead on the live domain is copied to NexoServe with the extra 
   })
 })
 
-test('the NexoServe copy is skipped off the live domain, after a failed email, and for blocked leads', async (t) => {
+test('the NexoServe copy skips preview and blocked leads and still runs when email fails', async (t) => {
   const urls = []
   let resendOk = true
   t.mock.method(globalThis, 'fetch', async (url) => {
     urls.push(url)
+    if (url === leadsUrl) return Response.json({ id: 'copy' })
     return resendOk ? new Response('{"id":"accepted"}') : new Response('{}', { status: 500 })
   })
-  assert.equal((await onRequestPost({ request: request(lead), env })).status, 200)
+  assert.equal((await onRequestPost({ request: request(lead), env: protectedContactEnv(mailEnv) })).status, 200)
   await onRequestPost({ request: live({ ...lead, website: 'bot' }), env })
-  resendOk = false
-  assert.equal((await onRequestPost({ request: live(lead), env })).status, 502)
   assert.ok(!urls.includes(leadsUrl))
+  resendOk = false
+  assert.equal((await onRequestPost({ request: live(lead), env: protectedContactEnv(mailEnv) })).status, 200)
+  assert.ok(urls.includes(leadsUrl))
 })
 
 test('a NexoServe outage or rejection never fails the visitor or logs customer details', async (t) => {
@@ -224,14 +232,14 @@ test('a NexoServe outage or rejection never fails the visitor or logs customer d
   for (const failure of [() => { throw new Error('private-outage') }, () => new Response('{"error":"private-422"}', { status: 422 })]) {
     t.mock.method(globalThis, 'fetch', async (url) => url === leadsUrl ? failure() : new Response('{"id":"accepted"}'))
     const tasks = []
-    const response = await onRequestPost({ request: live(lead), env, waitUntil: (task) => tasks.push(task) })
+    const response = await onRequestPost({ request: live(lead), env: protectedContactEnv(mailEnv), waitUntil: (task) => tasks.push(task) })
     assert.equal(response.status, 200)
     assert.equal((await response.json()).ok, true)
     await Promise.all(tasks)
   }
   t.mock.method(globalThis, 'fetch', async (url) => new Response(url === leadsUrl ? '{"id":"received"}' : '{"id":"accepted"}'))
   const tasks = []
-  await onRequestPost({ request: live(lead), env, waitUntil: (task) => tasks.push(task) })
+  await onRequestPost({ request: live(lead), env: protectedContactEnv(mailEnv), waitUntil: (task) => tasks.push(task) })
   await Promise.all(tasks)
   assert.ok(logs.some((line) => line.includes('"event":"nexoserve_lead"') && line.includes('"status":422')))
   assert.ok(logs.some((line) => line.includes('"event":"nexoserve_lead"') && line.includes('"quarantined":true')))
@@ -245,4 +253,61 @@ test('a link in the name never sends an email or a lead copy', async (t) => {
   const response = await onRequestPost({ request: live({ ...lead, name: 'Payment claim https://example.invalid' }), env })
   assert.deepEqual(await response.json(), { ok: true })
   assert.equal(fetch.mock.callCount(), 0)
+})
+
+test('an absent or invalid verification cannot save an inquiry or trigger a notification', async (t) => {
+  const settings = protectedContactEnv(mailEnv)
+  let verification = {}
+  const fetch = t.mock.method(globalThis, 'fetch', async (url) => {
+    assert.equal(url, 'https://challenges.cloudflare.com/turnstile/v0/siteverify')
+    return Response.json(verification)
+  })
+  assert.equal((await protectedPost({ request: request(lead), env: settings })).status, 400)
+  assert.equal(fetch.mock.callCount(), 0)
+  for (const verdict of [
+    { success: false },
+    { success: true, hostname: 'example.invalid', action: 'estimate_request' },
+    { success: true, hostname: new URL(previewUrl).hostname, action: 'different_action' },
+  ]) {
+    verification = verdict
+    const response = await protectedPost({ request: request({ ...lead, turnstileToken: 'test-token' }), env: settings })
+    assert.equal(response.status, 400)
+  }
+  assert.equal(fetch.mock.callCount(), 3)
+  assert.equal((await settings.CONTACT_DB.prepare('SELECT COUNT(*) AS count FROM contact_inquiries').first()).count, 0)
+})
+
+test('repeat attempts are throttled and duplicate inquiries get the original reference with one notification', async (t) => {
+  const settings = protectedContactEnv(mailEnv)
+  const fetch = t.mock.method(globalThis, 'fetch', async () => Response.json({ id: 'accepted' }))
+  const submit = () => {
+    const req = request(lead)
+    req.headers.set('CF-Connecting-IP', '192.0.2.10')
+    return onRequestPost({ request: req, env: settings })
+  }
+  const original = await (await submit()).json()
+  for (let attempt = 0; attempt < 11; attempt++) {
+    const response = await submit()
+    assert.deepEqual(await response.json(), { ok: true, requestId: original.requestId, duplicate: true })
+  }
+  assert.equal((await submit()).status, 429)
+  assert.equal(fetch.mock.callCount(), 1)
+  assert.equal((await onRequestGet({ env: settings })).status, 200)
+})
+
+test('a verified token is consumed even when its submission duplicates a previous request', async (t) => {
+  const settings = protectedContactEnv(mailEnv)
+  let notifications = 0
+  t.mock.method(globalThis, 'fetch', async (url) => {
+    if (String(url).endsWith('/siteverify')) {
+      return Response.json({ success: true, hostname: new URL(previewUrl).hostname, action: 'estimate_request' })
+    }
+    notifications++
+    return Response.json({ id: 'accepted' })
+  })
+  const submit = (payload) => protectedPost({ request: request(payload), env: settings })
+  assert.equal((await submit({ ...lead, turnstileToken: 'first' })).status, 200)
+  assert.equal((await (await submit({ ...lead, turnstileToken: 'second' })).json()).duplicate, true)
+  assert.equal((await submit({ ...lead, message: 'Another project.', turnstileToken: 'second' })).status, 400)
+  assert.equal(notifications, 1)
 })
