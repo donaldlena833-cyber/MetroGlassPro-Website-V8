@@ -1,3 +1,4 @@
+import { allowContactAttempt, recordContactNotification, saveContactInquiry, verifyContactToken, type ContactDatabase } from '../../lib/contact-protection.ts'
 import { isValidEmail, isValidPhone, splitContact } from '../../lib/contact-details.ts'
 
 interface Env {
@@ -7,6 +8,9 @@ interface Env {
   CONTACT_FROM_NAME?: string
   CONTACT_BLOCKED_EMAILS?: string
   CONTACT_CUSTOMER_CONFIRMATIONS?: string
+  CONTACT_TURNSTILE_SITE_KEY?: string
+  CONTACT_TURNSTILE_SECRET?: string
+  CONTACT_DB?: ContactDatabase
 }
 
 type PagesContext = {
@@ -353,7 +357,18 @@ function mailConfigured(env: Env) {
   return Boolean(env.RESEND_API_KEY?.trim() && isValidEmail(env.CONTACT_TO_EMAIL || '') && isValidEmail(env.CONTACT_FROM_EMAIL || '') && !env.CONTACT_FROM_EMAIL?.endsWith('@resend.dev'))
 }
 
-export const onRequestGet = async ({ env }: PagesContext) => json({ formAvailable: mailConfigured(env) })
+function protectionConfigured(env: Env) {
+  return Boolean(env.CONTACT_TURNSTILE_SITE_KEY?.trim() && env.CONTACT_TURNSTILE_SECRET?.trim() && env.CONTACT_DB)
+}
+
+function contactUnavailable() {
+  return json({ code: 'CONTACT_UNAVAILABLE', error: 'Online sending is temporarily unavailable. Please use the email or text option below.' }, 503)
+}
+
+export const onRequestGet = async ({ env }: PagesContext) => {
+  const formAvailable = mailConfigured(env) && protectionConfigured(env)
+  return json({ formAvailable, ...(formAvailable ? { turnstileSiteKey: env.CONTACT_TURNSTILE_SITE_KEY } : {}) })
+}
 
 export const onRequestOptions = async () =>
   new Response(null, {
@@ -367,17 +382,30 @@ export const onRequestOptions = async () =>
 
 export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) => {
   let rawPayload: Record<string, unknown>
-  let attachments: Attachment[] = []
+  let formData: FormData | undefined
+  const ip = request.headers.get('CF-Connecting-IP') || ''
+  const secret = env.CONTACT_TURNSTILE_SECRET
+  const db = env.CONTACT_DB
+  const configured = mailConfigured(env) && protectionConfigured(env) && secret && db
+  if (configured && ip) {
+    try {
+      if (!await allowContactAttempt(db, ip, secret)) {
+        return json({ error: 'Too many attempts. Please wait a few minutes, or email or text us below.' }, 429)
+      }
+    } catch {
+      console.error(JSON.stringify({ event: 'contact_rate_limit', reason: 'database_unavailable' }))
+      return contactUnavailable()
+    }
+  }
 
   try {
     const contentType = request.headers.get('content-type') || ''
 
     if (contentType.includes('multipart/form-data') || contentType.includes('application/x-www-form-urlencoded')) {
-      const formData = await request.formData()
+      formData = await request.formData()
       rawPayload = Object.fromEntries(
         Array.from(formData.entries()).filter(([key, value]) => key !== 'attachments' && typeof value === 'string'),
       )
-      attachments = await parseAttachments(formData)
     } else {
       rawPayload = (await request.json()) as Record<string, unknown>
       if (!rawPayload || typeof rawPayload !== 'object' || Array.isArray(rawPayload)) throw new Error('Please include your contact and project details.')
@@ -404,11 +432,39 @@ export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) =
     return json({ error: 'Please enter a valid phone number or email address.' }, 400)
   }
 
-  if (!mailConfigured(env)) {
-    return json({ code: 'CONTACT_UNAVAILABLE', error: 'Online sending is temporarily unavailable. Please use the email or text option below.' }, 503)
+  if (!configured) return contactUnavailable()
+
+  const hostname = new URL(request.url).hostname
+  const token = rawPayload.turnstileToken
+  try {
+    if (typeof token !== 'string' || !await verifyContactToken(token, secret, hostname, ip)) {
+      return json({ code: 'CONTACT_VERIFICATION', error: 'Please try the security check again. Your details are still here.' }, 400)
+    }
+  } catch {
+    console.error(JSON.stringify({ event: 'contact_verification', reason: 'provider_unavailable' }))
+    return json({ code: 'CONTACT_VERIFICATION', error: 'The security check is temporarily unavailable. Please retry or email or text us below.' }, 503)
+  }
+
+  let attachments: Attachment[]
+  try {
+    attachments = formData ? await parseAttachments(formData) : []
+  } catch (error) {
+    return json({ error: error instanceof Error ? error.message : 'Please check the attached files.' }, 400)
   }
 
   const requestId = crypto.randomUUID()
+  try {
+    const identity = [submission.name, submission.phone, submission.email, submission.service, submission.borough,
+      submission.neighborhood, submission.buildingType, submission.projectTimeline, submission.projectType,
+      submission.photosReady, submission.coiNeeded, submission.message].map((value) => value.normalize('NFKC').toLowerCase())
+    const saved = await saveContactInquiry(db, requestId, token, identity, { fields: buildRows(submission), pagePath: refererPath(request) }, attachments)
+    if (!saved) return json({ code: 'CONTACT_VERIFICATION', error: 'Please try the security check again. Your details are still here.' }, 400)
+    if (!saved.isNew) return json({ ok: true, requestId: saved.id, duplicate: true })
+  } catch {
+    console.error(JSON.stringify({ event: 'contact_inquiry', requestId, reason: 'database_unavailable' }))
+    return contactUnavailable()
+  }
+
   const subject = [
     'New MetroGlass Pro estimate request',
     submission.borough,
@@ -426,18 +482,20 @@ export const onRequestPost = async ({ request, env, waitUntil }: PagesContext) =
     attachments,
   })
 
-  if (!accepted) {
-    return json({ requestId, error: 'We could not confirm your request was sent. Please use the email or text option below.' }, 502)
+  try {
+    await recordContactNotification(db, requestId, accepted)
+  } catch {
+    console.error(JSON.stringify({ event: 'contact_inquiry', requestId, reason: 'notification_status_unavailable' }))
   }
 
-  if (LIVE_HOSTS.includes(new URL(request.url).hostname)) {
+  if (LIVE_HOSTS.includes(hostname)) {
     const copy = sendLeadCopy(requestId, submission, refererPath(request), attachments.length)
     // Like the confirmation, the dashboard copy cannot turn an accepted lead into a failed submission.
     if (waitUntil) waitUntil(copy)
     else await copy
   }
 
-  if (submission.email && env.CONTACT_CUSTOMER_CONFIRMATIONS === 'true') {
+  if (accepted && submission.email && env.CONTACT_CUSTOMER_CONFIRMATIONS === 'true') {
     const confirmation = sendEmail(env, requestId, 'confirmation', {
       to: [submission.email],
       subject: 'We received your MetroGlass Pro request',
