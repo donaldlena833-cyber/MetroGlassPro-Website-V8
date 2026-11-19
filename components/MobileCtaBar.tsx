@@ -26,6 +26,9 @@ export default function MobileCtaBar() {
     '/blog/lower-east-side-window-condensation-check',
     '/blog/chelsea-compare-glass-finishes-in-place',
     '/blog/williamsburg-mirror-reflection-lighting',
+    '/blog/inwood-mirror-wall-readiness',
+    '/blog/ridgewood-glass-replacement-photo-brief',
+    '/blog/park-slope-glazing-retained-frame-trim',
   ].includes(articlePath || '')
   const textBody = 'Hi MetroGlass Pro, I want a quote and can send project photos.' + (hasArticleBrief ? `\nArticle: https://metroglasspro.com${articlePath}/` : '')
 
